@@ -5,7 +5,7 @@ application = Flask(__name__)
 def index():
     return 'Welcome to flask app'
 
-@application.route('testpage')
+@application.route('/testpage')
 def testpage():
     return render_template('testpage.html')
 
