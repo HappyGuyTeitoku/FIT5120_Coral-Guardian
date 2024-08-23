@@ -2,7 +2,7 @@ import subprocess
 import os
 
 # Define the path to your repository
-repo_path = '~/flask-app'
+repo_path = '/home/ec2-user/flask-app'
 
 # Change to the repository directory
 os.chdir(repo_path)
