@@ -1,5 +1,20 @@
-from flask import Flask, render_template
+from flask import Flask, render_template # type: ignore
+import sqlite3
+
 application = Flask(__name__)
+DATABASE = 'database.db'
+
+def get_db():
+    db = getattr(g, '_database', None)
+    if db is None:
+        db = g._database = sqlite3.connect(DATABASE)
+    return db
+
+@application.teardown_appcontext
+def close_connection(exception):
+    db = getattr(g, '_database', None)
+    if db is not None:
+        db.close()
 
 @application.route('/')
 def index():
