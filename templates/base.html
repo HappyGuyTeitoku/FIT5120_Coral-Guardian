@@ -1,0 +1,34 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Melbourne WaterGuard{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Shared Header -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('import_page') }}">Import</a></li>
+                <li><a href="{{ url_for('testpage') }}">Test Page</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Block -->
+    <main>
+        {% block content %}
+        <!-- Page-specific content goes here -->
+        {% endblock %}
+    </main>
+
+    <!-- Optional Footer -->
+    <footer>
+        <p>© 2024 Melbourne WaterGuard</p>
+    </footer>
+</body>
+</html>
