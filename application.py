@@ -24,5 +24,11 @@ def index():
 def testpage():
     return render_template('testpage.html')
 
+def init_db():
+    with sqlite3.connect(DATABASE) as db:
+        with open('schema.sql', 'r') as f:
+            sql = f.read()
+        db.executescript(sql)
+
 if __name__ == "__main__":
     application.run(host='0.0.0.0',port=80)
