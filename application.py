@@ -1,6 +1,9 @@
-from flask import Flask, render_template, g
+from flask import Flask, render_template, g, request
 import sqlite3
+import os
 import click
+
+# Database tutorial https://www.youtube.com/watch?v=tPxUSWTvZAs
 
 application = Flask(__name__)
 DATABASE = 'database.db'
