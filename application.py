@@ -26,7 +26,12 @@ def index():
 
 @application.route('/testpage')
 def testpage():
-    return render_template('testpage.html')
+    conn = sqlite3.connect(DATABASE)
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM your_table")
+    rows = cursor.fetchall()
+    conn.close()
+    return render_template('testpage.html', rows=rows)
 
 @application.cli.command('initdb')
 def init_db_command():
