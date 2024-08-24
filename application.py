@@ -24,11 +24,14 @@ def index():
 def testpage():
     return render_template('testpage.html')
 
-def init_db():
+@application.cli.command('initdb')
+def init_db_command():
+    """Create the database tables."""
     with sqlite3.connect(DATABASE) as db:
         with open('schema.sql', 'r') as f:
             sql = f.read()
         db.executescript(sql)
+    click.echo('Initialized the database.')
 
 if __name__ == "__main__":
     application.run(host='0.0.0.0',port=80)
