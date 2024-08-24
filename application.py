@@ -1,5 +1,6 @@
-from flask import Flask, render_template # type: ignore
+from flask import Flask, render_template, g
 import sqlite3
+import click
 
 application = Flask(__name__)
 DATABASE = 'database.db'
@@ -34,4 +35,4 @@ def init_db_command():
     click.echo('Initialized the database.')
 
 if __name__ == "__main__":
-    application.run(host='0.0.0.0',port=80)
+    application.run(host='0.0.0.0', port=80)
