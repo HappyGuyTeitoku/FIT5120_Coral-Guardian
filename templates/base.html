@@ -5,16 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Melbourne WaterGuard{% endblock %}</title>
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <!-- Shared Header -->
     <header>
         <nav>
-            <ul>
-                <li><a href="{{ url_for('index') }}">Home</a></li>
-                <li><a href="{{ url_for('testpage') }}">Test Page</a></li>
-            </ul>
+            <div class="nav-container">
+                <img src="{{ url_for('static', filename='Melbourne WaterGuard Logo.png') }}" alt="Logo" class="logo">
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('testpage') }}">Test Page</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
