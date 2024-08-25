@@ -34,6 +34,10 @@ def testpage():
     conn.close()
     return render_template('testpage.html', rows=rows)
 
+@application.route('/testpage')
+def testpagecopy():
+    return render_template('testpage-copy.html')
+
 @application.cli.command('initdb')
 def init_db_command():
     """Create the database tables."""
