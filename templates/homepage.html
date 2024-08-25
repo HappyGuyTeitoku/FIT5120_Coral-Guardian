@@ -1,0 +1,17 @@
+<!-- templates/homepage.html -->
+<!-- Used for the route "/"  -->
+{% extends "base.html" %}
+
+{% block title %}Home - Melbourne WaterGuard{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="content home-thumbnail-text image-background" style="background-image: url('/static/homepage-thumbnail-background.jpg');">
+            <div class="text-section">
+                <h1>Protect Our Water Resources by Reducing Nutrient Pollution</h1>
+                <p>Learn how nutrient pollution impacts Melbourne's water quality and take action to safeguard our future.</p>
+                <button>Explore Local Water Quality</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}

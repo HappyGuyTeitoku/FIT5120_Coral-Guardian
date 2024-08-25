@@ -22,7 +22,7 @@ def close_connection(exception):
 
 @application.route('/')
 def index():
-    return 'Welcome to flask app'
+    return render_template('homepage.html')
 
 @application.route('/testpage')
 def testpage():
@@ -33,7 +33,7 @@ def testpage():
     conn.close()
     return render_template('testpage.html', rows=rows)
 
-@application.route('/testpagecopy')
+@application.route('/testpage-copy')
 def testpagecopy():
     return render_template('testpage-copy.html')
 
