@@ -26,7 +26,8 @@ def index():
 
 @application.route('/testpage')
 def testpage():
-    conn = sqlite3.connect(DATABASE)
+    # conn = sqlite3.connect(DATABASE)
+    conn = get_db()
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM your_table")
     rows = cursor.fetchall()
@@ -43,4 +44,4 @@ def init_db_command():
     click.echo('Initialized the database.')
 
 if __name__ == "__main__":
-    application.run(host='0.0.0.0', port=80)
+    application.run(host='0.0.0.0', port=80, debug=True)
