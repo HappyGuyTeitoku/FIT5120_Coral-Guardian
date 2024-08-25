@@ -6,7 +6,7 @@ import click
 # Database tutorial https://www.youtube.com/watch?v=tPxUSWTvZAs
 
 application = Flask(__name__)
-DATABASE = 'database.db'
+DATABASE = 'water_monitor.db'
 
 def get_db():
     db = getattr(g, '_database', None)
