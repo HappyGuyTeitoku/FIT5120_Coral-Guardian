@@ -26,7 +26,6 @@ def index():
 
 @application.route('/testpage')
 def testpage():
-    # conn = sqlite3.connect(DATABASE)
     conn = get_db()
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM your_table")
