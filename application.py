@@ -34,7 +34,7 @@ def testpage():
     conn.close()
     return render_template('testpage.html', rows=rows)
 
-@application.route('/testpage')
+@application.route('/testpagecopy')
 def testpagecopy():
     return render_template('testpage-copy.html')
 
