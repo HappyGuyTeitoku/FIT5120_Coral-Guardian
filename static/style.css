@@ -15,6 +15,7 @@ header {
     top: 0px;
     position: fixed;
     width: 100%;
+    z-index: 10000;
 }
 
 .nav-container {
@@ -23,6 +24,7 @@ header {
     justify-content: space-between;
     width: 90%;
     background-color: white;
+
 }
 
 .logo {
@@ -164,6 +166,36 @@ main {
     overflow: hidden;
     object-fit: cover;
     border-radius: 5%;
+}
+
+.twotext-to-oneimage .text-section ul{
+
+    list-style-type: none;
+}
+
+.twotext-to-oneimage .text-section ul li{
+    grid-template-columns: 1fr 9fr;
+    display: grid;
+    width: fit-content;
+    margin-bottom: 10px;
+}
+
+.twotext-to-oneimage .text-section ul .list-item-icon{
+    width: 50px;
+    height: 50px;
+    grid-column: 1/ span 1;
+}
+
+.twotext-to-oneimage .text-section ul .list-item-container{
+    grid-column: 2/ span 1;
+}
+
+.twotext-to-oneimage .text-section ul .list-item-title{
+    font-weight: bolder;
+}
+
+.twotext-to-oneimage .text-section ul .list-item-content{
+    font-weight: normal;
 }
 
 /* Footer Styling */
