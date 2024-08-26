@@ -8,17 +8,21 @@
 /* Header Styling */
 header {
     background-color: #fff;
+    height: fit-content;
     border-bottom: 1px solid #ddd;
     padding: 10px 20px;
+
+    top: 0px;
+    position: fixed;
+    width: 100%;
 }
 
 .nav-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: fixed;
-    top: 10px;
     width: 90%;
+    background-color: white;
 }
 
 .logo {
@@ -49,9 +53,24 @@ header {
 main {
     padding: 2em;
     background-color: #f4f4f4;
-    margin: 20px auto;
-    max-width: 1200px;
+    margin: 60px 0 20px 0;
+    padding: 0;
+    max-width: 100%;
     border-radius: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Reusable spacer, for separating sections of a page. */
+.spacer{
+    height: 5vh;
+}
+
+.container {
+    height: 80vh;
+}
+
+.content {
+    display: grid;
 }
 
 /* Reusable image background, used in homepage now */
@@ -61,12 +80,14 @@ main {
     background-repeat: no-repeat; /* Prevents the image from repeating */
     width: 100%;
     height: 80vh; /* Set the height according to your needs */
-    padding: 20px; /* Optional: Add padding for your content */
+    padding: 20px 50px 20px 50px; /* Optional: Add padding for your content */
 }
 
 .home-thumbnail-text {
     color: white;
+    display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
 }
 
 .home-thumbnail-text .text-section {
@@ -75,7 +96,74 @@ main {
 
 .home-thumbnail-text .text-section h1 {
     font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 300%;
+    line-height: 130%;
+    -webkit-text-stroke: 1px grey;
+    margin-bottom: 20px;
+}
+
+.home-thumbnail-text .text-section p {
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+.home-thumbnail-text .text-section button {
+    font-weight: bold;
+    font-size: normal;
+    padding: 10px 40px 10px 40px;
+    border-radius: 10px;
+}
+
+.twotext-to-oneimage {
+    grid-template-columns: 8fr 1fr 6fr;
+    padding: 25px 15% 25px 15%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.twotext-to-oneimage .text-section {
+    position: relative;
+    grid-column: 1 / 2;
+}
+
+.twotext-to-oneimage .text-section::before {
+    content: '————'; /* Em dash or use '-' for a hyphen */
+    position: absolute;
+    left: -25%; /* Position it to the left of the text */
+    top: 10px;
+    transform: translateY(-50%); /* Center vertically */
+    font-size: 24px; /* Adjust size as needed */
+    color: black; /* Color of the hyphen */
+  }
+
+.twotext-to-oneimage .text-section .text-section-title{
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.twotext-to-oneimage .text-section .text-section-question{
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 222%;
+}
+
+.twotext-to-oneimage .text-section .text-section-content{
+    font-weight: normal;
+    margin-bottom: 20px;
+    width: 75%;
+}
+
+.twotext-to-oneimage .image-section {
+    grid-column: 3 / 4;
+}
+
+.twotext-to-oneimage .image-section img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    object-fit: cover;
+    border-radius: 5%;
 }
 
 /* Footer Styling */
