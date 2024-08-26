@@ -8,6 +8,9 @@ repo_path = '/home/ec2-user/flask-app'
 branch_name = 'main'
 remote_name = 'origin'
 
+# Define the path to the log file
+log_file_path = '/home/ec2-user/flask-app/update_repo_history.txt'
+
 # Change to the repository directory
 os.chdir(repo_path)
 
@@ -17,10 +20,10 @@ timestamp = datetime.now().strftime('%d %m %Y %H:%M')
 # Execute git pull command
 try:
     result = subprocess.run(['git', 'pull', remote_name, branch_name], check=True, text=True, capture_output=True)
-    log_message = f"{timestamp} Git pull successful\n{result.stdout}\n"
+    log_message = f"{timestamp} Git pull successful\n{result.stdout}\n\n"
     print(log_message)
 except subprocess.CalledProcessError as e:
-    log_message = f"{timestamp} Error during git pull\n{e.stderr}\n"
+    log_message = f"{timestamp} Error during git pull\n{e.stderr}\n\n"
     print(log_message)
 
 # Append the log message to the log file
