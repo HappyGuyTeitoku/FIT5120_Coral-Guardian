@@ -37,6 +37,10 @@ def testpage():
 def testpagecopy():
     return render_template('testpage-copy.html')
 
+@application.route('/learn-more')
+def learnmore():
+    return render_template('education.html')
+
 @application.cli.command('initdb')
 def init_db_command():
     """Create the database tables."""

@@ -136,21 +136,21 @@ main {
     transform: translateY(-50%); /* Center vertically */
     font-size: 24px; /* Adjust size as needed */
     color: black; /* Color of the hyphen */
-  }
+}
 
-.twotext-to-oneimage .text-section .text-section-title{
+.text-section .text-section-title{
     font-weight: bold;
     margin-bottom: 20px;
     text-transform: uppercase;
 }
 
-.twotext-to-oneimage .text-section .text-section-question{
+.text-section .text-section-question{
     font-weight: bold;
     margin-bottom: 20px;
     font-size: 222%;
 }
 
-.twotext-to-oneimage .text-section .text-section-content{
+.text-section .text-section-content{
     font-weight: normal;
     margin-bottom: 20px;
     width: 75%;
@@ -196,6 +196,25 @@ main {
 
 .twotext-to-oneimage .text-section ul .list-item-content{
     font-weight: normal;
+}
+
+.page-title{
+    font-weight: bolder;
+    text-align: center;
+    width: 100%;
+    font-size: 250%;
+}
+
+.page-title-subtext{
+    text-align: center;
+    width: 100%;
+    font-size: 100%;
+}
+
+.education-page {
+    padding: 0 15% 0 15%;
+    place-items: center;
+    display: grid;
 }
 
 /* Footer Styling */
