@@ -6,12 +6,47 @@
 {% block content %}
     <div class="spacer"></div>
     
-    <div class="container education-page">
+    <div class="container-halfheight education-page">
         <div class="content">
-            <p class="page-title">Why Preventing Nutrient Pollution is Crucial?</p>
-            <p class="page-title-subtext">Protecting Water Quality and Ecosystems for a Sustainable Future</p>
+            <p class="page-title">Choose Eco-Friendly Cleaning Products to Protect Melbourne’s Water Resources</p>
+            
+
+
+            <!-- Image Section -->
+            <div class="product-images">
+                <img src="{{ url_for('static', filename='AQ.png') }}" alt="">
+                
+            </div>
+
+            <!-- Badges Section -->
+            <div class="badges">
+                <span class="badge">Phosphate-Free</span>
+                
+            </div>
+
+            <div class="product-images">
+                <img src="{{ url_for('static', filename='AQ.png') }}" alt="">
+                
+            </div>
+            
+            <div class="badges">
+                
+                <span class="badge">Nitrogen-Free</span>
+            </div>
         </div>
     </div>
+
+
+
+
+
+
+
+        </div>
+
+        
+    </div>
+    
 
     <div class="spacer"></div>
 
@@ -23,9 +58,28 @@
 
     <div class="container education-page">
         <div class="content text-section ">
-            <p class="text-section-question">Protecting Our Water Resources</p>
-            <p class="text-section-content"> Nutrient Pollution refers to the process.......</p>
+            <p class="text-section-question">Recommended Products</p>
+            <p class="text-section-content"> Below are our top picks for eco-friendly cleaning products that ensure your daily cleaning routine doesn’t add extra burden to the environment.</p>
         </div>
     </div>
+
+    <div class="product-recommendation">
+        <div class="product-item">
+            <img src="{{ url_for('static', filename='MG1.png') }}" alt="">
+            <h3 class="product-title">Phosphate-Free Detergent</h3>
+            <p><strong>Earth Choice Dishwashing Liquid</strong></p>
+            <p>Ingredients: Water, Purified, Sodium Laureth Sulfate, Sodium Chloride, Coco-Glucoside, Cocamidopropyl Betaine, Cocamide Oxide, Fragrance, Benzisothiazolinone, Caramel.</p>
+        </div>
+
+        <div class="product-item">
+            <img src="{{ url_for('static', filename='MG2.png') }}" alt="">
+            <h3 class="product-title">Nitrogen-Free Shampoo</h3>
+            <p><strong>Acure Curiously Clarifying Shampoo</strong></p>
+            <p>FYI: Acure products are free from parabens, sulfates, mineral oil, petrolatum, and formaldehyde.</p>
+        </div>
+        
+    </div>
+</div>
+</div>   
 
 {% endblock %}
