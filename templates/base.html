@@ -12,7 +12,9 @@
     <header>
         <nav>
             <div class="nav-container">
-                <img src="{{ url_for('static', filename='Melbourne WaterGuard Logo.png') }}" alt="Logo" class="logo">
+                <a href="{{ url_for('index') }}">
+                    <img src="{{ url_for('static', filename='Melbourne WaterGuard Logo.png') }}" alt="Logo" class="logo">
+                </a>
                 <ul class="nav-links">
                     <li><a href="{{ url_for('index') }}">Home</a></li>
                     <li><a href="{{ url_for('testpage') }}">Test Page</a></li>

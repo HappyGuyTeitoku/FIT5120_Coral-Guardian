@@ -217,6 +217,21 @@ main {
     display: grid;
 }
 
+.image-banner {
+    padding: 0 15% 0 15%;
+    place-items: center;
+    display: grid;
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.image-banner img {
+    max-width: 100%; /* Scale image to fit container width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover;
+}
+
 /* Footer Styling */
 footer {
     background-color: #333;

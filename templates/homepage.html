@@ -12,8 +12,7 @@
         <div class="content home-thumbnail-text image-background" style="background-image: url('/static/homepage-thumbnail-background.jpg');">
             <div class="text-section">
                 <h1>Protect Our Water Resources by Reducing Nutrient Pollution</h1>
-                <p>Learn how nutrient pollution impacts Melbourne's water quality and take action to safeguard our future.</p>
-                <button onclick="window.location.href='{{ url_for('testpagecopy') }}'">Explore Local Water Quality</button>
+                <p>Learn how using household cleaning products can impact Melbourne's water quality and take action to safeguard Melbourne's clean water.</p>
             </div>
         </div>
     </div>
@@ -25,66 +24,22 @@
         <div class="content twotext-to-oneimage">
             <div class="text-section">
                 <p class="text-section-title">Know about us</p>
-                <h2 class="text-section-question">What is Nutrient Pollution?</h2>
-                <p class="text-section-content">Nutrient pollution occurs when an excess of nutrients, primarily nitrogen and phosphorus, enter water bodies.</p>
-                <p class="text-section-content">These nutrients, often from sources like argricultural runoff, sewage and industrial waste, act as fertilizers in the water, leading to the overgrowth of algae. This excessive algae growth can harm water quality, disrupt aquatic ecosystems, and create dead zones where life cannot survive.</p>
-                <button onclick="window.location.href='{{ url_for('learnmore') }}'">Learn More</button>
+                <h2 class="text-section-question">Why Reducing Nutrient Pollution Matters for Melbourne?</h2>    
             </div>
             <div class="image-section">
-                <img src="../static/dead_fish.jpg" />
+                <p class="text-section-content" style="font-weight: bold;">Nutrient pollution, such as phosphorus and nitrogen, is having a profound impact on Melbourne's water quality, affecting various aspects of our daily lives. </p>
+                <div class="spacer"></div>
+                <p class="text-section-content">These pollutants come not only from agriculture and industry but also from the everyday cleaning products and household items we use. To effectively protect our water resources, we must first understand the sources and impacts of this pollution and make environmentally friendly choices in our daily lives.</p>
             </div>
         </div>
+    </div>
+
+    <div class="image-banner">
+        <img src="{{ url_for('static', filename='greenshoreline-with-boat.jpg') }}">
     </div>
 
     <div class="spacer"></div>
 
-    <!-- What Can You Do -->
-    <div class="container" style="background-color: #EEE;">
-        <div class="content twotext-to-oneimage">
-            <div class="text-section">
-                <p class="text-section-title">What we do</p>
-                <h2 class="text-section-question">What can you do?</h2>
-                <p class="text-section-content">By making simple everyday choices, such as opting for eco-friendly products and reducing use of these products, you can significantly reduce nutrient pollution and help protect our water resources.</p>
-            
-                <ul>
-                    <li>
-                        <p class="list-item-icon">icon</p>
-                        <div class="list-item-container">
-                            <h3 class="list-item-title">Use Eco-Friendly Products</h3>
-                            <p class="list-item-content">Choose phosphorus-free and low-nitrate detergents, soaps and cleaning products to minimise nutrient runoff into the sewage system.</p>
-                        </div>
-                    </li>
-
-                    <li>
-                        <p class="list-item-icon">icon</p>
-                        <div class="list-item-container">
-                            <h3 class="list-item-title">Dispose of Waste Properly</h3>
-                            <p class="list-item-content">Dispose of household chemicals and medications at designated facilities.</p>
-                        </div>
-                    </li>
-
-                    <li>
-                        <p class="list-item-icon">icon</p>
-                        <div class="list-item-container">
-                            <h3 class="list-item-title">Limit water usage</h3>
-                            <p class="list-item-content">Reduce the amount of waste water that waterplants have to process.</p>
-                        </div>
-                    </li>
-
-                    <li>
-                        <p class="list-item-icon">icon</p>
-                        <div class="list-item-container">
-                            <h3 class="list-item-title">Share the knowledge with others</h3>
-                            <p class="list-item-content">Let your friends and family know about nutrient pollution, and get them to join your action.</p>
-                        </div>
-                    </li>
-                </ul>
-            
-            </div>
-            <div class="image-section">
-                <img src="../static/pexels-cottonbro-4108670.jpg" />
-            </div>
-        </div>
-
-    </div>
+    <!-- Below put short description of functions and a button to navigate -->
+    
 {% endblock %}
