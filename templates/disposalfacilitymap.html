@@ -19,18 +19,25 @@
 <div id="map"></div>
 
 <script>
-    // 1. Initiate Map
+    let map;
+    let directionsService;
+    let directionsRenderer;
+    let currentInfoWindow = null;
+
     function initMap() {
-        const map = new google.maps.Map(document.getElementById('map'), {
+        map = new google.maps.Map(document.getElementById('map'), {
             zoom: 10,
             center: { lat: -37.8136, lng: 144.9631 } // Center the map on Melbourne
         });
 
+        // Initialize DirectionsService and DirectionsRenderer
+        directionsService = new google.maps.DirectionsService();
+        directionsRenderer = new google.maps.DirectionsRenderer();
+        directionsRenderer.setMap(map);
+
         // Retrieve addresses along with event times from the raw data
-        console.log({{ event_schedule_data|tojson }})
         const rawData = {{ event_schedule_data|tojson }};
-        // Transform rawData into an array of objects
-        const headers = rawData[0];  // First row is the header
+        const headers = rawData[0];
         const processed_data = rawData.slice(1).map(row => {
             let rowData = {};
             headers.forEach((header, index) => {
@@ -38,40 +45,46 @@
             });
             return rowData;
         });
-        console.log(processed_data)
         const addresses = getAddresses(processed_data);
-        console.log(addresses)
 
-        // Geocode addresses and add waypoints with event details
         geocodeAddresses(addresses, map, (geocodedAddresses, map) => {
             addWaypointsToMap(geocodedAddresses, map);
             addDetailsToWaypoints(geocodedAddresses, map);
         });
+
+        // Close the currently open InfoWindow when clicking on the map
+        map.addListener('click', () => {
+            if (currentInfoWindow) {
+                currentInfoWindow.close();
+            }
+        });
     }
 
-    // 2. Create the list of locations
     function getAddresses(rawData) {
         return rawData.map(row => ({
             address: `${row.address}, ${row.suburb}, ${row.state} ${row.postal_code}`,
-            title: row.location_name,
+            location: row.location,
+            date: row.date,
             time_begin: row.time_begin,
-            time_end: row.time_end
+            time_end: row.time_end,
+            location_name: row.location_name
         }));
     }
 
-    // 3. Geocode the addresses
     function geocodeAddresses(addresses, map, callback) {
         const geocoder = new google.maps.Geocoder();
         const geocodePromises = addresses.map(address => 
             new Promise((resolve, reject) => {
-                console.log(`Geocoding address: ${address.address}`); // Log the full address
                 geocoder.geocode({ 'address': address.address }, (results, status) => {
                     if (status === 'OK') {
                         resolve({ 
                             position: results[0].geometry.location,
-                            title: address.title,
+                            address: address.address,
+                            location: address.location,
+                            date: address.date,
                             time_begin: address.time_begin,
-                            time_end: address.time_end
+                            time_end: address.time_end,
+                            location_name: address.location_name
                         });
                     } else {
                         console.error(`Geocode error for address "${address.address}": ${status}`);
@@ -86,42 +99,73 @@
             .catch(error => console.error('Geocode error: ' + error));
     }
 
-
-    // 4. Add waypoints to the map
     function addWaypointsToMap(geocodedAddresses, map) {
-        geocodedAddresses.forEach(({ position, title }) => {
+        geocodedAddresses.forEach(({ position, location }) => {
             new google.maps.Marker({
                 map: map,
                 position: position,
-                title: title
+                title: location
             });
         });
     }
 
-    // 5. Add details to each waypoint
     function addDetailsToWaypoints(geocodedAddresses, map) {
-        geocodedAddresses.forEach(({ position, title, time_begin, time_end }) => {
+        geocodedAddresses.forEach(({ position, location, date, time_begin, time_end, location_name, address }) => {
             const marker = new google.maps.Marker({
                 map: map,
                 position: position,
-                title: title
+                title: location
             });
 
             const infoWindow = new google.maps.InfoWindow({
-                content: `<h3>${title}</h3>
-                        <p>${position.lat()}, ${position.lng()}</p>
-                        <p>Event Time: ${time_begin} - ${time_end}</p>`
+                content: `<h3>${location}</h3>
+                        <p>Date: ${date}</p>
+                        <p>Time: ${time_begin} - ${time_end}</p>
+                        <p>Location Name: ${location_name}</p>
+                        <button onclick="calculateRoute(${position.lat()}, ${position.lng()})">Take Me There</button>`
             });
 
             marker.addListener('click', () => {
+                if (currentInfoWindow) {
+                    currentInfoWindow.close();
+                }
                 infoWindow.open(map, marker);
+                currentInfoWindow = infoWindow;
             });
         });
     }
 
-    window.onload = initMap; // Ensure the map is initialized when the page loads
+    function calculateRoute(destinationLat, destinationLng) {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                const origin = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                const destination = new google.maps.LatLng(destinationLat, destinationLng);
+
+                const request = {
+                    origin: origin,
+                    destination: destination,
+                    travelMode: 'DRIVING'
+                };
+
+                directionsService.route(request, (result, status) => {
+                    if (status === 'OK') {
+                        directionsRenderer.setDirections(result);
+                        if (currentInfoWindow) {
+                            currentInfoWindow.setContent(`${currentInfoWindow.getContent()}<p>Estimated Driving time: ${result.routes[0].legs[0].duration.text}</p>`);
+                        }
+                    } else {
+                        console.error(`Directions request failed due to ${status}`);
+                    }
+                });
+            }, () => {
+                console.error('Geolocation service failed.');
+            });
+        } else {
+            console.error('Browser does not support geolocation.');
+        }
+    }
+
+    window.onload = initMap;
 </script>
 
 {% endblock %}
-
-<!-- AIzaSyAgYZxufphoIQdLoTbmvDRw_NznG6pPjmM -->
