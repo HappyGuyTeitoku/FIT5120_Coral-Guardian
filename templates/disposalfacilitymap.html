@@ -1,0 +1,127 @@
+<!-- templates/disposalfacilitymap.html -->
+{% extends "base.html" %}
+
+{% block title %}Test Page - Melbourne WaterGuard{% endblock %}
+
+{% block content %}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgYZxufphoIQdLoTbmvDRw_NznG6pPjmM" async defer></script>
+<style>
+    #map {
+        height: 80vh;
+        width: 100%;
+        height: 500px;
+        /* Adjust the height as needed */
+    }
+</style>
+
+<p>Find your closest facility to properly dispose of household chemicals.</p>
+
+<div id="map"></div>
+
+<script>
+    // 1. Initiate Map
+    function initMap() {
+        const map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 10,
+            center: { lat: -37.8136, lng: 144.9631 } // Center the map on Melbourne
+        });
+
+        // Retrieve addresses along with event times from the raw data
+        console.log({{ event_schedule_data|tojson }})
+        const rawData = {{ event_schedule_data|tojson }};
+        // Transform rawData into an array of objects
+        const headers = rawData[0];  // First row is the header
+        const processed_data = rawData.slice(1).map(row => {
+            let rowData = {};
+            headers.forEach((header, index) => {
+                rowData[header] = row[index];
+            });
+            return rowData;
+        });
+        console.log(processed_data)
+        const addresses = getAddresses(processed_data);
+        console.log(addresses)
+
+        // Geocode addresses and add waypoints with event details
+        geocodeAddresses(addresses, map, (geocodedAddresses, map) => {
+            addWaypointsToMap(geocodedAddresses, map);
+            addDetailsToWaypoints(geocodedAddresses, map);
+        });
+    }
+
+    // 2. Create the list of locations
+    function getAddresses(rawData) {
+        return rawData.map(row => ({
+            address: `${row.address}, ${row.suburb}, ${row.state} ${row.postal_code}`,
+            title: row.location_name,
+            time_begin: row.time_begin,
+            time_end: row.time_end
+        }));
+    }
+
+    // 3. Geocode the addresses
+    function geocodeAddresses(addresses, map, callback) {
+        const geocoder = new google.maps.Geocoder();
+        const geocodePromises = addresses.map(address => 
+            new Promise((resolve, reject) => {
+                console.log(`Geocoding address: ${address.address}`); // Log the full address
+                geocoder.geocode({ 'address': address.address }, (results, status) => {
+                    if (status === 'OK') {
+                        resolve({ 
+                            position: results[0].geometry.location,
+                            title: address.title,
+                            time_begin: address.time_begin,
+                            time_end: address.time_end
+                        });
+                    } else {
+                        console.error(`Geocode error for address "${address.address}": ${status}`);
+                        reject(status);
+                    }
+                });
+            })
+        );
+
+        Promise.all(geocodePromises)
+            .then(results => callback(results, map))
+            .catch(error => console.error('Geocode error: ' + error));
+    }
+
+
+    // 4. Add waypoints to the map
+    function addWaypointsToMap(geocodedAddresses, map) {
+        geocodedAddresses.forEach(({ position, title }) => {
+            new google.maps.Marker({
+                map: map,
+                position: position,
+                title: title
+            });
+        });
+    }
+
+    // 5. Add details to each waypoint
+    function addDetailsToWaypoints(geocodedAddresses, map) {
+        geocodedAddresses.forEach(({ position, title, time_begin, time_end }) => {
+            const marker = new google.maps.Marker({
+                map: map,
+                position: position,
+                title: title
+            });
+
+            const infoWindow = new google.maps.InfoWindow({
+                content: `<h3>${title}</h3>
+                        <p>${position.lat()}, ${position.lng()}</p>
+                        <p>Event Time: ${time_begin} - ${time_end}</p>`
+            });
+
+            marker.addListener('click', () => {
+                infoWindow.open(map, marker);
+            });
+        });
+    }
+
+    window.onload = initMap; // Ensure the map is initialized when the page loads
+</script>
+
+{% endblock %}
+
+<!-- AIzaSyAgYZxufphoIQdLoTbmvDRw_NznG6pPjmM -->

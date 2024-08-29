@@ -1,0 +1,9 @@
+location,date,time_begin,time_end,location_name,address,suburb,state,postal_code
+"Hoppers Crossing","2024-09-07","10:00:00","13:00:00","Wyndham City Council Depot","241-253 Old Geelong Road","Hoppers Crossing","VIC","3029"
+"Warragul","2024-09-21","09:00:00","00:00:00","Baw Baw Council Depot/Normanby St","188 Normanby Street","Warragul","VIC","3820"
+"Torquay","2024-10-19","09:00:00","00:00:00","Torquay Works Depot","130 Messmate Road","Torquay","VIC","3228"
+"Dandenong","2024-10-26","09:00:00","13:00:00","Gloria Pyke Netball Complex","Bennet Street","Dandenong","VIC","3175"
+"Bendigo","2024-10-30","09:00:00","13:00:00","Bendigo Livestock Exchange (Saleyards)","Lot 2 Wallenjoe Road","Huntly","VIC","3551"
+"Camberwell","2024-11-16","09:00:00","14:00:00","Boroondara Waste and Recycling Centre","648 Riversdale Road","Camberwell","VIC","3124"
+"Reservoir","2024-11-23","09:00:00","13:00:00","Darebin Council Works Depot","Carawa Drive","Reservoir","VIC","3073"
+"Bairnsdale","2024-11-30","09:00:00","13:00:00","Saleyard Road","Saleyard Road","Bairnsdale","VIC","3875"
