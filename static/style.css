@@ -83,6 +83,10 @@ main {
     height: 40vh;
 }
 
+.container-20 {
+    height: 20vh;
+}
+
 .two-column {
     display: grid;
     grid-template-columns: 2fr 4fr .5fr 4fr 2fr;
@@ -362,9 +366,9 @@ body, h1, h2, h3, p {
 }
 
 .product-item img {
-    width: 100px;
-    height: auto;
-    margin-bottom: 15px;
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: contain; /* Ensures the image is resized to fit the container */
 }
 
 .product-title {

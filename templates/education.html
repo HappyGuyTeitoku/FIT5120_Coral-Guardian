@@ -6,60 +6,33 @@
 {% block content %}
     <div class="spacer"></div>
     
-    <div class="container-halfheight education-page">
+    <div class="container-20 education-page">
         <div class="content">
             <p class="page-title">Choose Eco-Friendly Cleaning Products to Protect Melbourne’s Water Resources</p>
             
+            <div class="spacer-half"></div>
 
-
-            <!-- Image Section -->
-            <div class="product-images">
-                <img src="{{ url_for('static', filename='AQ.png') }}" alt="">
-                
-            </div>
-
-            <!-- Badges Section -->
-            <div class="badges">
-                <span class="badge">Phosphate-Free</span>
-                
-            </div>
-
-            <div class="product-images">
-                <img src="{{ url_for('static', filename='AQ.png') }}" alt="">
-                
-            </div>
+            <div style="display: flex; gap: 16px; margin: auto;">
+                <div style="display: flex; align-items: center;">
+                    <img src="{{ url_for('static', filename='AQ.png') }}" alt="Tick Icon" style="width: 20px; height: 20px; margin-right: 8px;">
+                    <span>Phosphate-Free</span>
+                </div>
             
-            <div class="badges">
-                
-                <span class="badge">Nitrogen-Free</span>
+                <div style="display: flex; align-items: center;">
+                    <img src="{{ url_for('static', filename='AQ.png') }}" alt="Tick Icon" style="width: 20px; height: 20px; margin-right: 8px;">
+                    <span>Nitrogen-Free</span>
+                </div>
             </div>
-        </div>
-    </div>
-
-
-
-
-
-
 
         </div>
-
-        
     </div>
     
+    <div class="spacer-half"></div>
 
-    <div class="spacer"></div>
-
-    <div class="education-page">
-        <!-- insert image banner -->
-    </div>
-
-    <div class="spacer"></div>
-
-    <div class="container education-page">
+    <div class="container-20 education-page">
         <div class="content text-section ">
             <p class="text-section-question">Recommended Products</p>
-            <p class="text-section-content"> Below are our top picks for eco-friendly cleaning products that ensure your daily cleaning routine doesn’t add extra burden to the environment.</p>
+            <p class="text-section-content" style="margin: auto;"> Below are our top picks for eco-friendly cleaning products that ensure your daily cleaning routine doesn’t add extra burden to the environment.</p>
         </div>
     </div>
 
@@ -77,9 +50,4 @@
             <p><strong>Acure Curiously Clarifying Shampoo</strong></p>
             <p>FYI: Acure products are free from parabens, sulfates, mineral oil, petrolatum, and formaldehyde.</p>
         </div>
-        
-    </div>
-</div>
-</div>   
-
 {% endblock %}
