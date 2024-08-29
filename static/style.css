@@ -71,6 +71,10 @@ main {
     height: 80vh;
 }
 
+.container-halfheight {
+    height: 40vh;
+}
+
 .content {
     display: grid;
 }
