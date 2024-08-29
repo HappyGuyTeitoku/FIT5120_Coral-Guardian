@@ -20,15 +20,15 @@
     <div class="spacer"></div>
 
     <!-- What is Nutrient Pollution -->
-    <div class="container-halfheight">
+    <div class="container-60">
         <div class="content twotext-to-oneimage">
             <div class="text-section">
-                <p class="text-section-title">Know about us</p>
+                <p class="text-section-title">Introduction</p>
                 <h2 class="text-section-question">Why Reducing Nutrient Pollution Matters for Melbourne?</h2>    
             </div>
             <div class="image-section">
                 <p class="text-section-content" style="font-weight: bold;">Nutrient pollution, such as phosphorus and nitrogen, is having a profound impact on Melbourne's water quality, affecting various aspects of our daily lives. </p>
-                <div class="spacer"></div>
+                <div class="spacer-half"></div>
                 <p class="text-section-content">These pollutants come not only from agriculture and industry but also from the everyday cleaning products and household items we use. To effectively protect our water resources, we must first understand the sources and impacts of this pollution and make environmentally friendly choices in our daily lives.</p>
             </div>
         </div>
@@ -46,9 +46,17 @@
         <div class="two-column-first">
             <div class="text-section-question">Find where you can dispose of household chemicals safely</div>
             <div class="text-section-content">Use our interactive map to explore event schedule of Detox Your Home: understand who can help you dispose of chemicals you don't know how to get rid of.</div>
-            <button>Do this thing</button>
+            <button class="home-navigation-button" onclick="location.href='{{ url_for('disposalfacility') }}'">
+                Find nearby DYH events
+            </button>
         </div>
-        <div class="two-column-second">bbb</div>
+        <div class="two-column-second">
+            <div class="text-section-question">Learn how to Choose Eco-Friendly Cleaning Products</div>
+            <div class="text-section-content">Reduce nutrient pollution by choosing phosphate and nitrogen-free cleaning products, soaps, and shampoos. Small changes in your daily product choices can significantly help protect Melbourne’s water quality.</div>
+            <button class="home-navigation-button" onclick="location.href='{{ url_for('learnmore') }}'">
+                Find Phosphate and Nitrogen-Free Cleaners
+            </button>
+        </div>
     </div>
 
 {% endblock %}
