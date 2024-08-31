@@ -67,6 +67,10 @@ main {
     height: 5vh;
 }
 
+.spacer-double{
+    height: 10vh;
+}
+
 .spacer-half{
     height: 2.5vh;
 }
@@ -119,6 +123,16 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+}
+
+.home-thumbnail-slideshow{
+    animation: slideshow 15s infinite;
+}
+
+@keyframes slideshow {
+    0%  { background-image: url('/static/homepage_algae-shoreline.png'); }
+    50% { background-image: url('/static/homepage_hand-full-of-moss.png'); }
+    100%  { background-image: url('/static/homepage_algae-shoreline.png'); }
 }
 
 .home-thumbnail-text .text-section {

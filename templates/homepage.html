@@ -9,54 +9,34 @@
 
     <!-- Homepage Thumbnail -->
     <div class="container">
-        <div class="content home-thumbnail-text image-background" style="background-image: url('/static/shoreline.png');">
+        <div class="content home-thumbnail-text image-background home-thumbnail-slideshow">
             <div class="text-section">
                 <h1>Protect Our Water Resources by Reducing Nutrient Pollution</h1>
                 <p>Learn how using household cleaning products can impact Melbourne's water quality and take action to safeguard Melbourne's clean water.</p>
+            <button onclick="window.location.href='{{ url_for('waterqualitymap') }}'">Explore Local Water Quality</button>
+
             </div>
         </div>
     </div>
 
-    <div class="spacer"></div>
+    <div class="spacer-double"></div>
 
     <!-- What is Nutrient Pollution -->
-    <div class="container-60">
+    <div class="container">
         <div class="content twotext-to-oneimage">
             <div class="text-section">
-                <p class="text-section-title">Introduction</p>
-                <h2 class="text-section-question">Why Reducing Nutrient Pollution Matters for Melbourne?</h2>    
+                <p class="text-section-title">Know about us</p>
+                <h2 class="text-section-question">What is Nutrient Pollution?</h2>
+                <p class="text-section-content">Nutrient pollution occurs when an excess of nutrients, primarily nitrogen and phosphorus, enter water bodies.</p>
+                <p class="text-section-content">These nutrients, often from sources like argricultural runoff, sewage and industrial waste, act as fertilizers in the water, leading to the overgrowth of algae. This excessive algae growth can harm water quality, disrupt aquatic ecosystems, and create dead zones where life cannot survive.</p>
+                <button onclick="window.location.href='{{ url_for('learnmore') }}'">Learn More</button>
             </div>
             <div class="image-section">
-                <p class="text-section-content" style="font-weight: bold;">Nutrient pollution, such as phosphorus and nitrogen, is having a profound impact on Melbourne's water quality, affecting various aspects of our daily lives. </p>
-                <div class="spacer-half"></div>
-                <p class="text-section-content">These pollutants come not only from agriculture and industry but also from the everyday cleaning products and household items we use. To effectively protect our water resources, we must first understand the sources and impacts of this pollution and make environmentally friendly choices in our daily lives.</p>
+                <img src="../static/dead_fish.jpg" />
             </div>
         </div>
-    </div>
-
-    <div class="image-banner">
-        <img src="{{ url_for('static', filename='greenshoreline-with-boat.jpg') }}">
     </div>
 
     <div class="spacer"></div>
-
-    <!-- Below put short description of functions and a button to navigate -->
     
-    <div class="two-column container">
-        <div class="two-column-first">
-            <div class="text-section-question">Find where you can dispose of household chemicals safely</div>
-            <div class="text-section-content">Use our interactive map to explore event schedule of Detox Your Home: understand who can help you dispose of chemicals you don't know how to get rid of.</div>
-            <button class="home-navigation-button" onclick="location.href='{{ url_for('disposalfacility') }}'">
-                Find nearby DYH events
-            </button>
-        </div>
-        <div class="two-column-second">
-            <div class="text-section-question">Learn how to Choose Eco-Friendly Cleaning Products</div>
-            <div class="text-section-content">Reduce nutrient pollution by choosing phosphate and nitrogen-free cleaning products, soaps, and shampoos. Small changes in your daily product choices can significantly help protect Melbourne’s water quality.</div>
-            <button class="home-navigation-button" onclick="location.href='{{ url_for('learnmore') }}'">
-                Find Phosphate and Nitrogen-Free Cleaners
-            </button>
-        </div>
-    </div>
-
 {% endblock %}

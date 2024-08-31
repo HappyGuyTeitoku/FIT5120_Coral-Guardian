@@ -51,6 +51,10 @@ def disposalfacility():
             event_schedule_data.append(row)
     return render_template('disposalfacilitymap.html',event_schedule_data = event_schedule_data)
 
+@application.route('/water-quality-map')
+def waterqualitymap():
+    return render_template('waterqualitymap.html')
+
 @application.cli.command('initdb')
 def init_db_command():
     """Create the database tables."""
