@@ -1,4 +1,4 @@
-from flask import Flask, render_template, g, request
+from flask import Flask, request, render_template, redirect, url_for, session, g
 import sqlite3
 import os
 import click
@@ -8,6 +8,33 @@ import csv
 
 application = Flask(__name__)
 DATABASE = 'water_monitor.db'
+
+# Define your secret password
+PASSWORD = 'Caffeine3'
+# Necessary for session management
+application.secret_key = 'your_secret_key'  
+
+# The password page users get auto-redirected to without logging in with a password
+@application.route('/password', methods=['GET', 'POST'])
+def password():
+    error = "Please enter the password to access the TP13 website"
+    if request.method == 'POST':
+        entered_password = request.form['password']
+        if entered_password == PASSWORD:
+            session['authenticated'] = True
+            return redirect(session.get('next') or url_for('index'))
+        else:
+            error = "Incorrect password"
+    return render_template('password.html', error=error)
+
+# Before any GET request is processed, check if user is logged in
+# If not, bring user to login page
+@application.before_request
+def require_password():
+    if not session.get('authenticated'):
+        if request.endpoint != 'password' and request.endpoint != 'static':
+            session['next'] = request.url  # Store the URL the user was trying to access
+            return redirect(url_for('password'))
 
 def get_db():
     db = getattr(g, '_database', None)
