@@ -232,8 +232,9 @@ footer {
 
 /* --------------------------------------------------------------------------- */
 
-/* Basic reset */
-body, h1, h2, h3, p {
+/* image---------------------------------------------------- */
+
+/* body, h1, h2, h3, p {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -349,4 +350,4 @@ body, h1, h2, h3, p {
     .product-item {
         margin-bottom: 20px;
     }
-}
+} */

@@ -6,59 +6,117 @@
 {% block content %}
     <div class="spacer"></div>
     
-    <div class="container-20 education-page">
-        <div class="content">
-            <p class="page-title">Choose Eco-Friendly Cleaning Products to Protect Melbourne’s Water Resources</p>
-            
-            <div class="spacer-half"></div>
+    <div class="specific-container"> <!-- Start of the specific container -->
 
-            <div style="display: flex; gap: 16px; margin: auto;">
-                <div style="display: flex; align-items: center;">
-                    <img src="{{ url_for('static', filename='AQ.png') }}" alt="Tick Icon" style="width: 20px; height: 20px; margin-right: 8px;">
-                    <span>Phosphate-Free</span>
+        <div class="container-20 education-page">
+            <div class="content">
+                <div style="text-align: center;">
+                    <img src="{{ url_for('static', filename='greenshoreline-with-boat.jpg') }}" alt="Your Image" style="width: 100px; height: auto;">
                 </div>
-            
-                <div style="display: flex; align-items: center;">
-                    <img src="{{ url_for('static', filename='AQ.png') }}" alt="Tick Icon" style="width: 20px; height: 20px; margin-right: 8px;">
-                    <span>Nitrogen-Free</span>
-                </div>
+                <p class="page-title">Nutrient Pollution</p>
+                
+                <div class="spacer-half"></div>
+            </div>
+        </div>
+
+        <!-- New Code Starts Here -->
+        <div class="container">
+            <!-- Header -->
+           
+            <!-- Tab Navigation -->
+            <div class="tab-navigation">
+                <button class="tab-button active" onclick="openTab('overview')">Overview</button>
+                <button class="tab-button" onclick="openTab('impact')">Impact</button>
+                <button class="tab-button" onclick="openTab('action')">Action</button>
             </div>
 
-        </div>
-    </div>
+            <!-- Tab Content -->
+            <div id="overview" class="tab-content active">
+                <!-- Updated Section with Background Color -->
+                <div class="overview-background">
+                    <div class="nutrient-info">
+                        <p class="centered-text">Nutrient pollution refers to the excessive input of nutrients (primarily nitrogen and phosphorus) into water bodies, leading to an imbalance in aquatic ecosystems. These nutrients are essential elements for plant growth, but when their concentrations exceed the ecosystem's carrying capacity, they trigger a series of environmental issues.</p>
+                        <div class="nutrient-details">
+                            <div class="nutrient-item">
+                                <p class="nutrient-title">Nitrogen (N)</p>
+                                <p class="nutrient-description">Forms: Mainly exists as nitrates and ammonium salts<br>
+                                Sources: Fertilizers, sewage, atmospheric deposition<br>
+                                Effects: Promotes excessive growth of algae and aquatic plants</p>
+                            </div>
+                            <div class="nutrient-item">
+                                <p class="nutrient-title">Phosphorus (P)</p>
+                                <p class="nutrient-description">Forms: Mainly exists as phosphates<br>
+                                Sources: Detergents, fertilizers, eroded soil<br>
+                                Effects: Often the key limiting factor for algal growth in freshwater systems</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <button class="explore-button">Explore Water Quality in Your Area</button>
 
-    <div class="two-column container-20">
-        <div class="two-column-first" style=" background-color: lightblue; padding: 10px; border-radius: 5%;">
-            <div class="text-section-question">Buy products which DO NOT contain phosphorus</div>
-            <div class="text-section-content">Look for these words: <span style="font-weight: bold;">Zeolite, Alternative Builders, phosphorus- or phosphate-free</span></div>
-        </div>
-        <div class="two-column-second" style=" background-color: lightblue; padding: 10px; border-radius: 5%;">
-            <div class="text-section-question">AVOID products which contain phosphorus</div>
-            <div class="text-section-content">Look for these words: <span style="font-weight: bold;">STPP (sodium tri-polyphosphates), polyphosphates, phosphate builders</span></div>
-        </div>
-    </div>
+                    <!-- Video Section with Thumbnails and Subtitles -->
+                    <div class="video-section">
+                        <!-- Video Thumbnail 1 -->
+                        <div class="video-thumbnail-container">
+                            <a href="https://www.youtube.com/watch?v=vCicSNnKUvM" target="_blank">
+                                <img id="video-thumbnail1" src="your-thumbnail-image1.png" alt="" class="video-thumbnail">
+                            </a>
+                            <button id="play-button1" class="play-button">&#9658;</button>
+                        </div>
+                        <div id="video-container1" class="video-container" style="display: none;">
+                            <video id="video-player1" controls width="640">
+                                <source id="video-source1" src="your-video-url1.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <p class="video-subtitle">Nutrient Pollution</p>
+                            <button id="close-video1" class="close-button">Close</button>
+                        </div>
+                    
+                        <!-- Video Thumbnail 2 -->
+                        <div class="video-thumbnail-container">
+                            <a href="https://www.youtube.com/watch?v=TqPzdFXEGiE" target="_blank">
+                                <img id="video-thumbnail2" src="your-thumbnail-image2.png" alt="" class="video-thumbnail">
+                            </a>
+                            <button id="play-button2" class="play-button">&#9658;</button>
+                        </div>
+                        <div id="video-container2" class="video-container" style="display: none;">
+                            <video id="video-player2" controls width="640">
+                                <source id="video-source2" src="your-video-url2.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <p class="video-subtitle">Cody Simpson on Nutrient Pollution</p>
+                            <button id="close-video2" class="close-button">Close</button>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
 
-    <div class="container-20 education-page">
-        <div class="content text-section ">
-            <p class="text-section-question">Recommended Products</p>
-            <p class="text-section-content" style="margin: auto;"> Below are our top picks for eco-friendly cleaning products that ensure your daily cleaning routine doesn’t add extra burden to the environment.</p>
-        </div>
-    </div>
+            <div id="impact" class="tab-content">
+                <p>Impact content goes here...</p>
+            </div>
 
-    <div class="product-recommendation">
-        <div class="product-item">
-            <img src="{{ url_for('static', filename='MG1.png') }}" alt="">
-            <h3 class="product-title">Phosphate-Free Detergent</h3>
-            <p><strong>Earth Choice Dishwashing Liquid</strong></p>
-            <p>Ingredients: Water, Purified, Sodium Laureth Sulfate, Sodium Chloride, Coco-Glucoside, Cocamidopropyl Betaine, Cocamide Oxide, Fragrance, Benzisothiazolinone, Caramel.</p>
-        </div>
+            <div id="action" class="tab-content">
+                <p>Action content goes here...</p>
+            </div>
 
-        <div class="product-item">
-            <img src="{{ url_for('static', filename='MG3.png') }}" alt="">
-            <h3 class="product-title">Nitrogen-Free cleaner</h3>
-            <p><strong>EnviroClean Plant Based Mould Remover & Tile Cleaner</strong></p>
-            <p>Ingredients: Purified Water, Plant Based Surfactants, Dicarboxylic Acid, Glycolic Acid, Cinnamon Bark Oil, Lemon Myrtle Oil, Australian Eucalyptus Oil.</p>
-        </div>
+            <!-- External Links -->
+            <div class="external-links">
+                <a href="https://www.youtube.com/watch?v=vCicSNnKUvM" target="_blank">Watch Video 1</a>
+                <a href="https://www.youtube.com/watch?v=TqPzdFXEGiE" target="_blank">Watch Video 2</a>
+            </div>
+
+            <!-- Video Element (initially hidden) -->
+            <div id="video-container" class="video-container" style="display: none;">
+                <video id="video-player" controls width="640">
+                    <source id="video-source" src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <button id="close-video">Close</button>
+            </div>
+
+        </div> <!-- End of the specific container -->
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
 {% endblock %}
-
-<!-- ASLDKASDAD -->
