@@ -5,6 +5,7 @@
     box-sizing: border-box;
 }
 
+
 /* Header Styling */
 header {
     background-color: #fff;
@@ -51,6 +52,25 @@ header {
     text-decoration: underline;
 }
 
+
+/* Footer Styling */
+footer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
+}
+footer a:hover{
+    color: #f0f0f0;
+    text-decoration: underline;
+}
+
+
 /* Main Content Styling */
 main {
     padding: 2em;
@@ -61,6 +81,7 @@ main {
     border-radius: 8px;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 
 /* Reusable spacer, for separating sections of a page. */
 .spacer{
@@ -75,6 +96,8 @@ main {
     height: 2.5vh;
 }
 
+
+/* A box of 1 screen tall, minus the navbar and footer */
 .container {
     height: 80vh;
 }
@@ -91,6 +114,24 @@ main {
     height: 20vh;
 }
 
+
+/* Need to set display grid to use grid-template-columns */
+.content {
+    display: grid;
+}
+
+
+/* Styling for 2 part design, like */
+/* _______________________________ */
+/* |    |        | |        |    | */
+/* |    |    .two-column    |    | */
+/* |    |        | |        |    | */
+/* |____|________|_|________|____| */
+/*           A          A          */
+/*           |          |          */
+/*  .two-column-first   |          */
+/*              .two-column-second */
+
 .two-column {
     display: grid;
     grid-template-columns: 2fr 4fr .5fr 4fr 2fr;
@@ -104,26 +145,58 @@ main {
     grid-column: 4/span 1;
 }
 
-.content {
-    display: grid;
-}
 
 /* Reusable image background, used in homepage now */
 .image-background {
-    background-size: cover; /* Ensures the image covers the entire div */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 100%;
-    height: 80vh; /* Set the height according to your needs */
-    padding: 20px 50px 20px 50px; /* Optional: Add padding for your content */
+    height: 80vh; /* 80vh is roughly one screen tall */
+    padding: 20px 50px 20px 50px;
 }
 
+.home-thumbnail {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    text-align: center;
+}
+
+/* Text styling for big bold white text on the homepage thumbnail */
 .home-thumbnail-text {
     color: white;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     align-items: center;
+    font-weight: bold;
+    font-size: 100%;
+    line-height: 200%;
+    margin-bottom: 20px;
+    grid-row: 2 /span 1;
 }
+
+/* Standard button styling */
+/* For details look at Gina's Style guide */
+button {
+    font-weight: bold;
+    font-size: normal;
+    padding: 15px 30px 15px 30px;
+    border-radius: 5px;
+    border: 0px;
+    color: white;
+}
+.primary-button {
+    background-color: #70c174;
+}
+.secondary-button {
+    background-color: white;
+    color: black;
+}
+.navbar-button {
+    background-color: #0b0706;
+}
+
+
+
+
 
 .home-thumbnail-slideshow{
     animation: slideshow 15s infinite;
@@ -133,31 +206,6 @@ main {
     0%  { background-image: url('/static/homepage_algae-shoreline.png'); }
     50% { background-image: url('/static/homepage_hand-full-of-moss.png'); }
     100%  { background-image: url('/static/homepage_algae-shoreline.png'); }
-}
-
-.home-thumbnail-text .text-section {
-    grid-column: 1 / 2;
-}
-
-.home-thumbnail-text .text-section h1 {
-    font-weight: bold;
-    font-size: 300%;
-    line-height: 130%;
-    -webkit-text-stroke: 1px grey;
-    margin-bottom: 20px;
-}
-
-.home-thumbnail-text .text-section p {
-    width: 50%;
-    margin-bottom: 20px;
-}
-
-.home-navigation-button {
-    font-weight: bold;
-    font-size: normal;
-    padding: 10px 40px 10px 40px;
-    border-radius: 10px;
-    background-color: lightgreen;
 }
 
 .twotext-to-oneimage {
@@ -293,7 +341,7 @@ footer {
 body, h1, h2, h3, p {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto';
 }
 
 /* .container {
