@@ -9,12 +9,13 @@
 
     <!-- Homepage Thumbnail -->
     <div class="container">
-        <div class="content home-thumbnail-text image-background home-thumbnail-slideshow">
-            <div class="text-section">
-                <h1>Protect Our Water Resources by Reducing Nutrient Pollution</h1>
-                <p>Learn how using household cleaning products can impact Melbourne's water quality and take action to safeguard Melbourne's clean water.</p>
-            <button onclick="window.location.href='{{ url_for('waterqualitymap') }}'">Explore Local Water Quality</button>
-
+        <div class="content image-background home-thumbnail home-thumbnail-slideshow">
+            <div class="home-thumbnail-text">
+                <h1>Is your water source still clear?<br>Nutrient Pollution is threatening our ecosystems</h1>
+                <div class="spacer"></div>
+                <button class="secondary-button"
+                        style="font-size: 110%;"
+                        onclick="window.location.href='{{ url_for('waterqualitymap') }}'">Explore Local Water Quality</button>
             </div>
         </div>
     </div>
@@ -29,7 +30,7 @@
                 <h2 class="text-section-question">What is Nutrient Pollution?</h2>
                 <p class="text-section-content">Nutrient pollution occurs when an excess of nutrients, primarily nitrogen and phosphorus, enter water bodies.</p>
                 <p class="text-section-content">These nutrients, often from sources like argricultural runoff, sewage and industrial waste, act as fertilizers in the water, leading to the overgrowth of algae. This excessive algae growth can harm water quality, disrupt aquatic ecosystems, and create dead zones where life cannot survive.</p>
-                <button onclick="window.location.href='{{ url_for('learnmore') }}'">Learn More</button>
+                <button class="primary-button" onclick="window.location.href='{{ url_for('learnmore') }}'">Learn More</button>
             </div>
             <div class="image-section">
                 <img src="../static/dead_fish.jpg" />

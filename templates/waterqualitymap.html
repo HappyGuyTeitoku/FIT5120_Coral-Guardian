@@ -1,9 +1,17 @@
 <!-- templates/testpage.html -->
 {% extends "base.html" %}
 
-{% block title %}Test Page - Melbourne WaterGuard{% endblock %}
+{% block title %}Water Quality Map - Melbourne WaterGuard{% endblock %}
 
 {% block content %}
-    <p>This is a test page! We do not really care about coral reefs.</p>
-    <p>This is a page that does not use anything from database.db, for debugging</p>
+    <div class="spacer"></div>
+    <h1 class="page-title">Explore Water Quality in Your Area</h1>
+    <div class="spacer-half"></div>
+    <p class="page-title-subtext">Curious about water quality near you? Click on any location on the map to view detailed
+        water composition information and explore the historical data for that area. Let's work together to monitor
+        environmental health and protect our water resources.</p>
+    <div class="spacer"></div>
+    <div class="water-quality-map-container">
+        <iframe class="water-quality-map" src="https://netnet120.shinyapps.io/MelbourneWaterQualityMap/"></iframe>
+    </div>
 {% endblock %}
