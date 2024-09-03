@@ -67,3 +67,23 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+
+
+
+
+
+
+   // -----------------------------------------------Add or remove a class based on scroll position
+window.addEventListener('scroll', function() {
+    let navbar = document.querySelector('nav');
+    // Add or remove a class based on scroll position
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+
+   // -----------------------------------------------enddemo 
