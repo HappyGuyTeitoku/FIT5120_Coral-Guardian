@@ -31,6 +31,8 @@ def password():
 # If not, bring user to login page
 @application.before_request
 def require_password():
+    if request.endpoint == 'static' or request.path == '/favicon.ico':
+        return  # Allow requests for static files and favicon
     if not session.get('authenticated'):
         if request.endpoint != 'password' and request.endpoint != 'static':
             session['next'] = request.url  # Store the URL the user was trying to access
