@@ -20,9 +20,15 @@ function openTab(tabName) {
 
 // Initialize the first tab to be displayed
 document.addEventListener("DOMContentLoaded", function() {
+    // 显示第一个标签内容
     document.getElementById("overview").style.display = "block";
-});
 
+    // 获取第一个标签按钮并添加 'active' 类
+    var firstTabButton = document.querySelector('.tab-button');
+    if (firstTabButton) {
+        firstTabButton.classList.add('active');
+    }
+});
 
 
 // JavaScript to handle video playback and closing

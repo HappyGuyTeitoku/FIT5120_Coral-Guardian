@@ -6,13 +6,17 @@
 {% block content %}
     <div class="spacer"></div>
     
+    <div class="image-banner">
+        <img src="{{ url_for('static', filename='greenshoreline-with-boat.jpg') }}" alt="Your Image">
+    </div>
+
     <div class="specific-container"> <!-- Start of the specific container -->
 
         <div class="container-20 education-page">
             <div class="content">
-                <div style="text-align: center;">
+                <!-- <div style="text-align: center;">
                     <img src="{{ url_for('static', filename='greenshoreline-with-boat.jpg') }}" alt="Your Image" style="width: 100px; height: auto;">
-                </div>
+                </div> -->
                 <p class="page-title">Nutrient Pollution</p>
                 
                 <div class="spacer-half"></div>
@@ -96,7 +100,7 @@
 
 <!--  -----------------------------------------action------------------------------------- -->
 
-<div id="action" class="tab-content active">
+<div id="action" class="tab-content active" style="display: none;">
     <section class="action-section">
         <div class="action-item">
             <div class="action-text">
