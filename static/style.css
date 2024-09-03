@@ -17,6 +17,8 @@ header {
     position: fixed;
     width: 100%;
     z-index: 10000;
+
+    font-family: 'Roboto';
 }
 
 .nav-container {
@@ -59,6 +61,7 @@ footer{
     justify-content: space-evenly;
     align-items: center;
     color: white;
+    font-family: 'Roboto';
 }
 
 footer a{
@@ -79,7 +82,7 @@ main {
     padding: 0;
     max-width: 100%;
     border-radius: 8px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto';
 }
 
 
