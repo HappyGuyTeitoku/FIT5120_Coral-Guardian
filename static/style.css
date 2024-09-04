@@ -103,6 +103,8 @@ main {
 /* A box of 1 screen tall, minus the navbar and footer */
 .container {
     height: 80vh;
+    
+    
 }
 
 .container-60 {
@@ -416,7 +418,9 @@ footer {
 }
 
 .video-thumbnail-container {
+
     margin-bottom: 20px;
+    
 }
 
 .video-thumbnail {
@@ -434,6 +438,7 @@ footer {
 
 .specific-container body {
     font-family: Arial, sans-serif;
+    overflow-y: auto;
     background-color: #f7f7f7;
     color: #333;
     margin: 0;
@@ -443,6 +448,7 @@ footer {
 .specific-container .container {
     max-width: 800px;
     margin: 0 auto;
+    height: auto;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
