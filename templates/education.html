@@ -4,210 +4,214 @@
 {% block title %}Choose the right product - Melbourne WaterGuard{% endblock %}
 
 {% block content %}
-    <div class="spacer"></div>
-    
-    <div class="image-banner">
-        <img src="{{ url_for('static', filename='greenshoreline-with-boat.jpg') }}" alt="Your Image">
-    </div>
+<div class="spacer"></div>
 
-    <div class="specific-container"> <!-- Start of the specific container -->
+<div class="image-banner">
+    <img src="{{ url_for('static', filename='greenshoreline-with-boat.jpg') }}" alt="Your Image">
+</div>
 
-        <div class="container-20 education-page">
-            <div class="content">
-                <!-- <div style="text-align: center;">
+<div class="specific-container"> <!-- Start of the specific container -->
+
+    <div class="container-20 education-page">
+        <div class="content">
+            <!-- <div style="text-align: center;">
                     <img src="{{ url_for('static', filename='greenshoreline-with-boat.jpg') }}" alt="Your Image" style="width: 100px; height: auto;">
                 </div> -->
-                <p class="page-title">Nutrient Pollution</p>
-                
-                <div class="spacer-half"></div>
+            <p class="page-title">Nutrient Pollution</p>
+
+            <div class="spacer-half"></div>
+        </div>
+    </div>
+
+    <!-- New Code Starts Here -->
+    <div class="container">
+        <!-- Header -->
+
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-button active" onclick="openTab('overview')">Overview</button>
+            <button class="tab-button" onclick="openTab('impact')">Impact</button>
+            <button class="tab-button" onclick="openTab('action')">Action</button>
+        </div>
+
+        <!-- Tab Content -->
+        <div id="overview" class="tab-content active">
+            <!-- Overview Content -->
+            <div class="overview-background">
+                <div class="nutrient-info">
+                    <p class="centered-text">Nutrient pollution refers to the excessive input of nutrients (primarily
+                        nitrogen and phosphorus) into water bodies, leading to an imbalance in aquatic ecosystems. These
+                        nutrients are essential elements for plant growth, but when their concentrations exceed the
+                        ecosystem's carrying capacity, they trigger a series of environmental issues.</p>
+                    <div class="nutrient-details">
+                        <div class="nutrient-item">
+                            <p class="nutrient-title">Nitrogen (N)</p>
+                            <p class="nutrient-description">Forms: Mainly exists as nitrates and ammonium salts<br>
+                                Sources: Fertilizers, sewage, atmospheric deposition<br>
+                                Effects: Promotes excessive growth of algae and aquatic plants</p>
+                        </div>
+                        <div class="nutrient-item">
+                            <p class="nutrient-title">Phosphorus (P)</p>
+                            <p class="nutrient-description">Forms: Mainly exists as phosphates<br>
+                                Sources: Detergents, fertilizers, eroded soil<br>
+                                Effects: Often the key limiting factor for algal growth in freshwater systems</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="explore-button">Explore Water Quality in Your Area</button>
             </div>
         </div>
 
-        <!-- New Code Starts Here -->
-        <div class="container">
-            <!-- Header -->
-           
-            <!-- Tab Navigation -->
-            <div class="tab-navigation">
-                <button class="tab-button active" onclick="openTab('overview')">Overview</button>
-                <button class="tab-button" onclick="openTab('impact')">Impact</button>
-                <button class="tab-button" onclick="openTab('action')">Action</button>
-            </div>
 
-            <!-- Tab Content -->
-            <div id="overview" class="tab-content active">
-                <!-- Overview Content -->
-                <div class="overview-background">
-                    <div class="nutrient-info">
-                        <p class="centered-text">Nutrient pollution refers to the excessive input of nutrients (primarily nitrogen and phosphorus) into water bodies, leading to an imbalance in aquatic ecosystems. These nutrients are essential elements for plant growth, but when their concentrations exceed the ecosystem's carrying capacity, they trigger a series of environmental issues.</p>
-                        <div class="nutrient-details">
-                            <div class="nutrient-item">
-                                <p class="nutrient-title">Nitrogen (N)</p>
-                                <p class="nutrient-description">Forms: Mainly exists as nitrates and ammonium salts<br>
-                                Sources: Fertilizers, sewage, atmospheric deposition<br>
-                                Effects: Promotes excessive growth of algae and aquatic plants</p>
-                            </div>
-                            <div class="nutrient-item">
-                                <p class="nutrient-title">Phosphorus (P)</p>
-                                <p class="nutrient-description">Forms: Mainly exists as phosphates<br>
-                                Sources: Detergents, fertilizers, eroded soil<br>
-                                Effects: Often the key limiting factor for algal growth in freshwater systems</p>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="explore-button">Explore Water Quality in Your Area</button>
+
+
+        <!--  -----------------------------------------impact------------------------------------- -->
+        <div id="impact" class="tab-content">
+            <!-- Impact Content -->
+            <div class="impact-section">
+                <!-- Image with Title -->
+                <div class="impact-image">
+                    <img src="{{ url_for('static', filename='dead_fish.jpg') }}" alt="Dead Fish"
+                        style="width: 100%; height: auto;">
+                </div>
+                <div class="impact-text">
+                    <h2>Protecting Aquatic Ecosystems</h2>
+                    <p>
+                        Nutrient pollution leads to eutrophication, causing excessive algae growth that blocks sunlight,
+                        harming aquatic plants.
+                    </p>
+                    <p>
+                        <strong>Oxygen Depletion:</strong> Decomposing algae consumes oxygen, creating dead zones where
+                        fish and other organisms cannot survive.
+                    </p>
+                    <p>
+                        <strong>Biodiversity Loss:</strong> Continuous pollution reduces species diversity, weakening
+                        the ecosystem's stability.
+                    </p>
+                    <button class="impact-button">Find the number and species of fish in your area</button>
                 </div>
             </div>
 
+            <!-- Video Section -->
+            <div class="video-section">
+                <div class="video-thumbnail">
+                    <a href="https://www.youtube.com/watch?v=jFlG6jrzPy4" target="_blank">
+                        <img src="{{ url_for('static', filename='nutrient_pollution_thumbnail.png') }}"
+                            alt="Nutrient Pollution Video" style="width: 100%; height: auto;">
+                    </a>
+                    <p class="video-description">Nutrient Pollution Impact and Human Health Science Video</p>
+                </div>
+            </div>
+        </div>
 
+        <!--  -----------------------------------------impact----------end--------------------------- -->
 
+        <!--  -----------------------------------------action------------------------------------- -->
 
-<!--  -----------------------------------------impact------------------------------------- -->
-                    <div id="impact" class="tab-content">
-                        <!-- Impact Content -->
-                        <div class="impact-section">
-                            <!-- Image with Title -->
-                            <div class="impact-image">
-                                <img src="{{ url_for('static', filename='dead_fish.jpg') }}" alt="Dead Fish" style="width: 100%; height: auto;">
-                            </div>
-                            <div class="impact-text">
-                                <h2>Protecting Aquatic Ecosystems</h2>
-                                <p>
-                                    Nutrient pollution leads to eutrophication, causing excessive algae growth that blocks sunlight, harming aquatic plants.
-                                </p>
-                                <p>
-                                    <strong>Oxygen Depletion:</strong> Decomposing algae consumes oxygen, creating dead zones where fish and other organisms cannot survive.
-                                </p>
-                                <p>
-                                    <strong>Biodiversity Loss:</strong> Continuous pollution reduces species diversity, weakening the ecosystem's stability.
-                                </p>
-                                <button class="impact-button">Find the number and species of fish in your area</button>
-                            </div>
-                        </div>
-                        
-                        <!-- Video Section -->
-                        <div class="video-section">
-                            <div class="video-thumbnail">
-                                <a href="https://www.youtube.com/watch?v=jFlG6jrzPy4" target="_blank">
-                                    <img src="{{ url_for('static', filename='nutrient_pollution_thumbnail.png') }}" alt="Nutrient Pollution Video" style="width: 100%; height: auto;">
-                                </a>
-                                <p class="video-description">Nutrient Pollution Impact and Human Health Science Video</p>
-                            </div>
-                        </div>
+        <div id="action" class="tab-content active" style="display: none;">
+            <section class="action-section">
+                <div class="action-item">
+                    <div class="action-text">
+                        <h2>Choose Eco-Friendly Cleaning Products</h2>
+                        <p>Did you know your daily cleaning agents might contain harmful phosphates? These chemicals can
+                            pollute our water. Choose phosphate-free, biodegradable products to help protect our rivers
+                            and lakes. Make the switch today to eco-friendly cleaning and keep your home safe.</p>
+                        <button class="action-button">Explore Eco-Friendly Cleaning Products</button>
                     </div>
+                    <div class="action-image">
+                        <img src="path_to_your_image/eco_friendly_products.jpg" alt="Eco-Friendly Cleaning Products">
+                    </div>
+                </div>
 
-<!--  -----------------------------------------impact----------end--------------------------- -->
+                <div class="action-item reverse">
+                    <div class="action-text">
+                        <h2>Do You Know What You’re Using? Understand Your Cleaning Agents</h2>
+                        <p>What harmful ingredients are in your daily cleaning agents? Phosphates, surfactants,
+                            bleach—these can harm aquatic ecosystems and your health. Learn about product ingredients to
+                            make eco-friendly choices and reduce your impact. Protect the planet, starting with your
+                            products.</p>
+                        <button class="action-button">Check Cleaning Agent Ingredients</button>
+                    </div>
+                    <div class="action-image">
+                        <img src="path_to_your_image/cleaning_agents.jpg" alt="Cleaning Agents">
+                    </div>
+                </div>
 
-<!--  -----------------------------------------action------------------------------------- -->
+                <div class="action-item">
+                    <div class="action-text">
+                        <h2>Dispose of Cleaning Products Properly to Avoid Secondary Pollution</h2>
+                        <p>How should you dispose of leftover cleaning products? Improper disposal can cause serious
+                            environmental pollution and threaten drinking water. Learn proper disposal methods, choose
+                            recycling, and help protect clean water for future generations.</p>
+                        <button class="action-button">Learn Disposal Methods</button>
+                    </div>
+                    <div class="action-image">
+                        <img src="path_to_your_image/proper_disposal.jpg" alt="Proper Disposal">
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!--  -----------------------------------------action end ------------------------------------- -->
 
-<div id="action" class="tab-content active" style="display: none;">
-    <section class="action-section">
-        <div class="action-item">
-            <div class="action-text">
-                <h2>Choose Eco-Friendly Cleaning Products</h2>
-                <p>Did you know your daily cleaning agents might contain harmful phosphates? These chemicals can pollute our water. Choose phosphate-free, biodegradable products to help protect our rivers and lakes. Make the switch today to eco-friendly cleaning and keep your home safe.</p>
-                <button class="action-button">Explore Eco-Friendly Cleaning Products</button>
+        <!-- Video Section with Thumbnails and Subtitles -->
+        <div class="video-section">
+            <!-- Video Thumbnail 1 -->
+            <div class="video-thumbnail-container">
+                <a href="https://www.youtube.com/watch?v=vCicSNnKUvM" target="_blank">
+                    <img id="video-thumbnail1" src="your-thumbnail-image1.png" alt="" class="video-thumbnail">
+                </a>
+                <button id="play-button1" class="play-button">&#9658;</button>
             </div>
-            <div class="action-image">
-                <img src="path_to_your_image/eco_friendly_products.jpg" alt="Eco-Friendly Cleaning Products">
+            <div id="video-container1" class="video-container" style="display: none;">
+                <video id="video-player1" controls width="640">
+                    <source id="video-source1" src="your-video-url1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-subtitle">Nutrient Pollution</p>
+                <button id="close-video1" class="close-button">Close</button>
+            </div>
+
+            <!-- Video Thumbnail 2 -->
+            <div class="video-thumbnail-container">
+                <a href="https://www.youtube.com/watch?v=TqPzdFXEGiE" target="_blank">
+                    <img id="video-thumbnail2" src="your-thumbnail-image2.png" alt="" class="video-thumbnail">
+                </a>
+                <button id="play-button2" class="play-button">&#9658;</button>
+            </div>
+            <div id="video-container2" class="video-container" style="display: none;">
+                <video id="video-player2" controls width="640">
+                    <source id="video-source2" src="your-video-url2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-subtitle">Cody Simpson on Nutrient Pollution</p>
+                <button id="close-video2" class="close-button">Close</button>
             </div>
         </div>
-        
-        <div class="action-item reverse">
-            <div class="action-text">
-                <h2>Do You Know What You’re Using? Understand Your Cleaning Agents</h2>
-                <p>What harmful ingredients are in your daily cleaning agents? Phosphates, surfactants, bleach—these can harm aquatic ecosystems and your health. Learn about product ingredients to make eco-friendly choices and reduce your impact. Protect the planet, starting with your products.</p>
-                <button class="action-button">Check Cleaning Agent Ingredients</button>
-            </div>
-            <div class="action-image">
-                <img src="path_to_your_image/cleaning_agents.jpg" alt="Cleaning Agents">
-            </div>
-        </div>
+    </div>
 
-        <div class="action-item">
-            <div class="action-text">
-                <h2>Dispose of Cleaning Products Properly to Avoid Secondary Pollution</h2>
-                <p>How should you dispose of leftover cleaning products? Improper disposal can cause serious environmental pollution and threaten drinking water. Learn proper disposal methods, choose recycling, and help protect clean water for future generations.</p>
-                <button class="action-button">Learn Disposal Methods</button>
-            </div>
-            <div class="action-image">
-                <img src="path_to_your_image/proper_disposal.jpg" alt="Proper Disposal">
-            </div>
-        </div>
-    </section>
+</div>
+
+<div id="impact" class="tab-content">
+    <p>Impact content goes here...</p>
+</div>
+
+<div id="action" class="tab-content">
+    <p>Action content goes here...</p>
 </div>
 
 
 
+<!-- Video Element (initially hidden) -->
+<div id="video-container" class="video-container" style="display: none;">
+    <video id="video-player" controls width="640">
+        <source id="video-source" src="" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <button id="close-video">Close</button>
+</div>
 
+</div> <!-- End of the specific container -->
 
-
-
-
-
-
-                
- <!--  -----------------------------------------action end ------------------------------------- -->                   
-
-                    <!-- Video Section with Thumbnails and Subtitles -->
-                    <div class="video-section">
-                        <!-- Video Thumbnail 1 -->
-                        <div class="video-thumbnail-container">
-                            <a href="https://www.youtube.com/watch?v=vCicSNnKUvM" target="_blank">
-                                <img id="video-thumbnail1" src="your-thumbnail-image1.png" alt="" class="video-thumbnail">
-                            </a>
-                            <button id="play-button1" class="play-button">&#9658;</button>
-                        </div>
-                        <div id="video-container1" class="video-container" style="display: none;">
-                            <video id="video-player1" controls width="640">
-                                <source id="video-source1" src="your-video-url1.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                            <p class="video-subtitle">Nutrient Pollution</p>
-                            <button id="close-video1" class="close-button">Close</button>
-                        </div>
-                    
-                        <!-- Video Thumbnail 2 -->
-                        <div class="video-thumbnail-container">
-                            <a href="https://www.youtube.com/watch?v=TqPzdFXEGiE" target="_blank">
-                                <img id="video-thumbnail2" src="your-thumbnail-image2.png" alt="" class="video-thumbnail">
-                            </a>
-                            <button id="play-button2" class="play-button">&#9658;</button>
-                        </div>
-                        <div id="video-container2" class="video-container" style="display: none;">
-                            <video id="video-player2" controls width="640">
-                                <source id="video-source2" src="your-video-url2.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                            <p class="video-subtitle">Cody Simpson on Nutrient Pollution</p>
-                            <button id="close-video2" class="close-button">Close</button>
-                        </div>
-                    </div>
-                </div>
-            
-            </div>
-
-            <div id="impact" class="tab-content">
-                <p>Impact content goes here...</p>
-            </div>
-
-            <div id="action" class="tab-content">
-                <p>Action content goes here...</p>
-            </div>
-
-           
-
-            <!-- Video Element (initially hidden) -->
-            <div id="video-container" class="video-container" style="display: none;">
-                <video id="video-player" controls width="640">
-                    <source id="video-source" src="" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <button id="close-video">Close</button>
-            </div>
-
-        </div> <!-- End of the specific container -->
-
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 
 {% endblock %}
