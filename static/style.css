@@ -720,16 +720,19 @@ video {
 
 .impact-text {
     text-align: center;
+    font-family: 'Roboto', sans-serif;
     margin-top: 20px;
 }
 
 .impact-text h2 {
     font-size: 24px;
+    font-family: 'Roboto', sans-serif;
     color: #333;
 }
 
 .impact-text p {
     font-size: 16px;
+    font-family: 'Roboto', sans-serif;
     color: #666;
     line-height: 1.5;
 }
@@ -803,16 +806,19 @@ video {
 }
 
 .action-text {
+    font-family: 'Roboto', sans-serif;
     flex: 1;
 }
 
 .action-text h2 {
     font-size: 24px;
+    font-family: 'Roboto', sans-serif;
     margin-bottom: 10px;
 }
 
 .action-text p {
     font-size: 16px;
+    font-family: 'Roboto', sans-serif;
     margin-bottom: 20px;
 }
 
