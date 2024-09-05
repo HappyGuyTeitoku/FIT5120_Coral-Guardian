@@ -33,9 +33,11 @@ def password():
 def require_password():
     if request.endpoint == 'static' or request.path == '/favicon.ico':
         return  # Allow requests for static files and favicon
-    if not session.get('authenticated'):
+    if not session.get('authenticated'): # If the user is not authenticated
         if request.endpoint != 'password' and request.endpoint != 'static':
-            session['next'] = request.url  # Store the URL the user was trying to access
+            # Only store the 'next' URL if it's not '/favicon.ico'
+            if request.path != '/favicon.ico':  # Avoid storing favicon requests
+                session['next'] = request.url  # Store the URL the user was trying to access
             return redirect(url_for('password'))
 
 def get_db():
