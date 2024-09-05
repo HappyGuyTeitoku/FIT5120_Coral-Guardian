@@ -1,31 +1,265 @@
 <!-- templates/testpage.html -->
 {% extends "base.html" %}
 
-{% block title %}Education - Melbourne WaterGuard{% endblock %}
+{% block title %}Choose the right product - Melbourne WaterGuard{% endblock %}
 
 {% block content %}
-    <div class="spacer"></div>
-    
-    <div class="container education-page">
+<div class="spacer"></div>
+
+<div class="image-banner">
+    <img src="{{ url_for('static', filename='greenshoreline-with-boat.jpg') }}" alt="Your Image">
+</div>
+
+<div class="specific-container"> <!-- Start of the specific container -->
+
+    <div class="container-20 education-page">
         <div class="content">
-            <p class="page-title">Why Preventing Nutrient Pollution is Crucial?</p>
-            <p class="page-title-subtext">Protecting Water Quality and Ecosystems for a Sustainable Future</p>
+            <!-- <div style="text-align: center;">
+                    <img src="{{ url_for('static', filename='greenshoreline-with-boat.jpg') }}" alt="Your Image" style="width: 100px; height: auto;">
+                </div> -->
+            <p class="page-title">Nutrient Pollution</p>
+
+            <div class="spacer-half"></div>
         </div>
     </div>
 
-    <div class="spacer"></div>
+    <!-- New Code Starts Here -->
+    <div class="container">
+        <!-- Header -->
 
-    <div class="education-page">
-        <!-- insert image banner -->
-    </div>
-
-    <div class="spacer"></div>
-
-    <div class="container education-page">
-        <div class="content text-section ">
-            <p class="text-section-question">Protecting Our Water Resources</p>
-            <p class="text-section-content"> Nutrient Pollution refers to the process.......</p>
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-button active" onclick="openTab('overview')">Overview</button>
+            <button class="tab-button" onclick="openTab('impact')">Impact</button>
+            <button class="tab-button" onclick="openTab('action')">Action</button>
         </div>
+
+        <!-- Tab Content -->
+        <div id="overview" class="tab-content active">
+            <!-- Overview Content -->
+            <div class="overview-background">
+                <div class="nutrient-info">
+                    <p class="centered-text">Nutrient pollution refers to the excessive input of nutrients (primarily
+                        nitrogen and phosphorus) into water bodies, leading to an imbalance in aquatic ecosystems. These
+                        nutrients are essential elements for plant growth, but when their concentrations exceed the
+                        ecosystem's carrying capacity, they trigger a series of environmental issues.</p>
+                    <div class="nutrient-details">
+                        <div class="nutrient-item">
+                            <p class="nutrient-title">Nitrogen (N)</p>
+                            <p class="nutrient-description">Forms: Mainly exists as nitrates and ammonium salts<br>
+                                Sources: Fertilizers, sewage, atmospheric deposition<br>
+                                Effects: Promotes excessive growth of algae and aquatic plants</p>
+                        </div>
+                        <div class="nutrient-item">
+                            <p class="nutrient-title">Phosphorus (P)</p>
+                            <p class="nutrient-description">Forms: Mainly exists as phosphates<br>
+                                Sources: Detergents, fertilizers, eroded soil<br>
+                                Effects: Often the key limiting factor for algal growth in freshwater systems</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="explore-button" onclick="window.location.href='{{ url_for('waterqualitymap') }}'">Explore
+                    Water Quality in Your Area</button>
+
+                <!-- Video Section with Thumbnails and Subtitles -->
+                <div class="video-section" style="display: block;">
+                    <div style="display: block;">
+                        <div id="video-container1" style="display: none;">
+                            <div id="player1"></div>
+                        </div>
+    
+                        <div id="video-container2" style="display: none;">
+                            <div id="player2"></div>
+                        </div>
+                    </div>
+                    <div style="display: block;">
+                        <button class="primary-button" id="playButton1">Play Video 1</button>
+
+                        <button class="primary-button" id="playButton2">Play Video 2</button>
+                    </div>
+
+                    
+                    <script>
+                        // Code that uses Youtube iframe API
+                        var players = [];
+
+                        // Initialize YouTube players
+                        function onYouTubeIframeAPIReady() {
+                            // Create player 1
+                            var player1 = new YT.Player('player1', {
+                                height: '360',
+                                width: '640',
+                                videoId: 'vCicSNnKUvM', // Replace with the first video ID
+                                events: {
+                                    'onReady': onPlayerReady
+                                }
+                            });
+
+                            // Create player 2
+                            var player2 = new YT.Player('player2', {
+                                height: '360',
+                                width: '640',
+                                videoId: 'TqPzdFXEGiE', // Replace with the second video ID
+                                events: {
+                                    'onReady': onPlayerReady
+                                }
+                            });
+
+                            players.push(player1, player2); // Store both players in the array
+                        }
+
+                        // This function will stop all videos except the one that's clicked to play
+                        function stopOtherVideos(currentPlayer) {
+                            players.forEach(function (player) {
+                                if (player !== currentPlayer) {
+                                    player.stopVideo(); // Stop all other players
+                                }
+                            });
+                        }
+
+                        // When players are ready, attach event listeners to play buttons
+                        function onPlayerReady(event) {
+                            var player = event.target;
+
+                            // Play Video 1 when "Play video 1" is clicked
+                            document.getElementById('playButton1').addEventListener('click', function () {
+                                document.getElementById('video-container1').style.display = 'block'; // Show video 1
+                                document.getElementById('video-container2').style.display = 'none'; // Hide video 2
+                                stopOtherVideos(players[0]); // Stop other videos
+                                players[0].playVideo(); // Play this video
+                            });
+
+                            // Play Video 2
+                            document.getElementById('playButton2').addEventListener('click', function () {
+                                document.getElementById('video-container1').style.display = 'none'; // Hide video 1
+                                document.getElementById('video-container2').style.display = 'block'; // Show video 2
+                                stopOtherVideos(players[1]); // Stop other videos
+                                players[1].playVideo(); // Play this video
+                            });
+                        }
+
+                    </script>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!--  -----------------------------------------impact------------------------------------- -->
+        <div id="impact" class="tab-content">
+            <!-- Impact Content -->
+            <div class="impact-section">
+                <!-- Image with Title -->
+                <div class="impact-image">
+                    <img src="{{ url_for('static', filename='dead_fish.jpg') }}" alt="Dead Fish"
+                        style="width: 100%; height: auto;">
+                </div>
+                <div class="impact-text">
+                    <h2>Protecting Aquatic Ecosystems</h2>
+                    <p>
+                        Nutrient pollution leads to eutrophication, causing excessive algae growth that blocks sunlight,
+                        harming aquatic plants.
+                    </p>
+                    <p>
+                        <strong>Oxygen Depletion:</strong> Decomposing algae consumes oxygen, creating dead zones where
+                        fish and other organisms cannot survive.
+                    </p>
+                    <p>
+                        <strong>Biodiversity Loss:</strong> Continuous pollution reduces species diversity, weakening
+                        the ecosystem's stability.
+                    </p>
+                    <button class="impact-button">Find the number and species of fish in your area</button>
+                </div>
+            </div>
+
+            <!-- Video Section -->
+            <div class="video-section">
+                <div class="video-thumbnail">
+                    <a href="https://www.youtube.com/watch?v=jFlG6jrzPy4" target="_blank">
+                        <img src="{{ url_for('static', filename='nutrient_pollution_thumbnail.png') }}"
+                            alt="Nutrient Pollution Video" style="width: 100%; height: auto;">
+                    </a>
+                    <p class="video-description">Nutrient Pollution Impact and Human Health Science Video</p>
+                </div>
+            </div>
+        </div>
+
+        <!--  -----------------------------------------impact----------end--------------------------- -->
+
+        <!--  -----------------------------------------action------------------------------------- -->
+
+        <div id="action" class="tab-content active" style="display: none;">
+            <section class="action-section">
+                <div class="action-item">
+                    <div class="action-text">
+                        <h2>Choose Eco-Friendly Cleaning Products</h2>
+                        <p>Did you know your daily cleaning agents might contain harmful phosphates? These chemicals can
+                            pollute our water. Choose phosphate-free, biodegradable products to help protect our rivers
+                            and lakes. Make the switch today to eco-friendly cleaning and keep your home safe.</p>
+                        <button class="action-button">Explore Eco-Friendly Cleaning Products</button>
+                    </div>
+                    <div class="action-image">
+                        <img src="path_to_your_image/eco_friendly_products.jpg" alt="Eco-Friendly Cleaning Products">
+                    </div>
+                </div>
+
+                <div class="action-item reverse">
+                    <div class="action-text">
+                        <h2>Do You Know What You’re Using? Understand Your Cleaning Agents</h2>
+                        <p>What harmful ingredients are in your daily cleaning agents? Phosphates, surfactants,
+                            bleach—these can harm aquatic ecosystems and your health. Learn about product ingredients to
+                            make eco-friendly choices and reduce your impact. Protect the planet, starting with your
+                            products.</p>
+                        <button class="action-button">Check Cleaning Agent Ingredients</button>
+                    </div>
+                    <div class="action-image">
+                        <img src="path_to_your_image/cleaning_agents.jpg" alt="Cleaning Agents">
+                    </div>
+                </div>
+
+                <div class="action-item">
+                    <div class="action-text">
+                        <h2>Dispose of Cleaning Products Properly to Avoid Secondary Pollution</h2>
+                        <p>How should you dispose of leftover cleaning products? Improper disposal can cause serious
+                            environmental pollution and threaten drinking water. Learn proper disposal methods, choose
+                            recycling, and help protect clean water for future generations.</p>
+                        <button class="action-button">Learn Disposal Methods</button>
+                    </div>
+                    <div class="action-image">
+                        <img src="path_to_your_image/proper_disposal.jpg" alt="Proper Disposal">
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!--  -----------------------------------------action end ------------------------------------- -->
     </div>
+
+</div>
+
+<div id="impact" class="tab-content">
+    <p>Impact content goes here...</p>
+</div>
+
+<div id="action" class="tab-content">
+    <p>Action content goes here...</p>
+</div>
+
+
+
+<!-- Video Element (initially hidden) -->
+<div id="video-container" class="video-container" style="display: none;">
+    <video id="video-player" controls width="640">
+        <source id="video-source" src="" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <button id="close-video">Close</button>
+</div>
+
+</div> <!-- End of the specific container -->
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+<script src="https://www.youtube.com/iframe_api"></script>
 
 {% endblock %}

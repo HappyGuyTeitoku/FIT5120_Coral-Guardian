@@ -69,7 +69,7 @@ def testpagecopy():
 
 @application.route('/learn-more')
 def learnmore():
-    return render_template('education.html')
+    return render_template('education_1.html')
 
 @application.route('/disposal-facilities')
 def disposalfacility():
