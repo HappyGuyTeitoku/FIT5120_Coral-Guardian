@@ -377,7 +377,10 @@ footer {
     display: block;
 }
 
-
+#map {
+    width: auto;
+    height: 40vh;
+}
 
 
 

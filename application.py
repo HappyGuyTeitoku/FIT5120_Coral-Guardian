@@ -71,7 +71,12 @@ def testpagecopy():
 
 @application.route('/learn-more')
 def learnmore():
-    return render_template('education.html')
+    event_schedule_data = []
+    with open('datasets/Detox_Your_Home_event_schedule.csv', 'r') as event_schedule:
+        csv_reader = csv.reader(event_schedule)
+        for row in csv_reader:
+            event_schedule_data.append(row)
+    return render_template('education.html', event_schedule_data = event_schedule_data)
 
 @application.route('/disposal-facilities')
 def disposalfacility():
