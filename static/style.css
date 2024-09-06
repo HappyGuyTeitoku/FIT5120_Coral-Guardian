@@ -398,7 +398,7 @@ footer {
 /* --------------------beijing改變---------------- */
 /* 设置 overview-background 部分的背景色 */
 .overview-background {
-    background-color: #F2F6EF; /* 背景颜色 */
+    /* background-color: #F2F6EF; 背景颜色 */
     padding: 20px; /* 添加内边距 */
     border-radius: 8px; /* 可选：圆角边框 */
     margin-bottom: 20px; /* 可选：与下面的内容分隔开 */
