@@ -4,27 +4,42 @@
 {% block title %}Product Lookup - Melbourne WaterGuard{% endblock %}
 
 {% block content %}
-<div class="spacer"></div>
-<h1 class="page-title">Explore Water Quality in Your Area</h1>
-<div class="spacer-half"></div>
-<p class="page-title-subtext">Curious about water quality near you? Click on any location on the map to view detailed
-    water composition information and explore the historical data for that area. Let's work together to monitor
-    environmental health and protect our water resources.</p>
+
 <div class="spacer"></div>
 
-<!-- What is Nutrient Pollution -->
-<div class="container">
+<!-- Product Lookup and report -->
+<div class="container-40">
     <div class="content twotext-to-oneimage">
         <div class="text-section">
-            <p class="text-section-title">Know about us</p>
-            <h2 class="text-section-question">What is Nutrient Pollution?</h2>
-            <p class="text-section-content">Nutrient pollution occurs when an excess of nutrients, primarily nitrogen and phosphorus, enter water bodies.</p>
-            <p class="text-section-content">These nutrients, often from sources like argricultural runoff, sewage and industrial waste, act as fertilizers in the water, leading to the overgrowth of algae. This excessive algae growth can harm water quality, disrupt aquatic ecosystems, and create dead zones where life cannot survive.</p>
-            <button class="primary-button" onclick="window.location.href='{{ url_for('learnmore') }}'">Learn More</button>
+            <p class="text-section-title">How we do</p>
+            <h2 class="text-section-question">Find out if you are using Nutrient Pollution-Free Cleaning Products</h2>
+            <p class="text-section-content">Get to know cleaning products that you use, by </p>
         </div>
         <div class="image-section">
-            <img src="../static/dead_fish.jpg" />
+            <img src="../static/ProductSearchPage_image.png" />
         </div>
     </div>
 </div>
+
+<div class="spacer"></div>
+
+<div class="page-title-container">
+    <div class="spacer"></div>
+    <h1 class="page-title">Find Eco-friendly Cleaning Products</h1>
+    <div class="spacer-half"></div>
+    <p class="page-title-subtext">Search by Product name or Scan the Barcode.</p>
+    <div class="spacer-half"></div>
+
+    <form action="#" method="get">
+        <div class="search-container">
+            <input type="text" name="productName" placeholder="Search by product name" required>
+            <button class="primary-button" type="submit">Search</button>
+        </div>
+    </form>
+
+    <div class="spacer"></div>
+</div>
+
+<div class="spacer"></div>
+
 {% endblock %}
