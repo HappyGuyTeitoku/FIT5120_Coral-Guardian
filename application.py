@@ -29,6 +29,7 @@ def password():
 
 # Before any GET request is processed, check if user is logged in
 # If not, bring user to login page
+# This login page is also shared with iteration snapshots.
 @application.before_request
 def require_password():
     if request.endpoint == 'static' or request.path == '/favicon.ico':
@@ -56,17 +57,24 @@ def close_connection(exception):
 def index():
     return render_template('homepage.html')
 
-@application.route('/testpage')
-def testpage():
-    conn = get_db()
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM your_table")
-    rows = cursor.fetchall()
-    conn.close()
-    return render_template('testpage.html', rows=rows)
+# OLD CODE FOR TESTING FLASK AND DATABASE CONNECTIONS
+#
+# @application.route('/testpage')
+# def testpage():
+#     conn = get_db()
+#     cursor = conn.cursor()
+#     cursor.execute("SELECT * FROM your_table")
+#     rows = cursor.fetchall()
+#     conn.close()
+#     return render_template('testpage.html', rows=rows)
+#
+# @application.route('/testpage-copy')
+# def testpagecopy():
+#     return render_template('testpage-copy.html')
 
-@application.route('/testpage-copy')
-def testpagecopy():
+# Route as placeholder, changed the name so its easier for programmers to understand
+@application.route('/placeholder')
+def placeholder():
     return render_template('testpage-copy.html')
 
 @application.route('/learn-more')
@@ -90,6 +98,10 @@ def disposalfacility():
 @application.route('/water-quality-map')
 def waterqualitymap():
     return render_template('waterqualitymap.html')
+
+@application.route('/product-search')
+def productsearch():
+    return render_template('product_lookup.html')
 
 @application.cli.command('initdb')
 def init_db_command():
