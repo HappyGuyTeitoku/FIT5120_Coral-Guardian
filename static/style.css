@@ -230,9 +230,10 @@ button {
     position: absolute;
     left: -25%; /* Position it to the left of the text */
     top: 10px;
-    transform: translateY(-50%); /* Center vertically */
+    transform: translateY(-55%); /* Center vertically */
     font-size: 24px; /* Adjust size as needed */
     color: black; /* Color of the hyphen */
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .text-section-title{
