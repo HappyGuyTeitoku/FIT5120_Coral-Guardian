@@ -100,5 +100,31 @@ def init_db_command():
         db.executescript(sql)
     click.echo('Initialized the database.')
 
+
+# ----- ----- ----- ----- ----- ----- ----- ----- 
+# Iteration 1 historic pages Routing and code
+# ----- ----- ----- ----- ----- ----- ----- ----- 
+@application.route('/iteration1/')
+def index_it1():
+    return render_template('iteration1/iteration1_homepage.html')
+
+@application.route('/iteration1/learn-more')
+def learnmore_it1():
+    event_schedule_data = []
+    with open('datasets/Detox_Your_Home_event_schedule.csv', 'r') as event_schedule:
+        csv_reader = csv.reader(event_schedule)
+        for row in csv_reader:
+            event_schedule_data.append(row)
+    return render_template('iteration1/iteration1_education.html', event_schedule_data = event_schedule_data)
+
+@application.route('/iteration1/water-quality-map')
+def waterqualitymap_it1():
+    return render_template('iteration1/iteration1_waterqualitymap.html')
+# ----- ----- ----- ----- ----- ----- ----- ----- 
+# Iteration 1 historic pages Routing and code
+# ----- ----- ----- ----- ----- ----- ----- ----- 
+
+
+
 if __name__ == "__main__":
     application.run(host='0.0.0.0', port=80, debug=True)
