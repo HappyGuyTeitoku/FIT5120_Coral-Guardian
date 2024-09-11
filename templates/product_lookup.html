@@ -32,7 +32,15 @@
 
     <form action="#" method="get">
         <div class="search-container">
+            <!-- Search by product name or brand name? -->
             <input type="text" name="productName" placeholder="Search by product name" required>
+
+            <!-- Barcode Scanner Video Feed -->
+            <label for="barcodeScanner">Or Scan Barcode:</label>
+            <input type="hidden" id="barcode" name="barcode">
+            <video id="videoPreview" width="300" height="200" style="border: 1px solid black;"></video>
+            <p>Detected Barcode: <span id="barcodeResult">None</span></p>
+
             <button class="primary-button" type="submit">Search</button>
         </div>
     </form>
@@ -41,5 +49,40 @@
 </div>
 
 <div class="spacer"></div>
+
+<script src="https://unpkg.com/@zxing/browser"></script>
+
+<script>
+    // Initialize barcode scanner
+    const codeReader = new ZXing.BrowserMultiFormatReader();
+    const videoElement = document.getElementById('videoPreview');
+    const barcodeInput = document.getElementById('barcode');
+    const barcodeResultElement = document.getElementById('barcodeResult');
+
+    // Start the camera and scan barcode
+    codeReader.getVideoInputDevices().then(videoInputDevices => {
+        const firstDeviceId = videoInputDevices[0].deviceId;
+        codeReader.decodeFromVideoDevice(firstDeviceId, videoElement, (result, err) => {
+            if (result) {
+                barcodeInput.value = result.text;  // Set the hidden input field to the scanned barcode
+                barcodeResultElement.textContent = result.text; // Display the barcode on the page
+            }
+            if (err && !(err instanceof ZXing.NotFoundException)) {
+                console.error(err);
+            }
+        });
+    });
+
+    // Optionally handle form submission to check if either product name or barcode was provided
+    document.getElementById('searchForm').addEventListener('submit', function (e) {
+        const productName = document.getElementById('productName').value;
+        const barcode = barcodeInput.value;
+
+        if (!productName && !barcode) {
+            e.preventDefault(); // Prevent submission if both inputs are empty
+            alert('Please either enter a product name or scan a barcode.');
+        }
+    });
+</script>
 
 {% endblock %}
