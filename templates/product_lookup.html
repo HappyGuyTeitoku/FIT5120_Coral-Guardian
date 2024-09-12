@@ -26,22 +26,31 @@
 <div class="page-title-container">
     <div class="spacer"></div>
     <h1 class="page-title">Find Eco-friendly Cleaning Products</h1>
-    <div class="spacer-half"></div>
+    <div class="spacer-quarter"></div>
     <p class="page-title-subtext">Search by Product name or Scan the Barcode.</p>
     <div class="spacer-half"></div>
 
-    <form action="#" method="get">
+    <form action="#" method="GET" id="product-search-form">
         <div class="search-container">
-            <!-- Search by product name or brand name? -->
-            <input type="text" name="productName" placeholder="Search by product name" required>
-
-            <!-- Barcode Scanner Video Feed -->
-            <label for="barcodeScanner">Or Scan Barcode:</label>
+            <!-- Search by keywords -->
+            <input type="text" name="keyword" placeholder="Search by product name or brand...">
+            <button class="primary-button" type="submit" id="product-name-search-button">Search</button>
+        </div>
+        <div class="search-container">
+            <!-- Barcode Scanner -->
+            <p for="barcodeScanner">Or Search by scanning Barcode: </p>
+            <button class="primary-button" id="product-barcode-scan-button" type="button">Scan Barcode</button>
+            <button class="secondary-button" id="product-barcode-stop-button" type="button" style="display: none;">Stop
+                camera</button>
+            <!-- hidden input to store scanned barcode -->
             <input type="hidden" id="barcode" name="barcode">
-            <video id="videoPreview" width="300" height="200" style="border: 1px solid black;"></video>
-            <p>Detected Barcode: <span id="barcodeResult">None</span></p>
-
-            <button class="primary-button" type="submit">Search</button>
+        </div>
+        <div class="container-40">
+            <!-- Code to see scanned barcode -->
+            <p>Detected Barcode: <span id="barcode-result">None</span></p>
+            <!-- Barcode scanning video element -->
+            <video id="video-preview" width="300" height="200" style="border: 1px solid black; visibility: visible;"
+                autoplay></video>
         </div>
     </form>
 
@@ -50,39 +59,131 @@
 
 <div class="spacer"></div>
 
-<script src="https://unpkg.com/@zxing/browser"></script>
+
+
+<!-- ===== ===== ===== ===== ===== ===== Scripts below ===== ===== ===== ===== ===== ===== -->
+
+<!-- Quagga browser library -->
+<script src="https://cdn.jsdelivr.net/npm/@ericblade/quagga2/dist/quagga.min.js"></script>
 
 <script>
-    // Initialize barcode scanner
-    const codeReader = new ZXing.BrowserMultiFormatReader();
-    const videoElement = document.getElementById('videoPreview');
-    const barcodeInput = document.getElementById('barcode');
-    const barcodeResultElement = document.getElementById('barcodeResult');
+    // Barcode Scanning code
+    document.addEventListener('DOMContentLoaded', function () {
+        const scanBarcodeBtn = document.getElementById('product-barcode-scan-button');
+        const stopBarcodeBtn = document.getElementById('product-barcode-stop-button');
+        const barcodeInput = document.getElementById('barcode');
+        const searchForm = document.getElementById('product-search-form');
+        const videoElement = document.getElementById('video-preview');
+        const scanResult = document.getElementById('barcode-result');
 
-    // Start the camera and scan barcode
-    codeReader.getVideoInputDevices().then(videoInputDevices => {
-        const firstDeviceId = videoInputDevices[0].deviceId;
-        codeReader.decodeFromVideoDevice(firstDeviceId, videoElement, (result, err) => {
-            if (result) {
-                barcodeInput.value = result.text;  // Set the hidden input field to the scanned barcode
-                barcodeResultElement.textContent = result.text; // Display the barcode on the page
+        // variable to store if user has clicked "Scan" and camera has not detected a barcode.
+        let isScanning = false;
+
+        // For start-stopping camera
+        let mediaStream = null;
+
+
+        // // Test camera
+        // if (videoElement) {
+        //     // Set up video constraints
+        //     navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+        //         .then(stream => {
+        //             videoElement.srcObject = stream;
+        //         })
+        //         .catch(error => {
+        //             console.error("Error accessing camera: ", error);
+        //         });
+        // } else {
+        //     console.error("Video element not found");
+        // }
+
+        // Function to start the camera
+        function startCamera() {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => {
+                    mediaStream = stream; // Store the media stream
+                    videoElement.srcObject = stream; // Set the video source
+                })
+                .catch(err => {
+                    console.error('Error accessing the camera: ', err);
+                });
+        }
+
+        // Function to stop the camera
+        function stopCamera() {
+            if (mediaStream) {
+                // Stop all tracks of the media stream
+                mediaStream.getTracks().forEach(track => track.stop());
+                videoElement.srcObject = null; // Clear the video source
+                mediaStream = null; // Clear the media stream reference
             }
-            if (err && !(err instanceof ZXing.NotFoundException)) {
-                console.error(err);
+        }
+
+        // On default stop camera
+        stopCamera();
+
+        // Initialize Quagga
+        function initQuagga() {
+            startCamera();
+
+            Quagga.init({
+                inputStream: {
+                    name: "Live",
+                    type: "LiveStream",
+                    target: videoElement,
+                },
+                decoder: {
+                    readers: ["code_128_reader"] // Specify the barcode readers you want to use
+                }
+            }, function (err) {
+                if (err) {
+                    console.error("Quagga initialization error: ", err);
+                    return;
+                }
+                console.log("Quagga initialized successfully.");
+                Quagga.start();
+            });
+
+            Quagga.onDetected(function (data) {
+                console.log("Barcode detected: ", data);
+                barcodeInput.value = data.codeResult.code; // Set the hidden input with barcode value
+                scanResult.textContent = data.codeResult.code; // Display the barcode result
+                stopQuagga(); // Stop scanning after detection
+                stopCamera();
+                isScanning = false; // Update scanning status
+            });
+        }
+
+        // Function to stop camera and Quagga manually
+        function stopQuagga() {
+            Quagga.stop();
+            stopCamera();
+            isScanning = false;
+            scanBarcodeBtn.style.display = "block";
+            stopBarcodeBtn.style.display = "none";
+        }
+
+        // Button onclick to start Quagga, also hides "scan" button and show "stop" button
+        scanBarcodeBtn.addEventListener('click', function () {
+            if (!isScanning) {
+                isScanning = true;
+                scanBarcodeBtn.style.display = "none";
+                stopBarcodeBtn.style.display = "block";
+                initQuagga();
             }
         });
+
+        // Button onclick to stop Quagga, also hides "scan" button and show "stop" button
+        stopBarcodeBtn.addEventListener('click', function () {
+            isScanning = false;
+            stopQuagga();
+        });
+
+
+
     });
 
-    // Optionally handle form submission to check if either product name or barcode was provided
-    document.getElementById('searchForm').addEventListener('submit', function (e) {
-        const productName = document.getElementById('productName').value;
-        const barcode = barcodeInput.value;
 
-        if (!productName && !barcode) {
-            e.preventDefault(); // Prevent submission if both inputs are empty
-            alert('Please either enter a product name or scan a barcode.');
-        }
-    });
 </script>
 
 {% endblock %}

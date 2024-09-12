@@ -99,12 +99,14 @@ main {
     height: 2.5vh;
 }
 
+.spacer-quarter{
+    height: 1.25vh;
+}
+
 
 /* A box of 1 screen tall, minus the navbar and footer */
 .container {
     height: 80vh;
-    
-    
 }
 
 .container-60 {
@@ -187,9 +189,11 @@ button {
     border-radius: 5px;
     border: 0px;
     color: white;
+    cursor: pointer;
 }
 .primary-button {
     background-color: #70c174;
+    
 }
 .secondary-button {
     background-color: white;
@@ -365,6 +369,9 @@ button {
     width: 50%;
     margin: 0 auto;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0;
 }
 
 .search-container input{
