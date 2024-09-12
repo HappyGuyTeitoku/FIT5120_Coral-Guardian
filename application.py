@@ -99,8 +99,18 @@ def disposalfacility():
 def waterqualitymap():
     return render_template('waterqualitymap.html')
 
-@application.route('/product-search')
+@application.route('/product-search', methods=['GET','POST'])
 def productsearch():
+    product_data = []
+    with open('datasets/OpenFoodFacts Contributions_v2_3.csv', mode='r', encoding='utf-8') as product_file:
+        product_reader = csv.reader(product_file, delimiter="\t")
+        for row in product_reader:
+            product_data.append(row)
+
+    if request.method == 'POST':
+        keyword = request.form.get('keyword')  # Get the product name or brand
+        barcode = request.form.get('barcode')  # Get the barcode (if scanned)
+        return render_template('product_lookup.html', keyword=keyword, barcode=barcode, product_data=product_data)
     return render_template('product_lookup.html')
 
 @application.cli.command('initdb')

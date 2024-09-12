@@ -30,7 +30,7 @@
     <p class="page-title-subtext">Search by Product name or Scan the Barcode.</p>
     <div class="spacer-half"></div>
 
-    <form action="#" method="GET" id="product-search-form">
+    <form action="{{ url_for('productsearch') }}" method="POST" id="product-search-form">
         <div class="search-container">
             <!-- Search by keywords -->
             <input type="text" name="keyword" placeholder="Search by product name or brand...">
@@ -45,12 +45,11 @@
             <!-- hidden input to store scanned barcode -->
             <input type="hidden" id="barcode" name="barcode">
         </div>
-        <div class="container-40">
+        <div class="container-40" style="display: none;">
             <!-- Code to see scanned barcode -->
             <p>Detected Barcode: <span id="barcode-result">None</span></p>
             <!-- Barcode scanning video element -->
-            <video id="video-preview" width="300" height="200" style="border: 1px solid black; visibility: visible;"
-                autoplay></video>
+            <video id="video-preview" width="300" height="200" style="border: 1px solid black; visibility: visible;" autoplay></video>
         </div>
     </form>
 
@@ -59,7 +58,16 @@
 
 <div class="spacer"></div>
 
-
+<div class="container">
+    <!-- Display the keyword -->
+    <p>Search keyword: {{ keyword }}</p>
+    <!-- Optionally, display the scanned barcode if it exists -->
+    {% if barcode %}
+    <p>Scanned barcode: {{ barcode }}</p>
+    {% else %}
+    <p>No barcode scanned.</p>
+    {% endif %}
+</div>
 
 <!-- ===== ===== ===== ===== ===== ===== Scripts below ===== ===== ===== ===== ===== ===== -->
 
@@ -75,6 +83,7 @@
         const searchForm = document.getElementById('product-search-form');
         const videoElement = document.getElementById('video-preview');
         const scanResult = document.getElementById('barcode-result');
+        const barcodeStorage = document.getElementById('barcode');
 
         // variable to store if user has clicked "Scan" and camera has not detected a barcode.
         let isScanning = false;
@@ -148,9 +157,11 @@
                 console.log("Barcode detected: ", data);
                 barcodeInput.value = data.codeResult.code; // Set the hidden input with barcode value
                 scanResult.textContent = data.codeResult.code; // Display the barcode result
+                barcodeStorage.value = data.codeResult.code; // Store the barcode result to form value
                 stopQuagga(); // Stop scanning after detection
-                stopCamera();
+                stopCamera(); // Stop camera after detection
                 isScanning = false; // Update scanning status
+                searchForm.submit(); // Submit the form
             });
         }
 
