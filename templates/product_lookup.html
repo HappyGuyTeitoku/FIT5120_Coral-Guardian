@@ -85,24 +85,45 @@
     <script>
         // Search by barcode, uses API v2
         const apiUrl_barcode = "https://world.openfoodfacts.net/api/v2/product/";
-        let searchingBarcode = {% if barcode %}{{ barcode | tojson }}{% else %}null{% endif %};
+        let searchingBarcode = {% if barcode %}{ { barcode | tojson } } {% else %} null{% endif %};
+        // Combine base URL with searching barcode
+        const apiUrl_barcode_full = apiUrl_barcode + encodeURIComponent(searchingBarcode);
+
         // Search by keyword, uses API v1 (search_term)
-        const apiUrl_keyword_bef = "https://world.openfoodfacts.org/cgi/search.pl?search_terms=";
+        const apiUrl_keyword_bef = "https://world.openfoodfacts.net/cgi/search.pl?search_terms=";
         const apiUrl_keyword_aft = "&search_simple=1&action=process&json=1";
-        let searchingKeyword = {% if keyword %}{{ keyword | tojson }}{% else %}null{% endif %};
+        let searchingKeyword = {% if keyword %}{ { keyword | tojson } } {% else %} null{% endif %};
         // Combine apiUrl_keyword into full ApiUrl
         const apiUrl_keyword_full = apiUrl_keyword_bef + encodeURIComponent(searchingKeyword) + apiUrl_keyword_aft;
+        // Custom User-Agent for identification on OFF-side
+        const customUserAgent = 'AquaGuard/1.0 (Monash Uni PGIE TP13 - twon0024@student.monash.edu)';
 
-        // Function to fetch data from the API
-        function fetchData() {
-            if (searchingBarcode && searchingBarcode.trim() !== '') {
-                alert(searchingBarcode)
-            }
-            if (searchingKeyword && searchingKeyword.trim() !== '') {
-                alert(searchingKeyword)
-            }
+        const dataToFlask = {
+            barcode: searchingBarcode,
+            keyword: searchingKeyword,
+            barcode_url: apiUrl_barcode_full,
+            keyword_url: apiUrl_keyword_full,
+            userAgent: customUserAgent,
         }
 
+        // Send
+        function fetchData() {
+            fetch('/product-search', {
+                method: 'POST',
+                headers:{
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(dataToFlask)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:',data);
+                // Handle the response from flask here
+            })
+            .catch((error) => {
+                console.error('Error:',error);
+            })
+        }
 
     </script>
 

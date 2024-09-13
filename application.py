@@ -101,16 +101,26 @@ def waterqualitymap():
 
 @application.route('/product-search', methods=['GET','POST'])
 def productsearch():
-    product_data = []
-    with open('datasets/OpenFoodFacts Contributions_v2_3.csv', mode='r', encoding='utf-8') as product_file:
-        product_reader = csv.reader(product_file, delimiter="\t")
-        for row in product_reader:
-            product_data.append(row)
-
     if request.method == 'POST':
-        keyword = request.form.get('keyword')  # Get the product name or brand
-        barcode = request.form.get('barcode')  # Get the barcode (if scanned)
-        return render_template('product_lookup.html', keyword=keyword, barcode=barcode, product_data=product_data)
+        data_from_client = request.get_json()
+        barcode = data_from_client.get('barcode')  # Get the barcode (if scanned)
+        keyword = data_from_client.get('keyword')  # Get the product name or brand
+        barcode_url = data_from_client.get('barcode_url')
+        keyword_url = data_from_client.get('keyword_url')
+        userAgent = data_from_client.get('userAgent')
+
+        # Flask make the request to OpenFoodFacts on behalf of client
+        if barcode != None:
+            response = request.get(barcode_url,headers={'User-Agent':userAgent})
+        if keyword != None:
+            response = request.get(keyword_url,headers={'User-Agent':userAgent})
+
+        # Get the response data if request was successful
+        if response.status_code == 200:
+            external_data = response.json()  # Assuming the response is in JSON format
+            return jsonify({'message': 'Search successful', 'data': external_data})
+        else:
+            return jsonify({'message': 'Error fetching data from API', 'status_code': response.status_code}), 500
     return render_template('product_lookup.html')
 
 @application.cli.command('initdb')
