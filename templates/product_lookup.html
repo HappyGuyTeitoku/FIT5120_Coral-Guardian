@@ -76,9 +76,6 @@
 
 <!-- START OF RESULTS DISPLAY -->
 <div>
-    <!-- Does not execute API call if barcode or keyword is null -->
-    {% if barcode or keyword %}
-
     <!--
         1. send GET request to 
         https://world.openfoodfacts.net/api/v2/product/{barcode}
@@ -88,25 +85,32 @@
     <script>
         // Search by barcode, uses API v2
         const apiUrl_barcode = "https://world.openfoodfacts.net/api/v2/product/";
-        let searchingBarcode = {{ barcode | tojson }};
+        let searchingBarcode = {% if barcode %}{{ barcode | tojson }}{% else %}null{% endif %};
         // Search by keyword, uses API v1 (search_term)
         const apiUrl_keyword_bef = "https://world.openfoodfacts.org/cgi/search.pl?search_terms=";
         const apiUrl_keyword_aft = "&search_simple=1&action=process&json=1";
-        let searchingKeyword = {{ keyword | tojson }};
+        let searchingKeyword = {% if keyword %}{{ keyword | tojson }}{% else %}null{% endif %};
         // Combine apiUrl_keyword into full ApiUrl
         const apiUrl_keyword_full = apiUrl_keyword_bef + encodeURIComponent(searchingKeyword) + apiUrl_keyword_aft;
 
         // Function to fetch data from the API
         function fetchData() {
-            if ( searchingBarcode && searchingBarcode.trim() !== '' ){
+            if (searchingBarcode && searchingBarcode.trim() !== '') {
                 alert(searchingBarcode)
             }
-            if (searchingKeyword && searchingKeyword.trim() !== ''){
+            if (searchingKeyword && searchingKeyword.trim() !== '') {
                 alert(searchingKeyword)
             }
         }
 
 
+    </script>
+
+
+    <!-- Does not execute API call if barcode or keyword is null -->
+    {% if barcode or keyword %}
+    <script>
+        fetchData();
     </script>
     {% endif %}
 </div>
