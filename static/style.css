@@ -415,6 +415,19 @@ footer {
     height: 40vh;
 }
 
+/* Reusable search result container */
+.search-result-container-collapsed {
+    font-size: normal;
+    padding: 15px 30px 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-result-container-expanded {
+    font-size: normal;
+    padding: 15px 30px 15px 30px;
+}
+
 
 
 /* --------------------字體改變---------------- */

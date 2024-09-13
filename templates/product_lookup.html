@@ -45,11 +45,12 @@
             <!-- hidden input to store scanned barcode -->
             <input type="hidden" id="barcode" name="barcode">
         </div>
-        <div class="container-40" style="display: none;">
+        <div class="container-40" style="display: block;">
             <!-- Code to see scanned barcode -->
             <p>Detected Barcode: <span id="barcode-result">None</span></p>
             <!-- Barcode scanning video element -->
-            <video id="video-preview" width="300" height="200" style="border: 1px solid black; visibility: visible;" autoplay></video>
+            <video id="video-preview" width="300" height="200" style="border: 1px solid black; visibility: visible;"
+                autoplay></video>
         </div>
     </form>
 
@@ -58,6 +59,7 @@
 
 <div class="spacer"></div>
 
+<!-- START OF DEBUG USE - RESULT CONTAINER -->
 <div class="container">
     <!-- Display the keyword -->
     <p>Search keyword: {{ keyword }}</p>
@@ -68,6 +70,49 @@
     <p>No barcode scanned.</p>
     {% endif %}
 </div>
+<!-- END OF DEBUG USE - RESULT CONTAINER -->
+
+
+
+<!-- START OF RESULTS DISPLAY -->
+<div>
+    <!-- Does not execute API call if barcode or keyword is null -->
+    {% if barcode or keyword %}
+
+    <!--
+        1. send GET request to 
+        https://world.openfoodfacts.net/api/v2/product/{barcode}
+            OR
+        https://world.openfoodfacts.org/cgi/search.pl?search_terms={keyword}&search_simple=1&action=process&json=1
+     -->
+    <script>
+        // Search by barcode, uses API v2
+        const apiUrl_barcode = "https://world.openfoodfacts.net/api/v2/product/";
+        let searchingBarcode = {{ barcode | tojson }};
+        // Search by keyword, uses API v1 (search_term)
+        const apiUrl_keyword_bef = "https://world.openfoodfacts.org/cgi/search.pl?search_terms=";
+        const apiUrl_keyword_aft = "&search_simple=1&action=process&json=1";
+        let searchingKeyword = {{ keyword | tojson }};
+        // Combine apiUrl_keyword into full ApiUrl
+        const apiUrl_keyword_full = apiUrl_keyword_bef + encodeURIComponent(searchingKeyword) + apiUrl_keyword_aft;
+
+        // Function to fetch data from the API
+        function fetchData() {
+            if ( searchingBarcode && searchingBarcode.trim() !== '' ){
+                alert(searchingBarcode)
+            }
+            if (searchingKeyword && searchingKeyword.trim() !== ''){
+                alert(searchingKeyword)
+            }
+        }
+
+
+    </script>
+    {% endif %}
+</div>
+<!-- END OF RESULTS DISPLAY -->
+
+
 
 <!-- ===== ===== ===== ===== ===== ===== Scripts below ===== ===== ===== ===== ===== ===== -->
 
