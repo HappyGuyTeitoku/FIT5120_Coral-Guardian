@@ -99,6 +99,10 @@ def disposalfacility():
 def waterqualitymap():
     return render_template('waterqualitymap.html')
 
+@application.route('/fish-explorer')
+def fishexplorer():
+    return render_template('fishexplorer.html')
+
 @application.route('/product-search', methods=['GET','POST'])
 def productsearch():
     if request.method == 'POST':
