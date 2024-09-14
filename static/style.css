@@ -429,6 +429,63 @@ footer {
 }
 
 
+/* Product container styling */
+#api-result {
+    padding: 20px;
+}
+
+.product {
+    display: grid;
+    grid-template-columns: 100px 1fr; /* Fixed image width of 100px */
+    height: auto; /* Adjust based on content */
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+/* Image styling */
+.product-image {
+    height: 100%; /* Full height */
+    width: 100px; /* Fixed width */
+}
+
+.product-image img {
+    max-width: 100px; /* Limit width to 100px */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the image covers the container without distortion */
+}
+
+/* Details container styling */
+.product-details {
+    display: grid;
+    grid-template-rows: 25% 50% 25%;
+    padding-left: 10px;
+}
+
+/* Name, ingredients, and secondary image styling */
+.product-name {
+    overflow: hidden;
+}
+
+.product-ingredients {
+    overflow: auto;
+}
+
+.product-image-secondary {
+    text-align: center;
+}
+
+.product-image-secondary img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+
+
+
 
 /* --------------------字體改變---------------- */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');

@@ -60,7 +60,7 @@
 <div class="spacer"></div>
 
 <!-- Result display section -->
-<div class="container">
+<div class="container education-page">
     <div id="api-result">
 
     </div>
@@ -151,11 +151,18 @@
 
                             htmlContent += `
                                 <div class="product">
-                                    <h2>${productName}</h2>
-                                    <p><strong>Ingredients:</strong> ${ingredientsText}</p>
-                                    ${imageUrl ? `<img src=${imageUrl} alt="${productName}" />` : ''}
+                                    <div class="product-name">
+                                        <h2>${productName}</h2>
+                                    </div>
+                                    <div class="product-ingredients">
+                                        <p>${ingredientsText}</p>
+                                    </div>
+                                    ${imageUrl ? `
+                                        <div class="product-image">
+                                            <img src="${imageUrl}" alt="${productName}" />
+                                        </div>
+                                    ` : ''}
                                 </div>
-                                <hr />
                             `;
                         });
 
