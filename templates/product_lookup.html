@@ -53,17 +53,13 @@
                 autoplay></video>
         </div>
     </form>
-
-    <div class="spacer"></div>
 </div>
 
 <div class="spacer"></div>
 
 <!-- Result display section -->
 <div class="container education-page">
-    <div id="api-result">
-
-    </div>
+    <div id="api-result"></div>
 </div>
 
 
@@ -146,8 +142,20 @@
                         // Loop through each product in the external_data array
                         external_data.data.products.forEach(product => {
                             const productName = product.product_name || 'No product name available';
-                            const ingredientsText = product.ingredients_text_en || 'No ingredients information available';
+                            const ingredientsText = product.ingredients_text || 'No ingredients information available';
                             const imageUrl = product.image_front_url || '';
+                            // Check for nitrate or phosphate in the ingredients text
+                            const containsNitrate = /nitrate/i.test(ingredientsText);
+                            const containsPhosphate = /phosphate/i.test(ingredientsText);
+
+                            let productNitrateOrPhosphate = '';
+                            if (containsNitrate && containsPhosphate) {
+                                productNitrateOrPhosphate = 'Contains both nitrate and phosphate';
+                            } else if (containsNitrate) {
+                                productNitrateOrPhosphate = 'Contains nitrate';
+                            } else if (containsPhosphate) {
+                                productNitrateOrPhosphate = 'Contains phosphate';
+                            }
 
                             htmlContent += `
                                 <div class="product">
@@ -162,6 +170,14 @@
                                             <img src="${imageUrl}" alt="${productName}" />
                                         </div>
                                     ` : ''}
+                                    ${productNitrateOrPhosphate ? `
+                                        <div class="product-nitrate-or-phosphate">
+                                            <p>${productNitrateOrPhosphate}</p>
+                                        </div>
+                                    ` : `<div class="product-nitrate-or-phosphate">
+                                            <p>Does not contain Nitrates or Phosphates</p>
+                                        </div>
+                                    `}
                                 </div>
                             `;
                         });
@@ -210,7 +226,7 @@
                     barcode_url: 'https://world.openfoodfacts.net/api/v2/product/' + encodeURIComponent(data.codeResult.code),
                     keyword_url: 'https://world.openfoodfacts.net/cgi/search.pl?search_terms='
                         + encodeURIComponent(document.querySelector('input[name="keyword"]').value)
-                        + '&search_simple=1&action=process&json=1&countries_tags_en=australia&fields=code%2Cproduct_name%2Cimage_front_url',
+                        + '&search_simple=1&action=process&json=1&countries_tags_en=australia&fields=code%2Cproduct_name%2Cimage_front_url%2Cingredients_text',
                     userAgent: navigator.userAgent
                 };
                 submitFormData(requestData);
@@ -222,7 +238,7 @@
                 keyword: document.querySelector('input[name="keyword"]').value,
                 barcode: document.querySelector('input[name="barcode"]').value,
                 barcode_url: 'https://world.openfoodfacts.net/api/v2/product/' + encodeURIComponent(document.querySelector('input[name="barcode"]').value),
-                keyword_url: 'https://world.openfoodfacts.net/cgi/search.pl?search_terms=' + encodeURIComponent(document.querySelector('input[name="keyword"]').value) + '&search_simple=1&action=process&json=1&countries_tags_en=australia&fields=code%2Cproduct_name%2Cimage_front_url',
+                keyword_url: 'https://world.openfoodfacts.net/cgi/search.pl?search_terms=' + encodeURIComponent(document.querySelector('input[name="keyword"]').value) + '&search_simple=1&action=process&json=1&countries_tags_en=australia&fields=code%2Cproduct_name%2Cimage_front_url%2Cingredients_text',
                 userAgent: navigator.userAgent
             };
             submitFormData(requestData);
