@@ -1,8 +1,9 @@
-from flask import Flask, request, render_template, redirect, url_for, session, g
+from flask import Flask, request, render_template, redirect, url_for, session, g, jsonify
 import sqlite3
 import os
 import click
 import csv
+import requests
 
 # Database tutorial https://www.youtube.com/watch?v=tPxUSWTvZAs
 
@@ -103,21 +104,23 @@ def waterqualitymap():
 def fishexplorer():
     return render_template('fishexplorer.html')
 
-@application.route('/product-search', methods=['GET','POST'])
+@application.route('/product-search', methods=['GET', 'POST'])
 def productsearch():
     if request.method == 'POST':
         data_from_client = request.get_json()
-        barcode = data_from_client.get('barcode')  # Get the barcode (if scanned)
-        keyword = data_from_client.get('keyword')  # Get the product name or brand
+        barcode = data_from_client.get('barcode')
+        keyword = data_from_client.get('keyword')
         barcode_url = data_from_client.get('barcode_url')
         keyword_url = data_from_client.get('keyword_url')
         userAgent = data_from_client.get('userAgent')
 
         # Flask make the request to OpenFoodFacts on behalf of client
-        if barcode != None:
-            response = request.get(barcode_url,headers={'User-Agent':userAgent})
-        if keyword != None:
-            response = request.get(keyword_url,headers={'User-Agent':userAgent})
+        if barcode:
+            response = requests.get(barcode_url, headers={'User-Agent': userAgent})
+        elif keyword:
+            response = requests.get(keyword_url, headers={'User-Agent': userAgent})
+        else:
+            return jsonify({'message': 'No barcode or keyword provided'}), 400
 
         # Get the response data if request was successful
         if response.status_code == 200:
@@ -125,6 +128,7 @@ def productsearch():
             return jsonify({'message': 'Search successful', 'data': external_data})
         else:
             return jsonify({'message': 'Error fetching data from API', 'status_code': response.status_code}), 500
+
     return render_template('product_lookup.html')
 
 @application.cli.command('initdb')

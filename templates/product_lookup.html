@@ -75,92 +75,10 @@
             OR
         https://world.openfoodfacts.org/cgi/search.pl?search_terms={keyword}&search_simple=1&action=process&json=1
      -->
-<script>
-    // Search by barcode, uses API v2
-    const apiUrl_barcode = "https://world.openfoodfacts.net/api/v2/product/";
-    let searchingBarcode = {% if barcode %}{ { barcode | tojson } } {% else %} null{% endif %};
-    // Combine base URL with searching barcode
-    const apiUrl_barcode_full = apiUrl_barcode + encodeURIComponent(searchingBarcode);
-
-    // Search by keyword, uses API v1 (search_term)
-    const apiUrl_keyword_bef = "https://world.openfoodfacts.net/cgi/search.pl?search_terms=";
-    const apiUrl_keyword_aft = "&search_simple=1&action=process&json=1";
-    let searchingKeyword = {% if keyword %}{ { keyword | tojson } } {% else %} null{% endif %};
-    // Combine apiUrl_keyword into full ApiUrl
-    const apiUrl_keyword_full = apiUrl_keyword_bef + encodeURIComponent(searchingKeyword) + apiUrl_keyword_aft;
-    // Custom User-Agent for identification on OFF-side
-    const customUserAgent = 'AquaGuard/1.0 (Monash Uni PGIE TP13 - twon0024@student.monash.edu)';
-
-    let dataToFlask = {
-        barcode: searchingBarcode,
-        keyword: searchingKeyword,
-        barcode_url: apiUrl_barcode_full,
-        keyword_url: apiUrl_keyword_full,
-        userAgent: customUserAgent,
-    }
-
-    // Send
-    function fetchData() {
-        fetch('/product-search', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(dataToFlask)
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-                // Handle the response from flask here
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            })
-    }
-</script>
-
-<script>
-    // Function to submit form data to Flask
-    function submitFormData(requestData) {
-        alert(requestData);
-        fetch('/product-search', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(requestData),
-        })
-            .then(response => response.json())
-            .then(data => {
-                const resultsDiv = document.getElementById('api-result'); // Change this line to change how the results are displayed
-                if (data.data) {
-                    // Display external data on the page
-                    resultsDiv.innerHTML = '<pre>' + JSON.stringify(data.data, null, 2) + '</pre>';
-                } else {
-                    // Display an error message
-                    resultsDiv.innerHTML = '<p>Error: ' + data.message + '</p>';
-                }
-            })
-            .catch(error => {
-                // Handle any errors that occurred during the fetch
-                document.getElementById('results').innerHTML = '<p>Error: ' + error.message + '</p>';
-            });
-    }
-
-</script>
-
-<script>
-    document.getElementById('product-name-search-button').addEventListener('submit', function (event) {
-        event.preventDefault();
-        submitFormData(dataToFlask);
-    })
-</script>
-
 <!-- Quagga browser library -->
 <script src="https://cdn.jsdelivr.net/npm/@ericblade/quagga2/dist/quagga.min.js"></script>
 
 <script>
-    // Barcode Scanning code
     document.addEventListener('DOMContentLoaded', function () {
         const scanBarcodeBtn = document.getElementById('product-barcode-scan-button');
         const stopBarcodeBtn = document.getElementById('product-barcode-stop-button');
@@ -169,53 +87,59 @@
         const videoElement = document.getElementById('video-preview');
         const scanResult = document.getElementById('barcode-result');
         const barcodeStorage = document.getElementById('barcode');
+        const resultsDiv = document.getElementById('api-result');
 
-        // variable to store if user has clicked "Scan" and camera has not detected a barcode.
         let isScanning = false;
-
-        // For start-stopping camera
         let mediaStream = null;
 
-        // // Test camera
-        // if (videoElement) {
-        //     // Set up video constraints
-        //     navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
-        //         .then(stream => {
-        //             videoElement.srcObject = stream;
-        //         })
-        //         .catch(error => {
-        //             console.error("Error accessing camera: ", error);
-        //         });
-        // } else {
-        //     console.error("Video element not found");
-        // }
-
-        // Function to start the camera
         function startCamera() {
             navigator.mediaDevices.getUserMedia({ video: true })
                 .then(stream => {
-                    mediaStream = stream; // Store the media stream
-                    videoElement.srcObject = stream; // Set the video source
+                    mediaStream = stream;
+                    videoElement.srcObject = stream;
                 })
                 .catch(err => {
                     console.error('Error accessing the camera: ', err);
                 });
         }
 
-        // Function to stop the camera
         function stopCamera() {
             if (mediaStream) {
-                // Stop all tracks of the media stream
                 mediaStream.getTracks().forEach(track => track.stop());
-                videoElement.srcObject = null; // Clear the video source
-                mediaStream = null; // Clear the media stream reference
+                videoElement.srcObject = null;
+                mediaStream = null;
             }
         }
 
-        // On default stop camera
-        stopCamera();
+        function stopQuagga() {
+            Quagga.stop();
+            stopCamera();
+            isScanning = false;
+            scanBarcodeBtn.style.display = "block";
+            stopBarcodeBtn.style.display = "none";
+        }
 
-        // Initialize Quagga
+        function submitFormData(requestData) {
+            fetch('/product-search', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(requestData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.data) {
+                    resultsDiv.innerHTML = '<pre>' + JSON.stringify(data.data, null, 2) + '</pre>';
+                } else {
+                    resultsDiv.innerHTML = '<p>Error: ' + data.message + '</p>';
+                }
+            })
+            .catch(error => {
+                resultsDiv.innerHTML = '<p>Error: ' + error.message + '</p>';
+            });
+        }
+
         function initQuagga() {
             startCamera();
 
@@ -226,7 +150,7 @@
                     target: videoElement,
                 },
                 decoder: {
-                    readers: ["code_128_reader"] // Specify the barcode readers you want to use
+                    readers: ["code_128_reader"]
                 }
             }, function (err) {
                 if (err) {
@@ -238,28 +162,32 @@
             });
 
             Quagga.onDetected(function (data) {
-                console.log("Barcode detected: ", data);
-                barcodeInput.value = data.codeResult.code; // Set the hidden input with barcode value
-                scanResult.textContent = data.codeResult.code; // Display the barcode result
-                barcodeStorage.value = data.codeResult.code; // Store the barcode result to form value
-                stopQuagga(); // Stop scanning after detection
-                stopCamera(); // Stop camera after detection
-                isScanning = false; // Update scanning status
-                // searchForm.submit(); // Submit the form
-                submitFormData();
+                barcodeInput.value = data.codeResult.code;
+                scanResult.textContent = data.codeResult.code;
+                barcodeStorage.value = data.codeResult.code;
+                stopQuagga();
+                const requestData = {
+                    barcode: data.codeResult.code,
+                    keyword: document.querySelector('input[name="keyword"]').value,
+                    barcode_url: 'https://world.openfoodfacts.net/api/v2/product/' + encodeURIComponent(data.codeResult.code),
+                    keyword_url: 'https://world.openfoodfacts.net/cgi/search.pl?search_terms=' + encodeURIComponent(document.querySelector('input[name="keyword"]').value) + '&search_simple=1&action=process&json=1',
+                    userAgent: navigator.userAgent
+                };
+                submitFormData(requestData);
             });
         }
 
-        // Function to stop camera and Quagga manually
-        function stopQuagga() {
-            Quagga.stop();
-            stopCamera();
-            isScanning = false;
-            scanBarcodeBtn.style.display = "block";
-            stopBarcodeBtn.style.display = "none";
+        function handleButtonClick() {
+            const requestData = {
+                keyword: document.querySelector('input[name="keyword"]').value,
+                barcode: document.querySelector('input[name="barcode"]').value,
+                barcode_url: 'https://world.openfoodfacts.net/api/v2/product/' + encodeURIComponent(document.querySelector('input[name="barcode"]').value),
+                keyword_url: 'https://world.openfoodfacts.net/cgi/search.pl?search_terms=' + encodeURIComponent(document.querySelector('input[name="keyword"]').value) + '&search_simple=1&action=process&json=1',
+                userAgent: navigator.userAgent
+            };
+            submitFormData(requestData);
         }
 
-        // Button onclick to start Quagga, also hides "scan" button and show "stop" button
         scanBarcodeBtn.addEventListener('click', function () {
             if (!isScanning) {
                 isScanning = true;
@@ -269,17 +197,16 @@
             }
         });
 
-        // Button onclick to stop Quagga, also hides "scan" button and show "stop" button
         stopBarcodeBtn.addEventListener('click', function () {
-            isScanning = false;
             stopQuagga();
         });
 
-
-
+        document.getElementById('product-name-search-button').addEventListener('click', function (event) {
+            event.preventDefault();
+            handleButtonClick();
+        });
     });
-
-
 </script>
+
 
 {% endblock %}
