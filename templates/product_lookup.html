@@ -71,9 +71,14 @@
 
 <!--
         1. send GET request to 
+        API v2
         https://world.openfoodfacts.net/api/v2/product/{barcode}
+        (Barcode Search returns all details of the product)
             OR
-        https://world.openfoodfacts.org/cgi/search.pl?search_terms={keyword}&search_simple=1&action=process&json=1
+        API v1
+        https://world.openfoodfacts.net/cgi/search.pl?search_terms={keyword}&search_simple=1&action=process&json=1
+        search?countries_tags_en=australia&fields=code%2Cproduct_name%2Cimage_front_url&sort_by=product_name&page=1&page_size=20
+        (Search word, can choose fields to return, and can filter before getting results)
      -->
 <!-- Quagga browser library -->
 <script src="https://cdn.jsdelivr.net/npm/@ericblade/quagga2/dist/quagga.min.js"></script>
@@ -127,17 +132,43 @@
                 },
                 body: JSON.stringify(requestData),
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.data) {
-                    resultsDiv.innerHTML = '<pre>' + JSON.stringify(data.data, null, 2) + '</pre>';
-                } else {
-                    resultsDiv.innerHTML = '<p>Error: ' + data.message + '</p>';
-                }
-            })
-            .catch(error => {
-                resultsDiv.innerHTML = '<p>Error: ' + error.message + '</p>';
-            });
+                .then(response => response.json())
+                .then(external_data => {
+
+                    console.log(external_data.data);  // Logs the full object to the console
+
+                    console.log(external_data.data.products);
+
+                    // Check if the search was successful based on the content or status of the external_data
+                    if (external_data.data) {
+                        let htmlContent = '';
+
+                        // Loop through each product in the external_data array
+                        external_data.data.products.forEach(product => {
+                            const productName = product.product_name || 'No product name available';
+                            const ingredientsText = product.ingredients_text_en || 'No ingredients information available';
+                            const imageUrl = product.image_front_url || '';
+
+                            htmlContent += `
+                                <div class="product">
+                                    <h2>${productName}</h2>
+                                    <p><strong>Ingredients:</strong> ${ingredientsText}</p>
+                                    ${imageUrl ? `<img src=${imageUrl} alt="${productName}" />` : ''}
+                                </div>
+                                <hr />
+                            `;
+                        });
+
+                        // Insert the constructed HTML into the resultsDiv
+                        resultsDiv.innerHTML = htmlContent;
+                    } else {
+                        // If no data was returned, display an appropriate message
+                        resultsDiv.innerHTML = '<p>No products found or data is missing.</p>';
+                    }
+                })
+                .catch(error => {
+                    resultsDiv.innerHTML = '<p>Error: ' + error.message + '</p>';
+                });
         }
 
         function initQuagga() {
@@ -170,7 +201,9 @@
                     barcode: data.codeResult.code,
                     keyword: document.querySelector('input[name="keyword"]').value,
                     barcode_url: 'https://world.openfoodfacts.net/api/v2/product/' + encodeURIComponent(data.codeResult.code),
-                    keyword_url: 'https://world.openfoodfacts.net/cgi/search.pl?search_terms=' + encodeURIComponent(document.querySelector('input[name="keyword"]').value) + '&search_simple=1&action=process&json=1',
+                    keyword_url: 'https://world.openfoodfacts.net/cgi/search.pl?search_terms='
+                        + encodeURIComponent(document.querySelector('input[name="keyword"]').value)
+                        + '&search_simple=1&action=process&json=1&countries_tags_en=australia&fields=code%2Cproduct_name%2Cimage_front_url',
                     userAgent: navigator.userAgent
                 };
                 submitFormData(requestData);
@@ -182,7 +215,7 @@
                 keyword: document.querySelector('input[name="keyword"]').value,
                 barcode: document.querySelector('input[name="barcode"]').value,
                 barcode_url: 'https://world.openfoodfacts.net/api/v2/product/' + encodeURIComponent(document.querySelector('input[name="barcode"]').value),
-                keyword_url: 'https://world.openfoodfacts.net/cgi/search.pl?search_terms=' + encodeURIComponent(document.querySelector('input[name="keyword"]').value) + '&search_simple=1&action=process&json=1',
+                keyword_url: 'https://world.openfoodfacts.net/cgi/search.pl?search_terms=' + encodeURIComponent(document.querySelector('input[name="keyword"]').value) + '&search_simple=1&action=process&json=1&countries_tags_en=australia&fields=code%2Cproduct_name%2Cimage_front_url',
                 userAgent: navigator.userAgent
             };
             submitFormData(requestData);
