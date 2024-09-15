@@ -4,8 +4,33 @@
 {% block title %}Test Page - Melbourne WaterGuard{% endblock %}
 
 {% block content %}
-    <div class="spacer"></div>
+<div class="spacer"></div>
 
-    <p>This is a test page! We do not really care about coral reefs or water quality.</p>
-    <p>This is a page that does not use anything from database.db, for debugging purposes</p>
+<p>This is a test page! We do not really care about coral reefs or water quality.</p>
+<p>This is a page that does not use anything from database.db, for debugging purposes</p>
+
+<p><br>Below is a test div for product search results</p>
+
+<div class="container education-page">
+    <div id="api-result">
+        <div class="product">
+            <div class="product-left">
+                <div class="product-image">
+                    <img src="{{ url_for('static', filename='AQ.png') }}" alt="productName" />
+                </div>
+            </div>
+            <div class="product-right">
+                <div class="product-name">
+                    <h2>productName</h2>
+                </div>
+                <div class="product-ingredients">
+                    <p>ingredientsText</p>
+                </div>
+                <div class="product-nitrate-or-phosphate">
+                    <p>productNitrateOrPhosphate</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

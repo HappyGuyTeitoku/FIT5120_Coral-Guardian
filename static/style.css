@@ -257,7 +257,7 @@ button {
 .text-section-content{
     font-weight: normal;
     margin-bottom: 20px;
-    width: 75%;
+    width: 90%;
 }
 
 .twotext-to-oneimage .image-section {
@@ -303,6 +303,83 @@ button {
 .twotext-to-oneimage .text-section ul .list-item-content{
     font-weight: normal;
 }
+
+
+/* Styling for 1 to 3 part design, like */
+/* _______________________________ */
+/* |         .text-above         | */
+/* |_____________________________| */
+/* |         |         |         | */
+/* |        .image-below         | */
+/* |         |         |         | */
+/* |_________|_________|_________| */
+
+
+.onetext-above-threeimage {
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+    padding: 25px 15%;
+    height: 100%;
+}
+
+.onetext-above-threeimage .text-above {
+    grid-row: 1;
+}
+
+.onetext-above-threeimage .text-above::before {
+    content: '————'; /* Em dash or use '-' for a hyphen */
+    position: absolute;
+    left: -25%; /* Position it to the left of the text */
+    top: 10px;
+    transform: translateY(-55%); /* Center vertically */
+    font-size: 24px; /* Adjust size as needed */
+    color: black; /* Color of the hyphen */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.onetext-above-threeimage .image-below {
+    display: grid;
+    grid-row: 2;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 100%;
+}
+
+.onetext-above-threeimage .homepage-card {
+    background-color: #E5E5E5;
+    border-radius: 5%;
+    margin: 10px;
+    padding: 15% 10%;
+
+    display: grid;
+    height: 100%;
+    color: white;
+    position: relative;
+
+    grid-template-rows:  repeat(4, 1fr);
+}
+
+
+.onetext-above-threeimage .homepage-card::before {
+    content: ""; /* Required for pseudo-elements */
+    position: absolute; /* Position the overlay absolutely */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Black color with 50% opacity */
+    z-index: 1; /* Ensure the overlay is above the background image */
+    border-radius:5%;
+}
+
+.onetext-above-threeimage .homepage-card * {
+    z-index: 2;
+}
+
+.onetext-above-threeimage .homepage-card button {
+    display: block;
+}
+
+
 
 .page-title-container {
     background-color: #EBF0F9;
@@ -438,7 +515,7 @@ footer {
 
 .product {
     display: grid;
-    grid-template-columns: 100px 1fr; /* Fixed image width of 100px */
+    grid-template-columns: 200px 1fr; /* Fixed image width of 100px */
     height: auto; /* Adjust based on content */
     margin-bottom: 20px;
     border: 1px solid #ddd;
@@ -446,46 +523,70 @@ footer {
     background-color: #f9f9f9;
 }
 
-/* Image styling */
-.product-image {
-    height: 100%; /* Full height */
-    width: 100px; /* Fixed width */
+.product-left {
+    grid-column: 1 span 1;
+    height: 200px;
 }
 
-.product-image img {
-    max-width: 100px; /* Limit width to 100px */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: cover; /* Ensure the image covers the container without distortion */
+.product-left .product-image {
+    max-width: 200px;
+    max-height: 200px;
+    display: flex;
+    justify-content: center;  /* Centers horizontally */
+    align-items: center;      /* Centers vertically */
+    border-radius: 5%;
+    height: 100%;
+    background-color: #525560;
 }
 
-/* Details container styling */
-.product-details {
+.product-left .product-image img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-right {
     display: grid;
-    grid-template-rows: 25% 50% 25%;
-    padding-left: 10px;
+    grid-template-rows: 1fr 2fr 1fr;
 }
 
-/* Name, ingredients, and secondary image styling */
-.product-name {
-    overflow: hidden;
-}
-
-.product-ingredients {
-    overflow: auto;
-}
-
-.product-image-secondary {
+.product-right .product-name {
+    font-weight: bolder;
     text-align: center;
+    width: 100%;
+    font-size: 150%;
+    grid-row: 1;
 }
 
-.product-image-secondary img {
-    max-width: 100%;
-    height: auto;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+.product-right .product-ingredients {
+    font-weight: normal;
+    width: 100%;
+    grid-row: 2;
+    padding: 0 5%;
 }
 
+.product-right .product-nitrate-or-phosphate {
+    font-weight: normal;
+    width: 100%;
+    grid-row: 3;
+    padding: 0 5%;
+}
 
+#barcode-scanning-block {
+    max-width: 50%;
+    padding: 15px 30px 15px 30px;
+    margin: auto;
+}
+
+.green-circle {
+    display: inline-block;
+    width: 10px;  /* Diameter of the circle */
+    height: 10px;
+    background-color: green;  /* Circle color */
+    border-radius: 50%;  /* Makes the shape a circle */
+    margin-right: 8px;  /* Adds some space between the circle and text */
+    vertical-align: middle;  /* Aligns it with the text */
+}
 
 
 
