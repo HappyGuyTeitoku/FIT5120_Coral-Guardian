@@ -438,7 +438,7 @@ footer {
 
 .product {
     display: grid;
-    grid-template-columns: 100px 1fr; /* Fixed image width of 100px */
+    grid-template-columns: 200px 1fr; /* Fixed image width of 100px */
     height: auto; /* Adjust based on content */
     margin-bottom: 20px;
     border: 1px solid #ddd;
@@ -446,43 +446,53 @@ footer {
     background-color: #f9f9f9;
 }
 
-/* Image styling */
-.product-image {
-    height: 100%; /* Full height */
-    width: 100px; /* Fixed width */
+.product-left {
+    grid-column: 1 span 1;
+    height: 200px;
 }
 
-.product-image img {
-    max-width: 100px; /* Limit width to 100px */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: cover; /* Ensure the image covers the container without distortion */
+.product-left .product-image {
+    max-width: 200px;
+    max-height: 200px;
+    display: flex;
+    justify-content: center;  /* Centers horizontally */
+    align-items: center;      /* Centers vertically */
+    border-radius: 5%;
+    height: 100%;
+    background-color: #525560;
 }
 
-/* Details container styling */
-.product-details {
+.product-left .product-image img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-right {
     display: grid;
-    grid-template-rows: 25% 50% 25%;
-    padding-left: 10px;
+    grid-template-rows: 1fr 2fr 1fr;
 }
 
-/* Name, ingredients, and secondary image styling */
-.product-name {
-    overflow: hidden;
-}
-
-.product-ingredients {
-    overflow: auto;
-}
-
-.product-image-secondary {
+.product-right .product-name {
+    font-weight: bolder;
     text-align: center;
+    width: 100%;
+    font-size: 150%;
+    grid-row: 1;
 }
 
-.product-image-secondary img {
-    max-width: 100%;
-    height: auto;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+.product-right .product-ingredients {
+    font-weight: normal;
+    width: 100%;
+    grid-row: 2;
+    padding: 0 5%;
+}
+
+.product-right .product-nitrate-or-phosphate {
+    font-weight: normal;
+    width: 100%;
+    grid-row: 3;
+    padding: 0 5%;
 }
 
 
