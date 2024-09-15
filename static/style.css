@@ -257,7 +257,7 @@ button {
 .text-section-content{
     font-weight: normal;
     margin-bottom: 20px;
-    width: 75%;
+    width: 90%;
 }
 
 .twotext-to-oneimage .image-section {
@@ -303,6 +303,83 @@ button {
 .twotext-to-oneimage .text-section ul .list-item-content{
     font-weight: normal;
 }
+
+
+/* Styling for 1 to 3 part design, like */
+/* _______________________________ */
+/* |         .text-above         | */
+/* |_____________________________| */
+/* |         |         |         | */
+/* |        .image-below         | */
+/* |         |         |         | */
+/* |_________|_________|_________| */
+
+
+.onetext-above-threeimage {
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+    padding: 25px 15%;
+    height: 100%;
+}
+
+.onetext-above-threeimage .text-above {
+    grid-row: 1;
+}
+
+.onetext-above-threeimage .text-above::before {
+    content: '————'; /* Em dash or use '-' for a hyphen */
+    position: absolute;
+    left: -25%; /* Position it to the left of the text */
+    top: 10px;
+    transform: translateY(-55%); /* Center vertically */
+    font-size: 24px; /* Adjust size as needed */
+    color: black; /* Color of the hyphen */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.onetext-above-threeimage .image-below {
+    display: grid;
+    grid-row: 2;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 100%;
+}
+
+.onetext-above-threeimage .homepage-card {
+    background-color: #E5E5E5;
+    border-radius: 5%;
+    margin: 10px;
+    padding: 15% 10%;
+
+    display: grid;
+    height: 100%;
+    color: white;
+    position: relative;
+
+    grid-template-rows:  repeat(4, 1fr);
+}
+
+
+.onetext-above-threeimage .homepage-card::before {
+    content: ""; /* Required for pseudo-elements */
+    position: absolute; /* Position the overlay absolutely */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Black color with 50% opacity */
+    z-index: 1; /* Ensure the overlay is above the background image */
+    border-radius:5%;
+}
+
+.onetext-above-threeimage .homepage-card * {
+    z-index: 2;
+}
+
+.onetext-above-threeimage .homepage-card button {
+    display: block;
+}
+
+
 
 .page-title-container {
     background-color: #EBF0F9;
