@@ -1083,3 +1083,61 @@ nav {
 
 
 /* -----------------------------action-- style----- end----------------------------------------------- */
+
+
+
+
+
+/* -----------------------------recommoned product css----- ----------------------------------------------- */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.product_recommend_title {
+    margin: 20px 0;
+}
+
+.product_recommend_main-title {
+    font-size: 36px; /* 字体比下面的大 */
+    font-weight: bold; /* 加粗 */
+    margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.product_recommend_sub-title {
+    font-size: 16px; /* 较小的字体 */
+    font-weight: normal;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* 图片部分 */
+.product_recommend_image-container {
+    width: 100%;
+    overflow-x: auto; /* 水平滚动 */
+    white-space: nowrap; /* 防止图片换行 */
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.product_recommend_image-slider {
+    display: inline-block; /* 确保图片在一行内 */
+}
+
+.product_recommend_image-slider img {
+    width: 200px;
+    height: 200px;
+    margin-right: 10px;
+    vertical-align: middle; /* 确保图片居中对齐 */
+    border-radius: 10px; /* 可选：为图片添加圆角 */
+    
+    margin-bottom: 120px; /* 增加图片与下方的距离 */
+}
+
+.product_recommend_image-slider img:last-child {
+    margin-right: 0;
+}
+/* -----------------------------recommoned product css  end ----------------------------------------------- */
