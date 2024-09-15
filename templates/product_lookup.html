@@ -45,9 +45,9 @@
             <!-- hidden input to store scanned barcode -->
             <input type="hidden" id="barcode" name="barcode">
         </div>
-        <div class="container-40" style="display: block;">
+        <div class="container-40" style="display: none;" id="barcode-scanning-block">
             <!-- Code to see scanned barcode -->
-            <p>Detected Barcode: <span id="barcode-result">None</span></p>
+            <p>Camera View - The results will show upon detecting a barcode in the camera view<br>Detected Barcode: <span id="barcode-result">None</span></p>
             <!-- Barcode scanning video element -->
             <video id="video-preview" width="300" height="200" style="border: 1px solid black; visibility: visible;"
                 autoplay></video>
@@ -86,6 +86,7 @@
         const barcodeInput = document.getElementById('barcode');
         const searchForm = document.getElementById('product-search-form');
         const videoElement = document.getElementById('video-preview');
+        const barcodeScanningBlock = document.getElementById('barcode-scanning-block');
         const scanResult = document.getElementById('barcode-result');
         const barcodeStorage = document.getElementById('barcode');
         const resultsDiv = document.getElementById('api-result');
@@ -116,6 +117,7 @@
             Quagga.stop();
             stopCamera();
             isScanning = false;
+            barcodeScanningBlock.style.display = "none";
             scanBarcodeBtn.style.display = "block";
             stopBarcodeBtn.style.display = "none";
         }
@@ -182,7 +184,7 @@
                                                 <p>${productNitrateOrPhosphate}</p>
                                             </div>
                                         ` : `<div class="product-nitrate-or-phosphate">
-                                                <p>Does not contain Nitrates or Phosphates</p>
+                                                <p><span class="green-circle"></span> Does not contain Nitrates or Phosphates</p>
                                             </div>
                                         `}
                                     </div>
@@ -255,6 +257,7 @@
         scanBarcodeBtn.addEventListener('click', function () {
             if (!isScanning) {
                 isScanning = true;
+                barcodeScanningBlock.style.display = "block";
                 scanBarcodeBtn.style.display = "none";
                 stopBarcodeBtn.style.display = "block";
                 initQuagga();
