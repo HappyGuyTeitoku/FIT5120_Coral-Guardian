@@ -1116,12 +1116,12 @@ nav {
 /* -----------------------------recommoned product css----- ----------------------------------------------- */
 
 /* 保持你的整体字体和格式设置 */
-body {
+/* body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     text-align: center;
-}
+} */
 
 .product_recommend_title {
     margin: 20px 0;
