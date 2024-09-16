@@ -4,15 +4,38 @@
 {% block title %}Fish Explorer - Melbourne WaterGuard{% endblock %}
 
 {% block content %}
-    <div class="spacer-quarter"></div>
-    <h1 class="page-title">Explore Fishes in Melbourne</h1>
-    <div class="spacer-quarter"></div>
-    <p class="page-title-subtext">Curious about water quality near you? Click on any location on the map to view detailed
-        water composition information and explore the historical data for that area. Let's work together to monitor
-        environmental health and protect our water resources.</p>
-    <div class="spacer-quarter"></div>
-    <div class="water-quality-map-container">
-        <iframe class="water-quality-map" src="https://netnet120.shinyapps.io/MelbourneFishMap/"></iframe>
+<div class="spacer-quarter"></div>
+<h1 class="page-title">Explore Fish Population in Melbourne</h1>
+<div class="spacer-quarter"></div>
+<p class="page-title-subtext">Curious about fish populations near you?</p>
+<p class="page-title-subtext">Click on any location on the map to discover the fish species present and see how nutrient
+    pollution affects them over time.</p>
+<p class="page-title-subtext">Let's work together to understand and protect our local waterways!</p>
+
+<div class="water-quality-map-container">
+    <iframe class="water-quality-map" src="https://netnet120.shinyapps.io/MelbourneFishMap/"></iframe>
+</div>
+<div class="spacer"></div>
+
+<!-- Floating instruction box (WIP, maybe not this Iteration) -->
+<div class="user-guide" style="display: block;">
+    <button class="primary-button" onclick="closeBox()">X</button>
+    <script>
+        function closeBox() {
+            document.querySelector('.user-guide').style.display = 'none';
+        }
+    </script>
+    <div class="content">
+        <!-- Title of user guide -->
+        <h2 style="text-align: center;">How to use the map?</h2>
+        <!-- Content of user guide -->
+        <ul>
+            <li>View Fish Species: Select a water body to see the types of fish and their current status.</li>
+            <li>Track Population Changes: Check the graphs to understand how fish populations and nutrient levels have
+                changed over the years.</li>
+            <li>Learn More: Click on a fish species to read about its role in the ecosystem and its resilience to
+                pollution.</li>
+        </ul>
     </div>
-    <div class="spacer"></div>
+</div>
 {% endblock %}
