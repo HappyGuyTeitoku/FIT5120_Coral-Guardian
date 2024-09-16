@@ -1123,6 +1123,12 @@ nav {
     text-align: center;
 } */
 
+.product-recommend {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
 .product_recommend_title {
     margin: 20px 0;
 }
