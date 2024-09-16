@@ -58,7 +58,10 @@
                         </div>
                     </div>
                 </div>
-                <button class="explore-button">Explore Water Quality in Your Area</button>
+                
+                <button class="explore-button" onclick="window.location.href='{{ url_for('waterqualitymap') }}'">
+                    Explore Water Quality in Your Area
+                </button>
 
                 <!-- Video Section with Thumbnails and Subtitles -->
                 <div class="video-section" style="display: block;">
@@ -107,7 +110,9 @@
                         <strong>Biodiversity Loss:</strong> Continuous pollution reduces species diversity, weakening
                         the ecosystem's stability.
                     </p>
-                    <button class="impact-button">Find the number and species of fish in your area</button>
+                   <button class="impact-button" onclick="window.location.href='{{ url_for('fishexplorer') }}'">
+                        Find the number and species of fish in your area
+                    </button>
                 </div>
             </div>
 
@@ -136,7 +141,9 @@
                         <p>Did you know your daily cleaning agents might contain harmful phosphates? These chemicals can
                             pollute our water. Choose phosphate-free, biodegradable products to help protect our rivers
                             and lakes. Make the switch today to eco-friendly cleaning and keep your home safe.</p>
-                        <button class="action-button">Explore Eco-Friendly Cleaning Products</button>
+                            <button class="action-button" onclick="window.location.href='{{ url_for('productsearch') }}'">
+                                Explore Eco-Friendly Cleaning Products
+                            </button>
                     </div>
                     <div class="action-image">
                         <img src="{{ url_for('static', filename='clean.png') }}" />
@@ -150,7 +157,8 @@
                             bleach—these can harm aquatic ecosystems and your health. Learn about product ingredients to
                             make eco-friendly choices and reduce your impact. Protect the planet, starting with your
                             products.</p>
-                        <button class="action-button">Check Cleaning Agent Ingredients</button>
+                        <button class="action-button" onclick="window.location.href='{{ url_for('productsearch') }}'">
+                            Check Cleaning Agent Ingredients</button>
                     </div>
                     <div class="action-image">
                         <img src="{{ url_for('static', filename='clean1.png') }}" />
@@ -163,7 +171,9 @@
                         <p>How should you dispose of leftover cleaning products? Improper disposal can cause serious
                             environmental pollution and threaten drinking water. Learn proper disposal methods, choose
                             recycling, and help protect clean water for future generations.</p>
-                        <button class="action-button">Learn Disposal Methods</button>
+                        <button class="action-button" onclick="window.location.href='{{ url_for('learnmore') }}'">
+
+                        Learn Disposal Methods</button>
                     </div>
                     <div class="action-image">
                         <img src="{{ url_for('static', filename='stuff.png') }}" />
