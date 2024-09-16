@@ -25,7 +25,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 90%;
+    width: 100%;
     background-color: white;
 
 }
@@ -378,6 +378,31 @@ button {
 .onetext-above-threeimage .homepage-card button {
     display: block;
 }
+
+/* The user guide for R Shiny pages */
+.user-guide{
+    position: fixed;
+    height: auto;
+    width: 66vw;
+    background-color: #bef3c0;
+    z-index: 99;
+    right: 20px;
+    bottom: 55px;
+    border: 2px #1D2130 solid;
+    border-radius: 5%;
+    text-align: left;
+    padding: 10px 100px 10px 35px;
+}
+
+.user-guide button {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.user-guide ul {
+    list-style-type: disc; /* Default bullet */
+  }
 
 
 
