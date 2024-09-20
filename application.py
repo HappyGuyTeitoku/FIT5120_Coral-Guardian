@@ -4,6 +4,7 @@ import os
 import click
 import csv
 import requests
+import logging
 
 # Database tutorial https://www.youtube.com/watch?v=tPxUSWTvZAs
 
@@ -14,6 +15,9 @@ DATABASE = 'water_monitor.db'
 PASSWORD = 'Caffeine3'
 # Necessary for session management
 application.secret_key = 'your_secret_key'  
+
+# Set the logging level to DEBUG
+logging.basicConfig(level=logging.DEBUG)
 
 # The password page users get auto-redirected to without logging in with a password
 @application.route('/password', methods=['GET', 'POST'])
@@ -117,8 +121,10 @@ def productsearch():
         # Flask make the request to OpenFoodFacts on behalf of client
         if barcode:
             response = requests.get(barcode_url, headers={'User-Agent': userAgent})
+            logging.debug("Barcode Response: %s\nEnd of message", response.json())
         elif keyword:
             response = requests.get(keyword_url, headers={'User-Agent': userAgent})
+            logging.debug("Wordsearch Response: %s\nEnd of message", response.json())
         else:
             return jsonify({'message': 'No barcode or keyword provided'}), 400
 
