@@ -175,9 +175,9 @@
                 .then(response => response.json())
                 .then(external_data => {
 
-                    console.log(external_data.data);  // Logs the full object to the console
+                    console.log(external_data);  // Logs the full object to the console
 
-                    console.log(external_data.data.products);
+                    console.log(external_data.get('status'));
 
                     // Check if the search was successful based on the content or status of the external_data
                     if (external_data.data) {
@@ -275,8 +275,8 @@
                 const requestData = {
                     barcode: data.codeResult.code,
                     keyword: document.querySelector('input[name="keyword"]').value,
-                    barcode_url: 'https://world.openfoodfacts.net/api/v2/product/' + encodeURIComponent(data.codeResult.code),
-                    keyword_url: 'https://world.openfoodfacts.net/cgi/search.pl?search_terms='
+                    barcode_url: 'https://world.openfoodfacts.org/api/v2/product/' + encodeURIComponent(data.codeResult.code),
+                    keyword_url: 'https://world.openfoodfacts.org/cgi/search.pl?search_terms='
                         + encodeURIComponent(document.querySelector('input[name="keyword"]').value)
                         + '&search_simple=1&action=process&json=1&countries_tags_en=australia&fields=code%2Cproduct_name%2Cimage_front_url%2Cingredients_text',
                     userAgent: navigator.userAgent
