@@ -154,7 +154,7 @@ def init_db_command():
 @application.route('/iteration1/')
 def index_it1():
     return render_template('iteration1/iteration1_homepage.html')
-
+# *** DO NOT TOUCH THIS CODE ***
 @application.route('/iteration1/learn-more')
 def learnmore_it1():
     event_schedule_data = []
@@ -163,12 +163,72 @@ def learnmore_it1():
         for row in csv_reader:
             event_schedule_data.append(row)
     return render_template('iteration1/iteration1_education.html', event_schedule_data = event_schedule_data)
-
+# *** DO NOT TOUCH THIS CODE ***
 @application.route('/iteration1/water-quality-map')
 def waterqualitymap_it1():
     return render_template('iteration1/iteration1_waterqualitymap.html')
 # ----- ----- ----- ----- ----- ----- ----- ----- 
 # Iteration 1 historic pages Routing and code
+# *** DO NOT TOUCH THIS CODE ***
+# ----- ----- ----- ----- ----- ----- ----- ----- 
+
+# ----- ----- ----- ----- ----- ----- ----- ----- 
+# Iteration 2 historic pages Routing and code
+# *** DO NOT TOUCH THIS CODE ***
+# ----- ----- ----- ----- ----- ----- ----- ----- 
+@application.route('/iteration2/')
+def index_it2():
+    return render_template('iteration2/iteration2_homepage.html')
+# *** DO NOT TOUCH THIS CODE ***
+@application.route('/iteration2/learn-more')
+def learnmore_it2():
+    event_schedule_data = []
+    with open('datasets/Detox_Your_Home_event_schedule.csv', 'r') as event_schedule:
+        csv_reader = csv.reader(event_schedule)
+        for row in csv_reader:
+            event_schedule_data.append(row)
+    return render_template('iteration2/iteration2_education.html', event_schedule_data = event_schedule_data)
+# *** DO NOT TOUCH THIS CODE ***
+@application.route('/iteration2/water-quality-map')
+def waterqualitymap_it2():
+    return render_template('iteration2/iteration2_waterqualitymap.html')
+# *** DO NOT TOUCH THIS CODE ***
+@application.route('/iteration2/fish-explorer')
+def fishexplorer_it2():
+    return render_template('iteration2/iteration2_fishexplorer.html')
+# *** DO NOT TOUCH THIS CODE ***
+@application.route('/iteration2/product-search', methods=['GET', 'POST'])
+def productsearch_it2():
+    if request.method == 'POST':
+        data_from_client = request.get_json()
+        barcode = data_from_client.get('barcode')
+        keyword = data_from_client.get('keyword')
+        barcode_url = data_from_client.get('barcode_url')
+        keyword_url = data_from_client.get('keyword_url')
+        userAgent = data_from_client.get('userAgent')
+
+        # Flask make the request to OpenFoodFacts on behalf of client
+        if barcode:
+            response = requests.get(barcode_url, headers={'User-Agent': userAgent})
+            logging.debug("Barcode Response: %s\nEnd of message", response.json())
+        elif keyword:
+            response = requests.get(keyword_url, headers={'User-Agent': userAgent})
+            logging.debug("Wordsearch Response: %s\nEnd of message", response.json())
+        else:
+            return jsonify({'message': 'No barcode or keyword provided'}), 400
+
+        # Get the response data if request was successful
+        if response.status_code == 200:
+            external_data = response.json()  # Assuming the response is in JSON format
+            return jsonify({'message': 'Search successful', 'data': external_data})
+        else:
+            return jsonify({'message': 'Error fetching data from API', 'status_code': response.status_code}), 500
+
+    return render_template('iteration2/iteration2_product_lookup.html')
+# *** DO NOT TOUCH THIS CODE ***
+
+# ----- ----- ----- ----- ----- ----- ----- ----- 
+# Iteration 2 historic pages Routing and code
 # *** DO NOT TOUCH THIS CODE ***
 # ----- ----- ----- ----- ----- ----- ----- ----- 
 

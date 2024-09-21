@@ -1,0 +1,122 @@
+<!-- templates/iteration2/iteration2_homepage.html -->
+<!-- Used for the route "/"  -->
+{% extends "iteration2/iteration2_base.html" %}
+
+{% block title %}Home - Melbourne WaterGuard{% endblock %}
+
+{% block content %}
+<div class="spacer"></div>
+
+<!-- Homepage Thumbnail -->
+<div class="container">
+    <div class="content image-background home-thumbnail home-thumbnail-slideshow">
+        <div class="home-thumbnail-text">
+            <h1>Is your water source still clear?<br>Nutrient Pollution is threatening our ecosystems</h1>
+            <div class="spacer"></div>
+            <button class="secondary-button" style="font-size: 110%;"
+                onclick="window.location.href='{{ url_for('waterqualitymap') }}'">Explore Local Water Quality</button>
+        </div>
+    </div>
+</div>
+
+<div class="spacer-double"></div>
+
+<!-- Education promotion -->
+<div class="container">
+    <div class="content twotext-to-oneimage">
+        <div class="text-section">
+            <p class="text-section-title">Know about us</p>
+            <h2 class="text-section-question">Do you know how scary Nutrient Pollution can be?</h2>
+            <p class="text-section-content">Nutrient pollution occurs when an excess of nutrients, primarily nitrogen
+                and phosphorus, enter water bodies.</p>
+            <p class="text-section-content">These nutrients, often from sources like argricultural runoff, sewage and
+                industrial waste, act as fertilizers in the water, leading to the overgrowth of algae. This excessive
+                algae growth can harm water quality, disrupt aquatic ecosystems, and create dead zones where life cannot
+                survive.</p>
+            <button class="primary-button" onclick="window.location.href='{{ url_for('learnmore') }}'">Learn
+                More</button>
+        </div>
+        <div class="image-section">
+            <img src="../static/dead_fish.jpg" />
+        </div>
+    </div>
+</div>
+
+<div class="spacer"></div>
+
+<!-- Product Search promotion -->
+<div class="container" style="background-color: #EFF7F2;">
+    <div class="content twotext-to-oneimage">
+        <div class="text-section">
+            <p class="text-section-title">Make a change</p>
+            <h2 class="text-section-question">How Do I Choose Cleaning Products That Help Fight Nutrient Pollution?</h2>
+            <p class="text-section-content">By using phosphate-free or low-phosphate cleaning products and making
+                environmentally friendly choices in your daily life, you can help protect water resources and reduce
+                your environmental impact.</p>
+            <div class="spacer-half"></div>
+            <button class="primary-button" onclick="window.location.href='{{ url_for('productsearch') }}'">Search
+                Products</button>
+        </div>
+        <div class="image-section">
+            <img src="../static/Homepage - Cleaning Window.png" />
+        </div>
+    </div>
+</div>
+
+<div class="spacer"></div>
+
+<!-- Other functions promotion -->
+<div class="container">
+    <div class="content onetext-above-threeimage">
+        <div class="text-above">
+            <p class="text-section-title">What else?</p>
+            <h2 class="text-section-question">See What Else Can You Do</h2>
+        </div>
+        <div class="image-below">
+            <!-- Card 1 -->
+            <div class="homepage-card" style="background-image: url('static/Homepage Card - Water Quality.png');">
+                <!-- Row 1 Title -->
+                <h2>Explore Nearby Water Quality</h2>
+                <!-- Row 2 Short sentence -->
+                <p>View Nitrates and Phosphates in Melbourne's waters and understand how they affect you</p>
+                <!-- Row 3 Blank -->
+                <div></div>
+                <!-- Row 4 Nav button -->
+                <div><button class="secondary-button"
+                        onclick="window.location.href='{{ url_for('waterqualitymap') }}'">See More</button></div>
+            </div>
+            <!-- Card 2 -->
+            <div class="homepage-card" style="background-image: url('static/Homepage Card - Fish Population.png');">
+                <!-- Row 1 Title -->
+                <h2>Checkout How Fishes Are Affected</h2>
+                <!-- Row 2 Short sentence -->
+                <p>View how the fish population in nearby water bodies with the interactive map</p>
+                <!-- Row 3 Blank -->
+                <div></div>
+                <!-- Row 4 Nav button -->
+                <div><button class="secondary-button" onclick="window.location.href='{{ url_for('fishexplorer') }}'">See
+                        More</button></div>
+            </div>
+            <!-- Card 3 -->
+            <div class="homepage-card" style="background-image: url('static/Homepage Card - Sewage System.png');">
+                <!-- Row 1 Title -->
+                <h2>Learn About The Sewage Systems</h2>
+                <!-- Row 2 Short sentence -->
+                <p>Get to know how household sewage are treated and if you are disposing of your wastewater correctly
+                </p>
+                <!-- Row 3 Blank -->
+                <div></div>
+                <!-- Row 4 Nav button -->
+                <div><button class="secondary-button" onclick="window.location.href='{{ url_for('learnmore') }}'">See
+                        More</button></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="spacer"></div>
+
+
+
+{% endblock %}

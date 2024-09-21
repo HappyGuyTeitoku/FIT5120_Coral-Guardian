@@ -1,0 +1,321 @@
+<!-- templates/iteration2/iteration2_product_lookup.html -->
+{% extends "iteration2/iteration2_base.html" %}
+
+{% block title %}Product Lookup - Melbourne WaterGuard{% endblock %}
+
+{% block content %}
+
+<div class="spacer"></div>
+
+<!-- Product Lookup and report -->
+<div class="container-40">
+    <div class="content twotext-to-oneimage">
+        <div class="text-section">
+            <p class="text-section-title">How we do</p>
+            <h2 class="text-section-question">Find out if you are using Nutrient Pollution-Free Cleaning Products</h2>
+            <p class="text-section-content">Get to know cleaning products that you use, by </p>
+        </div>
+        <div class="image-section">
+            <img src="../static/ProductSearchPage_image.png" />
+        </div>
+    </div>
+</div>
+
+<div class="spacer"></div>
+
+<div class="page-title-container">
+    <div class="spacer"></div>
+    <h1 class="page-title">Find Eco-friendly Cleaning Products</h1>
+    <div class="spacer-quarter"></div>
+    <p class="page-title-subtext">Search by Product name or Scan the Barcode.</p>
+    <div class="spacer-half"></div>
+
+    <form id="product-search-form">
+        <div class="search-container">
+            <!-- Search by keywords -->
+            <input type="text" name="keyword" placeholder="Search by product name or brand...">
+            <button class="primary-button" type="submit" id="product-name-search-button">Search</button>
+        </div>
+        <div class="search-container">
+            <!-- Barcode Scanner -->
+            <p for="barcodeScanner">Or Search by scanning Barcode: </p>
+            <button class="primary-button" id="product-barcode-scan-button" type="button">Scan Barcode</button>
+            <button class="secondary-button" id="product-barcode-stop-button" type="button" style="display: none;">Stop
+                camera</button>
+            <!-- hidden input to store scanned barcode -->
+            <input type="hidden" id="barcode" name="barcode">
+        </div>
+        <div class="container-40" style="display: none;" id="barcode-scanning-block">
+            <!-- Code to see scanned barcode -->
+            <p>Camera View - The results will show upon detecting a barcode in the camera view<br>Detected Barcode:
+                <span id="barcode-result">None</span></p>
+            <!-- Barcode scanning video element -->
+            <video id="video-preview" width="300" height="200" style="border: 1px solid black; visibility: visible;"
+                autoplay></video>
+        </div>
+    </form>
+</div>
+
+<div class="spacer"></div>
+
+<!-- Result display section -->
+<div class="container education-page" style="height: auto;">
+    <div id="api-result"></div>
+</div>
+<!-- ===== ===== ===== ===== ===== ===== Product recommedned  ===== ===== ===== ===== ===== ===== -->
+
+<div class="product-recommend">
+    <div class="product_recommend_title">
+        <h1 class="product_recommend_main-title">Recommended Pollution-Free Products</h1>
+        <h2 class="product_recommend_sub-title">Explore effective cleaning products with minimal environmental impact
+        </h2>
+    </div>
+
+    <div class="product_recommend_image-container">
+        <div class="product_recommend_image-slider">
+            <div class="product_recommend_item">
+                <img src="{{ url_for('static', filename='rec_1.png') }}" alt="Product 1">
+                <h3 class="product_title">Bathroom</h3>
+                <p class="product_description">Shower Power</p>
+            </div>
+            <div class="product_recommend_item">
+                <img src="{{ url_for('static', filename='rec_2.png') }}" alt="Product 2">
+                <h3 class="product_title">General</h3>
+                <p class="product_description">Ajax Spray n' Wipe Multi Purpose</p>
+            </div>
+            <div class="product_recommend_item">
+                <img src="{{ url_for('static', filename='rec_3.png') }}" alt="Product 3">
+                <h3 class="product_title">Toilet</h3>
+                <p class="product_description">Colorox Toilet cleaner</p>
+            </div>
+            <div class="product_recommend_item">
+                <img src="{{ url_for('static', filename='rec_4.png') }}" alt="Product 4">
+                <h3 class="product_title">Laundry</h3>
+                <p class="product_description">Aware Laundry Products</p>
+            </div>
+            <div class="product_recommend_item">
+                <img src="{{ url_for('static', filename='rec_5.png') }}" alt="Product 5">
+                <h3 class="product_title">Dish washer</h3>
+                <p class="product_description">Earth </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ===== ===== ===== ===== ===== ===== Product recommedned  END===== ===== ===== ===== ===== ===== -->
+
+
+
+<!-- ===== ===== ===== ===== ===== ===== Scripts below ===== ===== ===== ===== ===== ===== -->
+
+<!--
+        1. send GET request to 
+        API v2
+        https://world.openfoodfacts.net/api/v2/product/{barcode}
+        (Barcode Search returns all details of the product)
+            OR
+        API v1
+        https://world.openfoodfacts.net/cgi/search.pl?search_terms={keyword}&search_simple=1&action=process&json=1
+        search?countries_tags_en=australia&fields=code%2Cproduct_name%2Cimage_front_url&sort_by=product_name&page=1&page_size=20
+        (Search word, can choose fields to return, and can filter before getting results)
+     -->
+<!-- Quagga browser library -->
+<script src="https://cdn.jsdelivr.net/npm/@ericblade/quagga2/dist/quagga.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const scanBarcodeBtn = document.getElementById('product-barcode-scan-button');
+        const stopBarcodeBtn = document.getElementById('product-barcode-stop-button');
+        const barcodeInput = document.getElementById('barcode');
+        const searchForm = document.getElementById('product-search-form');
+        const videoElement = document.getElementById('video-preview');
+        const barcodeScanningBlock = document.getElementById('barcode-scanning-block');
+        const scanResult = document.getElementById('barcode-result');
+        const barcodeStorage = document.getElementById('barcode');
+        const resultsDiv = document.getElementById('api-result');
+
+        let isScanning = false;
+        let mediaStream = null;
+
+        function startCamera() {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => {
+                    mediaStream = stream;
+                    videoElement.srcObject = stream;
+                })
+                .catch(err => {
+                    console.error('Error accessing the camera: ', err);
+                });
+        }
+
+        function stopCamera() {
+            if (mediaStream) {
+                mediaStream.getTracks().forEach(track => track.stop());
+                videoElement.srcObject = null;
+                mediaStream = null;
+            }
+        }
+
+        function stopQuagga() {
+            Quagga.stop();
+            stopCamera();
+            isScanning = false;
+            barcodeScanningBlock.style.display = "none";
+            scanBarcodeBtn.style.display = "block";
+            stopBarcodeBtn.style.display = "none";
+        }
+
+        function submitFormData(requestData) {
+            fetch('/product-search', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(requestData),
+            })
+                .then(response => response.json())
+                .then(external_data => {
+
+                    console.log(external_data);  // Logs the full object to the console
+
+                    console.log(external_data.get('status'));
+
+                    // Check if the search was successful based on the content or status of the external_data
+                    if (external_data.data) {
+                        let htmlContent = '';
+
+                        // Loop through each product in the external_data array
+                        external_data.data.products.forEach(product => {
+                            const productName = product.product_name || 'No product name available';
+                            const ingredientsText = product.ingredients_text || 'No ingredients information available';
+                            const imageUrl = product.image_front_url || '';
+                            // Check for nitrate or phosphate in the ingredients text
+                            const containsNitrate = /nitrate/i.test(ingredientsText);
+                            const containsPhosphate = /phosphate/i.test(ingredientsText);
+
+                            let productNitrateOrPhosphate = '';
+                            if (containsNitrate && containsPhosphate) {
+                                productNitrateOrPhosphate = 'Contains both nitrate and phosphate';
+                            } else if (containsNitrate) {
+                                productNitrateOrPhosphate = 'Contains nitrate';
+                            } else if (containsPhosphate) {
+                                productNitrateOrPhosphate = 'Contains phosphate';
+                            }
+
+                            htmlContent += `
+                                <div class="product">
+                                    <div class="product-left">
+                                        ${imageUrl ? `
+                                            <div class="product-image">
+                                                <img src="${imageUrl}" alt="${productName}" />
+                                            </div>
+                                        ` : `
+                                            <div class="product-image">
+                                                <p>No image found</p>
+                                            </div>
+                                        `}
+                                    </div>
+                                    <div class="product-right">
+                                        <div class="product-name">
+                                            <h2>${productName}</h2>
+                                        </div>
+                                        <div class="product-ingredients">
+                                            <p>${ingredientsText}</p>
+                                        </div>
+                                        ${productNitrateOrPhosphate ? `
+                                            <div class="product-nitrate-or-phosphate">
+                                                <p>${productNitrateOrPhosphate}</p>
+                                            </div>
+                                        ` : `<div class="product-nitrate-or-phosphate">
+                                                <p><span class="green-circle"></span> Does not contain Nitrates or Phosphates</p>
+                                            </div>
+                                        `}
+                                    </div>
+                                </div>
+                            `;
+                        });
+
+                        // Insert the constructed HTML into the resultsDiv
+                        resultsDiv.innerHTML = htmlContent;
+                    } else {
+                        // If no data was returned, display an appropriate message
+                        resultsDiv.innerHTML = '<p>No products found or data is missing.</p>';
+                    }
+                })
+                .catch(error => {
+                    resultsDiv.innerHTML = '<p>Error: ' + error.message + '<br>Please check you are searching for English words or have scanned a barcode</p>';
+                });
+        }
+
+        function initQuagga() {
+            startCamera();
+
+            Quagga.init({
+                inputStream: {
+                    name: "Live",
+                    type: "LiveStream",
+                    target: videoElement,
+                },
+                decoder: {
+                    readers: ["code_128_reader"]
+                }
+            }, function (err) {
+                if (err) {
+                    console.error("Quagga initialization error: ", err);
+                    return;
+                }
+                console.log("Quagga initialized successfully.");
+                Quagga.start();
+            });
+
+            Quagga.onDetected(function (data) {
+                barcodeInput.value = data.codeResult.code;
+                scanResult.textContent = data.codeResult.code;
+                barcodeStorage.value = data.codeResult.code;
+                stopQuagga();
+                const requestData = {
+                    barcode: data.codeResult.code,
+                    keyword: document.querySelector('input[name="keyword"]').value,
+                    barcode_url: 'https://world.openfoodfacts.org/api/v2/product/' + encodeURIComponent(data.codeResult.code),
+                    keyword_url: 'https://world.openfoodfacts.org/cgi/search.pl?search_terms='
+                        + encodeURIComponent(document.querySelector('input[name="keyword"]').value)
+                        + '&search_simple=1&action=process&json=1&countries_tags_en=australia&fields=code%2Cproduct_name%2Cimage_front_url%2Cingredients_text',
+                    userAgent: navigator.userAgent
+                };
+                submitFormData(requestData);
+            });
+        }
+
+        function handleButtonClick() {
+            const requestData = {
+                keyword: document.querySelector('input[name="keyword"]').value,
+                barcode: document.querySelector('input[name="barcode"]').value,
+                barcode_url: 'https://world.openfoodfacts.net/api/v2/product/' + encodeURIComponent(document.querySelector('input[name="barcode"]').value),
+                keyword_url: 'https://world.openfoodfacts.net/cgi/search.pl?search_terms=' + encodeURIComponent(document.querySelector('input[name="keyword"]').value) + '&search_simple=1&action=process&json=1&countries_tags_en=australia&fields=code%2Cproduct_name%2Cimage_front_url%2Cingredients_text',
+                userAgent: navigator.userAgent
+            };
+            submitFormData(requestData);
+        }
+
+        scanBarcodeBtn.addEventListener('click', function () {
+            if (!isScanning) {
+                isScanning = true;
+                barcodeScanningBlock.style.display = "block";
+                scanBarcodeBtn.style.display = "none";
+                stopBarcodeBtn.style.display = "block";
+                initQuagga();
+            }
+        });
+
+        stopBarcodeBtn.addEventListener('click', function () {
+            stopQuagga();
+        });
+
+        document.getElementById('product-name-search-button').addEventListener('click', function (event) {
+            event.preventDefault();
+            handleButtonClick();
+        });
+    });
+</script>
+
+
+{% endblock %}

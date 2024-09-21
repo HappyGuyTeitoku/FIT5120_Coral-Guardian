@@ -1,0 +1,49 @@
+<!-- templates/iteration2/iteration2_base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Melbourne WaterGuard{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_iteration2.css') }}">
+    <!-- Roboto Font code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Shared Header -->
+    <header>
+        <nav>
+            <div class="nav-container">
+                <a href="{{ url_for('index_it2') }}">
+                    <img src="{{ url_for('static', filename='Melbourne AquaGuard Logo.png') }}" alt="Logo" class="logo">
+                    ITERATION 2
+                </a>
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('index_it2') }}">Home</a></li>
+                    <li><a href="{{ url_for('learnmore_it2') }}">Education Hub</a></li>
+                    <li><a href="{{ url_for('waterqualitymap_it2') }}">Water Quality</a></li>
+                    <li><a href="{{ url_for('productsearch_it2') }}">Product Search</a></li>
+                    <li><a href="{{ url_for('fishexplorer_it2') }}">Fish Explorer</a></li>
+                    <li style="display: none;"><a href="{{ url_for('placeholder') }}">UI Testing Page</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Block -->
+    <main>
+        {% block content %}
+        <!-- Page-specific content goes here -->
+        {% endblock %}
+    </main>
+
+    <!-- Optional Footer -->
+    <footer>
+        <p>© 2024 Melbourne AquaGuard</p>
+        <p><a href="mailto:test@mail.com">Contact Us</a></p>
+        <p><a href="https://drive.google.com/drive/u/2/folders/1teUsP8es3hKcwnC0dhKcvNI78HKgYGY6">Privacy Policy</a></p>
+    </footer>
+</body>
+</html>
