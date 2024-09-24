@@ -96,6 +96,8 @@ footer {
     align-items: center;
     color: white;
     font-family: 'Roboto';
+    z-index: 100;
+
 }
 
 footer a {
