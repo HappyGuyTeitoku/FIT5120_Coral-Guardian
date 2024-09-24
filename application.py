@@ -137,6 +137,10 @@ def productsearch():
 
     return render_template('product_lookup.html')
 
+@application.route('/NP-Calculator')
+def npcalculator():
+    return render_template('npcalculator.html')
+
 @application.cli.command('initdb')
 def init_db_command():
     """Create the database tables."""
