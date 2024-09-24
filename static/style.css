@@ -16,7 +16,7 @@ header {
     top: 0px;
     position: fixed;
     width: 100%;
-    z-index: 10000;
+    z-index: 100;
 
     font-family: 'Roboto';
 }
@@ -31,7 +31,8 @@ header {
 }
 
 .logo {
-    height: 50px; /* Adjust based on your logo size */
+    height: 50px;
+    /* Adjust based on your logo size */
 }
 
 .nav-links {
@@ -42,6 +43,7 @@ header {
 
 .nav-links li {
     margin-left: 20px;
+    margin-right: 20px;
 }
 
 .nav-links a {
@@ -54,9 +56,41 @@ header {
     text-decoration: underline;
 }
 
+/* base_v2 dropdown style navbar */
+/* TOGGLE is the outside, CONTENT is the insides */
+.nav-links-dropdown-toggle {
+    position: relative;
+    display: inline-block;
+    z-index: 101;
+    width: 200px;
+    text-align: center;
+}
+
+.nav-links-dropdown-content {
+    text-align: center;
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #BEF3C0;
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 15px 30px 15px 30px;
+    z-index: 102;
+}
+
+.nav-links-dropdown-content a {
+    padding: 15px 0;
+    display: block;
+}
+
+.nav-links-dropdown-toggle:hover .nav-links-dropdown-content {
+    display: block;
+}
+
 
 /* Footer Styling */
-footer{
+footer {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -64,11 +98,12 @@ footer{
     font-family: 'Roboto';
 }
 
-footer a{
+footer a {
     color: white;
     text-decoration: none;
 }
-footer a:hover{
+
+footer a:hover {
     color: #f0f0f0;
     text-decoration: underline;
 }
@@ -87,19 +122,19 @@ main {
 
 
 /* Reusable spacer, for separating sections of a page. */
-.spacer{
+.spacer {
     height: 5vh;
 }
 
-.spacer-double{
+.spacer-double {
     height: 10vh;
 }
 
-.spacer-half{
+.spacer-half {
     height: 2.5vh;
 }
 
-.spacer-quarter{
+.spacer-quarter {
     height: 1.25vh;
 }
 
@@ -159,7 +194,8 @@ main {
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
-    height: 80vh; /* 80vh is roughly one screen tall */
+    height: 80vh;
+    /* 80vh is roughly one screen tall */
     padding: 20px 50px 20px 50px;
 }
 
@@ -191,15 +227,39 @@ button {
     color: white;
     cursor: pointer;
 }
+
 .primary-button {
+    font-weight: bold;
+    font-size: normal;
+    padding: 15px 30px 15px 30px;
+    border-radius: 5px;
+    border: 0px;
+    color: white;
+    cursor: pointer;
     background-color: #70c174;
-    
+
 }
+
 .secondary-button {
+    font-weight: bold;
+    font-size: normal;
+    padding: 15px 30px 15px 30px;
+    border-radius: 5px;
+    border: 0px;
+    color: white;
+    cursor: pointer;
     background-color: white;
     color: black;
 }
+
 .navbar-button {
+    font-weight: bold;
+    font-size: normal;
+    padding: 15px 30px 15px 30px;
+    border-radius: 5px;
+    border: 0px;
+    color: white;
+    cursor: pointer;
     background-color: #0b0706;
 }
 
@@ -207,14 +267,22 @@ button {
 
 
 
-.home-thumbnail-slideshow{
+.home-thumbnail-slideshow {
     animation: slideshow 15s infinite;
 }
 
 @keyframes slideshow {
-    0%  { background-image: url('/static/homepage_algae-shoreline.png'); }
-    50% { background-image: url('/static/homepage_hand-full-of-moss.png'); }
-    100%  { background-image: url('/static/homepage_algae-shoreline.png'); }
+    0% {
+        background-image: url('/static/homepage_algae-shoreline.png');
+    }
+
+    50% {
+        background-image: url('/static/homepage_hand-full-of-moss.png');
+    }
+
+    100% {
+        background-image: url('/static/homepage_algae-shoreline.png');
+    }
 }
 
 .twotext-to-oneimage {
@@ -232,29 +300,34 @@ button {
 }
 
 .twotext-to-oneimage .text-section::before {
-    content: '————'; /* Em dash or use '-' for a hyphen */
+    content: '————';
+    /* Em dash or use '-' for a hyphen */
     position: absolute;
-    left: -25%; /* Position it to the left of the text */
+    left: -25%;
+    /* Position it to the left of the text */
     top: 10px;
-    transform: translateY(-55%); /* Center vertically */
-    font-size: 24px; /* Adjust size as needed */
-    color: black; /* Color of the hyphen */
+    transform: translateY(-55%);
+    /* Center vertically */
+    font-size: 24px;
+    /* Adjust size as needed */
+    color: black;
+    /* Color of the hyphen */
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.text-section-title{
+.text-section-title {
     font-weight: bold;
     margin-bottom: 20px;
     text-transform: uppercase;
 }
 
-.text-section-question{
+.text-section-question {
     font-weight: bold;
     margin-bottom: 20px;
     font-size: 222%;
 }
 
-.text-section-content{
+.text-section-content {
     font-weight: normal;
     margin-bottom: 20px;
     width: 90%;
@@ -275,32 +348,32 @@ button {
     border-radius: 5%;
 }
 
-.twotext-to-oneimage .text-section ul{
+.twotext-to-oneimage .text-section ul {
     list-style-type: none;
 }
 
-.twotext-to-oneimage .text-section ul li{
+.twotext-to-oneimage .text-section ul li {
     grid-template-columns: 1fr 9fr;
     display: grid;
     width: fit-content;
     margin-bottom: 10px;
 }
 
-.twotext-to-oneimage .text-section ul .list-item-icon{
+.twotext-to-oneimage .text-section ul .list-item-icon {
     width: 50px;
     height: 50px;
     grid-column: 1/ span 1;
 }
 
-.twotext-to-oneimage .text-section ul .list-item-container{
+.twotext-to-oneimage .text-section ul .list-item-container {
     grid-column: 2/ span 1;
 }
 
-.twotext-to-oneimage .text-section ul .list-item-title{
+.twotext-to-oneimage .text-section ul .list-item-title {
     font-weight: bolder;
 }
 
-.twotext-to-oneimage .text-section ul .list-item-content{
+.twotext-to-oneimage .text-section ul .list-item-content {
     font-weight: normal;
 }
 
@@ -327,13 +400,18 @@ button {
 }
 
 .onetext-above-threeimage .text-above::before {
-    content: '————'; /* Em dash or use '-' for a hyphen */
+    content: '————';
+    /* Em dash or use '-' for a hyphen */
     position: absolute;
-    left: -25%; /* Position it to the left of the text */
+    left: -25%;
+    /* Position it to the left of the text */
     top: 10px;
-    transform: translateY(-55%); /* Center vertically */
-    font-size: 24px; /* Adjust size as needed */
-    color: black; /* Color of the hyphen */
+    transform: translateY(-55%);
+    /* Center vertically */
+    font-size: 24px;
+    /* Adjust size as needed */
+    color: black;
+    /* Color of the hyphen */
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -355,20 +433,24 @@ button {
     color: white;
     position: relative;
 
-    grid-template-rows:  repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
 }
 
 
 .onetext-above-threeimage .homepage-card::before {
-    content: ""; /* Required for pseudo-elements */
-    position: absolute; /* Position the overlay absolutely */
+    content: "";
+    /* Required for pseudo-elements */
+    position: absolute;
+    /* Position the overlay absolutely */
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Black color with 50% opacity */
-    z-index: 1; /* Ensure the overlay is above the background image */
-    border-radius:5%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Black color with 50% opacity */
+    z-index: 1;
+    /* Ensure the overlay is above the background image */
+    border-radius: 5%;
 }
 
 .onetext-above-threeimage .homepage-card * {
@@ -380,7 +462,7 @@ button {
 }
 
 /* The user guide for R Shiny pages */
-.user-guide{
+.user-guide {
     position: fixed;
     height: auto;
     width: 66vw;
@@ -401,8 +483,9 @@ button {
 }
 
 .user-guide ul {
-    list-style-type: disc; /* Default bullet */
-  }
+    list-style-type: disc;
+    /* Default bullet */
+}
 
 
 
@@ -410,7 +493,7 @@ button {
     background-color: #EBF0F9;
 }
 
-.page-title{
+.page-title {
     font-family: 'Roboto', sans-serif;
     font-weight: bolder;
     text-align: center;
@@ -418,7 +501,7 @@ button {
     font-size: 250%;
 }
 
-.page-title-subtext{
+.page-title-subtext {
     font-family: 'Roboto', sans-serif;
     text-align: center;
     width: 100%;
@@ -441,12 +524,14 @@ button {
 }
 
 .image-banner img {
-    max-width: 100%; /* Scale image to fit container width */
-    height: auto; /* Maintain aspect ratio */
+    max-width: 100%;
+    /* Scale image to fit container width */
+    height: auto;
+    /* Maintain aspect ratio */
     object-fit: cover;
 }
 
-.water-quality-map-container{
+.water-quality-map-container {
     position: relative;
     overflow: hidden;
     height: max-content;
@@ -467,7 +552,7 @@ button {
 
 /* Product Search Page -specific styling */
 /* Mainly the search box */
-.search-container{
+.search-container {
     width: 50%;
     margin: 0 auto;
     display: flex;
@@ -476,7 +561,7 @@ button {
     padding: 5px 0;
 }
 
-.search-container input{
+.search-container input {
     padding: 15px 30px 15px 30px;
     width: 100%;
     flex: 1;
@@ -500,15 +585,18 @@ footer {
 .image-container {
     position: relative;
     width: 100%;
-    height: 30vh; /* Adjust this value to reserve space for the image */
+    height: 30vh;
+    /* Adjust this value to reserve space for the image */
     overflow: hidden;
-    margin-bottom: 20px; /* Adjust spacing as needed to separate from content below */
+    margin-bottom: 20px;
+    /* Adjust spacing as needed to separate from content below */
 }
 
 .full-width-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the image covers the container */
+    object-fit: cover;
+    /* Ensures the image covers the container */
     display: block;
 }
 
@@ -540,8 +628,10 @@ footer {
 
 .product {
     display: grid;
-    grid-template-columns: 200px 1fr; /* Fixed image width of 100px */
-    height: auto; /* Adjust based on content */
+    grid-template-columns: 200px 1fr;
+    /* Fixed image width of 100px */
+    height: auto;
+    /* Adjust based on content */
     margin-bottom: 20px;
     border: 1px solid #ddd;
     padding: 10px;
@@ -557,8 +647,10 @@ footer {
     max-width: 200px;
     max-height: 200px;
     display: flex;
-    justify-content: center;  /* Centers horizontally */
-    align-items: center;      /* Centers vertically */
+    justify-content: center;
+    /* Centers horizontally */
+    align-items: center;
+    /* Centers vertically */
     border-radius: 5%;
     height: 100%;
     background-color: #525560;
@@ -605,27 +697,40 @@ footer {
 
 .green-circle {
     display: inline-block;
-    width: 10px;  /* Diameter of the circle */
+    width: 10px;
+    /* Diameter of the circle */
     height: 10px;
-    background-color: green;  /* Circle color */
-    border-radius: 50%;  /* Makes the shape a circle */
-    margin-right: 8px;  /* Adds some space between the circle and text */
-    vertical-align: middle;  /* Aligns it with the text */
+    background-color: green;
+    /* Circle color */
+    border-radius: 50%;
+    /* Makes the shape a circle */
+    margin-right: 8px;
+    /* Adds some space between the circle and text */
+    vertical-align: middle;
+    /* Aligns it with the text */
 }
 
 
 
 /* --------------------字體改變---------------- */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 /* Apply styles to the paragraph within nutrient-info */
 .nutrient-info .centered-text {
-    font-family: 'Roboto', sans-serif; /* Use Roboto font */
-    font-size: 16px; /* Set font size to 16px */
-    font-weight: bold; /* Make the text bold */
-    text-align: center; /* Center align the text */
-    margin: 0 auto; /* Center align the text container */
-    line-height: 1.5; /* Adjust line height for better readability */
-    padding: 10px; /* Optional: add padding for spacing */
+    font-family: 'Roboto', sans-serif;
+    /* Use Roboto font */
+    font-size: 16px;
+    /* Set font size to 16px */
+    font-weight: bold;
+    /* Make the text bold */
+    text-align: center;
+    /* Center align the text */
+    margin: 0 auto;
+    /* Center align the text container */
+    line-height: 1.5;
+    /* Adjust line height for better readability */
+    padding: 10px;
+    /* Optional: add padding for spacing */
 }
 
 
@@ -633,9 +738,12 @@ footer {
 /* 设置 overview-background 部分的背景色 */
 .overview-background {
     /* background-color: #F2F6EF; 背景颜色 */
-    padding: 20px; /* 添加内边距 */
-    border-radius: 8px; /* 可选：圆角边框 */
-    margin-bottom: 20px; /* 可选：与下面的内容分隔开 */
+    padding: 20px;
+    /* 添加内边距 */
+    border-radius: 8px;
+    /* 可选：圆角边框 */
+    margin-bottom: 20px;
+    /* 可选：与下面的内容分隔开 */
 }
 
 /* 其他样式（如有需要） */
@@ -654,7 +762,7 @@ footer {
 .video-thumbnail-container {
 
     margin-bottom: 20px;
-    
+
 }
 
 .video-thumbnail {
@@ -662,7 +770,8 @@ footer {
     height: auto;
 }
 
-.play-button, .close-button {
+.play-button,
+.close-button {
     cursor: pointer;
     font-size: 24px;
 }
@@ -806,7 +915,8 @@ footer {
 .nutrient-title {
     font-weight: bold;
     text-transform: uppercase;
-    font-size: 1.5em; /* Adjust as needed */
+    font-size: 1.5em;
+    /* Adjust as needed */
 }
 
 /* Nutrient details container */
@@ -831,14 +941,18 @@ footer {
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
-    font-size: 1.5em; /* Adjust as needed */
-    margin-bottom: 10px; /* Space between title and description */
-    
+    font-size: 1.5em;
+    /* Adjust as needed */
+    margin-bottom: 10px;
+    /* Space between title and description */
+
 }
 
 .nutrient-description {
-    font-family: 'Roboto', sans-serif; /* 设置字体为 Roboto */
-    font-size: 12px; /* 设置字体大小为 14px */
+    font-family: 'Roboto', sans-serif;
+    /* 设置字体为 Roboto */
+    font-size: 12px;
+    /* 设置字体大小为 14px */
 }
 
 
@@ -855,7 +969,8 @@ footer {
 }
 
 .video-thumbnail {
-    width: 100%; /* Adjust as needed */
+    width: 100%;
+    /* Adjust as needed */
     height: auto;
     display: block;
 }
@@ -880,19 +995,23 @@ footer {
 /* Video Thumbnail Container */
 .video-section {
     display: flex;
-    justify-content: space-around; /* Adjust alignment as needed */
-    margin: 20px 0; /* Adjust spacing as needed */
+    justify-content: space-around;
+    /* Adjust alignment as needed */
+    margin: 20px 0;
+    /* Adjust spacing as needed */
 }
 
 /* Thumbnail Container */
 .video-thumbnail-container {
     position: relative;
     display: inline-block;
-    margin: 20px; /* Adjust spacing as needed */
+    margin: 20px;
+    /* Adjust spacing as needed */
 }
 
 .video-thumbnail {
-    width: 100%; /* Adjust width as needed */
+    width: 100%;
+    /* Adjust width as needed */
     height: auto;
     display: block;
 }
@@ -919,7 +1038,8 @@ footer {
     border-radius: 10px;
     max-width: 640px;
     margin: auto;
-    display: none; /* Hidden initially */
+    display: none;
+    /* Hidden initially */
 }
 
 video {
@@ -1008,6 +1128,7 @@ video {
     text-align: center;
     font-size: 16px;
 }
+
 /* -----------------------------Impact Tab Styles-- end---------------------------------------------------- */
 
 /* -----------------------------action-- style---------------------------------------------------- */
@@ -1101,8 +1222,10 @@ nav {
     position: sticky;
     top: 0;
     width: 100%;
-    z-index: 1000; /* Ensure it stays on top of other elements */
-    background-color: #ffffff; /* Make sure it has a background color */
+    z-index: 1000;
+    /* Ensure it stays on top of other elements */
+    background-color: #ffffff;
+    /* Make sure it has a background color */
 }
 
 
@@ -1172,9 +1295,12 @@ nav {
     padding: 10px;
     border-radius: 10px;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    height: 320px; /* 固定高度 */
-    width: 220px; /* 根据需要调整宽度 */
-    overflow: hidden; /* 防止溢出 */
+    height: 320px;
+    /* 固定高度 */
+    width: 220px;
+    /* 根据需要调整宽度 */
+    overflow: hidden;
+    /* 防止溢出 */
 }
 
 /* 图片样式 */
@@ -1183,7 +1309,8 @@ nav {
     height: 200px;
     border-radius: 10px;
     margin-bottom: 10px;
-    transition: transform 0.3s ease; /* 鼠标悬停时动画效果 */
+    transition: transform 0.3s ease;
+    /* 鼠标悬停时动画效果 */
 }
 
 /* 标题样式 */
@@ -1202,17 +1329,22 @@ nav {
 
 /* 鼠标悬停时高亮显示产品 */
 .product_recommend_item:hover {
-    background-color: #f0f8ff; /* 产品背景高亮 */
-    transform: scale(1.05); /* 整个产品区域略微放大 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
+    background-color: #f0f8ff;
+    /* 产品背景高亮 */
+    transform: scale(1.05);
+    /* 整个产品区域略微放大 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* 添加阴影效果 */
 }
 
 .product_recommend_item:hover img {
-    transform: scale(1.1); /* 鼠标悬停时图片进一步放大 */
+    transform: scale(1.1);
+    /* 鼠标悬停时图片进一步放大 */
 }
 
 .product_recommend_item:hover .product_title {
-    color: #007BFF; /* 鼠标悬停时改变标题颜色 */
+    color: #007BFF;
+    /* 鼠标悬停时改变标题颜色 */
 }
 
 /* 最后一个 item 不要额外的 margin */
@@ -1236,4 +1368,5 @@ nav {
     margin-bottom: 120px;
     font-family: 'Roboto', sans-serif;
 }
+
 /* -----------------------------recommoned product css  end ----------------------------------------------- */
