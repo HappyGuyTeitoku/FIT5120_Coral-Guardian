@@ -289,8 +289,8 @@
             const requestData = {
                 keyword: document.querySelector('input[name="keyword"]').value,
                 barcode: document.querySelector('input[name="barcode"]').value,
-                barcode_url: 'https://world.openfoodfacts.net/api/v2/product/' + encodeURIComponent(document.querySelector('input[name="barcode"]').value),
-                keyword_url: 'https://world.openfoodfacts.net/cgi/search.pl?search_terms=' + encodeURIComponent(document.querySelector('input[name="keyword"]').value) + '&search_simple=1&action=process&json=1&countries_tags_en=australia&fields=code%2Cproduct_name%2Cimage_front_url%2Cingredients_text',
+                barcode_url: 'https://world.openfoodfacts.org/api/v2/product/' + encodeURIComponent(document.querySelector('input[name="barcode"]').value),
+                keyword_url: 'https://world.openfoodfacts.org/cgi/search.pl?search_terms=' + encodeURIComponent(document.querySelector('input[name="keyword"]').value) + '&search_simple=1&action=process&json=1&countries_tags_en=australia&fields=code%2Cproduct_name%2Cimage_front_url%2Cingredients_text',
                 userAgent: navigator.userAgent
             };
             submitFormData(requestData);
