@@ -1,13 +1,81 @@
 <!-- templates/npcalculator.html -->
-{% extends "base.html" %}
+{% extends "base_v2.html" %}
 
 {% block title %}NP Calculator - AquaGuard{% endblock %}
 
 {% block content %}
-<div class="spacer"></div>
 
-<div>
-    NP Calculation stuff<br>
+<div class="spacer-half"></div>
+
+<div class="calculator-container">
+    <!-- Ask the user about number of people in the household -->
+    <div class="calculator-content" id="np-cal-people">
+        <div class="calculator-progress-bar-background">
+            <div class="calculator-progress-bar" style="width: 33%">33%</div>
+        </div>
+        <div class="calculator-progress-number">Question 1 / 3</div>
+        <hr/>
+        <div class="calculator-question">How many people are in your household?</div>
+        <div class="calculator-flex calculator-answer-interactive">
+            <button class="primary-button">&lt;</button>
+            <span class="icon-coloredman"></span>
+            <span class="icon-outlinedman"></span>
+            <span class="icon-outlinedman"></span>
+            <span class="icon-outlinedman"></span>
+            <span class="icon-outlinedman"></span>
+            <button class="primary-button">&gt;</button>
+        </div>
+        <input class="calculator-answer-textinput" id="np-cal-people-textinput" onchange="changepeople()" autofocus>
+
+        <div class="calculator-button-container">
+            <button class="primary-button">BACK</button>
+            <button class="primary-button">NEXT</button>
+        </div>
+    </div>
+
+    <!-- Ask the user about the frequency of washing (ie frequency of using detergents) -->
+    <div class="calculator-content" id="np-cal-freq">
+
+    </div>
+
+    <!-- Ask the user about the type of detergents used (powder, liquid, capsule) -->
+    <div class="calculator-content" id="np-cal-ptype">
+
+    </div>
+
+    <!-- Ask the user about the type of detergents used (powder, ) -->
+    <div class="calculator-content" id="np-cal-results">
+
+    </div>
 </div>
+
+<script>
+    // Script for switching between screens, HOME <- q1 <-> q2 <-> q3 -> RESULTS
+    document.addEventListener('DOMContentLoaded', function () {
+        const npc_people = document.getElementById('np-cal-people');
+        const npc_freq = document.getElementById('np-cal-freq');
+        const npc_ptype = document.getElementById('np-cal-ptype');
+        const npc_results = document.getElementById('np-cal-results');
+
+        // Initialise which questions gets asked
+        // Use DISPLAY : FLEX !
+        npc_people.style.display = "flex";
+        npc_freq.style.display = "none";
+        npc_ptype.style.display = "none";
+        npc_results.style.display = "none";
+    })
+</script>
+
+<script>
+    // Script for recording user answers for the results
+</script>
+
+<script>
+    // Script for changing the number of standing-man and standing-man-outline according to Q1 answer
+    function changepeople(){
+        const numberofpeople = document.getElementById('np-cal-people-textinput').value;
+        //document.getElementById('contentDiv').textContent = inputValue;
+    }
+</script>
 
 {% endblock %}
