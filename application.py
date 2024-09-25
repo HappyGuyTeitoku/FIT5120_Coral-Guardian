@@ -141,6 +141,10 @@ def productsearch():
 def npcalculator():
     return render_template('npcalculator.html')
 
+@application.route('/privacy-policy')
+def privacypolicy():
+    return render_template('privacypolicy.html')
+
 @application.cli.command('initdb')
 def init_db_command():
     """Create the database tables."""
