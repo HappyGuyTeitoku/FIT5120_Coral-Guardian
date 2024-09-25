@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}AquaGuard{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_npcal.css') }}">
     <!-- Roboto Font code -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,14 +37,14 @@
 
                 <!-- NEW navbar -->
                 <ul class="nav-links">
-                    <li class="nav-links-dropdown-toggle primary-button">
+                    <li class="nav-links-dropdown-toggle navbar-button">
                         Quick Tools
                         <div class="nav-links-dropdown-content secondary-button">
                             <a href="{{ url_for('npcalculator') }}">NP Calculator</a>
                             <a href="{{ url_for('productsearch') }}">Product Search</a>
                         </div>
                     </li>
-                    <li class="nav-links-dropdown-toggle primary-button">
+                    <li class="nav-links-dropdown-toggle navbar-button">
                         Read more
                         <div class="nav-links-dropdown-content secondary-button">
                             <a href="{{ url_for('learnmore') }}">Start Here</a>
