@@ -433,11 +433,9 @@ button {
     padding: 15% 10%;
 
     display: grid;
-    height: 100%;
     color: white;
     position: relative;
-
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(4,1fr);
 }
 
 
