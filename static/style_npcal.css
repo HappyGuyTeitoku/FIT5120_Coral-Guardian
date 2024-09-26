@@ -54,6 +54,18 @@
     background-image: url('https://img.icons8.com/isometric-line/100/standing-man.png');
 }
 
+.icon-laundry {
+    width: 50px;
+    height: 50px;
+    background-image: url('https://img.icons8.com/color/96/washing-machine.png');
+}
+
+.icon-dishwashing {
+    width: 50px;
+    height: 50px;
+    background-image: url('https://img.icons8.com/color/96/washing-dishes.png');
+}
+
 .calculator-answer-textinput {
     margin: 0 5%;
 }
@@ -64,6 +76,24 @@
     justify-content: space-around;
 }
 
-.calculator-answer-interactive {
-    /* something to make it take up all vertical space */
+.cal-button-tall {
+    font-weight: normal;
+    font-size: normal;
+    padding: 30px 15px;
+    border-radius: 5px;
+    border: 0px;
+    color: white;
+    cursor: pointer;
+    background-color: #70c174;
+}
+
+.cal-button-short {
+    font-weight: normal;
+    font-size: normal;
+    padding: 15px 15px;
+    border-radius: 5px;
+    border: 0px;
+    color: white;
+    cursor: pointer;
+    background-color: #70c174;
 }

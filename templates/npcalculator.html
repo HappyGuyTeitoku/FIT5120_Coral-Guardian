@@ -8,61 +8,120 @@
 <div class="spacer-half"></div>
 
 <div class="calculator-container">
+    <!-- Question 1 -->
     <!-- Ask the user about number of people in the household -->
     <div class="calculator-content" id="np-cal-people">
         <div class="calculator-progress-bar-background">
-            <div class="calculator-progress-bar" style="width: 33%">33%</div>
+            <div class="calculator-progress-bar" style="width: 25%">25%</div>
         </div>
         <div class="calculator-progress-number">Question 1 / 3</div>
-        <hr/>
+        <hr />
         <div class="calculator-question">How many people are in your household?</div>
         <div class="calculator-flex calculator-answer-interactive">
-            <button class="primary-button">&lt;</button>
-            <span class="icon-coloredman"></span>
-            <span class="icon-outlinedman"></span>
-            <span class="icon-outlinedman"></span>
-            <span class="icon-outlinedman"></span>
-            <span class="icon-outlinedman"></span>
-            <button class="primary-button">&gt;</button>
+            <button class="cal-button-tall">&lt;</button>
+            <span id="calculator-ask-people">
+                <span class="icon-coloredman"></span>
+                <span class="icon-outlinedman"></span>
+                <span class="icon-outlinedman"></span>
+                <span class="icon-outlinedman"></span>
+                <span class="icon-outlinedman"></span>
+            </span>
+            <button class="cal-button-tall">&gt;</button>
         </div>
         <input class="calculator-answer-textinput" id="np-cal-people-textinput" onchange="changepeople()" autofocus>
-
         <div class="calculator-button-container">
-            <button class="primary-button">BACK</button>
-            <button class="primary-button">NEXT</button>
+            <button class="primary-button" id="cal-q1-to-home" onclick="goToHomepage()">HOME</button>
+            <button class="primary-button" id="cal-q1-to-q2" onclick="goToQuestion2()">NEXT</button>
         </div>
     </div>
 
+    <!-- Question 2 -->
     <!-- Ask the user about the frequency of washing (ie frequency of using detergents) -->
     <div class="calculator-content" id="np-cal-freq">
-
+        <div class="calculator-progress-bar-background">
+            <div class="calculator-progress-bar" style="width: 50%">50%</div>
+        </div>
+        <div class="calculator-progress-number">Question 2 / 3</div>
+        <hr />
+        <div class="calculator-question">How frequently do you wash dishes or clothes?</div>
+        <div class="calculator-flex calculator-answer-interactive" id="calculator-ask-frequency">
+            <!-- Laundry -->
+            <div>
+                <span class="icon-laundry"></span>
+            </div>
+            <!-- Dishes -->
+            <div>
+                <span class="icon-dishwashing"></span>
+            </div>
+            <input class="calculator-answer-textinput" id="np-cal-freq-textinput">
+        </div>
+        <div class="calculator-button-container">
+            <button class="primary-button" id="cal-q2-to-q1" onclick="goToQuestion1()">BACK</button>
+            <button class="primary-button" id="cal-q2-to-q3" onclick="goToQuestion3()">NEXT</button>
+        </div>
     </div>
 
+    <!-- Question 3 -->
     <!-- Ask the user about the type of detergents used (powder, liquid, capsule) -->
     <div class="calculator-content" id="np-cal-ptype">
-
+        <div class="calculator-progress-bar-background">
+            <div class="calculator-progress-bar" style="width: 75%">75%</div>
+        </div>
+        <div class="calculator-progress-number">Question 3 / 3</div>
+        <hr />
+        <div class="calculator-question">What type of detergent do you use?</div>
+        <div class="calculator-flex calculator-answer-interactive" id="calculator-ask-ptype">
+            <!-- Choose Laundry detergent type with dropdown: Liquid, Powder, capsule -->
+            <!-- Choose Dishwashing detergent type with dropdown: Liquid, Powder, tablet (machine?) -->
+            <input class="calculator-answer-textinput" id="np-cal-freq-textinput">
+        </div>
+        <div class="calculator-button-container">
+            <button class="primary-button" id="cal-q3-to-q2" onclick="goToQuestion2()">BACK</button>
+            <button class="primary-button" id="cal-q3-to-results" onclick="goToResults()">NEXT</button>
+        </div>
     </div>
 
-    <!-- Ask the user about the type of detergents used (powder, ) -->
+    <!-- Results -->
+    <!-- Display the results from above inputs -->
     <div class="calculator-content" id="np-cal-results">
-
+        <div class="calculator-progress-bar-background">
+            <div class="calculator-progress-bar" style="width: 100%">100%</div>
+        </div>
+        <div class="calculator-flex calculator-answer-interactive"></div>
+            <!-- Show results -->
+            <span>Congratulations! You are an awful person.</span>
+        </div>
+        <div class="calculator-button-container">
+            <button class="primary-button" id="cal-results-to-home" onclick="goToQuestion1()">RESTART</button>
+            <button class="primary-button" id="cal-results-to-q1" onclick="goToHomepage()">HOME</button>
+        </div>
     </div>
 </div>
 
 <script>
+    // Declare constants, reusable outside this script tag
+    const npc_people = document.getElementById('np-cal-people');
+    const npc_people_val = document.getElementById('np-cal-people-textinput');
+    const npc_freq = document.getElementById('np-cal-freq');
+    const npc_ptype = document.getElementById('np-cal-ptype');
+    const npc_results = document.getElementById('np-cal-results');
+
     // Script for switching between screens, HOME <- q1 <-> q2 <-> q3 -> RESULTS
     document.addEventListener('DOMContentLoaded', function () {
-        const npc_people = document.getElementById('np-cal-people');
-        const npc_freq = document.getElementById('np-cal-freq');
-        const npc_ptype = document.getElementById('np-cal-ptype');
-        const npc_results = document.getElementById('np-cal-results');
-
         // Initialise which questions gets asked
-        // Use DISPLAY : FLEX !
+        // Use DISPLAY : FLEX
         npc_people.style.display = "flex";
         npc_freq.style.display = "none";
         npc_ptype.style.display = "none";
         npc_results.style.display = "none";
+
+        // Initialise answers of the calculator
+        let npc_ans_people = 0;
+        let npc_ans_freq = 0;
+        let npc_ans_ptype = 0;
+        let npc_ans_result = 0;
+
+        
     })
 </script>
 
@@ -72,10 +131,51 @@
 
 <script>
     // Script for changing the number of standing-man and standing-man-outline according to Q1 answer
-    function changepeople(){
+    function changepeople() {
         const numberofpeople = document.getElementById('np-cal-people-textinput').value;
-        //document.getElementById('contentDiv').textContent = inputValue;
+        //document.getElementById('calculator-ask-people').textContent = inputValue;
     }
+</script>
+
+<script>
+    // Script for the buttons
+    // 1. BACK button on Q1 OR HOME button on Results - Bring user back to homepage
+    function goToHomepage() {
+        window.location.href = '{{ url_for('index') }}';
+    }
+
+    // 2. BACK button on Q2 - Bring user to Q1
+    function goToQuestion1() {
+        npc_people.style.display = "flex";
+        npc_freq.style.display = "none";
+        npc_ptype.style.display = "none";
+        npc_results.style.display = "none";
+    }
+
+    // 3. NEXT button on Q1 OR BACK button on Q3 - Bring user to Q2
+    function goToQuestion2() {
+        npc_people.style.display = "none";
+        npc_freq.style.display = "flex";
+        npc_ptype.style.display = "none";
+        npc_results.style.display = "none";
+    }
+
+    // 4. NEXT button on Q2 - Bring user to Q3
+    function goToQuestion3() {
+        npc_people.style.display = "none";
+        npc_freq.style.display = "none";
+        npc_ptype.style.display = "flex";
+        npc_results.style.display = "none";
+    }
+
+    // 5. NEXT button on Q3 - Bring user to RESULTS
+    function goToResults() {
+        npc_people.style.display = "none";
+        npc_freq.style.display = "none";
+        npc_ptype.style.display = "none";
+        npc_results.style.display = "flex";
+    }
+
 </script>
 
 {% endblock %}
