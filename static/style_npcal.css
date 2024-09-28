@@ -3,7 +3,7 @@
 .calculator-container {
     display: flex;
     flex-direction: column;
-    margin: 15px 30%;
+    margin: 15px 25%;
     padding: 15px;
     background-color: #E5E5E5;
     height: 80vh;
@@ -45,30 +45,60 @@
 .icon-coloredman {
     width: 100px;
     height: 100px;
-    background-image: url('https://img.icons8.com/isometric/100/standing-man.png');
+    background-image: url('/static/Calculator-Coloredman.png');
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .icon-outlinedman {
     width: 100px;
     height: 100px;
-    background-image: url('https://img.icons8.com/isometric-line/100/standing-man.png');
+    background-image: url('/static/Calculator-Uncoloredman.png');
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .icon-laundry {
+    display: inline-block;
     width: 50px;
     height: 50px;
-    background-image: url('https://img.icons8.com/color/96/washing-machine.png');
+    background-image: url('/static/Calculator-Laundry.png');
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .icon-dishwashing {
+    display: inline-block;
     width: 50px;
     height: 50px;
-    background-image: url('https://img.icons8.com/color/96/washing-dishes.png');
+    background-image: url('/static/Calculator-Dishwashing.png');
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.results-background {
+    background-image: url('/static/Calculator-Results\ Backgound.png');
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
 }
 
 .calculator-answer-textinput {
-    margin: 0 5%;
+    margin: 0 auto 10px auto;
+    width: 100%;
+    max-width: 30%;
+    height: 40px;
 }
+
+
 
 .calculator-button-container {
     padding: 0 20%;
@@ -77,8 +107,8 @@
 }
 
 .cal-button-tall {
-    font-weight: normal;
-    font-size: normal;
+    font-weight: bold;
+    font-size: large;
     padding: 30px 15px;
     border-radius: 5px;
     border: 0px;
@@ -88,12 +118,17 @@
 }
 
 .cal-button-short {
-    font-weight: normal;
-    font-size: normal;
+    font-weight: bold;
+    font-size: large;
     padding: 15px 15px;
     border-radius: 5px;
     border: 0px;
     color: white;
     cursor: pointer;
     background-color: #70c174;
+}
+
+.calculator-ask-people {
+    width: 500px;
+    height: 100px;
 }

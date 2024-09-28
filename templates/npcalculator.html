@@ -18,17 +18,18 @@
         <hr />
         <div class="calculator-question">How many people are in your household?</div>
         <div class="calculator-flex calculator-answer-interactive">
-            <button class="cal-button-tall">&lt;</button>
-            <span id="calculator-ask-people">
+            <button class="cal-button-tall" onclick="reducepeople()">-</button>
+            <span id="calculator-ask-people-icons">
                 <span class="icon-coloredman"></span>
                 <span class="icon-outlinedman"></span>
                 <span class="icon-outlinedman"></span>
                 <span class="icon-outlinedman"></span>
                 <span class="icon-outlinedman"></span>
             </span>
-            <button class="cal-button-tall">&gt;</button>
+            <button class="cal-button-tall" onclick="addpeople()">+</button>
         </div>
-        <input class="calculator-answer-textinput" id="np-cal-people-textinput" onchange="changepeople()" autofocus>
+        <input class="calculator-answer-textinput" type="number" id="np-cal-people-textinput"
+            onchange="changepeopleicons()" autofocus min="1" max="5">
         <div class="calculator-button-container">
             <button class="primary-button" id="cal-q1-to-home" onclick="goToHomepage()">HOME</button>
             <button class="primary-button" id="cal-q1-to-q2" onclick="goToQuestion2()">NEXT</button>
@@ -46,14 +47,27 @@
         <div class="calculator-question">How frequently do you wash dishes or clothes?</div>
         <div class="calculator-flex calculator-answer-interactive" id="calculator-ask-frequency">
             <!-- Laundry -->
+            <!-- TODO: Write the functions and change onclick -->
             <div>
                 <span class="icon-laundry"></span>
-            </div>
+                <button class="cal-button-short" onclick="reducepeople()">-</button>
+                <input class="calculator-answer-textinput" id="np-cal-laundry-numload-textinput">
+                <button class="cal-button-short" onclick="addpeople()">+</button>
+                <button class="cal-button-short" onclick="reducepeople()">-</button>
+                <input class="calculator-answer-textinput" id="np-cal-laundry-interval-dropdown">
+                <button class="cal-button-short" onclick="addpeople()">+</button>
+            </div><br>
             <!-- Dishes -->
             <div>
                 <span class="icon-dishwashing"></span>
+                <button class="cal-button-short" onclick="reducepeople()">-</button>
+                <input class="calculator-answer-textinput" id="np-cal-dishwashing-numload-textinput">
+                <button class="cal-button-short" onclick="addpeople()">+</button>
+                <button class="cal-button-short" onclick="reducepeople()">-</button>
+                <input class="calculator-answer-textinput" id="np-cal-dishwashing-interval-dropdown">
+                <button class="cal-button-short" onclick="addpeople()">+</button>
             </div>
-            <input class="calculator-answer-textinput" id="np-cal-freq-textinput">
+
         </div>
         <div class="calculator-button-container">
             <button class="primary-button" id="cal-q2-to-q1" onclick="goToQuestion1()">BACK</button>
@@ -73,7 +87,7 @@
         <div class="calculator-flex calculator-answer-interactive" id="calculator-ask-ptype">
             <!-- Choose Laundry detergent type with dropdown: Liquid, Powder, capsule -->
             <!-- Choose Dishwashing detergent type with dropdown: Liquid, Powder, tablet (machine?) -->
-            <input class="calculator-answer-textinput" id="np-cal-freq-textinput">
+            <input class="calculator-answer-textinput" id="np-cal-ptype-textinput">
         </div>
         <div class="calculator-button-container">
             <button class="primary-button" id="cal-q3-to-q2" onclick="goToQuestion2()">BACK</button>
@@ -83,11 +97,11 @@
 
     <!-- Results -->
     <!-- Display the results from above inputs -->
-    <div class="calculator-content" id="np-cal-results">
+    <div class="calculator-content results-background" id="np-cal-results">
         <div class="calculator-progress-bar-background">
             <div class="calculator-progress-bar" style="width: 100%">100%</div>
         </div>
-        <div class="calculator-flex calculator-answer-interactive"></div>
+        <div class="calculator-flex calculator-answer-interactive">
             <!-- Show results -->
             <span>Congratulations! You are an awful person.</span>
         </div>
@@ -102,8 +116,18 @@
     // Declare constants, reusable outside this script tag
     const npc_people = document.getElementById('np-cal-people');
     const npc_people_val = document.getElementById('np-cal-people-textinput');
+    const npc_people_icons = document.getElementById('calculator-ask-people-icons');
+
     const npc_freq = document.getElementById('np-cal-freq');
+    const npc_freq_laundry_numload = document.getElementById('np-cal-freq-laundry-numload');
+    const npc_freq_laundry_numload_val = document.getElementById('np-cal-laundry-numload-textinput');
+    const npc_freq_laundry_interval = document.getElementById('np-cal-freq-laundry-dropdown');
+    const npc_freq_dishwashing_numload = document.getElementById('np-cal-freq-dishwashing-numload');
+    const npc_freq_dishwashing_numload_val = document.getElementById('np-cal-dishwashing-numload-textinput');
+    const npc_freq_dishwashing_interval = document.getElementById('np-cal-freq-dishwashing-interval-dropdown');
+
     const npc_ptype = document.getElementById('np-cal-ptype');
+
     const npc_results = document.getElementById('np-cal-results');
 
     // Script for switching between screens, HOME <- q1 <-> q2 <-> q3 -> RESULTS
@@ -116,12 +140,14 @@
         npc_results.style.display = "none";
 
         // Initialise answers of the calculator
-        let npc_ans_people = 0;
+        let npc_ans_people = 1;
         let npc_ans_freq = 0;
         let npc_ans_ptype = 0;
         let npc_ans_result = 0;
 
-        
+        // Set default number of colored man to 1 and uncolored man to 4
+        npc_people_val.value = 1;
+        npc_people_icons = changepeopleicons();
     })
 </script>
 
@@ -131,14 +157,50 @@
 
 <script>
     // Script for changing the number of standing-man and standing-man-outline according to Q1 answer
-    function changepeople() {
-        const numberofpeople = document.getElementById('np-cal-people-textinput').value;
-        //document.getElementById('calculator-ask-people').textContent = inputValue;
+    function changepeopleicons() {
+        npc_ans_people = npc_people_val.value;
+        let npc_people_icons_results = '';
+        // min 1, max 5
+        if (npc_ans_people < 1) {
+            npc_ans_people = 1;
+        }
+        if (npc_ans_people > 5) {
+            npc_ans_people = 5;
+        }
+        for (let i = 1; i <= 5; i++) {
+            if (i <= npc_ans_people) {
+                npc_people_icons_results += '<span class="icon-coloredman"></span>'; // Add colored man
+            } else {
+                npc_people_icons_results += '<span class="icon-outlinedman"></span>'; // Add uncolored man
+            }
+        }
+        npc_people_icons.innerHTML = npc_people_icons_results;
+    }
+
+    // Script for adding number of people in household by 1
+    function addpeople() {
+        if (npc_people_val.value < 5) {
+            npc_people_val.value = parseInt(npc_people_val.value) + 1;
+            changepeopleicons();
+        }
+    }
+    // Script for reducing number of people in household by 1
+    function reducepeople() {
+        if (npc_people_val.value > 1) {
+            npc_people_val.value = parseInt(npc_people_val.value) - 1;
+            changepeopleicons();
+        }
     }
 </script>
 
 <script>
-    // Script for the buttons
+    // Script for the frequency question
+    npc_freq_laundry_numload_val = 1;
+    npc_freq_laundry_interval_val = "Day";
+</script>
+
+<script>
+    // Script for the navigation buttons
     // 1. BACK button on Q1 OR HOME button on Results - Bring user back to homepage
     function goToHomepage() {
         window.location.href = '{{ url_for('index') }}';
