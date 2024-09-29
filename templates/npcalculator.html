@@ -31,8 +31,8 @@
         <input class="calculator-answer-textinput" type="number" id="np-cal-people-textinput"
             onchange="changePeopleIcons()" autofocus min="1" max="5">
         <div class="calculator-button-container">
-            <button class="primary-button" id="cal-q1-to-home" onclick="goToHomepage()">HOME</button>
-            <button class="primary-button" id="cal-q1-to-q2" onclick="goToQuestion2()">NEXT</button>
+            <button class="primary-button-blue" id="cal-q1-to-home" onclick="goToHomepage()">HOME</button>
+            <button class="primary-button-blue" id="cal-q1-to-q2" onclick="goToQuestion2()">NEXT</button>
         </div>
     </div>
 
@@ -78,8 +78,8 @@
 
         </div>
         <div class="calculator-button-container">
-            <button class="primary-button" id="cal-q2-to-q1" onclick="goToQuestion1()">BACK</button>
-            <button class="primary-button" id="cal-q2-to-q3" onclick="goToQuestion3()">NEXT</button>
+            <button class="primary-button-blue" id="cal-q2-to-q1" onclick="goToQuestion1()">BACK</button>
+            <button class="primary-button-blue" id="cal-q2-to-q3" onclick="goToQuestion3()">NEXT</button>
         </div>
     </div>
 
@@ -111,8 +111,8 @@
             </div>
         </div>
         <div class="calculator-button-container">
-            <button class="primary-button" id="cal-q3-to-q2" onclick="goToQuestion2()">BACK</button>
-            <button class="primary-button" id="cal-q3-to-results" onclick="goToResults()">NEXT</button>
+            <button class="primary-button-blue" id="cal-q3-to-q2" onclick="goToQuestion2()">BACK</button>
+            <button class="primary-button-blue" id="cal-q3-to-results" onclick="goToResults()">NEXT</button>
         </div>
     </div>
 
@@ -131,11 +131,11 @@
             <div class="spacer-half"></div>
             <div id="np-cal-results-text">Your are not supposed to read this text</div>
             <div class="spacer"></div>
-            <button class="primary-button" onclick="window.location.href='{{ url_for('productsearch') }}'">Check your products</button>
+            <button class="primary-button-blue" onclick="window.location.href='{{ url_for('productsearch') }}'">Check your products</button>
         </div>
         <div class="calculator-button-container">
-            <button class="primary-button" id="cal-results-to-home" onclick="goToQuestion1()">RESTART</button>
-            <button class="primary-button" id="cal-results-to-q1" onclick="goToHomepage()">HOME</button>
+            <button class="primary-button-blue" id="cal-results-to-home" onclick="goToQuestion1()">RESTART</button>
+            <button class="primary-button-blue" id="cal-results-to-q1" onclick="goToHomepage()">HOME</button>
         </div>
     </div>
 </div>

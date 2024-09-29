@@ -58,12 +58,13 @@
 }
 
 .calculator-progress-bar {
-    background-color: #70C174;
+    background-color: #0F53A8;
     margin: 0;
     border: 0;
     padding: 0 10px;
     height: 24px;
     text-align: right;
+    color: #FFFFFF;
 }
 
 .half-interactive-area{
@@ -169,7 +170,7 @@
     border: 0px;
     color: white;
     cursor: pointer;
-    background-color: #70c174;
+    background-color: #0F53A8;
 }
 
 .cal-button-short {
@@ -180,5 +181,5 @@
     border: 0px;
     color: white;
     cursor: pointer;
-    background-color: #70c174;
+    background-color: #0F53A8;
 }

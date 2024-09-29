@@ -243,6 +243,17 @@ button {
     background-color: #70c174;
 }
 
+.primary-button-blue {
+    font-weight: bold;
+    font-size: normal;
+    padding: 15px 30px 15px 30px;
+    border-radius: 5px;
+    border: 0px;
+    color: white;
+    cursor: pointer;
+    background-color: #0F53A8;
+}
+
 .secondary-button {
     font-weight: bold;
     font-size: normal;
