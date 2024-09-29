@@ -15,10 +15,10 @@
             <div class="calculator-progress-bar" style="width: 25%">25%</div>
         </div>
         <div class="calculator-progress-number">Question 1 / 3</div>
-        <hr />
+        <hr class="horizontal-line" />
         <div class="calculator-question">How many people are in your household?</div>
         <div class="calculator-flex calculator-answer-interactive">
-            <button class="cal-button-tall" onclick="reducepeople()">-</button>
+            <button class="cal-button-tall" onclick="reducePeople()">-</button>
             <span id="calculator-ask-people-icons">
                 <span class="icon-coloredman"></span>
                 <span class="icon-outlinedman"></span>
@@ -26,10 +26,10 @@
                 <span class="icon-outlinedman"></span>
                 <span class="icon-outlinedman"></span>
             </span>
-            <button class="cal-button-tall" onclick="addpeople()">+</button>
+            <button class="cal-button-tall" onclick="addPeople()">+</button>
         </div>
         <input class="calculator-answer-textinput" type="number" id="np-cal-people-textinput"
-            onchange="changepeopleicons()" autofocus min="1" max="5">
+            onchange="changePeopleIcons()" autofocus min="1" max="5">
         <div class="calculator-button-container">
             <button class="primary-button" id="cal-q1-to-home" onclick="goToHomepage()">HOME</button>
             <button class="primary-button" id="cal-q1-to-q2" onclick="goToQuestion2()">NEXT</button>
@@ -43,29 +43,37 @@
             <div class="calculator-progress-bar" style="width: 50%">50%</div>
         </div>
         <div class="calculator-progress-number">Question 2 / 3</div>
-        <hr />
+        <hr class="horizontal-line" />
         <div class="calculator-question">How frequently do you wash dishes or clothes?</div>
-        <div class="calculator-flex calculator-answer-interactive" id="calculator-ask-frequency">
+        <div class="calculator-two-rows calculator-answer-interactive" id="calculator-ask-frequency">
             <!-- Laundry -->
             <!-- TODO: Write the functions and change onclick -->
-            <div>
-                <span class="icon-laundry"></span>
-                <button class="cal-button-short" onclick="reducepeople()">-</button>
-                <input class="calculator-answer-textinput" id="np-cal-laundry-numload-textinput">
-                <button class="cal-button-short" onclick="addpeople()">+</button>
-                <button class="cal-button-short" onclick="reducepeople()">-</button>
-                <input class="calculator-answer-textinput" id="np-cal-laundry-interval-dropdown">
-                <button class="cal-button-short" onclick="addpeople()">+</button>
-            </div><br>
+            <div class="half-interactive-area">
+                <span class="icon-laundry cal-icon"></span>
+                <button class="cal-button-short" onclick="reduceLaundryNumload()">-</button>
+                <input class="calculator-answer-textinput-short" id="np-cal-freq-laundry-numload-textinput"
+                    type="number" min="1" max="366">
+                <button class="cal-button-short" onclick="addLaundryNumload()">+</button>
+                <span class="cal-text-between-buttons"> LOADS PER </span>
+                <button class="cal-button-short" onclick="reduceLaundryInterval()">-</button>
+                <select class="calculator-answer-textinput-short" id="np-cal-freq-laundry-interval-dropdown">
+                    <!-- Options are populated with functions -->
+                </select>
+                <button class="cal-button-short" onclick="addLaundryInterval()">+</button>
+            </div>
             <!-- Dishes -->
-            <div>
+            <div class="half-interactive-area">
                 <span class="icon-dishwashing"></span>
-                <button class="cal-button-short" onclick="reducepeople()">-</button>
-                <input class="calculator-answer-textinput" id="np-cal-dishwashing-numload-textinput">
-                <button class="cal-button-short" onclick="addpeople()">+</button>
-                <button class="cal-button-short" onclick="reducepeople()">-</button>
-                <input class="calculator-answer-textinput" id="np-cal-dishwashing-interval-dropdown">
-                <button class="cal-button-short" onclick="addpeople()">+</button>
+                <button class="cal-button-short" onclick="reduceDishwashingNumload()">-</button>
+                <input class="calculator-answer-textinput-short" id="np-cal-freq-dishwashing-numload-textinput"
+                    type="number" min="1" max="366">
+                <button class="cal-button-short" onclick="addDishwashingNumload()">+</button>
+                <span class="cal-text-between-buttons"> LOADS PER </span>
+                <button class="cal-button-short" onclick="reduceDishwashingInterval()">-</button>
+                <select class="calculator-answer-textinput-short" id="np-cal-freq-dishwashing-interval-dropdown">
+                    <!-- Options are populated with functions -->
+                </select>
+                <button class="cal-button-short" onclick="addDishwashingInterval()">+</button>
             </div>
 
         </div>
@@ -82,12 +90,25 @@
             <div class="calculator-progress-bar" style="width: 75%">75%</div>
         </div>
         <div class="calculator-progress-number">Question 3 / 3</div>
-        <hr />
+        <hr class="horizontal-line" />
         <div class="calculator-question">What type of detergent do you use?</div>
-        <div class="calculator-flex calculator-answer-interactive" id="calculator-ask-ptype">
+        <div class="calculator-two-rows calculator-answer-interactive" id="calculator-ask-ptype">
             <!-- Choose Laundry detergent type with dropdown: Liquid, Powder, capsule -->
+            <div class="half-interactive-area">
+                <span class="icon-laundry"></span>
+                <span class="cal-text-between-buttons">LAUNDRY DETERGENT TYPE:</span>
+                <select class="calculator-answer-textinput-medium" id="np-cal-ptype-laundry-dropdown">
+                    <!-- Options are populated with functions -->
+                </select>
+            </div>
             <!-- Choose Dishwashing detergent type with dropdown: Liquid, Powder, tablet (machine?) -->
-            <input class="calculator-answer-textinput" id="np-cal-ptype-textinput">
+            <div class="half-interactive-area">
+                <span class="icon-dishwashing"></span>
+                <span class="cal-text-between-buttons">DISHWASHING DETERGENT TYPE:</span>
+                <select class="calculator-answer-textinput-medium" id="np-cal-ptype-dishwashing-dropdown">
+                    <!-- Options are populated with functions -->
+                </select>
+            </div>
         </div>
         <div class="calculator-button-container">
             <button class="primary-button" id="cal-q3-to-q2" onclick="goToQuestion2()">BACK</button>
@@ -101,9 +122,16 @@
         <div class="calculator-progress-bar-background">
             <div class="calculator-progress-bar" style="width: 100%">100%</div>
         </div>
-        <div class="calculator-flex calculator-answer-interactive">
+        <div class="calculator-flex-results calculator-answer-interactive">
             <!-- Show results -->
-            <span>Congratulations! You are an awful person.</span>
+            <h1>RESULTS</h1>
+            <hr class="horizontal-line" />
+            <div>Your household's annual Phosphate emmision is:</div>
+            <h1><span id="np-cal-results-display">1</span> / Year</h1>
+            <div class="spacer-half"></div>
+            <div id="np-cal-results-text">Your are not supposed to read this text</div>
+            <div class="spacer"></div>
+            <button class="primary-button" onclick="window.location.href='{{ url_for('productsearch') }}'">Check your products</button>
         </div>
         <div class="calculator-button-container">
             <button class="primary-button" id="cal-results-to-home" onclick="goToQuestion1()">RESTART</button>
@@ -119,16 +147,21 @@
     const npc_people_icons = document.getElementById('calculator-ask-people-icons');
 
     const npc_freq = document.getElementById('np-cal-freq');
-    const npc_freq_laundry_numload = document.getElementById('np-cal-freq-laundry-numload');
-    const npc_freq_laundry_numload_val = document.getElementById('np-cal-laundry-numload-textinput');
-    const npc_freq_laundry_interval = document.getElementById('np-cal-freq-laundry-dropdown');
-    const npc_freq_dishwashing_numload = document.getElementById('np-cal-freq-dishwashing-numload');
-    const npc_freq_dishwashing_numload_val = document.getElementById('np-cal-dishwashing-numload-textinput');
+    const npc_freq_laundry_numload_val = document.getElementById('np-cal-freq-laundry-numload-textinput');
+    const npc_freq_laundry_interval = document.getElementById('np-cal-freq-laundry-interval-dropdown');
+    const npc_freq_dishwashing_numload_val = document.getElementById('np-cal-freq-dishwashing-numload-textinput');
     const npc_freq_dishwashing_interval = document.getElementById('np-cal-freq-dishwashing-interval-dropdown');
+    const npc_freq_interval_options = new Array('day', 'week', 'month', 'year');
 
     const npc_ptype = document.getElementById('np-cal-ptype');
+    const npc_ptype_laundry = document.getElementById('np-cal-ptype-laundry-dropdown');
+    const npc_ptype_dishwashing = document.getElementById('np-cal-ptype-dishwashing-dropdown');
+    const npc_ptype_options = new Array('Liquid', 'Powder', 'Tablet/Pod');
 
     const npc_results = document.getElementById('np-cal-results');
+    const npc_results_display = document.getElementById('np-cal-results-display');
+    const npc_results_text_and_advice = document.getElementById('np-cal-results-text');
+    let npc_results_higher_than_average = false;
 
     // Script for switching between screens, HOME <- q1 <-> q2 <-> q3 -> RESULTS
     document.addEventListener('DOMContentLoaded', function () {
@@ -139,36 +172,111 @@
         npc_ptype.style.display = "none";
         npc_results.style.display = "none";
 
-        // Initialise answers of the calculator
-        let npc_ans_people = 1;
-        let npc_ans_freq = 0;
-        let npc_ans_ptype = 0;
-        let npc_ans_result = 0;
-
+        // Q1 PEOPLE
         // Set default number of colored man to 1 and uncolored man to 4
         npc_people_val.value = 1;
-        npc_people_icons = changepeopleicons();
-    })
+        changePeopleIcons();
+
+        // Q2 FREQ
+        // Populate the dropdown lists
+        function populateIntervalDropdownList(dropdownelement) {
+            npc_freq_interval_options.forEach((option, index) => {
+                const opt = document.createElement('option');
+                opt.value = index;
+                opt.textContent = option;
+                dropdownelement.appendChild(opt);
+            });
+        };
+        populateIntervalDropdownList(npc_freq_laundry_interval);
+        populateIntervalDropdownList(npc_freq_dishwashing_interval);
+        // Set default number of loads to 1
+        npc_freq_laundry_numload_val.value = 1;
+        npc_freq_dishwashing_numload_val.value = 1;
+        // Set default intervals to 0 (day)
+        npc_freq_laundry_interval.value = 0;
+        npc_freq_dishwashing_interval.value = 0;
+
+        // Q3 PTYPE
+        // Populate the dropdown lists
+        function populateProductTypeDropdownList(dropdownelement) {
+            npc_ptype_options.forEach((option, index) => {
+                const opt = document.createElement('option');
+                opt.value = index;
+                opt.textContent = option;
+                dropdownelement.appendChild(opt);
+            });
+        };
+        populateProductTypeDropdownList(npc_ptype_laundry);
+        populateProductTypeDropdownList(npc_ptype_dishwashing);
+
+    });
 </script>
 
 <script>
-    // Script for recording user answers for the results
+    // Script that calculates the result and displays.
+    // Changes unit (g or kg) depending on number
+    function calculation_results() {
+        // Initialise the result
+        let calResult = 1;
+        const npc_ans_q1 = calculation_people(); // person
+        const npc_ans_q2a = calculation_frequency_laundry(); // times/year
+        const npc_ans_q2b = calculation_frequency_dishwashing(); // times/year
+        const npc_ans_q3a = calculation_ptype_laundry(); // kg/person/year
+        const npc_ans_q3b = calculation_ptype_dishwashing(); // kg/person/year
+
+        calResult = npc_ans_q1 * ((npc_ans_q2a * npc_ans_q3a) + (npc_ans_q2b * npc_ans_q3b));
+
+        // Create the comparision baseline with 2010 data, as the P in detergent data
+        //   is also taken from 2010 data.
+        // Amount of Phosphorus in both Laundry and Dishwashing,
+        //   multiplied by the amount of people,
+        //   as the original unit is kg per capita per year
+        //                         = kg per (capita x year)
+        const npc_comparision = npc_ans_q1 * (0.18 + 0.11);
+        npc_results_higher_than_average = (calResult > npc_comparision);
+        if (npc_results_higher_than_average) {
+            // higher than 2010 average
+            npc_results_text_and_advice.innerHTML = "Your phosphate emission is <b>higher than average</b>. Indicating that your washing habits "+
+                                                    "contributes to an increased Phosphate output.<br>"+
+                                                    "To help reduce your environmental impact, consider adjusting your washing habits "+
+                                                    "and using low phosphate products.";
+        } else {
+            // Lower than 2010 average
+            npc_results_text_and_advice.innerHTML = "Your phosphate emission is <b>lower than average</b>, indicating that your washing habits "+
+                                                    "are contributing positively to the environment.<br>"+
+                                                    "Continue to maintain these practices, and consider further reducing your impact "+
+                                                    "by using phosphate-free cleaning products.";        }
+
+        // The result is displayed in "kg / Year"
+        // if result is less than 1kg, change unit to g
+        if (calResult < 1) {
+            calResult *= 1000;
+            npc_results_display.innerHTML = calResult.toFixed(3) + " g";
+        } else {
+            npc_results_display.innerHTML = calResult.toFixed(3) + " kg";
+        }
+    }
 </script>
 
 <script>
+    // Script for the frequency question (return a multiplier according to people, 1x for 1 people households etc.)
+    function calculation_people() {
+        return Math.max(Number(npc_people_val.value), 1);
+    }
+
     // Script for changing the number of standing-man and standing-man-outline according to Q1 answer
-    function changepeopleicons() {
-        npc_ans_people = npc_people_val.value;
+    function changePeopleIcons() {
+        let npc_people_ans = npc_people_val.value;
         let npc_people_icons_results = '';
         // min 1, max 5
-        if (npc_ans_people < 1) {
-            npc_ans_people = 1;
+        if (npc_people_ans < 1) {
+            npc_people_ans = 1;
         }
-        if (npc_ans_people > 5) {
-            npc_ans_people = 5;
+        if (npc_people_ans > 5) {
+            npc_people_ans = 5;
         }
         for (let i = 1; i <= 5; i++) {
-            if (i <= npc_ans_people) {
+            if (i <= npc_people_ans) {
                 npc_people_icons_results += '<span class="icon-coloredman"></span>'; // Add colored man
             } else {
                 npc_people_icons_results += '<span class="icon-outlinedman"></span>'; // Add uncolored man
@@ -178,25 +286,178 @@
     }
 
     // Script for adding number of people in household by 1
-    function addpeople() {
+    function addPeople() {
         if (npc_people_val.value < 5) {
             npc_people_val.value = parseInt(npc_people_val.value) + 1;
-            changepeopleicons();
+            changePeopleIcons();
         }
     }
     // Script for reducing number of people in household by 1
-    function reducepeople() {
+    function reducePeople() {
         if (npc_people_val.value > 1) {
             npc_people_val.value = parseInt(npc_people_val.value) - 1;
-            changepeopleicons();
+            changePeopleIcons();
         }
     }
 </script>
 
 <script>
-    // Script for the frequency question
-    npc_freq_laundry_numload_val = 1;
-    npc_freq_laundry_interval_val = "Day";
+    // Script for the frequency question (combine the 4 parts into one number)
+    function calculation_frequency_laundry() {
+        // get npc_freq_laundry_numload_val.value
+        const npc_anscal_laundry_numload = Number(npc_freq_laundry_numload_val.value);
+        // get npc_freq_laundry_interval_val multiply by 365/52/12/1
+        const npc_anscal_laundry_interval = Number(npc_freq_laundry_interval.value);
+        // return the multiplied number
+        if (npc_anscal_laundry_interval == 0) {
+            // npc_freq_interval_options[0] is 'day'
+            return npc_anscal_laundry_numload * 365;
+        } else if (npc_anscal_laundry_interval == 1) {
+            // npc_freq_interval_options[1] is 'week'
+            return npc_anscal_laundry_numload * 52;
+        } else if (npc_anscal_laundry_interval == 2) {
+            // npc_freq_interval_options[2] is 'month'
+            return npc_anscal_laundry_numload * 12;
+        } else if (npc_anscal_laundry_interval == 3) {
+            // npc_freq_interval_options[3] is 'year'
+            return npc_anscal_laundry_numload;
+        }
+        // In case people broke the system and went outbound
+        return 1;
+    }
+    function calculation_frequency_dishwashing() {
+        // get npc_freq_dishwashing_numload_val.value
+        // get npc_freq_dishwashing_interval_val multiply by 365/52/12/1
+        // return the multiplied number
+        // get npc_freq_dishwashing_numload_val.value
+        const npc_anscal_dishwashing_numload = Number(npc_freq_dishwashing_numload_val.value);
+        // get npc_freq_dishwashing_interval_val multiply by 365/52/12/1
+        const npc_anscal_dishwashing_interval = Number(npc_freq_dishwashing_interval.value);
+        // return the multiplied number
+        if (npc_anscal_dishwashing_interval == 0) {
+            // npc_freq_interval_options[0] is 'day'
+            return npc_anscal_dishwashing_numload * 365;
+        } else if (npc_anscal_dishwashing_interval == 1) {
+            // npc_freq_interval_options[1] is 'week'
+            return npc_anscal_dishwashing_numload * 52;
+        } else if (npc_anscal_dishwashing_interval == 2) {
+            // npc_freq_interval_options[2] is 'month'
+            return npc_anscal_dishwashing_numload * 12;
+        } else if (npc_anscal_dishwashing_interval == 3) {
+            // npc_freq_interval_options[3] is 'year'
+            return npc_anscal_dishwashing_numload;
+        }
+        // In case people broke the system and went outbound
+        return 1;
+    }
+
+    // Script for adding number of loads of laundry by 1
+    // Upper limit set to 366, logical maximum if interval is 'year'.
+    // I do not want to deal with other limits for days or weeks, since they are so small and require information from interval
+    function addLaundryNumload() {
+        if (npc_freq_laundry_numload_val.value < 366) {
+            npc_freq_laundry_numload_val.value = parseInt(npc_freq_laundry_numload_val.value) + 1;
+        }
+    }
+    // Script for reducing number of loads of laundry by 1
+    function reduceLaundryNumload() {
+        if (npc_freq_laundry_numload_val.value > 1) {
+            npc_freq_laundry_numload_val.value = parseInt(npc_freq_laundry_numload_val.value) - 1;
+        }
+    }
+
+    // Script for increasing the interval of laundry by 1 level
+    function addLaundryInterval() {
+        if (npc_freq_laundry_interval.value < 3) {
+            npc_freq_laundry_interval.value = parseInt(npc_freq_laundry_interval.value) + 1;
+        }
+    }
+    // Script for reducing the interval of laundry by 1 level
+    function reduceLaundryInterval() {
+        if (npc_freq_laundry_interval.value > 0) {
+            npc_freq_laundry_interval.value = parseInt(npc_freq_laundry_interval.value) - 1;
+        }
+    }
+
+    // Script for adding number of loads of dishwashing by 1
+    // Upper limit set to 366, logical maximum if interval is 'year'.
+    // I do not want to deal with other limits for days or weeks, since they are so small and require information from interval
+    function addDishwashingNumload() {
+        if (npc_freq_dishwashing_numload_val.value < 366) {
+            npc_freq_dishwashing_numload_val.value = parseInt(npc_freq_dishwashing_numload_val.value) + 1;
+        }
+    }
+    // Script for reducing number of loads of dishwashing by 1
+    function reduceDishwashingNumload() {
+        if (npc_freq_dishwashing_numload_val.value > 1) {
+            npc_freq_dishwashing_numload_val.value = parseInt(npc_freq_dishwashing_numload_val.value) - 1;
+        }
+    }
+
+    // Script for increasing the interval of dishwashing by 1 level
+    function addDishwashingInterval() {
+        if (npc_freq_dishwashing_interval.value < 3) {
+            npc_freq_dishwashing_interval.value = parseInt(npc_freq_dishwashing_interval.value) + 1;
+        }
+    }
+    // Script for reducing the interval of dishwashing by 1 level
+    function reduceDishwashingInterval() {
+        if (npc_freq_dishwashing_interval.value > 0) {
+            npc_freq_dishwashing_interval.value = parseInt(npc_freq_dishwashing_interval.value) - 1;
+        }
+    }
+</script>
+
+<script>
+    // Script for the PTYPE question
+    // Take Laundry Powder as example:
+    //     - 25 g Phosphates per 1kg product (median)
+    //     - 126 g product per use
+    //       = 0.126 kg product per use
+    // Multiply the two together (after unit conversion) will get us:
+    //     - 3.15 g Phosphates per use
+    //       = 0.00315 kg Phosphates per use
+    // As we asked user how frequently they do laundry or dishwashing, we ignore the frequency in the data
+    // The same goes for dishwashing
+    //
+    // REFERENCE: const npc_ptype_options = new Array('Liquid','Powder','Tablet/Pod');
+    function calculation_ptype_laundry() {
+        // get npc_ptype_laundry.value
+        const npc_anscal_ptype_laundry = Number(npc_ptype_laundry.value);
+        if (npc_anscal_ptype_laundry == 0) {
+            // npc_freq_interval_options[0] is 'Liquid'
+            return 46 * 0.09 / 1000;
+        } else if (npc_anscal_ptype_laundry == 1) {
+            // npc_freq_interval_options[1] is 'Powder'
+            return 55 * 0.126 / 1000;
+        } else if (npc_anscal_ptype_laundry == 2) {
+            // npc_freq_interval_options[2] is 'Tablet/Pod'
+            return (46 + 0.2) * (0.09 + 0.075) / 1000;
+        }
+        // In case people broke the system and went outbound, return the highest number
+        // (Laundry powder with max concentration - 55 g Phosphate per 1kg product)
+        // (126 g product per use)
+        return 55 * 0.126 / 1000;
+    }
+    function calculation_ptype_dishwashing() {
+        // get npc_ptype_dishwashing.value
+        // return the fixed value from the table
+        // get npc_ptype_laundry.value
+        const npc_anscal_ptype_dishwashing = Number(npc_ptype_dishwashing.value);
+        if (npc_anscal_ptype_dishwashing == 0) {
+            // npc_freq_interval_options[0] is 'Liquid'
+            return 0.01 * 0.0105 / 1000;
+        } else if (npc_anscal_ptype_dishwashing == 1) {
+            // npc_freq_interval_options[1] is 'Powder'
+            return 53 * 0.06 / 1000;
+        } else if (npc_anscal_ptype_dishwashing == 2) {
+            // npc_freq_interval_options[2] is 'Tablet/Pod'
+            return 29 * 0.02 / 1000;
+        }
+        // In case people broke the system and went outbound
+        return 53 * 0.06 / 1000;
+    }
+
 </script>
 
 <script>
@@ -236,6 +497,8 @@
         npc_freq.style.display = "none";
         npc_ptype.style.display = "none";
         npc_results.style.display = "flex";
+
+        calculation_results();
     }
 
 </script>

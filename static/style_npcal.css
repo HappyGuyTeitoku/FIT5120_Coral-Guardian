@@ -1,4 +1,5 @@
 /* Stylesheet specifically for NP Calculator page */
+/* TODO: change color scheme to blue */
 
 .calculator-container {
     display: flex;
@@ -20,11 +21,34 @@
     text-align: center;
 }
 
+.horizontal-line {
+    width: 70%;
+    margin: 0 auto;
+    height: 5px;
+    background-color: black;
+    border: none;
+}
+
 .calculator-flex {
     flex:1;
     display: flex;
     align-items: center;
     margin: auto;
+}
+
+.calculator-flex-results {
+    flex:1;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    flex-direction: column;
+}
+
+.calculator-two-rows{
+    flex: 1;
+    display: grid;
+    padding: auto 0;
+    grid-template-rows: 1fr 1fr;
 }
 
 .calculator-progress-bar-background {
@@ -40,6 +64,13 @@
     padding: 0 10px;
     height: 24px;
     text-align: right;
+}
+
+.half-interactive-area{
+    flex: 0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .icon-coloredman {
@@ -85,10 +116,15 @@
 }
 
 .results-background {
-    background-image: url('/static/Calculator-Results\ Backgound.png');
+    background-image: url('/static/Calculator-Results\ Backgound_v2.png');
     background-size: cover;
     background-position: bottom center;
     background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#np-cal-results-text {
+    margin: 0 10%;
 }
 
 .calculator-answer-textinput {
@@ -96,9 +132,28 @@
     width: 100%;
     max-width: 30%;
     height: 40px;
+    text-align: center;
 }
 
+.calculator-answer-textinput-medium {
+    margin: 0 10px;
+    width: 100%;
+    max-width: 20%;
+    height: 30px;
+    text-align: center;
+}
 
+.calculator-answer-textinput-short {
+    margin: 0 10px;
+    width: 100%;
+    max-width: 10%;
+    height: 30px;
+    text-align: center;
+}
+
+.cal-text-between-buttons{
+    margin: 0 15px;
+}
 
 .calculator-button-container {
     padding: 0 20%;
@@ -126,9 +181,4 @@
     color: white;
     cursor: pointer;
     background-color: #70c174;
-}
-
-.calculator-ask-people {
-    width: 500px;
-    height: 100px;
 }
