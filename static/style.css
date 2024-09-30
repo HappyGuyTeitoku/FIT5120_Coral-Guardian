@@ -747,6 +747,49 @@ footer {
     vertical-align: middle;
     /* Aligns it with the text */
 }
+.yellow-circle {
+    display: inline-block;
+    width: 10px;
+    /* Diameter of the circle */
+    height: 10px;
+    background-color: yellow;
+    /* Circle color */
+    border-radius: 50%;
+    /* Makes the shape a circle */
+    margin-right: 8px;
+    /* Adds some space between the circle and text */
+    vertical-align: middle;
+    /* Aligns it with the text */
+}
+.red-circle {
+    display: inline-block;
+    width: 10px;
+    /* Diameter of the circle */
+    height: 10px;
+    background-color: red;
+    /* Circle color */
+    border-radius: 50%;
+    /* Makes the shape a circle */
+    margin-right: 8px;
+    /* Adds some space between the circle and text */
+    vertical-align: middle;
+    /* Aligns it with the text */
+}
+.grey-circle {
+    display: inline-block;
+    width: 10px;
+    /* Diameter of the circle */
+    height: 10px;
+    background-color: grey;
+    /* Circle color */
+    border-radius: 50%;
+    /* Makes the shape a circle */
+    margin-right: 8px;
+    /* Adds some space between the circle and text */
+    vertical-align: middle;
+    /* Aligns it with the text */
+}
+
 
 
 

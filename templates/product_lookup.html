@@ -13,7 +13,8 @@
         <div class="text-section">
             <p class="text-section-title">How we do</p>
             <h2 class="text-section-question">Find out if you are using Nutrient Pollution-Free Cleaning Products</h2>
-            <p class="text-section-content">Get to know cleaning products that you use, by </p>
+            <p class="text-section-content">Get to know cleaning products that you use, by searching or scanning the
+                barcode!</p>
         </div>
         <div class="image-section">
             <img src="../static/ProductSearchPage_image.png" />
@@ -48,7 +49,8 @@
         <div class="container-40" style="display: none;" id="barcode-scanning-block">
             <!-- Code to see scanned barcode -->
             <p>Camera View - The results will show upon detecting a barcode in the camera view<br>Detected Barcode:
-                <span id="barcode-result">None</span></p>
+                <span id="barcode-result">None</span>
+            </p>
             <!-- Barcode scanning video element -->
             <video id="video-preview" width="300" height="200" style="border: 1px solid black; visibility: visible;"
                 autoplay></video>
@@ -177,7 +179,7 @@
 
                     console.log(external_data);  // Logs the full object to the console
 
-                    console.log(external_data.get('status'));
+                    console.log(external_data.message);
 
                     // Check if the search was successful based on the content or status of the external_data
                     if (external_data.data) {
@@ -194,11 +196,13 @@
 
                             let productNitrateOrPhosphate = '';
                             if (containsNitrate && containsPhosphate) {
-                                productNitrateOrPhosphate = 'Contains both nitrate and phosphate';
+                                productNitrateOrPhosphate = '<span class="red-circle"></span>Contains both nitrate and phosphate';
                             } else if (containsNitrate) {
-                                productNitrateOrPhosphate = 'Contains nitrate';
+                                productNitrateOrPhosphate = '<span class="yellow-circle"></span>Contains nitrate';
                             } else if (containsPhosphate) {
-                                productNitrateOrPhosphate = 'Contains phosphate';
+                                productNitrateOrPhosphate = '<span class="yellow-circle"></span>Contains phosphate';
+                            } else if (ingredientsText != 'No ingredients information available') {
+                                productNitrateOrPhosphate = '<span class="green-circle"></span>Does not contain nitrate or phosphate';
                             }
 
                             htmlContent += `
@@ -226,7 +230,7 @@
                                                 <p>${productNitrateOrPhosphate}</p>
                                             </div>
                                         ` : `<div class="product-nitrate-or-phosphate">
-                                                <p><span class="green-circle"></span> Does not contain Nitrates or Phosphates</p>
+                                                <p><span class="grey-circle"></span> Information not found</p>
                                             </div>
                                         `}
                                     </div>
