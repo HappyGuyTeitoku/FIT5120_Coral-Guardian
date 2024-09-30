@@ -11,12 +11,14 @@
 <div class="container">
     <div class="content image-background home-thumbnail home-thumbnail-slideshow">
         <div class="home-thumbnail-text">
-            <h1>Nutrient Pollution threatens your drinking water</h1>
+            <h1 style="background-color: #525560; width: fit-content; margin: auto; padding: 5px; border-radius: 5px;">
+                Nutrient Pollution threatens your drinking water</h1>
         </div>
     </div>
 </div>
 
 <!-- Preload images used for slideshow background -->
+<link rel="preload" href="/static/homepage thumbnail_v3.png" as="image">
 <link rel="preload" href="/static/homepage_algae-shoreline.png" as="image">
 <link rel="preload" href="/static/homepage_hand-full-of-moss.png" as="image">
 
@@ -45,9 +47,7 @@
 <div class="spacer"></div> -->
 
 <!-- ????? -->
-<div class="container">
-    <img src="../static/homepage_random part under thumbnail.png" style="width: 100%;">
-</div>
+<img src="../static/homepage_random part under thumbnail.png" style="width: 100%;">
 <div class="spacer-half"></div>
 
 <!-- NP Calculator Promotion -->
@@ -55,7 +55,8 @@
     <img src="../static/icons8-calculator-100.png" style="height: 150px; width: 150px;">
     <p class="text-section-question" style="text-align: center; margin: 0;">Understand Your Impact</p>
     <p style="text-align: center; margin: 0 0 10px 0">Quantify your environmental footprint</p>
-    <button class="primary-button" onclick="window.location.href='{{ url_for('npcalculator') }}'">Find your NP Footprint</button>
+    <button class="primary-button" onclick="window.location.href='{{ url_for('npcalculator') }}'">Find your NP
+        Footprint</button>
 </div>
 
 <!-- Product Search promotion -->
