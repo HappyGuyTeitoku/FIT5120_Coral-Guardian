@@ -532,6 +532,20 @@ button {
     font-size: 100%;
 }
 
+.privacy-policy {
+    background-color: #EBF0F9;
+    margin: 0 20%;
+    padding: 2%;
+}
+
+.privacy-policy .page-title-subtext {
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+    width: auto;
+    font-size: 100%;
+    margin-bottom: 20px;
+}
+
 .education-page {
     padding: 0 15% 0 15%;
     place-items: center;
