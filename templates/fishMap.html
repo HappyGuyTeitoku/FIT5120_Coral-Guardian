@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish Map Visualization</title>
+
+    <!-- Load D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Load Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+    <!-- Load Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_fishmap.css') }}">
+</head>
+<body>
+
+    <!-- Shared Navigation Tabs -->
+    <div class="tabs">
+        <a href="waterQuality.html" class="tab">
+            <span>💧</span> <!-- Link to water quality map -->
+        </a>
+        <a href="fishMap.html" class="tab active">
+            <span>🐟</span> <!-- Active tab for fish map -->
+        </a>
+    </div>
+
+    <!-- Left Panel for Nutrient Effect on Fish -->
+    <div class="left-panel">
+        <h2 id="riverNameTitle">Please select the river</h2> 
+        <hr class="divider">
+        <h3>Nutrient Pollution on Fish</h3>
+        
+        <!-- Container for fish cards -->
+        <div id="fishCardsContainer"></div>
+        <hr class="divider">
+
+        <!-- Expanded Fish Card Layout (Initial state is hidden) -->
+        <div id="expandedFishCard" class="fish-card expanded-card" style="display: none;">
+            <div class="expanded-content">
+                <!-- Align image and fish name in the same line -->
+                <div class="fish-header">
+                    <div class="fish-image-container">
+                        <img id="fishImage" class="fish-image" src="" alt="Fish Image">
+                    </div>
+                    <div class="fish-info">
+                        <h1 id="expandedFishName" class="fish-name"></h1>
+                        <p><strong>Description:</strong> <span id="fishDescription"></span></p>
+                    </div>
+                </div>
+
+                <p><strong>Discussion:</strong> <span id="fishDiscussion"></span></p>
+                <hr class="divider"> <!-- Horizontal divider under discussion -->
+
+                <!-- Dual-Axis Chart will replace this placeholder -->
+                <div class="chart-container">
+                    <div id="expandedFishChart"></div> <!-- This will hold the D3.js dual-axis graph -->
+                </div>
+                <div style="margin-top: 10px; font-size: 0.8em; text-align: center;">
+                    <strong>Remark:</strong>
+                    The fish population estimates are adapted from the methodology described by Rea, M., et al. (2021) in the article
+                    "Density and Abundance Estimation of Amazonian River Dolphins: Understanding Population Size Variability" in the Journal of Marine Science and Engineering.
+                    <a href="https://doi.org/10.3390/jmse9111184" target="_blank">https://doi.org/10.3390/jmse9111184</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Panel (Map Container) -->
+    <div id="map-container">
+        <div id="map"></div>
+    </div>
+
+    <!-- Load the fishMap.js script -->
+    <script src="{{ url_for('static', filename='fishMap.js') }}"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

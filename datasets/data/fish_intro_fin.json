@@ -1,0 +1,104 @@
+[
+  {
+    "water_body": "YARRA RIVER",
+    "common_name": "Australian Grayling",
+    "description": "A small, migratory fish native to southeastern Australia, the Australian Grayling depends on clean freshwater environments and is sensitive to water quality changes.",
+    "finding": "The population increased from 4 in 2017 to 12 in 2018 and continued to fluctuate, reaching a peak of 28 in 2022 before stabilizing at 25 in 2024. This occurred alongside a rise in Nitrogen levels from 425 ug/L in 2017 to a peak of 889.3 ug/L in 2021, and Phosphate levels peaking at 114.2 ug/L in 2020. The \"Low Impact\" classification indicates resilience to moderate nutrient increases, but sustained higher levels could pose future risks. Continued monitoring is recommended."
+  },
+  {
+    "water_body": "YARRA RIVER",
+    "common_name": "Macquarie Perch",
+    "description": "An endangered freshwater fish found in cool, fast-flowing rivers, the Macquarie Perch is highly vulnerable to changes in water quality and habitat.",
+    "finding": "The population decreased from 154 in 2017 to 145 in 2018, continuing to decline to 86 by 2024, while Nitrogen levels rose from 425 ug/L in 2017 to 889.3 ug/L in 2021, and Phosphate levels peaked at 114.2 ug/L in 2020. The \"Medium Impact\" suggests potential stress from rising nutrient levels, necessitating nutrient management to protect this endangered species."
+  },
+  {
+    "water_body": "YARRA RIVER",
+    "common_name": "Murray Cod",
+    "description": "Australia's largest freshwater fish, the Murray Cod is a top predator that maintains ecological balance in freshwater systems.",
+    "finding": "The population remained relatively stable, fluctuating between 67 and 102 over the years. This stability persisted despite increasing Nitrogen levels peaking at 889.3 ug/L in 2021 and Phosphate at 114.2 ug/L in 2020. The \"Low Impact\" classification suggests tolerance to current conditions, but long-term exposure to high nutrient levels could impact habitat quality."
+  },
+  {
+    "water_body": "YARRA RIVER",
+    "common_name": "Australian Smelt",
+    "description": "A small, schooling fish that serves as a key prey species for larger fish and birds, found in both coastal and inland waters.",
+    "finding": "The population surged from 117 in 2017 to 1085 in 2018, peaking at 2503 in 2019, then sharply declined to 42 in 2022 and partially recovered to 401 in 2024. Nitrogen levels rose from 425 ug/L in 2017 to 889.3 ug/L in 2021, with Phosphate peaking at 114.2 ug/L in 2020. The \"Medium Impact\" indicates sensitivity to nutrient fluctuations, likely contributing to population volatility; reducing pollution could help stabilize numbers."
+  },
+  {
+    "water_body": "YARRA RIVER",
+    "common_name": "Common Galaxias",
+    "description": "An adaptable fish known for its migratory behavior, surviving in both freshwater and estuarine environments.",
+    "finding": "The population increased from 83 in 2017 to 841 in 2018, then declined to 45 in 2022, with a partial recovery to 533 in 2024. Peaks in Nitrogen (889.3 ug/L in 2021) and Phosphate (114.2 ug/L in 2020) levels correlate with population dips. The \"Medium Impact\" rating implies moderate sensitivity to nutrient changes, requiring ongoing monitoring to prevent further decline."
+  },
+  {
+    "water_body": "YARRA RIVER",
+    "common_name": "European Carp",
+    "description": "An invasive species that thrives in a variety of aquatic habitats; known for its resilience but can negatively impact native species.",
+    "finding": "The population remained stable over the years despite fluctuating Nitrogen and Phosphate levels, suggesting high resilience to nutrient pollution. The \"Low Impact\" classification indicates that current nutrient levels do not pose significant stress, but management is necessary to prevent negative impacts on native species."
+  },
+  {
+    "water_body": "YARRA RIVER",
+    "common_name": "Redfin",
+    "description": "An introduced predatory fish, known for its adaptability and potential to impact native fish populations negatively.",
+    "finding": "The population fluctuated from 312 in 2017 to 411 in 2018, then declined to 175 by 2024. This decline coincided with rising Nitrogen levels from 425 ug/L in 2017 to 889.3 ug/L in 2021, and Phosphate peaking at 114.2 ug/L in 2020. The \"Medium Impact\" suggests that higher nutrient levels may stress the species, necessitating effective nutrient management to stabilize the population."
+  },
+  {
+    "water_body": "MERRI CREEK",
+    "common_name": "European Carp",
+    "description": "An invasive species that thrives in a variety of aquatic habitats; known for its resilience but can negatively impact native species.",
+    "finding": "The population varied significantly, increasing from 60 in 2017 to 1073 in 2019, then declining to 399 in 2024. Nitrogen levels fluctuated from 596.3 ug/L in 2017 to 688.6 ug/L in 2023, while Phosphate levels ranged from 60.4 ug/L in 2018 to a peak of 137.2 ug/L in 2020. The \"Low Impact\" rating indicates resilience to nutrient changes, but management is necessary to control this invasive species and protect native populations."
+  },
+  {
+    "water_body": "MERRI CREEK",
+    "common_name": "Southern Shortfin Eel",
+    "description": "A migratory species that moves between freshwater and marine environments; resilient but sensitive to habitat barriers.",
+    "finding": "The population increased from 11 in 2017 to 1518 in 2024, showing a strong upward trend. Nitrogen levels varied between 495 ug/L in 2018 and 688.6 ug/L in 2023, with Phosphate peaking at 137.2 ug/L in 2020. The \"Medium Impact\" classification suggests some sensitivity to nutrient levels, particularly with higher phosphate, but the population is currently increasing."
+  },
+  {
+    "water_body": "MARIBYRNONG RIVER",
+    "common_name": "Common Galaxias",
+    "description": "An adaptable fish known for its migratory behavior, surviving in both freshwater and estuarine environments.",
+    "finding": "The population rose sharply from 129 in 2017 to 1299 in 2018, then fluctuated, reaching 824 in 2024. Nitrogen levels increased steadily from 587.5 ug/L in 2017 to 1166.7 ug/L in 2024, while Phosphate levels varied, peaking at 92.8 ug/L in 2024. The \"Medium Impact\" suggests nutrient levels may be causing stress and affecting population stability; effective nutrient management is crucial."
+  },
+  {
+    "water_body": "MARIBYRNONG RIVER",
+    "common_name": "Goldfish",
+    "description": "An introduced species that can thrive in a wide range of environments, often found in disturbed or modified habitats.",
+    "finding": "The population fluctuated from 1063 in 2017 to a low of 119 in 2019, peaking at 1892 in 2022 before dropping to 1325 in 2023. Nitrogen increased from 587.5 ug/L to 992.5 ug/L, with Phosphate peaking at 85.89 ug/L. 'Medium Impact' suggests moderate sensitivity to nutrient changes."
+  },
+  {
+    "water_body": "MARIBYRNONG RIVER",
+    "common_name": "Redfin",
+    "description": "An introduced predatory fish, known for its adaptability and potential to impact native fish populations negatively.",
+    "finding": "The population remained relatively stable with minor fluctuations. Nitrogen levels rose from 587.5 ug/L in 2017 to a peak of 1166.7 ug/L in 2024, and Phosphate levels peaked at 92.8 ug/L in 2024. The \"Medium Impact\" suggests potential stress due to nutrient pollution. Continued monitoring and nutrient control are essential."
+  },
+  {
+    "water_body": "MARIBYRNONG RIVER",
+    "common_name": "Southern Shortfin Eel",
+    "description": "A migratory species that moves between freshwater and marine environments; resilient but sensitive to habitat barriers.",
+    "finding": "The population grew significantly from 13 in 2017 to 1796 in 2024, showing a sharp increase. Nitrogen levels peaked at 1166.7 ug/L in 2024, and Phosphate levels varied. The \"Medium Impact\" classification suggests sensitivity to nutrient levels; the population is increasing, but further monitoring is needed to ensure sustainability."
+  },
+  {
+    "water_body": "DEEP CREEK",
+    "common_name": "Redfin",
+    "description": "An introduced predatory fish, known for its adaptability and potential to impact native fish populations negatively.",
+    "finding": "The population fluctuated moderately, showing some resilience under varying conditions. Nitrogen levels are at 733 ug/L, and Phosphate levels are at 85.2 ug/L. The \"Medium Impact\" indicates a moderate risk due to nutrient levels. Continued monitoring is crucial to manage nutrient levels and prevent ecological damage."
+  },
+  {
+    "water_body": "KOROROIT CREEK",
+    "common_name": "Southern Hulafish",
+    "description": "A small native fish found in coastal and estuarine waters, dependent on healthy aquatic vegetation.",
+    "finding": "The population varied significantly, peaking at 281 in 2018 and 2021, with declines to 6 in 2024. Nitrogen levels peaked sharply at 9052 ug/L in 2017, while Phosphate peaked at 528.3 ug/L in 2017, followed by decreases to 706.1 ug/L Nitrogen and 99.1 ug/L Phosphate in 2024. The \"Low Impact\" classification suggests resilience despite extreme early peaks in nutrients, but continued monitoring is necessary."
+  },
+  {
+    "water_body": "KOROROIT CREEK",
+    "common_name": "Tamar Goby",
+    "description": "A small estuarine fish that prefers vegetated habitats; relatively resilient but impacted by changes in water quality.",
+    "finding": "The population fluctuated from 29 in 2017 to a peak of 475 in 2019, declining to 60 by 2024. Nitrogen and Phosphate levels peaked in 2017 (Nitrogen: 9052 ug/L; Phosphate: 528.3 ug/L) before decreasing to 706.1 ug/L Nitrogen and 99.1 ug/L Phosphate in 2024. The \"Low Impact\" indicates adaptability to fluctuating conditions, but nutrient levels should be monitored to maintain balance."
+  },
+  {
+    "water_body": "WERRIBEE RIVER",
+    "common_name": "Flathead Gudgeon",
+    "description": "A small, native fish found in slow-moving rivers and creeks, known for its adaptability to different water conditions.",
+    "finding": "The population remains stable with consistent numbers over the years. Nitrogen and Phosphate data indicate stable trends, with Nitrogen around 700 ug/L and Phosphate around 100 ug/L. The \"Low Impact\" classification indicates resilience to current conditions, but ongoing monitoring is essential to ensure that conditions remain favorable and detect any potential threats from future nutrient fluctuations."
+  }
+]

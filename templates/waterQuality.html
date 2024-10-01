@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaGuardMap</title>
+
+    <!-- Load D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Load Leaflet.js -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_waterquality.css') }}">
+</head>
+<body>
+
+    <!-- Shared Navigation Tabs -->
+    <div class="tabs">
+        <a href="waterQuality.html" class="tab active">
+            <span>💧</span> <!-- Active tab for water quality map -->
+        </a>
+        <a href="fishMap.html" class="tab">
+            <span>🐟</span> <!-- Link to fish map -->
+        </a>
+    </div>
+
+    <!-- Left Panel (Water Quality) -->
+    <div id="waterQualityPanel" class="left-panel">
+        <div id="observation-name">Click on a point on the map</div>
+        <hr>
+
+        <!-- Nitrogen Section -->
+        <div class="indicator-section">
+            <div class="indicator-header">
+                <div class="indicator-title" id="nitrogenTitle">
+                    <span class="indicator-icon">🌱</span> Total Nitrogen (0 µg/L)
+                </div>
+                <div class="toggle-switch" id="nitrogenToggle"></div>
+            </div>
+            <div class="range-indicator" id="nitrogenIndicator">
+                <div class="indicator-bar" id="nitrogenBar"></div>
+            </div>
+            <div class="slider-scale">
+                <span>0</span>
+                <span>5000</span>
+                <span>10000</span>
+                <span>15000</span>
+                <span>20000</span>
+            </div>
+            <div class="description" id="nitrogenDescription">
+                <div class="notification-circle" id="nitrogenCircle"></div>
+                Safe to use
+            </div>
+            <h4 id="nitrogenHeading">Historical Trend</h4>
+            <div id="nitrogenChartContainer" class="trend-chart-container"></div>
+        </div>
+
+        <!-- Phosphate Section -->
+        <div class="indicator-section">
+            <div class="indicator-header">
+                <div class="indicator-title" id="phosphateTitle">
+                    <span class="indicator-icon">💧</span> Total Phosphate (0 µg/L)
+                </div>
+                <div class="toggle-switch" id="phosphateToggle"></div>
+            </div>
+            <div class="range-indicator" id="phosphateIndicator">
+                <div class="indicator-bar" id="phosphateBar"></div>
+            </div>
+            <div class="slider-scale">
+                <span>0</span>
+                <span>300</span>
+                <span>600</span>
+                <span>900</span>
+                <span>1500</span>
+            </div>
+            <div class="description" id="phosphateDescription">
+                <div class="notification-circle" id="phosphateCircle"></div>
+                Safe to use
+            </div>
+            <h4 id="phosphateHeading">Historical Trend</h4>
+            <div id="phosphateChartContainer" class="trend-chart-container"></div>
+        </div>
+    </div>
+
+    <!-- Right Panel (Map Container) -->
+    <div id="map-container">
+        <div id="map"></div>
+    </div>
+
+    <!-- Link to external JavaScript file -->
+    <script src="{{ url_for('static', filename='water_quality.js') }}"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

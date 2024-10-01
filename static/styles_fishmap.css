@@ -1,0 +1,238 @@
+/* General layout styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+/* Tabs navigation */
+.tabs {
+    display: flex;
+    flex-direction: column;
+    width: 50px;
+    background-color: #f0f0f0;
+    border-right: 1px solid #ccc;
+}
+
+.tab {
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.tab:hover {
+    background-color: #e0e0e0;
+}
+
+.tab.active {
+    background-color: #d0d0d0;
+}
+
+/* Left Panel */
+.left-panel {
+    width: calc(50% - 50px); /* Adjust for the tab width */
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+}
+
+/* Header for left panel */
+.left-panel h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.left-panel h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* Container for fish cards arranged in two columns */
+#fishCardsContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two cards per row */
+    gap: 10px;
+}
+
+/* Fish card styling */
+.fish-card {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: white;
+    align-items: flex-start;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow for a modern look */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fish-card:hover {
+    transform: translateY(-5px); /* Add a hover effect to lift the card */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+/* Fish name in cards should be smaller */
+.fish-card .fish-name {
+    font-size: 18px; /* Keep the fish name small only in the fish cards */
+    font-weight: bold;
+}
+
+.fish-impact {
+    font-size: 14px;
+    color: gray;
+    display: flex;
+    align-items: center;
+}
+
+/* Circle styling for impact indicators */
+.circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+/* Right panel map */
+#map-container {
+    width: 50%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+/* Expanded Fish Card */
+.expanded-card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for a modern look */
+}
+
+/* Align fish image and fish name on the same line */
+.fish-header {
+    display: flex;
+    align-items: flex-start; /* Align the top of the fish name with the top of the image */
+    margin-bottom: 10px; /* Adjusted to reduce space below the header */
+    margin-top: 0px; /* Ensure there's no extra space at the top */
+    padding-top: 0px; /* Remove padding at the top */
+}
+
+.fish-image-container {
+    flex-shrink: 0;
+    margin-top: 0px; /* Ensure the image has no top margin */
+}
+
+.fish-image {
+    width: 100px;
+    height: auto;
+    border: 2px solid black; /* Black border for the image */
+    padding: 5px;
+    border-radius: 5px; /* Rounded corners */
+    margin-right: 15px; /* Space between image and text */
+}
+
+.fish-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Ensure text aligns to the top */
+    margin-top: 0px; /* Remove margin above the fish name */
+}
+
+#expandedFishName {
+    font-size: 28px; /* Larger fish name */
+    font-weight: bold;
+    margin-bottom: 5px; /* Space between fish name and description */
+    margin-top: 0px; /* Ensure no extra top margin for the fish name */
+}
+
+.fish-description {
+    font-size: 16px;
+    margin-top: 0px; /* Remove space above the description */
+    padding-top: 0px; /* Remove padding if necessary */
+}
+
+/* Discussion section */
+p {
+    font-size: 16px;
+}
+
+/* Horizontal Divider */
+hr.divider {
+    border: 0;
+    height: 1px;
+    background: #ddd; /* Modern thin line */
+    margin: 15px 0;
+}
+
+/* Chart Container */
+.chart-container {
+    width: 100%;
+    height: 320px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Dual Axis Chart Placeholder */
+#expandedFishChart {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+
+/* Axis and grid styling for the chart */
+.axis line, .axis path {
+    stroke: #ccc; /* Light grey for the axes lines */
+}
+
+.grid line {
+    stroke: lightgrey;
+    stroke-opacity: 0.7; /* Lighter lines for the grid */
+}
+
+.bar {
+    fill: #4682b4; /* Blue for the bar chart */
+}
+
+.line-nitrogen {
+    stroke: Gold;
+    stroke-dasharray: 4 2;
+    stroke-width: 2;
+}
+
+.line-phosphate {
+    stroke: green;
+    stroke-dasharray: 2 2;
+    stroke-width: 2;
+}
+
+
+/* Ensure that the expanded fish card is hidden by default */
+#expandedFishCard {
+    display: none;
+}
+
+a {
+    text-decoration: none; /* Remove navbar underline */
+}

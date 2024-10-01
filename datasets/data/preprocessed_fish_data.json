@@ -1,0 +1,1226 @@
+[
+  {
+    "year": 2017,
+    "common_name": "Australian Grayling",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 4,
+    "N_TOTAL_avg": 425,
+    "P_TOTAL_avg": 49.875,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2017,
+    "common_name": "Macquarie Perch",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 154,
+    "N_TOTAL_avg": 425,
+    "P_TOTAL_avg": 49.875,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2017,
+    "common_name": "Murray Cod",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 67,
+    "N_TOTAL_avg": 425,
+    "P_TOTAL_avg": 49.875,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2018,
+    "common_name": "Australian Grayling",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 12,
+    "N_TOTAL_avg": 509.1667,
+    "P_TOTAL_avg": 52.0833,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2018,
+    "common_name": "Macquarie Perch",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 145,
+    "N_TOTAL_avg": 509.1667,
+    "P_TOTAL_avg": 52.0833,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2018,
+    "common_name": "Murray Cod",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 38,
+    "N_TOTAL_avg": 509.1667,
+    "P_TOTAL_avg": 52.0833,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2019,
+    "common_name": "Australian Grayling",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 3,
+    "N_TOTAL_avg": 655.8333,
+    "P_TOTAL_avg": 79.7083,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2019,
+    "common_name": "Macquarie Perch",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 98,
+    "N_TOTAL_avg": 655.8333,
+    "P_TOTAL_avg": 79.7083,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2019,
+    "common_name": "Murray Cod",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 78,
+    "N_TOTAL_avg": 655.8333,
+    "P_TOTAL_avg": 79.7083,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2020,
+    "common_name": "Australian Grayling",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 10,
+    "N_TOTAL_avg": 834,
+    "P_TOTAL_avg": 114.2,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2020,
+    "common_name": "Macquarie Perch",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 76,
+    "N_TOTAL_avg": 834,
+    "P_TOTAL_avg": 114.2,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2020,
+    "common_name": "Murray Cod",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 57,
+    "N_TOTAL_avg": 834,
+    "P_TOTAL_avg": 114.2,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2021,
+    "common_name": "Australian Grayling",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 21,
+    "N_TOTAL_avg": 889.3034,
+    "P_TOTAL_avg": 100.7444,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2021,
+    "common_name": "Macquarie Perch",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 67,
+    "N_TOTAL_avg": 889.3034,
+    "P_TOTAL_avg": 100.7444,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2021,
+    "common_name": "Murray Cod",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 34,
+    "N_TOTAL_avg": 889.3034,
+    "P_TOTAL_avg": 100.7444,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2022,
+    "common_name": "Australian Grayling",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 28,
+    "N_TOTAL_avg": 881.7713,
+    "P_TOTAL_avg": 91.1155,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2022,
+    "common_name": "Macquarie Perch",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 125,
+    "N_TOTAL_avg": 881.7713,
+    "P_TOTAL_avg": 91.1155,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2022,
+    "common_name": "Murray Cod",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 73,
+    "N_TOTAL_avg": 881.7713,
+    "P_TOTAL_avg": 91.1155,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2023,
+    "common_name": "Australian Grayling",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 28,
+    "N_TOTAL_avg": 764.6408,
+    "P_TOTAL_avg": 103.2588,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2023,
+    "common_name": "Macquarie Perch",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 189,
+    "N_TOTAL_avg": 764.6408,
+    "P_TOTAL_avg": 103.2588,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2023,
+    "common_name": "Murray Cod",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 139,
+    "N_TOTAL_avg": 764.6408,
+    "P_TOTAL_avg": 103.2588,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2024,
+    "common_name": "Australian Grayling",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 25,
+    "N_TOTAL_avg": 672.6345,
+    "P_TOTAL_avg": 82.8399,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2024,
+    "common_name": "Macquarie Perch",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 175,
+    "N_TOTAL_avg": 672.6345,
+    "P_TOTAL_avg": 82.8399,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2024,
+    "common_name": "Murray Cod",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 154,
+    "N_TOTAL_avg": 672.6345,
+    "P_TOTAL_avg": 82.8399,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2017,
+    "common_name": "Australian Smelt",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 117,
+    "N_TOTAL_avg": 425,
+    "P_TOTAL_avg": 49.875,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2018,
+    "common_name": "Australian Smelt",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 1085,
+    "N_TOTAL_avg": 509.1667,
+    "P_TOTAL_avg": 52.0833,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2019,
+    "common_name": "Australian Smelt",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 2503,
+    "N_TOTAL_avg": 655.8333,
+    "P_TOTAL_avg": 79.7083,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2020,
+    "common_name": "Australian Smelt",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 1713,
+    "N_TOTAL_avg": 834,
+    "P_TOTAL_avg": 114.2,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2021,
+    "common_name": "Australian Smelt",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 975,
+    "N_TOTAL_avg": 889.3034,
+    "P_TOTAL_avg": 100.7444,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2022,
+    "common_name": "Australian Smelt",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 42,
+    "N_TOTAL_avg": 881.7713,
+    "P_TOTAL_avg": 91.1155,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2023,
+    "common_name": "Australian Smelt",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 615,
+    "N_TOTAL_avg": 764.6408,
+    "P_TOTAL_avg": 103.2588,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2024,
+    "common_name": "Australian Smelt",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 401,
+    "N_TOTAL_avg": 672.6345,
+    "P_TOTAL_avg": 82.8399,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2017,
+    "common_name": "Common Galaxias",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 83,
+    "N_TOTAL_avg": 425,
+    "P_TOTAL_avg": 49.875,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2017,
+    "common_name": "Common Galaxias",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 129,
+    "N_TOTAL_avg": 587.5,
+    "P_TOTAL_avg": 52.7778,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2018,
+    "common_name": "Common Galaxias",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 841,
+    "N_TOTAL_avg": 509.1667,
+    "P_TOTAL_avg": 52.0833,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2018,
+    "common_name": "Common Galaxias",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 1299,
+    "N_TOTAL_avg": 592.2222,
+    "P_TOTAL_avg": 51.0278,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2019,
+    "common_name": "Common Galaxias",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 474,
+    "N_TOTAL_avg": 655.8333,
+    "P_TOTAL_avg": 79.7083,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2019,
+    "common_name": "Common Galaxias",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 732,
+    "N_TOTAL_avg": 607.7778,
+    "P_TOTAL_avg": 62.2778,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2020,
+    "common_name": "Common Galaxias",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 336,
+    "N_TOTAL_avg": 834,
+    "P_TOTAL_avg": 114.2,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2020,
+    "common_name": "Common Galaxias",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 519,
+    "N_TOTAL_avg": 716.3333,
+    "P_TOTAL_avg": 85.8944,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2021,
+    "common_name": "Common Galaxias",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 352,
+    "N_TOTAL_avg": 889.3034,
+    "P_TOTAL_avg": 100.7444,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2021,
+    "common_name": "Common Galaxias",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 544,
+    "N_TOTAL_avg": 898.3333,
+    "P_TOTAL_avg": 59.5833,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2022,
+    "common_name": "Common Galaxias",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 45,
+    "N_TOTAL_avg": 881.7713,
+    "P_TOTAL_avg": 91.1155,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2022,
+    "common_name": "Common Galaxias",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 69,
+    "N_TOTAL_avg": 992.5,
+    "P_TOTAL_avg": 74,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2023,
+    "common_name": "Common Galaxias",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 184,
+    "N_TOTAL_avg": 764.6408,
+    "P_TOTAL_avg": 103.2588,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2023,
+    "common_name": "Common Galaxias",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 284,
+    "N_TOTAL_avg": 752.5,
+    "P_TOTAL_avg": 41,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2024,
+    "common_name": "Common Galaxias",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 533,
+    "N_TOTAL_avg": 672.6345,
+    "P_TOTAL_avg": 82.8399,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2024,
+    "common_name": "Common Galaxias",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 824,
+    "N_TOTAL_avg": 1166.6667,
+    "P_TOTAL_avg": 92.8333,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2017,
+    "common_name": "European Carp",
+    "water_body": "MERRI CREEK",
+    "estimated_population": 60,
+    "N_TOTAL_avg": 596.25,
+    "P_TOTAL_avg": 71.6667,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2017,
+    "common_name": "European Carp",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 46,
+    "N_TOTAL_avg": 425,
+    "P_TOTAL_avg": 49.875,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2018,
+    "common_name": "European Carp",
+    "water_body": "MERRI CREEK",
+    "estimated_population": 560,
+    "N_TOTAL_avg": 495,
+    "P_TOTAL_avg": 60.375,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2018,
+    "common_name": "European Carp",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 429,
+    "N_TOTAL_avg": 509.1667,
+    "P_TOTAL_avg": 52.0833,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2019,
+    "common_name": "European Carp",
+    "water_body": "MERRI CREEK",
+    "estimated_population": 1073,
+    "N_TOTAL_avg": 543.3333,
+    "P_TOTAL_avg": 90.2083,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2019,
+    "common_name": "European Carp",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 821,
+    "N_TOTAL_avg": 655.8333,
+    "P_TOTAL_avg": 79.7083,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2020,
+    "common_name": "European Carp",
+    "water_body": "MERRI CREEK",
+    "estimated_population": 453,
+    "N_TOTAL_avg": 672,
+    "P_TOTAL_avg": 119.425,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2020,
+    "common_name": "European Carp",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 347,
+    "N_TOTAL_avg": 834,
+    "P_TOTAL_avg": 114.2,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2021,
+    "common_name": "European Carp",
+    "water_body": "MERRI CREEK",
+    "estimated_population": 1325,
+    "N_TOTAL_avg": 543.6569,
+    "P_TOTAL_avg": 137.1974,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2021,
+    "common_name": "European Carp",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 1015,
+    "N_TOTAL_avg": 889.3034,
+    "P_TOTAL_avg": 100.7444,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2022,
+    "common_name": "European Carp",
+    "water_body": "MERRI CREEK",
+    "estimated_population": 238,
+    "N_TOTAL_avg": 639.519,
+    "P_TOTAL_avg": 114.2167,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2022,
+    "common_name": "European Carp",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 182,
+    "N_TOTAL_avg": 881.7713,
+    "P_TOTAL_avg": 91.1155,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2023,
+    "common_name": "European Carp",
+    "water_body": "MERRI CREEK",
+    "estimated_population": 1300,
+    "N_TOTAL_avg": 688.5647,
+    "P_TOTAL_avg": 106.5179,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2023,
+    "common_name": "European Carp",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 995,
+    "N_TOTAL_avg": 764.6408,
+    "P_TOTAL_avg": 103.2588,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2024,
+    "common_name": "European Carp",
+    "water_body": "MERRI CREEK",
+    "estimated_population": 399,
+    "N_TOTAL_avg": 553.3385,
+    "P_TOTAL_avg": 106.0512,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2024,
+    "common_name": "European Carp",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 305,
+    "N_TOTAL_avg": 672.6345,
+    "P_TOTAL_avg": 82.8399,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2017,
+    "common_name": "Flathead Gudgeon",
+    "water_body": "WERRIBEE RIVER",
+    "estimated_population": 166,
+    "N_TOTAL_avg": 881.6667,
+    "P_TOTAL_avg": 75.25,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2018,
+    "common_name": "Flathead Gudgeon",
+    "water_body": "WERRIBEE RIVER",
+    "estimated_population": 923,
+    "N_TOTAL_avg": 603.3333,
+    "P_TOTAL_avg": 36.8333,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2019,
+    "common_name": "Flathead Gudgeon",
+    "water_body": "WERRIBEE RIVER",
+    "estimated_population": 239,
+    "N_TOTAL_avg": 725.8333,
+    "P_TOTAL_avg": 120.8333,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2020,
+    "common_name": "Flathead Gudgeon",
+    "water_body": "WERRIBEE RIVER",
+    "estimated_population": 599,
+    "N_TOTAL_avg": 752.5,
+    "P_TOTAL_avg": 217.4167,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2021,
+    "common_name": "Flathead Gudgeon",
+    "water_body": "WERRIBEE RIVER",
+    "estimated_population": 4,
+    "N_TOTAL_avg": 895,
+    "P_TOTAL_avg": 117.0833,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2022,
+    "common_name": "Flathead Gudgeon",
+    "water_body": "WERRIBEE RIVER",
+    "estimated_population": 132,
+    "N_TOTAL_avg": 889.1667,
+    "P_TOTAL_avg": 95.4167,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2023,
+    "common_name": "Flathead Gudgeon",
+    "water_body": "WERRIBEE RIVER",
+    "estimated_population": 1743,
+    "N_TOTAL_avg": 916.6667,
+    "P_TOTAL_avg": 50.75,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2024,
+    "common_name": "Flathead Gudgeon",
+    "water_body": "WERRIBEE RIVER",
+    "estimated_population": 289,
+    "N_TOTAL_avg": 1058.3333,
+    "P_TOTAL_avg": 87.1667,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2017,
+    "common_name": "Goldfish",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 1063,
+    "N_TOTAL_avg": 587.5,
+    "P_TOTAL_avg": 52.7778,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2018,
+    "common_name": "Goldfish",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 548,
+    "N_TOTAL_avg": 592.2222,
+    "P_TOTAL_avg": 51.0278,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2019,
+    "common_name": "Goldfish",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 119,
+    "N_TOTAL_avg": 607.7778,
+    "P_TOTAL_avg": 62.2778,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2020,
+    "common_name": "Goldfish",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 985,
+    "N_TOTAL_avg": 716.3333,
+    "P_TOTAL_avg": 85.8944,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2021,
+    "common_name": "Goldfish",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 530,
+    "N_TOTAL_avg": 898.3333,
+    "P_TOTAL_avg": 59.5833,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2022,
+    "common_name": "Goldfish",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 1892,
+    "N_TOTAL_avg": 992.5,
+    "P_TOTAL_avg": 74,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2023,
+    "common_name": "Goldfish",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 1325,
+    "N_TOTAL_avg": 752.5,
+    "P_TOTAL_avg": 41,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2024,
+    "common_name": "Goldfish",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 1152,
+    "N_TOTAL_avg": 1166.6667,
+    "P_TOTAL_avg": 92.8333,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2017,
+    "common_name": "Redfin",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 175,
+    "N_TOTAL_avg": 587.5,
+    "P_TOTAL_avg": 52.7778,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2017,
+    "common_name": "Redfin",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 113,
+    "N_TOTAL_avg": 425,
+    "P_TOTAL_avg": 49.875,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2017,
+    "common_name": "Redfin",
+    "water_body": "DEEP CREEK",
+    "estimated_population": 245,
+    "N_TOTAL_avg": 773.3333,
+    "P_TOTAL_avg": 29.6667,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2018,
+    "common_name": "Redfin",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 229,
+    "N_TOTAL_avg": 592.2222,
+    "P_TOTAL_avg": 51.0278,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2018,
+    "common_name": "Redfin",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 148,
+    "N_TOTAL_avg": 509.1667,
+    "P_TOTAL_avg": 52.0833,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2018,
+    "common_name": "Redfin",
+    "water_body": "DEEP CREEK",
+    "estimated_population": 321,
+    "N_TOTAL_avg": 820,
+    "P_TOTAL_avg": 38.3333,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2019,
+    "common_name": "Redfin",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 515,
+    "N_TOTAL_avg": 607.7778,
+    "P_TOTAL_avg": 62.2778,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2019,
+    "common_name": "Redfin",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 334,
+    "N_TOTAL_avg": 655.8333,
+    "P_TOTAL_avg": 79.7083,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2019,
+    "common_name": "Redfin",
+    "water_body": "DEEP CREEK",
+    "estimated_population": 722,
+    "N_TOTAL_avg": 795,
+    "P_TOTAL_avg": 33.9167,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2020,
+    "common_name": "Redfin",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 33,
+    "N_TOTAL_avg": 716.3333,
+    "P_TOTAL_avg": 85.8944,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2020,
+    "common_name": "Redfin",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 21,
+    "N_TOTAL_avg": 834,
+    "P_TOTAL_avg": 114.2,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2020,
+    "common_name": "Redfin",
+    "water_body": "DEEP CREEK",
+    "estimated_population": 46,
+    "N_TOTAL_avg": 955,
+    "P_TOTAL_avg": 65.8333,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2021,
+    "common_name": "Redfin",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 156,
+    "N_TOTAL_avg": 898.3333,
+    "P_TOTAL_avg": 59.5833,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2021,
+    "common_name": "Redfin",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 101,
+    "N_TOTAL_avg": 889.3034,
+    "P_TOTAL_avg": 100.7444,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2021,
+    "common_name": "Redfin",
+    "water_body": "DEEP CREEK",
+    "estimated_population": 219,
+    "N_TOTAL_avg": 898.3333,
+    "P_TOTAL_avg": 59.5833,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2022,
+    "common_name": "Redfin",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 653,
+    "N_TOTAL_avg": 992.5,
+    "P_TOTAL_avg": 74,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2022,
+    "common_name": "Redfin",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 423,
+    "N_TOTAL_avg": 881.7713,
+    "P_TOTAL_avg": 91.1155,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2022,
+    "common_name": "Redfin",
+    "water_body": "DEEP CREEK",
+    "estimated_population": 915,
+    "N_TOTAL_avg": 992.5,
+    "P_TOTAL_avg": 74,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2023,
+    "common_name": "Redfin",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 187,
+    "N_TOTAL_avg": 752.5,
+    "P_TOTAL_avg": 41,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2023,
+    "common_name": "Redfin",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 121,
+    "N_TOTAL_avg": 764.6408,
+    "P_TOTAL_avg": 103.2588,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2023,
+    "common_name": "Redfin",
+    "water_body": "DEEP CREEK",
+    "estimated_population": 262,
+    "N_TOTAL_avg": 752.5,
+    "P_TOTAL_avg": 41,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2024,
+    "common_name": "Redfin",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 308,
+    "N_TOTAL_avg": 1166.6667,
+    "P_TOTAL_avg": 92.8333,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2024,
+    "common_name": "Redfin",
+    "water_body": "YARRA RIVER",
+    "estimated_population": 199,
+    "N_TOTAL_avg": 672.6345,
+    "P_TOTAL_avg": 82.8399,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2024,
+    "common_name": "Redfin",
+    "water_body": "DEEP CREEK",
+    "estimated_population": 431,
+    "N_TOTAL_avg": 1166.6667,
+    "P_TOTAL_avg": 92.8333,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2017,
+    "common_name": "Southern Hulafish",
+    "water_body": "KOROROIT CREEK",
+    "estimated_population": 63,
+    "N_TOTAL_avg": 9052.0833,
+    "P_TOTAL_avg": 528.25,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2018,
+    "common_name": "Southern Hulafish",
+    "water_body": "KOROROIT CREEK",
+    "estimated_population": 281,
+    "N_TOTAL_avg": 678.75,
+    "P_TOTAL_avg": 191.1667,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2019,
+    "common_name": "Southern Hulafish",
+    "water_body": "KOROROIT CREEK",
+    "estimated_population": 2,
+    "N_TOTAL_avg": 597.5,
+    "P_TOTAL_avg": 142.3333,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2020,
+    "common_name": "Southern Hulafish",
+    "water_body": "KOROROIT CREEK",
+    "estimated_population": 178,
+    "N_TOTAL_avg": 545,
+    "P_TOTAL_avg": 142.75,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2021,
+    "common_name": "Southern Hulafish",
+    "water_body": "KOROROIT CREEK",
+    "estimated_population": 281,
+    "N_TOTAL_avg": 589.6209,
+    "P_TOTAL_avg": 128.8297,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2022,
+    "common_name": "Southern Hulafish",
+    "water_body": "KOROROIT CREEK",
+    "estimated_population": 36,
+    "N_TOTAL_avg": 524.5504,
+    "P_TOTAL_avg": 108.6189,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2023,
+    "common_name": "Southern Hulafish",
+    "water_body": "KOROROIT CREEK",
+    "estimated_population": 40,
+    "N_TOTAL_avg": 609.3687,
+    "P_TOTAL_avg": 100.5662,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2024,
+    "common_name": "Southern Hulafish",
+    "water_body": "KOROROIT CREEK",
+    "estimated_population": 6,
+    "N_TOTAL_avg": 706.1336,
+    "P_TOTAL_avg": 99.0638,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2017,
+    "common_name": "Southern Shortfin Eel",
+    "water_body": "MERRI CREEK",
+    "estimated_population": 11,
+    "N_TOTAL_avg": 596.25,
+    "P_TOTAL_avg": 71.6667,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2017,
+    "common_name": "Southern Shortfin Eel",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 13,
+    "N_TOTAL_avg": 587.5,
+    "P_TOTAL_avg": 52.7778,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2018,
+    "common_name": "Southern Shortfin Eel",
+    "water_body": "MERRI CREEK",
+    "estimated_population": 179,
+    "N_TOTAL_avg": 495,
+    "P_TOTAL_avg": 60.375,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2018,
+    "common_name": "Southern Shortfin Eel",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 212,
+    "N_TOTAL_avg": 592.2222,
+    "P_TOTAL_avg": 51.0278,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2019,
+    "common_name": "Southern Shortfin Eel",
+    "water_body": "MERRI CREEK",
+    "estimated_population": 2,
+    "N_TOTAL_avg": 543.3333,
+    "P_TOTAL_avg": 90.2083,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2019,
+    "common_name": "Southern Shortfin Eel",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 3,
+    "N_TOTAL_avg": 607.7778,
+    "P_TOTAL_avg": 62.2778,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2020,
+    "common_name": "Southern Shortfin Eel",
+    "water_body": "MERRI CREEK",
+    "estimated_population": 46,
+    "N_TOTAL_avg": 672,
+    "P_TOTAL_avg": 119.425,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2020,
+    "common_name": "Southern Shortfin Eel",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 55,
+    "N_TOTAL_avg": 716.3333,
+    "P_TOTAL_avg": 85.8944,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2021,
+    "common_name": "Southern Shortfin Eel",
+    "water_body": "MERRI CREEK",
+    "estimated_population": 79,
+    "N_TOTAL_avg": 543.6569,
+    "P_TOTAL_avg": 137.1974,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2021,
+    "common_name": "Southern Shortfin Eel",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 93,
+    "N_TOTAL_avg": 898.3333,
+    "P_TOTAL_avg": 59.5833,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2022,
+    "common_name": "Southern Shortfin Eel",
+    "water_body": "MERRI CREEK",
+    "estimated_population": 322,
+    "N_TOTAL_avg": 639.519,
+    "P_TOTAL_avg": 114.2167,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2022,
+    "common_name": "Southern Shortfin Eel",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 381,
+    "N_TOTAL_avg": 992.5,
+    "P_TOTAL_avg": 74,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2023,
+    "common_name": "Southern Shortfin Eel",
+    "water_body": "MERRI CREEK",
+    "estimated_population": 632,
+    "N_TOTAL_avg": 688.5647,
+    "P_TOTAL_avg": 106.5179,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2023,
+    "common_name": "Southern Shortfin Eel",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 748,
+    "N_TOTAL_avg": 752.5,
+    "P_TOTAL_avg": 41,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2024,
+    "common_name": "Southern Shortfin Eel",
+    "water_body": "MERRI CREEK",
+    "estimated_population": 1518,
+    "N_TOTAL_avg": 553.3385,
+    "P_TOTAL_avg": 106.0512,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2024,
+    "common_name": "Southern Shortfin Eel",
+    "water_body": "MARIBYRNONG RIVER",
+    "estimated_population": 1796,
+    "N_TOTAL_avg": 1166.6667,
+    "P_TOTAL_avg": 92.8333,
+    "impact_level": "Medium Impact"
+  },
+  {
+    "year": 2017,
+    "common_name": "Tamar Goby",
+    "water_body": "KOROROIT CREEK",
+    "estimated_population": 29,
+    "N_TOTAL_avg": 9052.0833,
+    "P_TOTAL_avg": 528.25,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2018,
+    "common_name": "Tamar Goby",
+    "water_body": "KOROROIT CREEK",
+    "estimated_population": 165,
+    "N_TOTAL_avg": 678.75,
+    "P_TOTAL_avg": 191.1667,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2019,
+    "common_name": "Tamar Goby",
+    "water_body": "KOROROIT CREEK",
+    "estimated_population": 475,
+    "N_TOTAL_avg": 597.5,
+    "P_TOTAL_avg": 142.3333,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2020,
+    "common_name": "Tamar Goby",
+    "water_body": "KOROROIT CREEK",
+    "estimated_population": 50,
+    "N_TOTAL_avg": 545,
+    "P_TOTAL_avg": 142.75,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2021,
+    "common_name": "Tamar Goby",
+    "water_body": "KOROROIT CREEK",
+    "estimated_population": 31,
+    "N_TOTAL_avg": 589.6209,
+    "P_TOTAL_avg": 128.8297,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2022,
+    "common_name": "Tamar Goby",
+    "water_body": "KOROROIT CREEK",
+    "estimated_population": 204,
+    "N_TOTAL_avg": 524.5504,
+    "P_TOTAL_avg": 108.6189,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2023,
+    "common_name": "Tamar Goby",
+    "water_body": "KOROROIT CREEK",
+    "estimated_population": 51,
+    "N_TOTAL_avg": 609.3687,
+    "P_TOTAL_avg": 100.5662,
+    "impact_level": "Low Impact"
+  },
+  {
+    "year": 2024,
+    "common_name": "Tamar Goby",
+    "water_body": "KOROROIT CREEK",
+    "estimated_population": 60,
+    "N_TOTAL_avg": 706.1336,
+    "P_TOTAL_avg": 99.0638,
+    "impact_level": "Low Impact"
+  }
+]
