@@ -100,13 +100,23 @@ def disposalfacility():
             event_schedule_data.append(row)
     return render_template('disposalfacilitymap.html',event_schedule_data = event_schedule_data)
 
+# OLD WATER QUALITY MAP
+@application.route('/water-quality-map-old')
+def waterqualitymap_OLD():
+    return render_template('waterqualitymap.html')
+# NEW WATER QUALITY MAP
 @application.route('/water-quality-map')
 def waterqualitymap():
-    return render_template('waterqualitymap.html')
+    return render_template('waterQuality.html')
 
+# OLD FISH MAP
+@application.route('/fish-explorer-old')
+def fishexplorer_OLD():
+    return render_template('fishexplorer.html')
+# NEW FISH MAP
 @application.route('/fish-explorer')
 def fishexplorer():
-    return render_template('fishexplorer.html')
+    return render_template('FishMap.html')
 
 @application.route('/product-search', methods=['GET', 'POST'])
 def productsearch():
