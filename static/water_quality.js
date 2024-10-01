@@ -2,7 +2,7 @@ let trendData;
 let currentSiteId;
 
 // Load the historical trend data
-d3.json('../datasets/data/trend_water.json').then(function(data) {
+d3.json('../static/data/trend_water.json').then(function(data) {
     trendData = data;
 }).catch(function(error) {
     console.error("Error loading trend_water.json:", error);
@@ -347,7 +347,7 @@ function updatePhosphateIndicator(value) {
 }
 
 // Load merged_water.json and plot the map
-d3.json('../datasets/data/merged_water.json').then(function(data) {
+d3.json('../static/data/merged_water.json').then(function(data) {
     const map = L.map('map').setView([-37.8136, 144.9631], 10);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 

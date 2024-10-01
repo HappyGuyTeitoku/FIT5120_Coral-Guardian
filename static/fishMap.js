@@ -4,10 +4,10 @@ let fishPopulationData = [];  // Stores population and nutrient data from prepro
 // Fetch both JSON files when the app initializes
 function fetchFishData() {
     return Promise.all([
-        fetch('../datasets/data/preprocessed_fish_data.json')
+        fetch('../static/data/preprocessed_fish_data.json')
             .then(response => response.json())
             .then(data => fishPopulationData = data),
-        fetch('../datasets/data/fish_intro_fin.json')
+        fetch('../static/data/fish_intro_fin.json')
             .then(response => response.json())
             .then(data => fishIntroData = data)
     ]).catch(error => console.error('Error fetching fish data:', error));
@@ -28,7 +28,7 @@ function initializeFishMap() {
     document.getElementById('riverNameTitle').innerHTML = 'Please select the river';
 
     // Load the river polygon data
-    fetch('../datasets/data/preprocessed_river_polygon.geojson')  // Replace with the correct path
+    fetch('../static/data/preprocessed_river_polygon.geojson')  // Replace with the correct path
         .then(response => response.json())
         .then(data => {
             if (data.type !== 'FeatureCollection') {
