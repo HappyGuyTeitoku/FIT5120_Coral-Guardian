@@ -407,6 +407,8 @@ function formatDate(dateString) {
     return `${day}/${month}/${year}`;
 }
 
+
+/*
 // Tab switching logic
 document.getElementById("waterQualityTab").addEventListener("click", function() {
     // Show water quality panel
@@ -433,3 +435,5 @@ document.getElementById("fishTab").addEventListener("click", function() {
     document.getElementById("fishTab").classList.add("active");
     document.getElementById("waterQualityTab").classList.remove("active");
 });
+
+*/

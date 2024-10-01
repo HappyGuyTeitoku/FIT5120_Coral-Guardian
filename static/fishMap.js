@@ -320,10 +320,10 @@ function updateExpandedFishCard(fish) {
     if (fishIntro) {
         const fishImage = document.getElementById('fishImage');
         const imageName = fish.common_name;
-        fishImage.src = `images/${imageName}.jpg`;
+        fishImage.src = `../static/images/${imageName}.jpg`;
 
         fishImage.onerror = function() {
-            this.src = 'images/default_fish.jpg';
+            this.src = '../static/images/default_fish.jpg';
         };
 
         document.getElementById('expandedFishName').textContent = fish.common_name;
