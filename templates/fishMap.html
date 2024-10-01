@@ -21,10 +21,10 @@
 
     <!-- Shared Navigation Tabs -->
     <div class="tabs">
-        <a href="waterQuality.html" class="tab">
+        <a href="{{ url_for('waterqualitymap') }}" class="tab">
             <span>💧</span> <!-- Link to water quality map -->
         </a>
-        <a href="fishMap.html" class="tab active">
+        <a href="{{ url_for('fishexplorer') }}" class="tab active">
             <span>🐟</span> <!-- Active tab for fish map -->
         </a>
     </div>
