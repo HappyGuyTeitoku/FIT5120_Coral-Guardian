@@ -96,71 +96,86 @@ window.addEventListener('scroll', function() {
 
 
    // -----------------------------------------------test quiz js
-   let currentQuestion = 0;
-   let score = 0;
-   
-   const questions = document.querySelectorAll('.question');
-   const nextButton = document.getElementById('next-question');
-   const resultDiv = document.getElementById('result');
-   const progressBar = document.getElementById('progress');
-   
-   function setupQuestion() {
-     const currentOptions = questions[currentQuestion].querySelectorAll('.option');
-     
-     // 移除之前绑定的点击事件，防止重复绑定
-     currentOptions.forEach((option, index) => {
-       // 确保选项按钮是可点击的
-       option.disabled = false;
-       option.classList.remove('correct', 'incorrect');
-   
-       // 移除之前的事件监听器，防止重复触发
-       option.replaceWith(option.cloneNode(true));
-     });
-   
-     // 为新的选项按钮重新绑定点击事件
-     const newOptions = questions[currentQuestion].querySelectorAll('.option');
-     newOptions.forEach((option, index) => {
-       option.addEventListener('click', function handleOptionClick() {
-         // 禁用所有选项，防止多次点击
-         newOptions.forEach(opt => opt.disabled = true);
-   
-         // 获取正确答案的索引
-         const correctAnswerIndex = questions[currentQuestion].getAttribute('data-correct');
-         if (index == correctAnswerIndex) {
-           option.classList.add('correct');
-           score++;
-         } else {
-           option.classList.add('incorrect');
-           newOptions[correctAnswerIndex].classList.add('correct');
-         }
-   
-         // 显示 "下一題" 按鈕
-         nextButton.style.display = 'inline-block';
-       });
-     });
-   }
-   
-   // 初始设置
-   setupQuestion();
-   
-   // 点击“下一题”按钮逻辑
-   nextButton.addEventListener('click', function() {
-     // 隐藏当前问题
-     questions[currentQuestion].style.display = 'none';
-   
-     // 更新进度条
-     currentQuestion++;
-     progressBar.value = (currentQuestion / questions.length) * 100;
-   
-     if (currentQuestion < questions.length) {
-       // 显示下一个问题
-       questions[currentQuestion].style.display = 'block';
-       nextButton.style.display = 'none';
-       setupQuestion(); // 设置下一个问题的选项
-     } else {
-       // 显示结果
-       resultDiv.textContent = `你答对了 ${score} 题！`;
-       nextButton.style.display = 'none';
-     }
-   });
+   const questions = [
+    {
+      question: "這是什麼動物？",
+      answers: [
+        { text: "狗", correct: true },
+        { text: "貓", correct: false },
+        { text: "老鼠", correct: false },
+      ]
+    },
+    {
+      question: "這是一個什麼水果？",
+      answers: [
+        { text: "蘋果", correct: true },
+        { text: "香蕉", correct: false },
+        { text: "橘子", correct: false },
+      ]
+    }
+  ];
+  
+  let currentQuestionIndex = 0;
+  let score = 0;
+  
+  function startQuiz() {
+    currentQuestionIndex = 0;
+    score = 0;
+    showQuestion();
+  }
+  
+  function showQuestion() {
+    resetState();
+    const questionElement = document.getElementById(`question-${currentQuestionIndex + 1}`); // 使用动态 ID
+    questionElement.style.display = 'block'; // 显示当前问题
+  
+    const questionText = questionElement.querySelector("p");
+    questionText.innerText = questions[currentQuestionIndex].question;
+  
+    const optionContainer = questionElement.querySelector(".option-container"); // 获取选项容器
+    questions[currentQuestionIndex].answers.forEach(answer => {
+      const button = document.createElement("button");
+      button.innerText = answer.text;
+      button.classList.add("btn");
+      button.addEventListener("click", () => selectAnswer(answer));
+      optionContainer.appendChild(button); // 添加选项按钮
+    });
+  
+    const nextButton = questionElement.querySelector("#next-option"); // 获取下一题按钮
+    nextButton.style.display = "none"; // 隐藏下一题按钮
+    nextButton.onclick = () => {
+      currentQuestionIndex++;
+      if (currentQuestionIndex < questions.length) {
+        questionElement.style.display = 'none'; // 隐藏当前问题
+        showQuestion(); // 显示下一题
+      } else {
+        showResult(); // 显示结果
+      }
+    };
+  }
+  
+  function selectAnswer(answer) {
+    if (answer.correct) {
+      score++;
+    }
+    // 显示下一题按钮
+    const questionElement = document.getElementById(`question-${currentQuestionIndex + 1}`);
+    const nextButton = questionElement.querySelector("#next-option");
+    nextButton.style.display = "block"; // 显示下一题按钮
+  }
+  
+  function showResult() {
+    const resultElement = document.getElementById("result");
+    resultElement.innerText = `你得到了 ${score} 分，總共 ${questions.length} 題。`;
+    resultElement.style.display = 'block'; // 显示结果
+  }
+  
+  function resetState() {
+    // 隐藏所有问题
+    const allQuestions = document.querySelectorAll(".question");
+    allQuestions.forEach(q => q.style.display = 'none'); // 隐藏所有问题
+  }
+  
+  // 初始化测验
+  startQuiz();
    // -----------------------------------------------test quiz js end

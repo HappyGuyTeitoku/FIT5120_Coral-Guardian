@@ -1454,32 +1454,82 @@ nav {
 
 /* -----------------------------test quiz css  ----------------------------------------------- */
 
-#quiz-container {
-    margin: 20px;
-  }
-  
-  /* 選項樣式 */
-  button.option {
+.quiz-container.testpage-quiz {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: #001e4d;
+}
+
+.question{
+    background: #fff;
+    width: 90%;
+    
+    max-width: 600px;
+    margin: 100px auto 0;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.option{
+    background: #fff;
+    color: #222;
+    font-weight: 500;
+    width: 100%;
+    border: 1px solid #222;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+    border-radius: 4px;
+    cursor: pointer;
+
+}
+.testpage-quiz .option:hover {
+    background-color: #222;
+    color: #fff;
+}
+
+
+#next-option{
+    background: #001e4d;
+    color: #fff;
+    font-weight: 500;
+    width: 150px;
+    border: 0;
+    padding: 10px;
+    margin: 20px auto 0;
+    border-radius: 4px;
+    cursor: pointer;
+    display: none;
+}
+
+/* 選項樣式 */
+.testpage-quiz button.option {
     margin: 5px;
     padding: 10px;
     cursor: pointer;
     background-color: lightgray;
     border: 1px solid #ccc;
     border-radius: 5px;
-  }
-  
-  /* 正確和錯誤樣式 */
-  .correct {
+}
+
+/* 正確和錯誤樣式 */
+.testpage-quiz .correct {
     background-color: green;
-  }
-  
-  .incorrect {
+}
+
+.testpage-quiz .incorrect {
     background-color: red;
-  }
-  
-  /* 禁用按鈕時樣式 */
-  button:disabled {
+}
+
+/* 禁用按鈕時樣式 */
+.testpage-quiz button:disabled {
     cursor: not-allowed;
     opacity: 0.6;
-  }
+}
+
 /* -----------------------------test quiz css  end ----------------------------------------------- */
