@@ -10,6 +10,7 @@ import logging
 
 application = Flask(__name__)
 DATABASE = 'water_monitor.db'
+DATABASE_IT3 = 'database.db'
 
 # Define your secret password
 PASSWORD = 'Caffeine3'
@@ -49,7 +50,7 @@ def require_password():
 def get_db():
     db = getattr(g, '_database', None)
     if db is None:
-        db = g._database = sqlite3.connect(DATABASE)
+        db = g._database = sqlite3.connect(DATABASE_IT3)
     return db
 
 @application.teardown_appcontext
@@ -68,7 +69,7 @@ def index():
 # def testpage():
 #     conn = get_db()
 #     cursor = conn.cursor()
-#     cursor.execute("SELECT * FROM your_table")
+#     cursor.execute("SELECT * FROM Phosphate_Free_Detergent_Register")
 #     rows = cursor.fetchall()
 #     conn.close()
 #     return render_template('testpage.html', rows=rows)
@@ -155,7 +156,22 @@ def npcalculator():
 def privacypolicy():
     return render_template('privacypolicy.html')
 
-#Create the database tables
+@application.route('/testpage', methods=['GET', 'POST'])
+def testpage():
+    rows = []
+    if request.method == 'POST':
+        categories = request.form.getlist('category')
+        if categories:
+            query_placeholder = ', '.join('?' for _ in categories)
+            conn = get_db()
+            cursor = conn.cursor()
+            cursor.execute(f"SELECT * FROM Phosphate_Free_Detergent_Register WHERE prod_cat IN ({query_placeholder})", categories)
+            rows = cursor.fetchall()
+            conn.close()
+    return render_template('testpage.html', rows=rows)
+
+# OLD TEST CODE
+#Create the test database table
 @application.cli.command('initdb')
 def init_db_command():
     with sqlite3.connect(DATABASE) as db:
@@ -164,10 +180,10 @@ def init_db_command():
         db.executescript(sql)
     click.echo('Initialized the database.')
 
-# Create the Phosphate Free Detergent Register Table
+# Create the Phosphate Free Detergent Register Table in database.db
 @application.cli.command('initdb_it3')
 def init_db_it3_command():
-    with sqlite3.connect(DATABASE) as db:
+    with sqlite3.connect(DATABASE_IT3) as db:
         with open('datasets/IT3_pfree_detergent_register.sql','r') as file:
             sql = file.read()
         db.executescript(sql)
