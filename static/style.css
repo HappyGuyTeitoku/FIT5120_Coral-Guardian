@@ -1451,3 +1451,35 @@ nav {
 }
 
 /* -----------------------------recommoned product css  end ----------------------------------------------- */
+
+/* -----------------------------test quiz css  ----------------------------------------------- */
+
+#quiz-container {
+    margin: 20px;
+  }
+  
+  /* 選項樣式 */
+  button.option {
+    margin: 5px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: lightgray;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* 正確和錯誤樣式 */
+  .correct {
+    background-color: green;
+  }
+  
+  .incorrect {
+    background-color: red;
+  }
+  
+  /* 禁用按鈕時樣式 */
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+/* -----------------------------test quiz css  end ----------------------------------------------- */
