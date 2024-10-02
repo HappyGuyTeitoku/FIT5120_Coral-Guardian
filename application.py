@@ -155,14 +155,24 @@ def npcalculator():
 def privacypolicy():
     return render_template('privacypolicy.html')
 
+#Create the database tables
 @application.cli.command('initdb')
 def init_db_command():
-    """Create the database tables."""
     with sqlite3.connect(DATABASE) as db:
-        with open('schema.sql', 'r') as f:
+        with open('datasets/schema.sql', 'r') as f:
             sql = f.read()
         db.executescript(sql)
     click.echo('Initialized the database.')
+
+# Create the Phosphate Free Detergent Register Table
+@application.cli.command('initdb_it3')
+def init_db_it3_command():
+    with sqlite3.connect(DATABASE) as db:
+        with open('datasets/IT3_pfree_detergent_register.sql','r') as file:
+            sql = file.read()
+        db.executescript(sql)
+    click.echo('Initialized the database with P-Free Detergent Register')
+
 
 
 # ----- ----- ----- ----- ----- ----- ----- ----- 
