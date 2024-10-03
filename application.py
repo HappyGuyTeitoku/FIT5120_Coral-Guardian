@@ -159,17 +159,25 @@ def privacypolicy():
 @application.route('/testpage', methods=['GET', 'POST'])
 def testpage():
     rows = []
+    conn = get_db()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM Phosphate_Free_Detergent_Register")
+    rows = cursor.fetchall()
+    resultrows = [dict(zip([column[0] for column in cursor.description], row)) for row in rows]
+    
     if request.method == 'POST':
-        categories = request.form.getlist('category')
+        data = request.json
+        categories = data.get('categories',[])
         if categories:
             query_placeholder = ', '.join('?' for _ in categories)
-            conn = get_db()
-            cursor = conn.cursor()
             cursor.execute(f"SELECT * FROM Phosphate_Free_Detergent_Register WHERE prod_cat IN ({query_placeholder})", categories)
             rows = cursor.fetchall()
-            conn.close()
-    return render_template('testpage.html', rows=rows)
+            resultrows = [dict(zip([column[0] for column in cursor.description], row)) for row in rows]
 
+            return jsonify({'message': 'Search successful', 'data': resultrows})
+    # Render the template and pass rows as a variable to the frontend
+    return render_template('testpage.html', rows=resultrows)
 # OLD TEST CODE
 #Create the test database table
 @application.cli.command('initdb')
