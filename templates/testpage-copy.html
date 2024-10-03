@@ -11,6 +11,17 @@
 
 <p><br>Below is a test div for product search results</p>
 
+<script>
+    function showWarningPopup() {
+        alert("testpage-copy.html ('/placeholder') SHOULD NOT BE USED FOR PRODUCTION CODE");
+        alert("DO NOT PUT YOUR PRODUCTION CODE ON THIS PAGE");
+        alert("I REPEAT DO NOT PUT YOUR PRODUCTION CODE ON THIS PAGE");
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        showWarningPopup();
+    })
+</script>
+
 <div class="container education-page">
     <div id="api-result">
         <div class="product">
@@ -39,38 +50,38 @@
 <script src="script.js"></script>
 <!-- test quiz -->
 <div id="quiz-container" class="testpage-quiz">
-  <!-- 进度条 -->
-  <div id="progress-bar">
-    <progress id="progress" value="0" max="100"></progress>
-  </div>
-
-  <div class="question" id="question-1" data-correct="2" style="display: block;">
-    <p>問題 1: 這是什麼動物？</p>
-    <div class="option-container">
-      <div class="option" data-index="0">狗</div>
-      <div class="option" data-index="1">貓</div>
-      <div class="option" data-index="2">老鼠</div>
-      <button id="next-option">Next</button> <!-- 添加按鈕文本 -->
+    <!-- 进度条 -->
+    <div id="progress-bar">
+        <progress id="progress" value="0" max="100"></progress>
     </div>
 
-    <!-- 按鈕: 下一題 -->
+    <div class="question" id="question-1" data-correct="2" style="display: block;">
+        <p>問題 1: 這是什麼動物？</p>
+        <div class="option-container">
+            <div class="option" data-index="0">狗</div>
+            <div class="option" data-index="1">貓</div>
+            <div class="option" data-index="2">老鼠</div>
+            <button id="next-option">Next</button> <!-- 添加按鈕文本 -->
+        </div>
+
+        <!-- 按鈕: 下一題 -->
     </div>
     <button id="next-option" next> </button>
-  </div>
-  
-  <!-- 問題 2 -->
-  <div class="question" id="question-2" data-correct="0" style="display: none;">
+</div>
+
+<!-- 問題 2 -->
+<div class="question" id="question-2" data-correct="0" style="display: none;">
     <p>問題 2: 這是一個...</p>
     <div class="option-container">
-      <div class="option" data-index="0">蘋果</div>
-      <div class="option" data-index="1">香蕉</div>
-      <div class="option" data-index="2">橘子</div>
+        <div class="option" data-index="0">蘋果</div>
+        <div class="option" data-index="1">香蕉</div>
+        <div class="option" data-index="2">橘子</div>
     </div>
     <button id="next-option" style="display: none;">下一題</button>
-  </div>
-  
-  <!-- 結果顯示區域 -->
-  <div id="result"></div>
+</div>
+
+<!-- 結果顯示區域 -->
+<div id="result"></div>
 </div>
 
 {% endblock %}

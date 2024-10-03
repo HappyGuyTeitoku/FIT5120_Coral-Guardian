@@ -6,8 +6,44 @@
 {% block content %}
 <div class="spacer"></div>
 
-<div>
-    
+<p>Arvin, if you are adding the quiz as its own page, use this document (quiz.html)</p>
+<p>I have copy and pasted your code here:</p>
+
+<script src="script.js"></script>
+<!-- test quiz -->
+<div id="quiz-container" class="testpage-quiz">
+    <!-- 进度条 -->
+    <div id="progress-bar">
+        <progress id="progress" value="0" max="100"></progress>
+    </div>
+
+    <div class="question" id="question-1" data-correct="2" style="display: block;">
+        <p>問題 1: 這是什麼動物？</p>
+        <div class="option-container">
+            <div class="option" data-index="0">狗</div>
+            <div class="option" data-index="1">貓</div>
+            <div class="option" data-index="2">老鼠</div>
+            <button id="next-option">Next</button> <!-- 添加按鈕文本 -->
+        </div>
+
+        <!-- 按鈕: 下一題 -->
+    </div>
+    <button id="next-option" next> </button>
+</div>
+
+<!-- 問題 2 -->
+<div class="question" id="question-2" data-correct="0" style="display: none;">
+    <p>問題 2: 這是一個...</p>
+    <div class="option-container">
+        <div class="option" data-index="0">蘋果</div>
+        <div class="option" data-index="1">香蕉</div>
+        <div class="option" data-index="2">橘子</div>
+    </div>
+    <button id="next-option" style="display: none;">下一題</button>
+</div>
+
+<!-- 結果顯示區域 -->
+<div id="result"></div>
 </div>
 
 {% endblock %}

@@ -83,6 +83,7 @@ def index():
 def placeholder():
     return render_template('testpage-copy.html')
 
+# Route to Education Hub
 @application.route('/learn-more')
 def learnmore():
     event_schedule_data = []
@@ -92,6 +93,7 @@ def learnmore():
             event_schedule_data.append(row)
     return render_template('education.html', event_schedule_data = event_schedule_data)
 
+# Unused page for Detox Your Home events on a map
 @application.route('/disposal-facilities')
 def disposalfacility():
     event_schedule_data = []
@@ -119,6 +121,7 @@ def fishexplorer_OLD():
 def fishexplorer():
     return render_template('FishMap.html')
 
+# Route to Product Search Page (Keyword and barcode search)
 @application.route('/product-search', methods=['GET', 'POST'])
 def productsearch():
     if request.method == 'POST':
@@ -148,14 +151,17 @@ def productsearch():
 
     return render_template('product_lookup.html')
 
+# Route to NP Calculator, no backend required
 @application.route('/NP-Calculator')
 def npcalculator():
     return render_template('npcalculator.html')
 
+# Route to Privacy Policy page
 @application.route('/privacy-policy')
 def privacypolicy():
     return render_template('privacypolicy.html')
 
+# Route to PFDR
 @application.route('/p-free-detergent-register', methods=['GET', 'POST'])
 def p_free_detergent_register():
     rows = []
@@ -179,6 +185,10 @@ def p_free_detergent_register():
     # Render the template and pass rows as a variable to the frontend
     return render_template('p-free-detergent-register.html', rows=resultrows)
 
+# Route to quiz page
+@application.route('/quiz')
+def takeAQuiz():
+    return render_template('quiz.html')
 
 # OLD TEST CODE
 #Create the test database table
