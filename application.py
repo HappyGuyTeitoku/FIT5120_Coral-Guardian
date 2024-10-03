@@ -156,8 +156,8 @@ def npcalculator():
 def privacypolicy():
     return render_template('privacypolicy.html')
 
-@application.route('/testpage', methods=['GET', 'POST'])
-def testpage():
+@application.route('/p-free-detergent-register', methods=['GET', 'POST'])
+def p_free_detergent_register():
     rows = []
     conn = get_db()
     cursor = conn.cursor()
@@ -177,7 +177,9 @@ def testpage():
 
             return jsonify({'message': 'Search successful', 'data': resultrows})
     # Render the template and pass rows as a variable to the frontend
-    return render_template('testpage.html', rows=resultrows)
+    return render_template('p-free-detergent-register.html', rows=resultrows)
+
+
 # OLD TEST CODE
 #Create the test database table
 @application.cli.command('initdb')
