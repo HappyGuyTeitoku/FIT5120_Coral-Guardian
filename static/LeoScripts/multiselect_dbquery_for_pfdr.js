@@ -110,6 +110,7 @@ function updateTable(updatedData) {
         const idCell = document.createElement('td');
         idCell.textContent = item.prod_id;  // Adjust field names based on your data structure
         // row.appendChild(idCell);
+        row.style.backgroundColor = item.prod_id % 2 === 0 ? '#f2f2f2' : '#ffffff'; // Alternate colors
 
         const catCell = document.createElement('td');
         catCell.textContent = item.prod_cat;

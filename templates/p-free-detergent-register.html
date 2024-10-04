@@ -25,6 +25,25 @@
         transform: translate(-50%, -50%);
     }
 
+    .resultsTable-container {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .resultsTable {
+        align-self: center;
+    }
+
+    #prodcat_form {
+        display: flex;
+        justify-content: center;
+    }
+
+    #prodcat_form button {
+        align-self: center;
+        margin: 0 5px;
+    }
+
     .resultsHeader {
         width: 20vw;
         border-bottom: 2px solid black;
@@ -32,6 +51,7 @@
 
     #resultsTableBody td {
         border-bottom: 2px solid #ccc;
+        text-align: center;
     }
 </style>
 {% endblock %}
@@ -71,8 +91,7 @@
         name="categories" value="PLACEHOLDER">PLACEHOLDER</button>
 </form>
 
-<div>
-    RESULTS HERE
+<div class="resultsTable-container">
     <table id="resultsTable">
         <thead>
             <tr>
@@ -93,13 +112,14 @@
 
 <!-- JS Script -->
 <script src="{{ url_for('static', filename='LeoScripts/multiselect_dbquery_for_pfdr.js') }}"></script>
-<!-- JS that uses Jina2 (the {{}} ones) cannot be rendered properly if placed in .js file -->
+<!-- JS that uses Jina2 (the \{\{\}\} ones) cannot be rendered properly if placed in .js file -->
 <script>
     function onpageload() {
-        const dataFromServer = {{ rows| tojson }};
-        // You can now use JSON type 'dataFromServer' in JavaScript
-        console.log("Data fetched from server:", dataFromServer);
-        updateTable(dataFromServer)
+        const dataFromServer = {{ rows| tojson
+    }};
+    // You can now use JSON type 'dataFromServer' in JavaScript
+    console.log("Data fetched from server:", dataFromServer);
+    updateTable(dataFromServer)
 }
 </script>
 {% endblock %}
