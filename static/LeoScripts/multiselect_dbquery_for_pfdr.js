@@ -87,13 +87,12 @@ function submitform_prodcat() {
         .catch(error => console.error('Error:', error));
 }
 
-function onpageload() {
-    const dataFromServer = {{ rows| tojson
-}};
-// You can now use JSON type 'dataFromServer' in JavaScript
-console.log("Data fetched from server:", dataFromServer);
-updateTable(dataFromServer)
-}
+// function onpageload() {
+//         const dataFromServer = {{ rows| tojson }};
+//     // You can now use JSON type 'dataFromServer' in JavaScript
+//     console.log("Data fetched from server:", dataFromServer);
+//     updateTable(dataFromServer)
+// }
 
 function updateTable(updatedData) {
     console.log(typeof updatedData);

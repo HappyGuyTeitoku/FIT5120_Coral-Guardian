@@ -22,7 +22,7 @@
         width: 80%;
         height: 2px;
         background-color: black;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
     }
 
     .resultsHeader {
@@ -91,8 +91,15 @@
 
 <div class="spacer"></div>
 
+<!-- JS Script -->
+<script src="{{ url_for('static', filename='LeoScripts/multiselect_dbquery_for_pfdr.js') }}"></script>
+<!-- JS that uses Jina2 (the {{}} ones) cannot be rendered properly if placed in .js file -->
 <script>
-
+    function onpageload() {
+        const dataFromServer = {{ rows| tojson }};
+        // You can now use JSON type 'dataFromServer' in JavaScript
+        console.log("Data fetched from server:", dataFromServer);
+        updateTable(dataFromServer)
+}
 </script>
-
 {% endblock %}
