@@ -1,5 +1,6 @@
 // Filename: OFF_api_for_product_lookup.js
 // Author: Tsz Chung Wong (Leo)
+// Script used at: template/product_lookup.html
 // Purpose: 
 //     This script handles sending GET request to Open Food Facts (OFF) APIs,
 //     by sending a POST request to flask and letting flask handle the GET.
