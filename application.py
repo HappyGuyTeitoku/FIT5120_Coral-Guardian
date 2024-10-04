@@ -152,8 +152,19 @@ def productsearch():
     return render_template('product_lookup.html')
 
 # Route to NP Calculator, no backend required
-@application.route('/NP-Calculator')
+@application.route('/NP-Calculator', methods=['GET', 'POST'])
 def npcalculator():
+    if request.method == 'POST':
+        rows = []
+        conn = get_db()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM Phosphate_Free_Detergent_Register WHERE prod_cat = 'Dishwashing' ")
+        rows_dishwashing = cursor.fetchall()
+        resultrows_dishwashing = [dict(zip([column[0] for column in cursor.description], row)) for row in rows_dishwashing]
+        cursor.execute("SELECT * FROM Phosphate_Free_Detergent_Register WHERE prod_cat = 'Laundry' ")
+        rows_laundry = cursor.fetchall()
+        resultrows_laundry = [dict(zip([column[0] for column in cursor.description], row)) for row in rows_laundry]
+        return jsonify({'message': 'Search successful', 'data_dishwashing': resultrows_dishwashing, 'data_laundry': resultrows_laundry})
     return render_template('npcalculator.html')
 
 # Route to Privacy Policy page
