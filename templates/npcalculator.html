@@ -131,7 +131,8 @@
             <div class="spacer-half"></div>
             <div id="np-cal-results-text">Your are not supposed to read this text</div>
             <div class="spacer"></div>
-            <button class="primary-button-blue" onclick="window.location.href='{{ url_for('productsearch') }}'">Check your products</button>
+            <button class="primary-button-blue" onclick="window.location.href='{{ url_for('productsearch') }}'">Check
+                your products</button>
         </div>
         <div class="calculator-button-container">
             <button class="primary-button-blue" id="cal-results-to-home" onclick="goToQuestion1()">RESTART</button>
@@ -221,8 +222,10 @@
         const npc_ans_q1 = calculation_people(); // person
         const npc_ans_q2a = calculation_frequency_laundry(); // times/year
         const npc_ans_q2b = calculation_frequency_dishwashing(); // times/year
-        const npc_ans_q3a = calculation_ptype_laundry(); // kg/person/year
-        const npc_ans_q3b = calculation_ptype_dishwashing(); // kg/person/year
+        const npc_ans_q3a = calculation_ptype_laundry(); // kg/person/times <- times as in usage
+        const npc_ans_q3b = calculation_ptype_dishwashing(); // kg/person/times <- times as in usage
+        const npc_annual_p_laundry = npc_ans_q2a * npc_ans_q3a; // kg/person/year
+        const npc_annual_p_dishwashing = npc_ans_q2b * npc_ans_q3b; // kg/person/year
 
         // The mathematical esimation model of Phosphate emissions
         calResult = npc_ans_q1 * ((npc_ans_q2a * npc_ans_q3a) + (npc_ans_q2b * npc_ans_q3b));
@@ -233,20 +236,57 @@
         //   multiplied by the amount of people,
         //   as the original unit is kg per capita per year
         //                         = kg per (capita x year)
+        // Average use of P in Laundry detergents of 2010 in Japan and Oceania (kg/cap/year) = 0.18
+        // Average use of P in Laundry detergents of 2010 in Japan and Oceania (kg/cap/year) = 0.11
         const npc_comparision = npc_ans_q1 * (0.18 + 0.11);
         npc_results_higher_than_average = (calResult > npc_comparision);
+
+        // Prepare the innerHTML content
+        let resultsText = "Your phosphate emission is <b>higher than average</b>. Indicating that your washing habits " +
+                            "contributes to an increased Phosphate output.<br>";
+        let recommendationPromise;
+
         if (npc_results_higher_than_average) {
             // higher than 2010 average
-            npc_results_text_and_advice.innerHTML = "Your phosphate emission is <b>higher than average</b>. Indicating that your washing habits "+
-                                                    "contributes to an increased Phosphate output.<br>"+
-                                                    "To help reduce your environmental impact, consider adjusting your washing habits "+
-                                                    "and using low phosphate products.";
+            if (npc_annual_p_laundry > 0.18) {
+                // Laundry is HIGH
+                if (npc_annual_p_dishwashing > 0.11) {
+                    // Laundry is HIGH AND dishwasher is HIGH
+                    resultsText += "Both Phosphorus from <b>Laundry AND dishwasher activities are BOTH HIGH</b>.<br>";
+                    recommendationPromise = recommendationTable(1, 1);
+                } else {
+                    // Laundry is HIGH BUT dishwashing is LOW
+                    resultsText += "Phosphorus from <b>Laundry is HIGH</b> BUT dishwashing is LOW.<br>";
+                    recommendationPromise = recommendationTable(1, 0);
+                }
+            } else {
+                if (npc_annual_p_dishwashing > 0.11) {
+                    // Laundry is LOW BUT dishwasher is HIGH
+                    resultsText += "Phosphorus from Laundry is LOW BUT <b>dishwasher is HIGH<b><br>";
+                    recommendationPromise = recommendationTable(0, 1);
+                } else {
+                    // Laundry is LOW AND dishwashing is LOW
+                    resultsText += "Phosphorus from Laundry is LOW AND dishwashing is LOW<br>";
+                    recommendationPromise = recommendationTable(0, 0);
+                }
+            }
         } else {
             // Lower than 2010 average
-            npc_results_text_and_advice.innerHTML = "Your phosphate emission is <b>lower than average</b>, indicating that your washing habits "+
-                                                    "are contributing positively to the environment.<br>"+
-                                                    "Continue to maintain these practices, and consider further reducing your impact "+
-                                                    "by using phosphate-free cleaning products.";        }
+            resultsText = "Your phosphate emission is <b>lower than average</b>, indicating that your washing habits " +
+                "are contributing positively to the environment.<br>" +
+                "Continue to maintain these practices, and consider further reducing your impact " +
+                "by using phosphate-free cleaning products.";
+        }
+
+        // Display the results text first
+        npc_results_text_and_advice.innerHTML = resultsText + "To help reduce your environmental impact, consider adjusting your washing habits " + "and using low phosphate products such as these:";
+
+        // Handle the recommendation table asynchronously
+        if (recommendationPromise) {
+            recommendationPromise.then(recommendationHTML => {
+                npc_results_text_and_advice.innerHTML += recommendationHTML; // Append the recommendations
+            });
+        }
 
         // The result is displayed in "kg / Year"
         // if result is less than 1kg, change unit to g
@@ -426,13 +466,13 @@
         // get npc_ptype_laundry.value
         const npc_anscal_ptype_laundry = Number(npc_ptype_laundry.value);
         if (npc_anscal_ptype_laundry == 0) {
-            // npc_freq_interval_options[0] is 'Liquid'
+            // npc_ptype_options[0] is 'Liquid'
             return 46 * 0.09 / 1000;
         } else if (npc_anscal_ptype_laundry == 1) {
-            // npc_freq_interval_options[1] is 'Powder'
+            // npc_ptype_options[1] is 'Powder'
             return 55 * 0.126 / 1000;
         } else if (npc_anscal_ptype_laundry == 2) {
-            // npc_freq_interval_options[2] is 'Tablet/Pod'
+            // npc_ptype_options[2] is 'Tablet/Pod'
             return (46 + 0.2) * (0.09 + 0.075) / 1000;
         }
         // In case people broke the system and went outbound, return the highest number
@@ -446,13 +486,13 @@
         // get npc_ptype_laundry.value
         const npc_anscal_ptype_dishwashing = Number(npc_ptype_dishwashing.value);
         if (npc_anscal_ptype_dishwashing == 0) {
-            // npc_freq_interval_options[0] is 'Liquid'
+            // npc_ptype_options[0] is 'Liquid'
             return 0.01 * 0.0105 / 1000;
         } else if (npc_anscal_ptype_dishwashing == 1) {
-            // npc_freq_interval_options[1] is 'Powder'
+            // npc_ptype_options[1] is 'Powder'
             return 53 * 0.06 / 1000;
         } else if (npc_anscal_ptype_dishwashing == 2) {
-            // npc_freq_interval_options[2] is 'Tablet/Pod'
+            // npc_ptype_options[2] is 'Tablet/Pod'
             return 29 * 0.02 / 1000;
         }
         // In case people broke the system and went outbound
@@ -501,7 +541,61 @@
 
         calculation_results();
     }
+</script>
 
+<script>
+    // Creates recommendation table from database data
+    // Returns String, of the html code of a table
+    function recommendationTable(LaundryHigh, DishwashingHigh) {
+        return fetch('/NP-Calculator', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({})
+        })
+            .then(response => response.json())
+            .then(data => {
+                const pfdr_laundry = data.data_laundry;
+                const pfdr_dishwashing = data.data_dishwashing;
+
+                if (LaundryHigh && DishwashingHigh) {
+                    return createTable(pfdr_laundry.concat(pfdr_dishwashing));
+                } else if (LaundryHigh) {
+                    return createTable(pfdr_laundry);
+                } else if (DishwashingHigh) {
+                    return createTable(pfdr_dishwashing);
+                } else {
+                    return ""; // Both are LOW
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                return "<p>Error fetching recommendations. Please try again later.</p>";
+            });
+    }
+
+    // Return a string of table generated from the Object (JSON)
+    function createTable(jsonObject) {
+        let raw_code = "<table border='1'><thead><tr><th>Category</th><th>Brand</th><th>Name</th></tr></thead><tbody>";
+        // Check if jsonObject is an array of arrays (for both laundry and dishwashing)
+        if (Array.isArray(jsonObject)) {
+            console.log("createTable jsonObject is " + jsonObject) // I added this line to check what jsonObject is
+            // Iterate over the array of objects
+            jsonObject.forEach(item => {
+                raw_code += `<tr>
+                <td>${item.prod_cat}</td>
+                <td>${item.prod_brand}</td>
+                <td>${item.prod_name}</td>
+            </tr>`;
+            });
+        } else {
+            console.error("Expected an array but received:", jsonObject);
+        }
+
+        raw_code += "</tbody></table>";
+        return raw_code; // Return the generated HTML string
+    }
 </script>
 
 {% endblock %}
