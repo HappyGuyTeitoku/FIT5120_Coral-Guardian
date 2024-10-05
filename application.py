@@ -151,11 +151,11 @@ def productsearch():
 
     return render_template('product_lookup.html')
 
-# Route to NP Calculator, no backend required
+# Route to NP Calculator
+# POST requests will always return pfdr data of the laundry and dishwashing category
 @application.route('/NP-Calculator', methods=['GET', 'POST'])
 def npcalculator():
     if request.method == 'POST':
-        rows = []
         conn = get_db()
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM Phosphate_Free_Detergent_Register WHERE prod_cat = 'Dishwashing' ")
