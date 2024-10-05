@@ -298,19 +298,19 @@ button {
 
 @keyframes slideshow {
     0% {
-        background-image: url('/static/homepage\ thumbnail_v3.png');
+        background-image: url('/static/homepage_images/homepage\ thumbnail_v4.png');
     }
 
     50% {
-        background-image: url('/static/homepage_hand-full-of-moss.png');
+        background-image: url('/static/homepage_images/homepage_hand-full-of-moss.png');
     }
 
     75% {
-        background-image: url('/static/homepage_algae-shoreline.png');
+        background-image: url('/static/homepage_images/homepage_algae-shoreline.png');
     }
 
     100% {
-        background-image: url('/static/homepage\ thumbnail_v3.png');
+        background-image: url('/static/homepage_images/homepage\ thumbnail_v3.png');
     }
 }
 
