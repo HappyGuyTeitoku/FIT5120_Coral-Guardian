@@ -277,6 +277,17 @@ button {
     background-color: #0b0706;
 }
 
+.navbar-button-v2 {
+    font-weight: bold;
+    font-size: normal;
+    padding: 15px 30px 15px 30px;
+    border-radius: 5px;
+    border: 0px;
+    color: black;
+    cursor: pointer;
+    background-color: #EBF0F9;
+}
+
 
 
 
