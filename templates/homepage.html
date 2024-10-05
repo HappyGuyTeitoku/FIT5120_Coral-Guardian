@@ -4,6 +4,10 @@
 
 {% block title %}Home - AquaGuard{% endblock %}
 
+{% block head %}
+<!-- Put stuff for head tags here -->
+{% endblock %}
+
 {% block content %}
 <div class="spacer"></div>
 
@@ -11,16 +15,16 @@
 <div class="container">
     <div class="content image-background home-thumbnail home-thumbnail-slideshow">
         <div class="home-thumbnail-text">
-            <h1 style="background-color: #525560; width: fit-content; margin: auto; padding: 5px; border-radius: 5px;">
-                Nutrient Pollution threatens your drinking water</h1>
+            <h1 style="-webkit-text-stroke: 1px #525560;">
+                No <span class="stop-sign">N</span>utrient <span class="stop-sign">P</span>ollution</h1>
         </div>
     </div>
 </div>
 
 <!-- Preload images used for slideshow background -->
-<link rel="preload" href="/static/homepage thumbnail_v3.png" as="image">
-<link rel="preload" href="/static/homepage_algae-shoreline.png" as="image">
-<link rel="preload" href="/static/homepage_hand-full-of-moss.png" as="image">
+<link rel="preload" href="/static/homepage_images/homepage thumbnail_v3.png" as="image">
+<link rel="preload" href="/static/homepage_images/homepage_algae-shoreline.png" as="image">
+<link rel="preload" href="/static/homepage_images/homepage_hand-full-of-moss.png" as="image">
 
 <div class="spacer-double"></div>
 
@@ -46,18 +50,54 @@
 </div>
 <div class="spacer"></div> -->
 
+<!-- Monitor and Protect Water Resources -->
+<div class="container-60">
+    <div class="content onetext-above-threeimage">
+        <div class="text-above-icontext">
+            <p class="text-section-title">What else?</p>
+            <h2 class="text-section-question">See What Else Can You Do</h2>
+        </div>
+        <div class="image-below">
+            <!-- Card 1 -->
+            <div class="homepage-card-icontext">
+                <!-- Row 1 Icon -->
+                <div><img src="../static/homepage_images/homepage-icons8-calculator-100.png"></div>
+                <!-- Row 2 Text (h and p) -->
+                <div>
+                    <h2 style="font-size: 10px;">Explore Nearby Water Quality</h2>
+                    <p>View Nitrates and Phosphates in Melbourne's waters and understand how they affect you</p>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="homepage-card-icontext">
+                <!-- Row 1 Icon -->
+                <h2>Explore Nearby Water Quality</h2>
+                <!-- Row 2 Text (h and p) -->
+                <p>View Nitrates and Phosphates in Melbourne's waters and understand how they affect you</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="homepage-card-icontext">
+                <!-- Row 1 Icon -->
+                <h2>Explore Nearby Water Quality</h2>
+                <!-- Row 2 Text (h and p) -->
+                <p>View Nitrates and Phosphates in Melbourne's waters and understand how they affect you</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- ????? -->
-<img src="../static/homepage_random part under thumbnail.png" style="width: 100%;">
-<div class="spacer-half"></div>
+<!-- <img src="../static/homepage_random part under thumbnail.png" style="width: 100%;">
+<div class="spacer-half"></div> -->
 
 <!-- NP Calculator Promotion -->
-<div class="container-60 promotion" style="background-color: #F2F6EF; margin: 10%;">
-    <img src="../static/icons8-calculator-100.png" style="height: 150px; width: 150px;">
+<!-- <div class="container-60 promotion" style="background-color: #F2F6EF; margin: 10%;">
+    <img src="../static/homepage-icons8-calculator-100.png" style="height: 150px; width: 150px;">
     <p class="text-section-question" style="text-align: center; margin: 0;">Understand Your Impact</p>
     <p style="text-align: center; margin: 0 0 10px 0">Quantify your environmental footprint</p>
     <button class="primary-button" onclick="window.location.href='{{ url_for('npcalculator') }}'">Find your NP
         Footprint</button>
-</div>
+</div> -->
 
 <!-- Product Search promotion -->
 <div class="container">
@@ -73,7 +113,7 @@
                 Products</button>
         </div>
         <div class="image-section">
-            <img src="../static/Homepage - Cleaning Window.png" />
+            <img src="../static/homepage_images/Homepage - Cleaning Window.png" />
         </div>
     </div>
 </div>
@@ -89,7 +129,7 @@
         </div>
         <div class="image-below">
             <!-- Card 1 -->
-            <div class="homepage-card" style="background-image: url('static/Homepage Card - Water Quality.png');">
+            <div class="homepage-card" style="background-image: url('static/homepage_images/Homepage Card - Water Quality.png');">
                 <!-- Row 1 Title -->
                 <h2>Explore Nearby Water Quality</h2>
                 <!-- Row 2 Short sentence -->
@@ -101,7 +141,7 @@
                         onclick="window.location.href='{{ url_for('waterqualitymap') }}'">See More</button></div>
             </div>
             <!-- Card 2 -->
-            <div class="homepage-card" style="background-image: url('static/Homepage Card - Fish Population.png');">
+            <div class="homepage-card" style="background-image: url('static/homepage_images/Homepage Card - Fish Population.png');">
                 <!-- Row 1 Title -->
                 <h2>Checkout How Fishes Are Affected</h2>
                 <!-- Row 2 Short sentence -->
@@ -113,7 +153,7 @@
                         More</button></div>
             </div>
             <!-- Card 3 -->
-            <div class="homepage-card" style="background-image: url('static/Homepage Card - Sewage System.png');">
+            <div class="homepage-card" style="background-image: url('static/homepage_images/Homepage Card - Sewage System.png');">
                 <!-- Row 1 Title -->
                 <h2>Test Your Knowledge</h2>
                 <!-- Row 2 Short sentence -->

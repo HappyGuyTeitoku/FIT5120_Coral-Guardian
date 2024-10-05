@@ -15,9 +15,9 @@
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
     {% block head %}
-        
+
     {% endblock %}
-    
+
 </head>
 
 <body>
@@ -41,26 +41,29 @@
 
                 <!-- NEW navbar -->
                 <ul class="nav-links">
-                    <a style="color: white;" href="{{ url_for('index') }}">
-                        <li class="nav-links-dropdown-toggle navbar-button">
+
+                    <li class="nav-links-dropdown-toggle navbar-button-v2">
+                        <a href="{{ url_for('index') }}">
                             Homepage
-                        </li>
-                    </a>
-                    <li class="nav-links-dropdown-toggle navbar-button">
-                        Quick Tools
+                        </a>
+                    </li>
+
+                    <li class="nav-links-dropdown-toggle navbar-button-v2">
+                        I want to check...
                         <div class="nav-links-dropdown-content secondary-button">
-                            <a href="{{ url_for('npcalculator') }}">NP Calculator</a>
-                            <a href="{{ url_for('productsearch') }}">Product Search</a>
-                            <a href="{{ url_for('p_free_detergent_register') }}">Phosphate Free Detergent Register</a>
+                            <a href="{{ url_for('npcalculator') }}">...my im<b>P</b>act</a>
+                            <a href="{{ url_for('productsearch') }}">...if my detergents are P-free</a>
+                            <a style="display: none;" href="{{ url_for('p_free_detergent_register') }}">Phosphate Free
+                                Detergent Register</a>
                         </div>
                     </li>
-                    <li class="nav-links-dropdown-toggle navbar-button">
-                        Read more
+                    <li class="nav-links-dropdown-toggle navbar-button-v2">
+                        I want to Learn...
                         <div class="nav-links-dropdown-content secondary-button">
-                            <a href="{{ url_for('learnmore') }}">Start Here</a>
-                            <a href="{{ url_for('waterqualitymap') }}">Water Quality</a>
-                            <a href="{{ url_for('fishexplorer') }}">Fish Explorer</a>
-                            <a href="{{ url_for('takeAQuiz') }}">Take a Quiz</a>
+                            <a href="{{ url_for('learnmore') }}">...the basics about Nutrient Pollution</a>
+                            <a href="{{ url_for('waterqualitymap') }}">...how NP affects Water Quality</a>
+                            <a href="{{ url_for('fishexplorer') }}">...how NP affects aquatic ecosystems</a>
+                            <a style="display: none;" href="{{ url_for('takeAQuiz') }}">Take a Quiz</a>
                         </div>
                     </li>
                 </ul>

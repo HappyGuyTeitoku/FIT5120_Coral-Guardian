@@ -1,4 +1,12 @@
-// Code that uses Youtube iframe API
+// Filename: OFF_api_for_product_lookup.js
+// Author: Tsz Chung Wong (Leo)
+// Script used at: template/education.html
+// Purpose: 
+//     This script handles displaying the videos in education.html
+//     When the user clicks on "show video" button, it will hide and stop all other videos,
+//     then display the video user selected.
+
+// Initialise the list that stores all player iframes
 var players = [];
 
 // Initialize YouTube players

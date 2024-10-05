@@ -22,7 +22,26 @@
         width: 80%;
         height: 2px;
         background-color: black;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .resultsTable-container {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .resultsTable {
+        align-self: center;
+    }
+
+    #prodcat_form {
+        display: flex;
+        justify-content: center;
+    }
+
+    #prodcat_form button {
+        align-self: center;
+        margin: 0 5px;
     }
 
     .resultsHeader {
@@ -32,6 +51,7 @@
 
     #resultsTableBody td {
         border-bottom: 2px solid #ccc;
+        text-align: center;
     }
 </style>
 {% endblock %}
@@ -41,6 +61,7 @@
 <p>This is a test page! We do not really care about coral reefs.</p>
 <p>Below is the data from Phosphate_Free_Detergent_Register</p>
 <p>Click one of these category buttons to filter the table by running queries</p>
+<p>Maybe move this code (and the applciation.py parts) to Product Search Recommendation</p>
 <form method="POST" id="prodcat_form">
     <!-- Category 1 -->
     <button class="primary-button-blue" type="button" onclick="toggleProdCat(this)" name="categories"
@@ -66,13 +87,12 @@
     <!-- Category 8 -->
     <button class="primary-button-blue" type="button" onclick="toggleProdCat(this)" name="categories"
         value="Toilet">Toilet</button>
-    <!-- Category 9 -->
+    <!-- PLACEHOLDER so db query always asks for something -->
     <button class="primary-button-blue" style="display: none;" type="button" onclick="toggleProdCat(this)"
         name="categories" value="PLACEHOLDER">PLACEHOLDER</button>
 </form>
 
-<div>
-    RESULTS HERE
+<div class="resultsTable-container">
     <table id="resultsTable">
         <thead>
             <tr>
@@ -91,124 +111,16 @@
 
 <div class="spacer"></div>
 
+<!-- JS Script -->
+<script src="{{ url_for('static', filename='LeoScripts/multiselect_dbquery_for_pfdr.js') }}"></script>
+<!-- JS that uses Jina2 (the \{\{\}\} ones) cannot be rendered properly if placed in .js file -->
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // selectAll() is required for the server-side code to function properly
-        toggleProdCat_selectAll();
-        onpageload();
-    })
-
-    function toggleProdCat_selectAll() {
-        prodcat_form = document.getElementById('prodcat_form');
-        const allchoices = prodcat_form.querySelectorAll('button[name="categories"]');
-        allchoices.forEach(choice => {
-            const inputelement = document.createElement('input');
-            inputelement.type = 'hidden';
-            inputelement.name = 'categories';
-            inputelement.value = choice.value;
-            prodcat_form.appendChild(inputelement);
-        })
-    }
-    function toggleProdCat_deselectAll() {
-        prodcat_form = document.getElementById('prodcat_form');
-        const inputs = prodcat_form.querySelectorAll('input');
-        inputs.forEach(input => {
-            if (input.value != "PLACEHOLDER") {
-                prodcat_form.removeChild(input);
-            }
-        })
-    }
-
-    function toggleProdCat(clickedbutton) {
-        clickedbutton.classList.toggle('prodcat_inactive');
-        prodcat_form = document.getElementById('prodcat_form');
-
-        if (clickedbutton.classList.contains('prodcat_inactive')) {
-            const inputs = prodcat_form.querySelectorAll('input[name="categories"]');
-            inputs.forEach(input => {
-                if (input.value === clickedbutton.value) {
-                    prodcat_form.removeChild(input); // Remove the input from the form
-                }
-            });
-        } else {
-            const inputelement = document.createElement('input');
-            inputelement.type = 'hidden';
-            inputelement.name = 'categories';
-            inputelement.value = clickedbutton.value;
-            prodcat_form.appendChild(inputelement);
-        }
-        submitform_prodcat();
-    }
-
-    function submitform_prodcat() {
-        const prodcat_form = document.getElementById('prodcat_form');
-        const formData = new FormData(prodcat_form);
-
-        // JSONify the form
-        const formObject = {};
-        formData.forEach((value, key) => {
-            if (!formObject[key]) {
-                formObject[key] = [];
-            }
-            formObject[key].push(value); // Allow multiple categories
-        });
-
-        fetch('/testpage', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formObject),
-        })
-            .then(response => response.json())
-            .then(rows => {
-                console.log("Data fetched from server (submitform_prodcat):", rows);
-                updateTable(rows.data);
-            })
-            .catch(error => console.error('Error:', error));
-    }
-
     function onpageload() {
         const dataFromServer = {{ rows| tojson
     }};
     // You can now use JSON type 'dataFromServer' in JavaScript
     console.log("Data fetched from server:", dataFromServer);
     updateTable(dataFromServer)
-    }
-
-    function updateTable(updatedData) {
-        console.log(typeof updatedData);
-        console.log(updatedData[0]);
-
-        const resultsTable_element = document.getElementById('resultsTable');
-        const resultsTable_tbody = document.getElementById('resultsTableBody');
-        // Clear existing rows in table
-        resultsTable_tbody.innerHTML = '';
-
-        // Loop through the data and create a new row for each
-        updatedData.forEach(item => {
-            const row = document.createElement('tr');
-
-            const idCell = document.createElement('td');
-            idCell.textContent = item.prod_id;  // Adjust field names based on your data structure
-            // row.appendChild(idCell);
-
-            const catCell = document.createElement('td');
-            catCell.textContent = item.prod_cat;
-            row.appendChild(catCell);
-
-            const brandCell = document.createElement('td');
-            brandCell.textContent = item.prod_brand;
-            row.appendChild(brandCell);
-
-            const nameCell = document.createElement('td');
-            nameCell.textContent = item.prod_name;
-            row.appendChild(nameCell);
-
-            // Append the new row to the table body
-            resultsTable_tbody.appendChild(row);
-        })
-    }
+}
 </script>
-
 {% endblock %}

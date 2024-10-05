@@ -212,12 +212,43 @@ main {
 /* Text styling for big bold white text on the homepage thumbnail */
 .home-thumbnail-text {
     color: white;
-    align-items: center;
+    display: flex;
+    vertical-align: bottom;
     font-weight: bold;
-    font-size: 100%;
+    font-size: 200%;
     line-height: 200%;
     margin-bottom: 20px;
     grid-row: 2 /span 1;
+}
+
+/* Stop sign style on homepage thumbnail "No *N*utrient *P*ollution" */
+.stop-sign {
+    position: relative;
+    display: inline-block;
+}
+.stop-sign::before{
+    content: ''; /* Required for pseudo-elements */
+    display: inline-block; /* Allows width and height to be applied */
+    width: 60px; /* Set the width of the circle */
+    height: 60px; /* Set the height of the circle */
+    border: 5px solid red; /* Circle border */
+    border-radius: 50%; /* Makes it a circle */
+    position: absolute; /* Position it relative to the parent */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust to center */
+}
+.stop-sign::after {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute; /* Position it relative to the parent */
+    width: 5px; /* Width of the diagonal line */
+    height: 60px; /* Height of the diagonal line */
+    background-color: red; /* Color of the diagonal line */
+    transform: rotate(45deg); /* Rotate the line to create a diagonal */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform-origin: center; /* Set the origin for rotation */
+    transform: translate(-50%, -50%) rotate(-45deg); /* Center and rotate */
 }
 
 /* Standard button styling */
@@ -277,6 +308,17 @@ button {
     background-color: #0b0706;
 }
 
+.navbar-button-v2 {
+    font-weight: bold;
+    font-size: normal;
+    padding: 15px 30px 15px 30px;
+    border-radius: 5px;
+    border: 0px;
+    color: black;
+    cursor: pointer;
+    background-color: #EBF0F9;
+}
+
 
 
 
@@ -287,19 +329,19 @@ button {
 
 @keyframes slideshow {
     0% {
-        background-image: url('/static/homepage\ thumbnail_v3.png');
+        background-image: url('/static/homepage_images/homepage\ thumbnail_v4.png');
     }
 
     50% {
-        background-image: url('/static/homepage_hand-full-of-moss.png');
+        background-image: url('/static/homepage_images/homepage_hand-full-of-moss.png');
     }
 
     75% {
-        background-image: url('/static/homepage_algae-shoreline.png');
+        background-image: url('/static/homepage_images/homepage_algae-shoreline.png');
     }
 
     100% {
-        background-image: url('/static/homepage\ thumbnail_v3.png');
+        background-image: url('/static/homepage_images/homepage\ thumbnail_v4.png');
     }
 }
 
@@ -452,7 +494,6 @@ button {
     grid-template-rows: repeat(4,1fr);
 }
 
-
 .onetext-above-threeimage .homepage-card::before {
     content: "";
     /* Required for pseudo-elements */
@@ -476,6 +517,25 @@ button {
 .onetext-above-threeimage .homepage-card button {
     display: block;
 }
+
+
+.onetext-above-threeimage .homepage-card-icontext {
+    background-color: #E5E5E5;
+    border-radius: 5%;
+    margin: 10px;
+    padding: 15% 10%;
+
+    display: grid;
+    color: white;
+    position: relative;
+    grid-template-rows: 3fr 2fr;
+}
+
+.onetext-above-threeimage .text-above-threeimage {
+    grid-row: 1;
+}
+
+
 
 .promotion{
     display: flex;
