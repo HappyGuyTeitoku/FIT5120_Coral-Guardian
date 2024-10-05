@@ -119,7 +119,7 @@ def fishexplorer_OLD():
 # NEW FISH MAP
 @application.route('/fish-explorer')
 def fishexplorer():
-    return render_template('FishMap.html')
+    return render_template('fishMap.html')
 
 # Route to Product Search Page (Keyword and barcode search)
 @application.route('/product-search', methods=['GET', 'POST'])
