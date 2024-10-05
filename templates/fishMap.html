@@ -16,10 +16,28 @@
 
     <!-- Link to external CSS file -->
     <link rel="stylesheet" href="../static/styles_fishmap.css">
+
+    
 </head>
 <body>
 
     <!-- Shared Navigation Tabs -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="tabs">
         <a href="{{ url_for('waterqualitymap') }}" class="tab">
             <span>💧</span> <!-- Link to water quality map -->
@@ -32,8 +50,11 @@
     <!-- Left Panel for Nutrient Effect on Fish -->
     <div class="left-panel">
         <h2 id="riverNameTitle">Please select the river</h2> 
+        <h4 id="riverNameTitle_sub">Please click on the river you wish to view for more detailed information.  </h4> 
         <hr class="divider">
         <h3>Nutrient Pollution on Fish</h3>
+        
+        
         
         <!-- Container for fish cards -->
         <div id="fishCardsContainer"></div>

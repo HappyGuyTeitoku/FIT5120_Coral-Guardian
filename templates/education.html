@@ -81,9 +81,53 @@
                         <button class="primary-button" id="playButton2">Play Video 2</button>
                     </div>
                 </div>
+                <!------------------------------------------------ OVERVIEW quiz ----------------------------------------------------------------------------------------->
+        <div id="quiz-container" class="testpage-quiz">
+            <!-- 进度条 -->
+            <div id="progress-bar">
+                <progress id="progress" value="0" max="100"></progress>
             </div>
+
+            <div class="question" id="question-1" data-correct="2" style="display: none;">
+                <p></p>
+                <div id="option-container">
+                    
+                </div>
+                <button id="next-option" style="display: none;">下一題</button> <!-- 唯一的按鈕 ID -->
+            </div>
+                <!-- 按鈕: 下一題 -->
         </div>
 
+        <!-- 問題 2 -->
+        <div class="question" id="question-2" data-correct="0" style="display: none;">
+            <p></p>
+            <div id="option-container">
+                
+            </div>
+            <button id="next-option" style="display: none;">下一題</button>
+        </div>
+
+        <div class="question" id="question-3" data-correct="0" style="display: none;">
+            <p></p>
+            <div id="option-container">
+                
+            </div>
+            <button id="next-option" style="display: none;">下一題</button>
+        </div>
+
+
+        <!-- 結果顯示區域 -->
+        <div id="result"></div>
+        </div>
+
+        <script src="/static/script_quiz.js"></script>
+
+<!------------------------------------------------ OVERVIEW quiz  END----------------------------------------------------------------------------------------->
+
+                
+            </div>
+        </div>
+        
 
 
 
@@ -114,9 +158,8 @@
                         Find the number and species of fish in your area
                     </button>
                 </div>
-            </div>
 
-            <!-- Video Section with Thumbnails and Subtitles -->
+                 <!-- Video Section with Thumbnails and Subtitles -->
             <div class="video-section" style="display: block;">
                 <div style="display: block;">
                     <div id="video-container3" style="display: none;">
@@ -128,6 +171,9 @@
                 </div>
             </div>
         </div>
+            </div>
+
+           
 
         <!--  -----------------------------------------impact----------end--------------------------- -->
 

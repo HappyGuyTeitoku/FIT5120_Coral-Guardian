@@ -41,19 +41,27 @@ body {
     background-color: #f9f9f9;
     border-right: 1px solid #ddd;
     overflow-y: auto;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Header for left panel */
 .left-panel h2 {
-    font-size: 20px;
+    font-size: 37px;
     margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .left-panel h3 {
-    font-size: 18px;
-    margin-bottom: 15px;
+    font-size: 25px;
+    margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
 }
 
+.left-panel h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+}
 /* Container for fish cards arranged in two columns */
 #fishCardsContainer {
     display: grid;
@@ -154,6 +162,7 @@ body {
     flex-direction: column;
     justify-content: flex-start; /* Ensure text aligns to the top */
     margin-top: 0px; /* Remove margin above the fish name */
+    font-family: 'Roboto', sans-serif;
 }
 
 #expandedFishName {
@@ -161,12 +170,14 @@ body {
     font-weight: bold;
     margin-bottom: 5px; /* Space between fish name and description */
     margin-top: 0px; /* Ensure no extra top margin for the fish name */
+    font-family: 'Roboto', sans-serif;
 }
 
 .fish-description {
     font-size: 16px;
     margin-top: 0px; /* Remove space above the description */
     padding-top: 0px; /* Remove padding if necessary */
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Discussion section */
@@ -180,6 +191,7 @@ hr.divider {
     height: 1px;
     background: #ddd; /* Modern thin line */
     margin: 15px 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Chart Container */
