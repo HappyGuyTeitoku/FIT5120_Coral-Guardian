@@ -98,84 +98,89 @@ window.addEventListener('scroll', function() {
    // -----------------------------------------------test quiz js
    const questions = [
     {
-      question: "這是什麼動物？",
-      answers: [
-        { text: "狗", correct: true },
-        { text: "貓", correct: false },
-        { text: "老鼠", correct: false },
-      ]
+        question: "這是什麼動物？",
+        answers: [
+            { text: "狗", correct: true },
+            { text: "貓", correct: false },
+            { text: "老鼠", correct: false },
+            { text: "老a", correct: false },
+        ]
     },
     {
-      question: "這是一個什麼水果？",
-      answers: [
-        { text: "蘋果", correct: true },
-        { text: "香蕉", correct: false },
-        { text: "橘子", correct: false },
-      ]
+        question: "這是一個什麼水果？",
+        answers: [
+            { text: "蘋果", correct: true },
+            { text: "香蕉", correct: false },
+            { text: "橘子", correct: false },
+        ]
     }
-  ];
-  
-  let currentQuestionIndex = 0;
-  let score = 0;
-  
-  function startQuiz() {
+];
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     showQuestion();
-  }
-  
-  function showQuestion() {
-    resetState();
-    const questionElement = document.getElementById(`question-${currentQuestionIndex + 1}`); // 使用动态 ID
-    questionElement.style.display = 'block'; // 显示当前问题
-  
-    const questionText = questionElement.querySelector("p");
-    questionText.innerText = questions[currentQuestionIndex].question;
-  
-    const optionContainer = questionElement.querySelector(".option-container"); // 获取选项容器
-    questions[currentQuestionIndex].answers.forEach(answer => {
+}
+
+function showQuestion() {
+  resetState();
+  const questionElement = document.getElementById(`question-${currentQuestionIndex + 1}`);
+  questionElement.style.display = 'block'; // 顯示當前問題
+
+  const questionText = questionElement.querySelector("p");
+  questionText.innerText = questions[currentQuestionIndex].question;
+
+  const optionContainer = questionElement.querySelector("#option-container"); // 獲取選項容器
+
+  // 清空選項容器，防止重複添加
+  optionContainer.innerHTML = '';
+
+  questions[currentQuestionIndex].answers.forEach(answer => {
       const button = document.createElement("button");
       button.innerText = answer.text;
-      button.classList.add("btn");
-      button.addEventListener("click", () => selectAnswer(answer));
-      optionContainer.appendChild(button); // 添加选项按钮
-    });
-  
-    const nextButton = questionElement.querySelector("#next-option"); // 获取下一题按钮
-    nextButton.style.display = "none"; // 隐藏下一题按钮
-    nextButton.onclick = () => {
+      button.classList.add("option");
+      button.addEventListener("click", () => selectAnswer(answer)); // 添加點擊事件監聽器
+      optionContainer.appendChild(button); // 添加選項按鈕
+  });
+
+  const nextButton = questionElement.querySelector(`#next-option-${currentQuestionIndex + 1}`); // 獲取下一題按鈕
+  nextButton.style.display = "none"; // 隱藏下一題按鈕
+  nextButton.onclick = () => {
       currentQuestionIndex++;
       if (currentQuestionIndex < questions.length) {
-        questionElement.style.display = 'none'; // 隐藏当前问题
-        showQuestion(); // 显示下一题
+          questionElement.style.display = 'none'; // 隱藏當前問題
+          showQuestion(); // 顯示下一題
       } else {
-        showResult(); // 显示结果
+          showResult(); // 顯示結果
       }
-    };
-  }
-  
-  function selectAnswer(answer) {
+  };
+}
+
+function selectAnswer(answer) {
     if (answer.correct) {
-      score++;
+        score++;
     }
-    // 显示下一题按钮
+    // 顯示下一題按鈕
     const questionElement = document.getElementById(`question-${currentQuestionIndex + 1}`);
-    const nextButton = questionElement.querySelector("#next-option");
-    nextButton.style.display = "block"; // 显示下一题按钮
-  }
-  
-  function showResult() {
+    const nextButton = questionElement.querySelector(`#next-option-${currentQuestionIndex + 1}`);
+    nextButton.style.display = "block"; // 顯示下一題按鈕
+}
+
+function showResult() {
     const resultElement = document.getElementById("result");
     resultElement.innerText = `你得到了 ${score} 分，總共 ${questions.length} 題。`;
-    resultElement.style.display = 'block'; // 显示结果
-  }
-  
-  function resetState() {
-    // 隐藏所有问题
+    resultElement.style.display = 'block'; // 顯示結果
+}
+
+function resetState() {
+    // 隱藏所有問題
     const allQuestions = document.querySelectorAll(".question");
-    allQuestions.forEach(q => q.style.display = 'none'); // 隐藏所有问题
-  }
-  
-  // 初始化测验
-  startQuiz();
+    allQuestions.forEach(q => q.style.display = 'none'); // 隱藏所有問題
+}
+
+// 初始化測驗
+startQuiz();
    // -----------------------------------------------test quiz js end
