@@ -157,7 +157,7 @@
     const npc_ptype = document.getElementById('np-cal-ptype');
     const npc_ptype_laundry = document.getElementById('np-cal-ptype-laundry-dropdown');
     const npc_ptype_dishwashing = document.getElementById('np-cal-ptype-dishwashing-dropdown');
-    const npc_ptype_options = new Array('Liquid', 'Powder', 'Tablet/Pod');
+    const npc_ptype_options = new Array('Liquid', 'Powder', 'Tablet/Pod', 'Low Phosphate Products');
 
     const npc_results = document.getElementById('np-cal-results');
     const npc_results_display = document.getElementById('np-cal-results-display');
@@ -461,7 +461,7 @@
     // As we asked user how frequently they do laundry or dishwashing, we ignore the frequency in the data
     // The same goes for dishwashing
     //
-    // REFERENCE: const npc_ptype_options = new Array('Liquid','Powder','Tablet/Pod');
+    // REFERENCE: const npc_ptype_options = new Array('Liquid','Powder','Tablet/Pod', 'Low Phosphate Products');
     function calculation_ptype_laundry() {
         // get npc_ptype_laundry.value
         const npc_anscal_ptype_laundry = Number(npc_ptype_laundry.value);
@@ -474,6 +474,9 @@
         } else if (npc_anscal_ptype_laundry == 2) {
             // npc_ptype_options[2] is 'Tablet/Pod'
             return (46 + 0.2) * (0.09 + 0.075) / 1000;
+        } else if (npc_anscal_ptype_laundry == 3) {
+            // npc_ptype_options[3] is 'Low Phosphate Products'
+            return 0;
         }
         // In case people broke the system and went outbound, return the highest number
         // (Laundry powder with max concentration - 55 g Phosphate per 1kg product)
@@ -494,6 +497,9 @@
         } else if (npc_anscal_ptype_dishwashing == 2) {
             // npc_ptype_options[2] is 'Tablet/Pod'
             return 29 * 0.02 / 1000;
+        } else if (npc_anscal_ptype_dishwashing == 3) {
+            // npc_ptype_options[3] is 'Low Phosphate Products'
+            return 0;
         }
         // In case people broke the system and went outbound
         return 53 * 0.06 / 1000;
