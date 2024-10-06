@@ -212,14 +212,78 @@ main {
 /* Text styling for big bold white text on the homepage thumbnail */
 .home-thumbnail-text {
     color: white;
+<<<<<<< Updated upstream
     align-items: center;
     font-weight: bold;
     font-size: 100%;
     line-height: 200%;
+=======
+    display: gird;
+    vertical-align: bottom;
+    font-weight: bold;
+    font-size: 175%;
+    line-height: 225%;
+>>>>>>> Stashed changes
     margin-bottom: 20px;
     grid-row: 2 /span 1;
+    grid-template-rows: 2fr 2fr 1fr;
+    text-align: left;
 }
 
+<<<<<<< Updated upstream
+=======
+/* Stop sign style on homepage thumbnail "No *N*utrient *P*ollution" */
+.stop-sign {
+    position: relative;
+    display: inline-block;
+}
+
+.stop-sign::before {
+    content: '';
+    /* Required for pseudo-elements */
+    display: inline-block;
+    /* Allows width and height to be applied */
+    width: 60px;
+    /* Set the width of the circle */
+    height: 60px;
+    /* Set the height of the circle */
+    border: 5px solid red;
+    /* Circle border */
+    border-radius: 50%;
+    /* Makes it a circle */
+    position: absolute;
+    /* Position it relative to the parent */
+    top: 50%;
+    /* Center vertically */
+    left: 50%;
+    /* Center horizontally */
+    transform: translate(-50%, -50%);
+    /* Adjust to center */
+}
+
+.stop-sign::after {
+    content: '';
+    /* Required for pseudo-elements */
+    position: absolute;
+    /* Position it relative to the parent */
+    width: 5px;
+    /* Width of the diagonal line */
+    height: 60px;
+    /* Height of the diagonal line */
+    background-color: red;
+    /* Color of the diagonal line */
+    transform: rotate(45deg);
+    /* Rotate the line to create a diagonal */
+    top: 50%;
+    /* Center vertically */
+    left: 50%;
+    /* Center horizontally */
+    transform-origin: center;
+    /* Set the origin for rotation */
+    transform: translate(-50%, -50%) rotate(-45deg);
+    /* Center and rotate */
+}
+>>>>>>> Stashed changes
 
 /* Standard button styling */
 /* For details look at Gina's Style guide */
@@ -451,7 +515,7 @@ button {
     display: grid;
     color: white;
     position: relative;
-    grid-template-rows: repeat(4,1fr);
+    grid-template-rows: repeat(4, 1fr);
 }
 
 
@@ -479,7 +543,52 @@ button {
     display: block;
 }
 
-.promotion{
+
+.onetext-above-threeimage .homepage-card-icontext {
+    border-radius: 5%;
+    margin: 10px;
+    padding: 10% 10% 0 10%;
+    display: grid;
+    position: relative;
+    grid-template-rows: 3fr 2fr;
+    text-decoration: none;
+    /* box-shadow: 3px 3px 3px 3px #E5E5E5; */
+}
+
+.homepage-card-icontext-image-container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    max-height: 100px;
+}
+.homepage-card-icontext-image-container img {
+    max-width: 100px;
+    max-height: 100px;
+}
+.homepage-card-icontext *{
+    z-index: 2;
+}
+.homepage-card-icontext-image-container::after{
+    content: "";
+    display: inline-block;
+    height: 150%;
+    aspect-ratio: 1 / 1;
+    background-color: #BEF3C0;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.onetext-above-threeimage .text-above-threeimage {
+    grid-row: 1;
+}
+
+
+
+.promotion {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -749,6 +858,7 @@ footer {
     vertical-align: middle;
     /* Aligns it with the text */
 }
+
 .yellow-circle {
     display: inline-block;
     width: 10px;
@@ -763,6 +873,7 @@ footer {
     vertical-align: middle;
     /* Aligns it with the text */
 }
+
 .red-circle {
     display: inline-block;
     width: 10px;
@@ -777,6 +888,7 @@ footer {
     vertical-align: middle;
     /* Aligns it with the text */
 }
+
 .grey-circle {
     display: inline-block;
     width: 10px;
@@ -792,6 +904,13 @@ footer {
     /* Aligns it with the text */
 }
 
+.texthighlight-green{
+    /* background-color: #F2F6EF; */
+    background-color: #D9EAD3;
+}
+.texthighlight-blue{
+    background-color: #EBF0F9;
+}
 
 
 
@@ -1582,14 +1701,10 @@ nav {
     background: #001e4d;
 } */
 
-.question{
+.question {
     background: #fff;
-    color: #222;
-    font-weight: 500;
-    width: 100%;
+    width: 90%;
     
-    padding: 10px;
-
     max-width: 600px;
     margin: 10px auto 0;
     
@@ -1599,7 +1714,7 @@ nav {
     cursor: pointer;
 }
 
-.option{
+.option {
     background: #fff;
     color: #222;
     font-weight: 500;
@@ -1613,13 +1728,14 @@ nav {
     transition: background-color 0.3s ease; /* 加入過渡效果 */
 
 }
+
 .testpage-quiz .option:hover {
     background-color: #222;
     color: #fff;
 }
 
 
-#next-option{
+#next-option {
     background: #001e4d;
     color: #fff;
     font-weight: 500;
