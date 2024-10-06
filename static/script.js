@@ -74,7 +74,21 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+const productItems = document.querySelectorAll('.product_recommend_item');
 
+productItems.forEach(item => {
+    item.addEventListener('mousemove', (e) => {
+        const hoverInfo = item.querySelector('.hover-info');
+        hoverInfo.style.display = 'block'; // 顯示彈出框
+        hoverInfo.style.left = `${e.pageX + 10}px`; // 將彈出框位置設置為鼠標的右邊
+        hoverInfo.style.top = `${e.pageY + 10}px`;
+    });
+
+    item.addEventListener('mouseleave', () => {
+        const hoverInfo = item.querySelector('.hover-info');
+        hoverInfo.style.display = 'none'; // 當鼠標離開時隱藏彈出框
+    });
+});
 
 
 
