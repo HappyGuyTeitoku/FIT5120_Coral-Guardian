@@ -20,7 +20,7 @@ const questions = [
       ]
     },
     {
-      question: "How does nutrient pollution affect outdoor activities?？",
+      question: "How does nutrient pollution affect outdoor activities?",
       answers: [
         { text: "Leads to excessive algae growth, affecting water quality", correct: true },
         { text: "Increases water temperature, suitable for more activities", correct: false },
@@ -114,13 +114,15 @@ const questions = [
   function showResult() {
     const resultElement = document.querySelector("#result");
     if(score === 3){
-      resultElement.innerHTML = `<table><tr><td><h3>You Scored <p>${score} out of 3</p></h3><br/><img src="../static/quiz1.jpg"></td><td>Excellent work! You’ve mastered the key impacts of nutrient pollution on outdoor activities, fish health, and the ecosystem. You're well-equipped with the knowledge to make informed decisions and help protect our water resources. Keep spreading the word and continue making a positive impact in your community!</td></tr></table><br/><button id="restart-button">重新开始</button>`;
+      resultElement.innerHTML = `<table><tr><td><h3>You Scored <p>${score} out of 3</p></h3><br/><img src="../static/quiz1.jpg"></td><td><span class="excellent-work">Excellent work! You’ve mastered the key impacts of nutrient pollution on outdoor activities, fish health, and the ecosystem. You're well-equipped with the knowledge to make informed decisions and help protect our water resources. Keep spreading the word and continue making a positive impact in your community!</span></td></tr></table><br/><button id="restart-button">Restart</button>`;
     }
+    
     if(score < 3 && score > 0){
-      resultElement.innerHTML = `<table><tr><td><h3>You Scored <p>${score} out of 3</p></h3><br/><img src="./static/quiz2.jpg"></td><td>work! You’ve mastered the key impacts of nutrient pollution on outdoor activities, fish health, and the ecosystem. You're well-equipped with the knowledge to make informed decisions and help protect our water resources. Keep spreading the word and continue making a positive impact in your community!</td></tr></table><br/><button id="restart-button">重新开始</button>`;
+      resultElement.innerHTML = `<table><tr><td><h3>You Scored <p>${score} out of 3</p></h3><br/><img src="./static/quiz2.jpg"></td><td><span class="great-effort">Great effort! You got some answers right, which shows you're beginning to understand the impact of nutrient pollution. Take some time to review the material and dive deeper into how nutrient pollution affects water activities, fish health, and your environment. With a little more learning, you'll be ready to take meaningful action!</span></td></tr></table><br/><button id="restart-button">Restart</button>`;
     }
+    
     if(score === 0){
-      resultElement.innerHTML = `<table><tr><td><h3>You Scored <p>${score} out of 3</p></h3><br/><img src="./static/quiz2.jpg"></td><td>Bad work! You’ve mastered the key impacts of nutrient pollution on outdoor activities, fish health, and the ecosystem. You're well-equipped with the knowledge to make informed decisions and help protect our water resources. Keep spreading the word and continue making a positive impact in your community!</td></tr></table><br/><button id="restart-button">重新开始</button>`;
+      resultElement.innerHTML = `<table><tr><td><h3>You Scored <p>${score} out of 3</p></h3><br/><img src="./static/quiz2.jpg"></td><td><span class="bad-work">Bad work! You’ve mastered the key impacts of nutrient pollution on outdoor activities, fish health, and the ecosystem. You're well-equipped with the knowledge to make informed decisions and help protect our water resources. Keep spreading the word and continue making a positive impact in your community!</span></td></tr></table><br/><button id="restart-button">Restart</button>`;
     }
     const restart = document.querySelector('#restart-button')
     restart.addEventListener('click', () => {

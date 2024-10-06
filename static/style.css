@@ -735,6 +735,7 @@ footer {
     padding: 20px;
     width: 100%;
     height: 100%;
+    
 }
 
 .product {
@@ -1653,15 +1654,23 @@ nav {
     flex-direction: column;
 }
 
-#progress-bar {
-    background: linear-gradient(to right, #4CAF50, #8BC34A); /* 渐变背景颜色 */
-    border-radius: 5px; /* 圆角 */
-    padding: 5px; /* 内边距 */
-    margin-bottom: 20px; /* 进度条与问题之间的间隔 */
+progress {
+    width: 100%; /* 进度条宽度 */
+    height: 20px; /* 进度条高度 */
+    border-radius: 34px; /* 圆角 */
+    appearance: none; /* 移除默认样式 */
+    margin: 0; /* 去掉边距 */
+    background-color: white !important; /* 未达到的部分设置为白色 */
 }
 
-#progress {
-    width: 100%; /* 进度条宽度 */
+progress::-webkit-progress-value {
+    background: linear-gradient(to right, #70C174, #5593EF); /* 设置进度条的渐变色 */
+    border-radius: 15px; /* 圆角 */
+}
+
+progress::-moz-progress-bar {
+    background: linear-gradient(to right, #70C174, #5593EF); /* 设置 Firefox 中的进度条渐变色 */
+    border-radius: 15px; /* 圆角 */
 }
 
 #progress-text {
@@ -1689,7 +1698,7 @@ nav {
     margin: 10px auto 0;
     
     
-    text-align: left;
+    text-align: center;
     border-radius: 4px;
     cursor: pointer;
 }
@@ -1716,7 +1725,7 @@ nav {
 
 
 #next-option {
-    background: #001e4d;
+    background-color: #1D2130;
     color: #fff;
     font-weight: 500;
     width: 150px;
@@ -1756,18 +1765,35 @@ nav {
     opacity: 0.6;
 }
 
-.result {
-    background-color: rgba(255, 255, 255, 0.9); /* 白色背景，带有透明度 */
-    border: 2px solid #4CAF50; /* 边框颜色 */
-    border-radius: 8px; /* 圆角 */
+#quiz-container {
+    width: 100%; /* 宽度100% */
+    max-width: 800px; /* 最大宽度 */
+    margin: 0 auto; /* 自动左右边距居中 */
     padding: 20px; /* 内边距 */
-    text-align: center; /* 文本居中 */
-    position: absolute; /* 绝对定位 */
-    top: 50%; /* 垂直居中 */
-    left: 50%; /* 水平居中 */
-    transform: translate(-50%, -50%); /* 使其真正居中 */
-    z-index: 10; /* 确保在其他元素之上 */
+    /* background-color: rgb(245, 245, 245) ; */
+    border-radius: 8px; /* 边角圆润 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 阴影效果 */
 }
+.start {
+    font-family: 'Roboto';
+    text-align: center; /* 开始按钮居中 */
+}
+#result {
+    display: none; /* 默认隐藏结果 */
+    text-align: center; /* 内容居中 */
+    margin: 20px auto; /* 上下有间距，左右居中 */
+    width: 80%; /* 可以根据需要设置宽度 */
+    max-width: 600px; /* 限制最大宽度 */
+    padding: 20px; /* 内边距 */
+    background-color: white; /* 背景颜色 */
+    
+    
+    
+    
+}
+
+
+
 /* -----------------------------test quiz css  end ----------------------------------------------- */
 
 
@@ -1785,9 +1811,76 @@ nav {
     height: 100%; /* 设置图片高度为100%以填满容器 */
     object-fit: cover; /* 保持纵横比，填满整个容器 */
 }
-#option-container{
+#option-container {
     display: flex;
     flex-direction: column;
+    text-align: center;
     gap: 10px;
     margin-top: 5px;
+}
+
+
+
+
+
+.start button {
+    background-color: #1D2130; /* 设置按钮的背景颜色 */
+    color: white; /* 设置按钮的文字颜色，以确保可读性 */
+    border: none; /* 移除按钮的默认边框 */
+    padding: 10px 20px; /* 添加内边距使按钮更美观 */
+    border-radius: 5px; /* 设置圆角 */
+    cursor: pointer; /* 鼠标悬停时显示为可点击 */
+    font-size: 16px; /* 调整字体大小 */
+}
+
+/* 可选：添加悬停效果 */
+.start button:hover {
+    background-color: #7893e9 /* 悬停时稍微变亮的颜色 */
+}
+
+
+#restart-button {
+    background-color: #1D2130; /* 设置按钮的背景颜色 */
+    color: white; /* 设置按钮的文字颜色，以确保可读性 */
+    border: none; /* 移除按钮的默认边框 */
+    padding: 10px 20px; /* 添加内边距使按钮更美观 */
+    border-radius: 5px; /* 设置圆角 */
+    cursor: pointer; /* 鼠标悬停时显示为可点击 */
+    font-size: 16px; /* 调整字体大小 */
+}
+
+/* 可选：添加悬停效果 */
+#restart-button:hover {
+    background-color: #7893e9; /* 悬停时稍微变亮的颜色 */
+}
+
+
+.excellent-work {
+    color: #28a745; /* Green for excellent work */
+    font-weight: bold;
+     /* Light green background */
+    padding: 10px;
+    text-align: left !important;
+    border-radius: 5px;
+    margin-top: 140px;
+}
+
+.great-effort {
+    color: #ffc107; /* Yellow for great effort */
+    font-weight: bold;
+     /* Light yellow background */
+    padding: 10px;
+    text-align: left !important;
+    border-radius: 5px;
+    margin-top: 140px;
+}
+
+.bad-work {
+    color: #dc3545; /* Red for bad work */
+    font-weight: bold;
+     /* Light red background */
+    padding: 10px;
+    text-align: left !important;
+    border-radius: 5px;
+    margin-top: 140px;
 }
