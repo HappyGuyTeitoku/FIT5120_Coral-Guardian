@@ -15,8 +15,10 @@
 <div class="container">
     <div class="content image-background home-thumbnail home-thumbnail-slideshow">
         <div class="home-thumbnail-text">
+            <h1 style="-webkit-text-stroke: 1px #525560;">Green isn't always good...<br></h1>
             <h1 style="-webkit-text-stroke: 1px #525560;">
-                No <span class="stop-sign">N</span>utrient <span class="stop-sign">P</span>ollution</h1>
+                Let's stop <span class="stop-sign">N</span>utrient <span class="stop-sign">P</span>ollution</h1>
+            <button class="primary-button">Go do something</button>
         </div>
     </div>
 </div>
@@ -54,33 +56,52 @@
 <div class="container-60">
     <div class="content onetext-above-threeimage">
         <div class="text-above-icontext">
-            <p class="text-section-title">What else?</p>
-            <h2 class="text-section-question">See What Else Can You Do</h2>
+            <h2 style="text-align: center;" class="text-section-question">See how <u>Nutrient Pollution</u> affects
+                <u>YOU</u>
+            </h2>
         </div>
         <div class="image-below">
             <!-- Card 1 -->
             <div class="homepage-card-icontext">
                 <!-- Row 1 Icon -->
-                <div><img src="../static/homepage_images/homepage-icons8-calculator-100.png"></div>
+                <a href="{{ url_for('npcalculator') }}">
+                    <div class="homepage-card-icontext-image-container">
+                        <img src="../static/homepage_images/homepage-icons8-calculator-100.png">
+                    </div>
+                </a>
                 <!-- Row 2 Text (h and p) -->
                 <div>
-                    <h2 style="font-size: 10px;">Explore Nearby Water Quality</h2>
-                    <p>View Nitrates and Phosphates in Melbourne's waters and understand how they affect you</p>
+                    <h2>NP Calculator</h2>
+                    <p><span class="texthighlight-green">Quantify</span> your Phosphate impact.</p>
                 </div>
             </div>
             <!-- Card 2 -->
             <div class="homepage-card-icontext">
                 <!-- Row 1 Icon -->
-                <h2>Explore Nearby Water Quality</h2>
+                <a href="{{ url_for('waterqualitymap') }}">
+                    <div class="homepage-card-icontext-image-container">
+                        <img src="../static/homepage_images/homepage-icons8-water-drop-100.png">
+                    </div>
+                </a>
                 <!-- Row 2 Text (h and p) -->
-                <p>View Nitrates and Phosphates in Melbourne's waters and understand how they affect you</p>
+                <div>
+                    <h2>Water Quality Map</h2>
+                    <p>See how NP affects <span class="texthighlight-green">water bodies</span>.</p>
+                </div>
             </div>
             <!-- Card 3 -->
             <div class="homepage-card-icontext">
                 <!-- Row 1 Icon -->
-                <h2>Explore Nearby Water Quality</h2>
+                <a href="{{ url_for('waterqualitymap') }}">
+                    <div class="homepage-card-icontext-image-container">
+                        <img src="../static/homepage_images/homepage-icons8-fish-100.png">
+                    </div>
+                </a>
                 <!-- Row 2 Text (h and p) -->
-                <p>View Nitrates and Phosphates in Melbourne's waters and understand how they affect you</p>
+                <div>
+                    <h2>Fish Population</h2>
+                    <p>See how NP affects <span class="texthighlight-green">lives under Melbourne's waters</span>.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -129,7 +150,8 @@
         </div>
         <div class="image-below">
             <!-- Card 1 -->
-            <div class="homepage-card" style="background-image: url('static/homepage_images/Homepage Card - Water Quality.png');">
+            <div class="homepage-card"
+                style="background-image: url('static/homepage_images/Homepage Card - Water Quality.png');">
                 <!-- Row 1 Title -->
                 <h2>Explore Nearby Water Quality</h2>
                 <!-- Row 2 Short sentence -->
@@ -141,7 +163,8 @@
                         onclick="window.location.href='{{ url_for('waterqualitymap') }}'">See More</button></div>
             </div>
             <!-- Card 2 -->
-            <div class="homepage-card" style="background-image: url('static/homepage_images/Homepage Card - Fish Population.png');">
+            <div class="homepage-card"
+                style="background-image: url('static/homepage_images/Homepage Card - Fish Population.png');">
                 <!-- Row 1 Title -->
                 <h2>Checkout How Fishes Are Affected</h2>
                 <!-- Row 2 Short sentence -->
@@ -153,7 +176,8 @@
                         More</button></div>
             </div>
             <!-- Card 3 -->
-            <div class="homepage-card" style="background-image: url('static/homepage_images/Homepage Card - Sewage System.png');">
+            <div class="homepage-card"
+                style="background-image: url('static/homepage_images/Homepage Card - Sewage System.png');">
                 <!-- Row 1 Title -->
                 <h2>Test Your Knowledge</h2>
                 <!-- Row 2 Short sentence -->
