@@ -297,6 +297,7 @@ button {
     color: white;
     cursor: pointer;
     background-color: #70c174;
+    width: fit-content;
 }
 
 .primary-button-blue {
