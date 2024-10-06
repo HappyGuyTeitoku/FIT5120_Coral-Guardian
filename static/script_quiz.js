@@ -55,8 +55,14 @@ const questions = [
         const button = document.createElement("button");
         button.innerText = answer.text;
         button.classList.add("btn");
-        button.addEventListener("click", () => selectAnswer(answer));
+       
         optionContainer.appendChild(button); // 添加选项按钮
+        button.addEventListener("click", (e) => {
+          console.log(e)
+          if (e.target.tagName === "BUTTON"){
+          selectAnswer(answer)
+        }});
+        
     });
 
     const progress = (currentQuestionIndex + 1) / totalQuestions * 100; // 计算进度
@@ -90,19 +96,42 @@ const questions = [
   function selectAnswer(answer) {
     if (answer.correct) {
       score++;
+      console.log(button)
+      button.classList.add('correct')
     }
     // 显示下一题按钮
     const questionElement = document.querySelector(`#question-${currentQuestionIndex + 1}`);
     const nextButton = questionElement.querySelector("#next-option");
     nextButton.style.display = "block"; // 显示下一题按钮
   }
+
+
+
+
+
+  
   
   function showResult() {
     const resultElement = document.querySelector("#result");
-    resultElement.innerText = `你得到了 ${score} 分，總共 ${questions.length} 題。`;
+    if(score === 3){
+      resultElement.innerHTML = `<table><tr><td><h3>You Scored <p>${score} out of 3</p></h3><br/><img src="../static/quiz1.jpg"></td><td>Excellent work! You’ve mastered the key impacts of nutrient pollution on outdoor activities, fish health, and the ecosystem. You're well-equipped with the knowledge to make informed decisions and help protect our water resources. Keep spreading the word and continue making a positive impact in your community!</td></tr></table><br/><button id="restart-button">重新开始</button>`;
+    }
+    if(score < 3 && score > 0){
+      resultElement.innerHTML = `<table><tr><td><h3>You Scored <p>${score} out of 3</p></h3><br/><img src="./static/quiz2.jpg"></td><td>work! You’ve mastered the key impacts of nutrient pollution on outdoor activities, fish health, and the ecosystem. You're well-equipped with the knowledge to make informed decisions and help protect our water resources. Keep spreading the word and continue making a positive impact in your community!</td></tr></table><br/><button id="restart-button">重新开始</button>`;
+    }
+    if(score === 0){
+      resultElement.innerHTML = `<table><tr><td><h3>You Scored <p>${score} out of 3</p></h3><br/><img src="./static/quiz2.jpg"></td><td>Bad work! You’ve mastered the key impacts of nutrient pollution on outdoor activities, fish health, and the ecosystem. You're well-equipped with the knowledge to make informed decisions and help protect our water resources. Keep spreading the word and continue making a positive impact in your community!</td></tr></table><br/><button id="restart-button">重新开始</button>`;
+    }
+    const restart = document.querySelector('#restart-button')
+    restart.addEventListener('click', () => {
+      location.reload()
+    })
     resultElement.style.display = 'block'; // 显示结果
+    game.style.display = 'none'
+
+    
   }
-  
+ 
   function resetState() {
     // 隐藏所有问题
     const allQuestions = document.querySelectorAll(".question");

@@ -238,6 +238,7 @@ button {
     font-size: normal;
     padding: 15px 30px 15px 30px;
     border-radius: 5px;
+    margin-top: 20px; /* 上方距離 */
     border: 0px;
     color: white;
     cursor: pointer;
@@ -805,16 +806,51 @@ footer {
     /* Set font size to 16px */
     font-weight: bold;
     /* Make the text bold */
-    text-align: center;
+    text-align: left;
     /* Center align the text */
-    margin: 0 auto;
+    margin: 20px;
     /* Center align the text container */
-    line-height: 1.5;
+    line-height: 1.4;
     /* Adjust line height for better readability */
     padding: 10px;
     /* Optional: add padding for spacing */
+    
+}
+.nutrient-info-1 {
+    width: 100%;
+    max-width: 800px; /* 限制容器宽度，使内容居中 */
+    margin: 20px auto; /* 自动水平居中并设置上下间距 */
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.4; /* 行高，增加可读性 */
+    
+    
 }
 
+/* 标题文本居中样式 */
+.centered-text-1 {
+    font-size: 20px;
+    text-align: left;
+    font-weight: bold;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    font-family: 'Roboto', sans-serif;
+    
+    
+}
+
+/* 副标题文本样式 */
+.centered-text-subdesc {
+    font-size: 1rem;
+    text-align: left; /* 使文本两端对齐 */
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.4; /* 行高，增加可读性 */
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-top: 4px;
+    
+}
 
 /* --------------------beijing改變---------------- */
 /* 设置 overview-background 部分的背景色 */
@@ -835,10 +871,14 @@ footer {
 
 .nutrient-title {
     font-weight: bold;
+    font-family: 'Roboto', sans-serif;
 }
 
 .nutrient-description {
     margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+    
+
 }
 
 .video-thumbnail-container {
@@ -1155,7 +1195,7 @@ video {
     display: block; /* 显示影响部分内容 */
     height: auto; /* 自动高度 */
     overflow: hidden; /* 隐藏溢出内容 */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
 }
 .impact-section {
     display: flex;
@@ -1168,7 +1208,7 @@ video {
 }
 
 .impact-text {
-    text-align: center;
+    text-align: left;
     font-family: 'Roboto', sans-serif;
     margin-top: 20px;
 }
@@ -1176,14 +1216,18 @@ video {
 .impact-text h2 {
     font-size: 24px;
     font-family: 'Roboto', sans-serif;
-    color: #333;
+    
+    letter-spacing: 1px; /* 调整字母间距 */
+    line-height: 1.6; /* 调整行间距 */
 }
 
 .impact-text p {
-    font-size: 16px;
+    font-size: 15px;
     font-family: 'Roboto', sans-serif;
-    color: #666;
-    line-height: 1.5;
+    
+    
+    letter-spacing: 0.3px; /* 调整字母间距 */
+    line-height: 2; /* 调整行间距 */
 }
 
 .impact-button {
@@ -1194,6 +1238,9 @@ video {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    justify-content: center; /* 水平居中 */
+    
+    
 }
 
 .impact-button:hover {
@@ -1243,7 +1290,7 @@ video {
     display: block; /* 显示激活的 tab 内容 */
     height: auto; /* 自动高度 */
     overflow: hidden; /* 隐藏溢出内容 */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
     
 }
 
@@ -1504,6 +1551,7 @@ nav {
     border-radius: 8px; /* 圆角 */
     padding: 20px; /* 内边距 */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    flex-direction: column;
 }
 
 #progress-bar {
@@ -1536,12 +1584,19 @@ nav {
 
 .question{
     background: #fff;
-    width: 90%;
+    color: #222;
+    font-weight: 500;
+    width: 100%;
     
+    padding: 10px;
+
     max-width: 600px;
-    margin: 100px auto 0;
-    border-radius: 10px;
-    padding: 30px;
+    margin: 10px auto 0;
+    
+    
+    text-align: left;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .option{
@@ -1552,9 +1607,10 @@ nav {
     border: 1px solid #222;
     padding: 10px;
     margin: 10px 0;
-    text-align: left;
+    text-align: center; /* 居中顯示選項 */
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease; /* 加入過渡效果 */
 
 }
 .testpage-quiz .option:hover {
@@ -1587,16 +1643,19 @@ nav {
 }
 
 /* 正確和錯誤樣式 */
-.testpage-quiz .correct {
-    background-color: green;
+.correct {
+    background-color: green !important;
+    color: #fff;
 }
 
-.testpage-quiz .incorrect {
-    background-color: red;
+.incorrect {
+    background-color: red !important;
+    color: #fff;
 }
 
 /* 禁用按鈕時樣式 */
-.testpage-quiz button:disabled {
+.option.disabled {
+    background-color: gray !important;
     cursor: not-allowed;
     opacity: 0.6;
 }
@@ -1614,3 +1673,25 @@ nav {
     z-index: 10; /* 确保在其他元素之上 */
 }
 /* -----------------------------test quiz css  end ----------------------------------------------- */
+
+
+/*-------title image education page-----*/
+.image-banner-1 {
+    place-items: center;
+    display: grid;
+    height: 600px; /* 设置容器高度为600px */
+    width: 100%; /* 设置容器宽度为100% */
+    overflow: hidden;
+}
+
+.image-banner-1 img {
+    width: 100%; /* 设置图片宽度为100%以填满容器 */
+    height: 100%; /* 设置图片高度为100%以填满容器 */
+    object-fit: cover; /* 保持纵横比，填满整个容器 */
+}
+#option-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 5px;
+}
