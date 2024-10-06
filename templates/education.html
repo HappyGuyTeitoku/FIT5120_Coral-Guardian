@@ -86,49 +86,54 @@
             <!-- 进度条 -->
             <div id="progress-bar">
                 <progress id="progress" value="0" max="100"></progress>
+                <span id="progress-text">Question 1 of 4</span>
             </div>
+            
 
             <div class="question" id="question-1" data-correct="2" style="display: none;">
                 <p></p>
+                
                 <div id="option-container">
                     
                 </div>
                 <button id="next-option" style="display: none;">下一題</button> <!-- 唯一的按鈕 ID -->
             </div>
+            
+            <div class="question" id="question-2" data-correct="0" style="display: none;">
+                <p></p>
+                <div id="option-container">
+                    
+                </div>
+                <button id="next-option" style="display: none;">下一題</button>
+            </div>
+
+            <div class="question" id="question-3" data-correct="0" style="display: none;">
+                <p></p>
+                <div id="option-container">
+                    
+                </div>
+                <button id="next-option" style="display: none;">下一題</button>
+            </div>
+
+
                 <!-- 按鈕: 下一題 -->
         </div>
-
-        <!-- 問題 2 -->
-        <div class="question" id="question-2" data-correct="0" style="display: none;">
-            <p></p>
-            <div id="option-container">
-                
-            </div>
-            <button id="next-option" style="display: none;">下一題</button>
-        </div>
-
-        <div class="question" id="question-3" data-correct="0" style="display: none;">
-            <p></p>
-            <div id="option-container">
-                
-            </div>
-            <button id="next-option" style="display: none;">下一題</button>
-        </div>
-
 
         <!-- 結果顯示區域 -->
         <div id="result"></div>
         </div>
 
         <script src="/static/script_quiz.js"></script>
+            <button id="restart-button">重新开始</button>
 
-<!------------------------------------------------ OVERVIEW quiz  END----------------------------------------------------------------------------------------->
+
+
 
                 
             </div>
         </div>
         
-
+<!------------------------------------------------ OVERVIEW quiz  END----------------------------------------------------------------------------------------->
 
 
         <!--  -----------------------------------------impact------------------------------------- -->

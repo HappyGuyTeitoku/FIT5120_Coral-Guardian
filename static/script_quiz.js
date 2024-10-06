@@ -3,6 +3,7 @@
 
 const questions = [
     {
+      
       question: "這是什麼動物？",
       answers: [
         { text: "狗", correct: true },
@@ -31,6 +32,9 @@ const questions = [
   let currentQuestionIndex = 0;
   let score = 0;
   const totalQuestions = questions.length;
+
+
+  
   
   function startQuiz() {
     currentQuestionIndex = 0;
@@ -38,6 +42,7 @@ const questions = [
     document.getElementById("progress").value = 0; // 初始化进度条
     showQuestion();
   }
+  
   
   function showQuestion() {
     resetState();
@@ -47,33 +52,33 @@ const questions = [
     questionText.innerText = questions[currentQuestionIndex].question;
     const optionContainer = questionElement.querySelector("#option-container"); // 获取选项容器
     questions[currentQuestionIndex].answers.forEach(answer => {
-      const button = document.createElement("button");
-      button.innerText = answer.text;
-      button.classList.add("btn");
-      button.addEventListener("click", () => selectAnswer(answer));
-      optionContainer.appendChild(button); // 添加选项按钮
+        const button = document.createElement("button");
+        button.innerText = answer.text;
+        button.classList.add("btn");
+        button.addEventListener("click", () => selectAnswer(answer));
+        optionContainer.appendChild(button); // 添加选项按钮
     });
 
     const progress = (currentQuestionIndex + 1) / totalQuestions * 100; // 计算进度
     document.getElementById("progress").value = progress; // 更新进度条的值
-    
 
-
+    // 更新进度文本
+    document.getElementById("progress-text").innerText = `Question ${currentQuestionIndex + 1} of ${totalQuestions}`; // 更新显示的文本
 
     const nextButton = questionElement.querySelector("#next-option"); // 获取下一题按钮
     nextButton.style.display = "none"; // 隐藏下一题按钮
     nextButton.addEventListener('click',
-      () => {
-        currentQuestionIndex = currentQuestionIndex + 1
-        if (currentQuestionIndex < questions.length) {
-          questionElement.style.display = 'none'; // 隐藏当前问题
-          showQuestion(); // 显示下一题
-        } else {
-          showResult(); // 显示结果
+        () => {
+            currentQuestionIndex += 1; // 简化了这一行
+            if (currentQuestionIndex < questions.length) {
+                questionElement.style.display = 'none'; // 隐藏当前问题
+                showQuestion(); // 显示下一题
+            } else {
+                showResult(); // 显示结果
+            }
         }
-      }
-    )
-  }
+    );
+}
 
 
 
