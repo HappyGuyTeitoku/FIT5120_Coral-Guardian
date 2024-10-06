@@ -72,30 +72,33 @@
                         *       Urban Stormwater Runoff: Rainwater carries pollutants from streets and parks into rivers and lakes, impacting water quality.<br>
                         *   Home Gardening: Excessive use of fertilizers can enter water bodies through surface runoff, further exacerbating nutrient pollution.</p>
 
-
+                <div class="fkwebsite">
+                    <img src="{{ url_for('static', filename='fkthis.jpg') }}" alt="">
+                </div>       
                 
                 <button class="explore-button" onclick="window.location.href='{{ url_for('waterqualitymap') }}'">
                     Explore Water Quality in Your Area
+                    
                 </button>
-
-                <!-- Video Section with Thumbnails and Subtitles -->
-                <div class="video-section" style="display: block;">
-                    <div style="display: block;">
-
-                        <!-- Change this display:none of video-containers if you want the thumbnails displayed from the page load -->
-                        <div id="video-container1" style="display: none;">
-                            <div id="player1"></div>
-                        </div>
-                        <div id="video-container2" style="display: none;"> 
-                            <div id="player2"></div>
-                        </div>
-                    </div>
-                    <div style="display: block;">
-                        <button class="primary-button" id="playButton1">Play Video 1</button>
-
-                        <button class="primary-button" id="playButton2">Play Video 2</button>
-                    </div>
+                <div class="fkwebsite">
+                    <img src="{{ url_for('static', filename='fkthis.jpg') }}" alt="">
                 </div>
+                
+
+
+                <div class="video-section" style="display: block;">
+                    <div id="video-container1" style="display: none;">
+                        <div id="player1"></div>
+                    </div>
+                    <img id="video-thumbnail1" src="https://img.youtube.com/vi/vCicSNnKUvM/hqdefault.jpg" alt="Video Thumbnail" style="cursor: pointer;">
+                </div>
+                
+                <script src="/static/script.js"></script>
+
+                <div class="fkwebsite">
+                    <img src="{{ url_for('static', filename='fkthis.jpg') }}" alt="">
+                </div>
+                
                 <!------------------------------------------------ OVERVIEW quiz ----------------------------------------------------------------------------------------->
         <div id="quiz-container" class="testpage-quiz">
             <div class="start" style="display: block;">
@@ -207,23 +210,7 @@ Nutrient pollution promotes excessive algae growth in water bodies, indirectly a
                
                 
             </div>
-            
-             <!-- Video Section with Thumbnails and Subtitles -->
-        <div class="video-section" style="display: block;">
-            <button class="impact-button" onclick="window.location.href='{{ url_for('fishexplorer') }}'">
-                Find the number and species of fish in your area
-            </button>
-            <div style="display: block;">
-                <div id="video-container3" style="display: none;">
-                    <div id="player3"></div>
-                </div>
-            </div>
-            <div style="display: block;">
-                <button class="primary-button" id="playButton3">Play Video 3</button>
-            </div>
-        </div>
-    </div>
-        </div>
+
 
        
 

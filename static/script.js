@@ -93,3 +93,38 @@ window.addEventListener('scroll', function() {
 
 
    // -----------------------------------------------enddemo 
+
+
+
+
+
+
+function onYouTubeIframeAPIReady() {
+    // Initialize YouTube Player
+    var player1 = new YT.Player('player1', {
+        height: '360',
+        width: '640',
+        videoId: 'vCicSNnKUvM', // YouTube 视频 ID
+        events: {
+            'onReady': onPlayerReady,
+        }
+    });
+}
+
+function onPlayerReady(event) {
+    const videoContainer1 = document.getElementById('video-container1');
+    const videoThumbnail = document.getElementById('video-thumbnail1');
+
+    // Handle thumbnail click to play video
+    videoThumbnail.addEventListener('click', function () {
+        videoContainer1.style.display = 'block'; // Show the video container
+        event.target.playVideo(); // Play the video
+        videoThumbnail.style.display = 'none'; // Hide the thumbnail
+    });
+}
+
+// Load YouTube iframe API script
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);

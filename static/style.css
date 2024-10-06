@@ -603,6 +603,28 @@ button {
     display: grid;
 }
 
+
+.fkwebsite {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0; /* 上下间距为 10px */
+}
+
+.fkwebsite img {
+    max-width: 20%;
+    width: 50px; /* 让图片自适应宽度 */
+    height: auto;    /* 保持图片比例 */
+}
+
+
+
+
+
+
+
+
+
 .image-banner {
     /* padding: 0 15% 0 15%; */
     place-items: center;
@@ -956,6 +978,19 @@ footer {
     cursor: pointer;
     font-size: 24px;
 }
+
+/* --------------------fk video no more comm  --------------- */
+#video-thumbnail1 {
+    cursor: pointer; /* 使鼠标指针显示为手形 */
+    max-width: 100%; /* 最大宽度设置为父元素的100% */
+    height: 350px; /* 自动高度保持比例 */
+    width: 630px; /* 设置固定宽度 */
+}
+
+
+/* --------------------fk video no more comm  end---------------- */
+
+
 
 
 /* --------------------beijing改變 end---------------- */
