@@ -4,27 +4,27 @@
 const questions = [
     {
       
-      question: "這是什麼動物？",
+      question: "1.What elements primarily cause nutrient pollution?",
       answers: [
-        { text: "狗", correct: true },
-        { text: "貓", correct: false },
-        { text: "老鼠", correct: false },
+        { text: "Nitrogen and Phosphorus", correct: true },
+        { text: "Iron and Zinc", correct: false },
+        { text: "Carbon and Oxygen", correct: false },
       ]
     },
     {
-      question: "這是一個什麼水果？",
+      question: "Which product usage can increase nutrient pollution?",
       answers: [
-        { text: "蘋果", correct: true },
-        { text: "香蕉", correct: false },
-        { text: "橘子", correct: false },
+        { text: " Phosphorus-containing detergent", correct: true },
+        { text: "Phosphate-free detergent", correct: false },
+        { text: "Organic fertilizer", correct: false },
       ]
     },
     {
-      question: "這是一個什麼水果？",
+      question: "How does nutrient pollution affect outdoor activities?？",
       answers: [
-        { text: "蘋a果", correct: true },
-        { text: "香a蕉", correct: false },
-        { text: "橘a子", correct: false },
+        { text: "Leads to excessive algae growth, affecting water quality", correct: true },
+        { text: "Increases water temperature, suitable for more activities", correct: false },
+        { text: "Enhances water clarity", correct: false },
       ]
     }
   ];

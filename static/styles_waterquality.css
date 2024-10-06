@@ -107,9 +107,13 @@ body {
 
 #map-container {
     width: 50%;
-    height: 100%;
+    height: auto%;
     padding: 20px;
     box-sizing: border-box;
+   
+    margin-top: 77px;
+
+    
 }
 
 #map {
@@ -120,8 +124,9 @@ body {
 #observation-name {
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     font-family: 'Roboto', sans-serif;
+    margin-top: 76px;
 }
 
 .trend-chart-container {
@@ -160,6 +165,7 @@ h4.trend-visible {
     stroke: lightgrey;
 }
 .tabs {
+    margin-top: 97px;
     display: flex;
     flex-direction: column;
     width: 50px;
