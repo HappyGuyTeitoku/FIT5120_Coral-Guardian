@@ -42,7 +42,7 @@
                 <!-- NEW navbar -->
                 <ul class="nav-links">
 
-                    <li class="nav-links-dropdown-toggle navbar-button-v2">
+                    <li class="navbar-button-v2">
                         <a href="{{ url_for('index') }}">
                             Homepage
                         </a>
@@ -50,7 +50,7 @@
 
                     <li class="nav-links-dropdown-toggle navbar-button-v2">
                         I want to check...
-                        <div class="nav-links-dropdown-content secondary-button">
+                        <div class="nav-links-dropdown-content">
                             <a href="{{ url_for('npcalculator') }}">...my im<b>P</b>act</a>
                             <a href="{{ url_for('productsearch') }}">...if my detergents are P-free</a>
                             <a style="display: none;" href="{{ url_for('p_free_detergent_register') }}">Phosphate Free
@@ -59,7 +59,7 @@
                     </li>
                     <li class="nav-links-dropdown-toggle navbar-button-v2">
                         I want to Learn...
-                        <div class="nav-links-dropdown-content secondary-button">
+                        <div class="nav-links-dropdown-content">
                             <a href="{{ url_for('learnmore') }}">...the basics about Nutrient Pollution</a>
                             <a href="{{ url_for('waterqualitymap') }}">...how NP affects Water Quality</a>
                             <a href="{{ url_for('fishexplorer') }}">...how NP affects aquatic ecosystems</a>
