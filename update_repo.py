@@ -6,7 +6,7 @@ from datetime import datetime
 repo_path = '/home/ec2-user/flask-app'
 
 # Define the branch you want to pull
-branch_name = 'main'
+branch_name = 'leo-working-branch'
 remote_name = 'origin'
 
 # Define the path to the log file
