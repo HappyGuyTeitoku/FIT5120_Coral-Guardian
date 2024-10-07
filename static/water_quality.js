@@ -300,12 +300,21 @@ function drawPhosphateTrend() {
 
 // Update the Nitrogen indicator based on value
 function updateNitrogenIndicator(value) {
-    const maxNitrogen = 20000;
-    const widthPercentage = (value / maxNitrogen) * 100;
+    const maxNitrogenDisplay = 5000; // Maximum value for the slider display
+    const maxNitrogen = 20000; // Actual maximum nitrogen value used for threshold logic
+
+    // Cap the displayed value for the slider at 5000
+    let displayedValue = Math.min(value, maxNitrogenDisplay);
+
+    // Calculate the width percentage relative to the display max
+    const widthPercentage = (displayedValue / maxNitrogenDisplay) * 100;
     document.getElementById("nitrogenBar").style.width = widthPercentage + "%";
 
+    // Determine the background color based on actual nitrogen value
     let circleColor = "green";
     let description = "Safe to use";
+    
+    // Apply threshold logic based on the actual value
     if (value < 10000) {
         document.getElementById("nitrogenBar").style.backgroundColor = "green";
         circleColor = "green";
@@ -318,6 +327,8 @@ function updateNitrogenIndicator(value) {
         circleColor = "red";
         description = "Harmful to aquatic life";
     }
+
+    // Update the title and description to reflect the actual nitrogen value
     document.getElementById("nitrogenTitle").innerHTML = `<span class="indicator-icon">🌱</span> Total Nitrogen (${value} µg/L)`;
     document.getElementById("nitrogenDescription").innerHTML = `<div class="notification-circle" style="background-color: ${circleColor}"></div> ${description}`;
 }
