@@ -78,9 +78,9 @@ header {
     border-top: 5px solid black; /* Create the bottom side of the triangle (the arrow) */
 }
 
-.nav-links-dropdown-toggle:hover {
+/* .nav-links-dropdown-toggle:hover {
     background-color: #F6FCF6;
-}
+} */
 
 .nav-links-dropdown-content {
     font-weight: bold;
@@ -367,6 +367,10 @@ button {
     color: black;
     cursor: pointer;
     background-color: #EBF0F9;
+}
+
+.navbar-button-v2:hover {
+    background-color: #F6FCF6;
 }
 
 
