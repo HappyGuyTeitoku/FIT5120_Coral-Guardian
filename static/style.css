@@ -59,34 +59,37 @@ header {
 
 /* base_v2 dropdown style navbar */
 /* TOGGLE is the outside, CONTENT is the insides */
-.nav-links-dropdown-toggle {
+.xiala{
     position: relative;
     display: inline-block;
-    z-index: 101;
+}
+.nav-links-dropdown-toggle {
+    
+    display: inline-block;
     width: 200px;
     text-align: center;
 }
+
 
 .nav-links-dropdown-content {
     text-align: center;
     display: none;
     position: absolute;
-    top: 50px;
+    top: 20px;
     right: 0;
     background-color: #BEF3C0;
     width: 100%;
     
     padding: 15px 30px;
-    z-index: 102;
 }
 
 .nav-links-dropdown-content a {
     padding: 15px 0;
-    display: block;
+    display: inline-block;
 }
 
-.nav-links-dropdown-toggle:hover .nav-links-dropdown-content {
-    display: block;
+.xiala:hover .nav-links-dropdown-content {
+    display: inline-block;
 }
 
 
@@ -1794,10 +1797,20 @@ progress::-moz-progress-bar {
     /* background-color: rgb(245, 245, 245) ; */
     border-radius: 8px; /* 边角圆润 */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 380px;
 }
 .start {
     font-family: 'Roboto';
     text-align: center; /* 开始按钮居中 */
+}
+.start p{
+    margin-bottom: 18px;
+}
+.question p{
+    margin-bottom: 18px;
 }
 #result {
     display: none; /* 默认隐藏结果 */

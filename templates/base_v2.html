@@ -47,25 +47,30 @@
                             Homepage
                         </a>
                     </li>
-
+                    <div class="xiala">
                     <li class="nav-links-dropdown-toggle navbar-button-v2">
                         I want to check...
-                        <div class="nav-links-dropdown-content secondary-button">
-                            <a href="{{ url_for('npcalculator') }}">...my im<b>P</b>act</a>
-                            <a href="{{ url_for('productsearch') }}">...if my detergents are P-free</a>
-                            <a style="display: none;" href="{{ url_for('p_free_detergent_register') }}">Phosphate Free
-                                Detergent Register</a>
-                        </div>
+                        
                     </li>
+                    <ul class="nav-links-dropdown-content secondary-button">
+                        <a href="{{ url_for('npcalculator') }}">...my im<b>P</b>act</a>
+                        <a href="{{ url_for('productsearch') }}">...if my detergents are P-free</a>
+                        <a style="display: none;" href="{{ url_for('p_free_detergent_register') }}">Phosphate Free
+                            Detergent Register</a>
+                        </ul>
+                </div>
+                   <div class="xiala">
                     <li class="nav-links-dropdown-toggle navbar-button-v2">
                         I want to Learn...
-                        <div class="nav-links-dropdown-content secondary-button">
-                            <a href="{{ url_for('learnmore') }}">...the basics about Nutrient Pollution</a>
-                            <a href="{{ url_for('waterqualitymap') }}">...how NP affects Water Quality</a>
-                            <a href="{{ url_for('fishexplorer') }}">...how NP affects aquatic ecosystems</a>
-                            <a style="display: none;" href="{{ url_for('takeAQuiz') }}">Take a Quiz</a>
-                        </div>
+                        
                     </li>
+                    <ul class="nav-links-dropdown-content secondary-button">
+                        <a href="{{ url_for('learnmore') }}">...the basics about Nutrient Pollution</a>
+                        <a href="{{ url_for('waterqualitymap') }}">...how NP affects Water Quality</a>
+                        <a href="{{ url_for('fishexplorer') }}">...how NP affects aquatic ecosystems</a>
+                        <a style="display: none;" href="{{ url_for('takeAQuiz') }}">Take a Quiz</a>
+                    </ul>
+                </div>
                 </ul>
             </div>
         </nav>
