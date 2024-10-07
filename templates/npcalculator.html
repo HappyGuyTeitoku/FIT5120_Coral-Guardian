@@ -131,12 +131,12 @@
             <div class="spacer-half"></div>
             <div id="np-cal-results-text">Your are not supposed to read this text</div>
             <div class="spacer"></div>
-            <button class="primary-button-blue" onclick="window.location.href='{{ url_for('productsearch') }}'">Check
-                your products</button>
+            
         </div>
         <div class="calculator-button-container">
             <button class="primary-button-blue" id="cal-results-to-home" onclick="goToQuestion1()">RESTART</button>
-            <button class="primary-button-blue" id="cal-results-to-q1" onclick="goToHomepage()">HOME</button>
+            <button class="primary-button-blue" onclick="window.location.href='{{ url_for('productsearch') }}'">Check
+                your products</button>
         </div>
     </div>
 </div>
