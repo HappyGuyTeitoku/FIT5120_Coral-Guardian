@@ -695,6 +695,28 @@ button {
     display: grid;
 }
 
+
+.fkwebsite {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0; /* 上下间距为 10px */
+}
+
+.fkwebsite img {
+    max-width: 20%;
+    width: 50px; /* 让图片自适应宽度 */
+    height: auto;    /* 保持图片比例 */
+}
+
+
+
+
+
+
+
+
+
 .image-banner {
     /* padding: 0 15% 0 15%; */
     place-items: center;
@@ -966,14 +988,49 @@ footer {
     /* Adjust line height for better readability */
     padding: 10px;
     /* Optional: add padding for spacing */
+    
+}
+.nutrient-info-1 {
+    width: 100%;
+    max-width: 800px; /* 限制容器宽度，使内容居中 */
+    margin: 20px auto; /* 自动水平居中并设置上下间距 */
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.4; /* 行高，增加可读性 */
+    
+    
 }
 
+/* 标题文本居中样式 */
+.centered-text-1 {
+    font-size: 20px;
+    text-align: left;
+    font-weight: bold;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    font-family: 'Roboto', sans-serif;
+    
+    
+}
+
+/* 副标题文本样式 */
+.centered-text-subdesc {
+    
+    text-align: left; /* 使文本两端对齐 */
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.4; /* 行高，增加可读性 */
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-top: 1px;
+    
+}
 
 /* --------------------beijing改變---------------- */
 /* 设置 overview-background 部分的背景色 */
 .overview-background {
     /* background-color: #F2F6EF; 背景颜色 */
-    padding: 20px;
+    
     /* 添加内边距 */
     border-radius: 8px;
     /* 可选：圆角边框 */
@@ -988,10 +1045,14 @@ footer {
 
 .nutrient-title {
     font-weight: bold;
+    font-family: 'Roboto', sans-serif;
 }
 
 .nutrient-description {
     margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+    
+
 }
 
 .video-thumbnail-container {
@@ -1011,16 +1072,30 @@ footer {
     font-size: 24px;
 }
 
+/* --------------------fk video no more comm  --------------- */
+#video-thumbnail1 {
+    cursor: pointer; /* 使鼠标指针显示为手形 */
+    max-width: 100%; /* 最大宽度设置为父元素的100% */
+    height: 350px; /* 自动高度保持比例 */
+    width: 630px; /* 设置固定宽度 */
+}
+
+
+/* --------------------fk video no more comm  end---------------- */
+
+
+
 
 /* --------------------beijing改變 end---------------- */
 
 .specific-container body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     overflow-y: auto;
     background-color: #f7f7f7;
     color: #333;
     margin: 0;
     padding: 0;
+    
 }
 
 .specific-container .container {
@@ -1028,7 +1103,7 @@ footer {
     margin: 0 auto;
     height: auto;
     padding: 20px;
-    background-color: #fff;
+    
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -1127,7 +1202,7 @@ footer {
 
 /* Center text */
 .centered-text {
-    text-align: center;
+    text-align: left;
 }
 
 /* Nutrient details container */
@@ -1297,6 +1372,18 @@ video {
 
 
 /* -----------------------------Impact Tab Styles------------------------------------------------------ */
+.specific-container .impact-section {
+    background-color: #fff; /* 背景色 */
+    padding: 20px; /* 内边距 */
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5px; /* 圆角 */
+    max-width: 800px; /* 最大宽度 */
+    margin: 20px auto; /* 居中对齐，保持与容器一致 */
+    display: block; /* 显示影响部分内容 */
+    height: auto; /* 自动高度 */
+    overflow: hidden; /* 隐藏溢出内容 */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+}
 .impact-section {
     display: flex;
     flex-direction: column;
@@ -1304,26 +1391,30 @@ video {
     margin-top: 20px;
     padding: 20px;
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
 }
 
 .impact-text {
-    text-align: center;
+    text-align: left;
     font-family: 'Roboto', sans-serif;
-    margin-top: 20px;
+    margin-top: auto;
 }
 
 .impact-text h2 {
     font-size: 24px;
     font-family: 'Roboto', sans-serif;
-    color: #333;
+    
+    letter-spacing: 1px; /* 调整字母间距 */
+    line-height: 1.6; /* 调整行间距 */
 }
 
 .impact-text p {
-    font-size: 16px;
+    font-size: 15px;
     font-family: 'Roboto', sans-serif;
-    color: #666;
-    line-height: 1.5;
+    
+    
+    letter-spacing: 0.3px; /* 调整字母间距 */
+    line-height: 2; /* 调整行间距 */
 }
 
 .impact-button {
@@ -1334,6 +1425,9 @@ video {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    justify-content: center; /* 水平居中 */
+    
+    
 }
 
 .impact-button:hover {
@@ -1368,6 +1462,27 @@ video {
 
 /* -----------------------------action-- style---------------------------------------------------- */
 /* General Styling */
+/* 设置整个页面的字体和背景 */
+
+
+
+/* 设置 .tab-content.active 的样式，继承容器样式并做一些细节调整 */
+.specific-container .action-section {
+    background-color: #fff; /* 背景色 */
+    padding: 20px; /* 内边距 */
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5px; /* 圆角 */
+    max-width: 800px; /* 最大宽度 */
+    margin: 20px auto; /* 居中对齐，保持与容器一致 */
+    display: block; /* 显示激活的 tab 内容 */
+    height: auto; /* 自动高度 */
+    overflow: hidden; /* 隐藏溢出内容 */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    
+}
+
+
+
 .tab-content {
     display: none;
     padding: 20px;
@@ -1382,6 +1497,13 @@ video {
     flex-direction: column;
     gap: 40px;
     margin-top: 20px;
+    
+    padding: 20px;
+        /* 添加内边距 */
+    border-radius: 8px;
+        /* 可选：圆角边框 */
+    
+        /* 可选：与下面的内容分隔开 */
 }
 
 .action-item {
@@ -1397,6 +1519,8 @@ video {
 
 .action-text {
     font-family: 'Roboto', sans-serif;
+    gap: 20px;
+    line-height: 1.24centered-text;
     flex: 1;
 }
 
@@ -1440,6 +1564,9 @@ video {
 @media (max-width: 768px) {
     .action-item {
         flex-direction: column;
+        align-items: center;
+        display: flex;
+        gap: 20px;
     }
 
     .action-item.reverse {
@@ -1531,11 +1658,32 @@ nav {
     border-radius: 10px;
     transition: background-color 0.3s ease, transform 0.3s ease;
     height: 320px;
+    position: relative;
+    display: inline-block;
     /* 固定高度 */
     width: 220px;
     /* 根据需要调整宽度 */
     overflow: hidden;
     /* 防止溢出 */
+}
+.hover-info {
+    display: none; /* 默認隱藏 */
+    position: absolute; /* 絕對定位於產品項目內 */
+    top: 0;
+    left: 100%; /* 使其顯示在右邊 */
+    width: 600px;
+    height: 300px;
+    background-color: rgba(0, 0, 0, 0.8); /* 半透明背景 */
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* 陰影效果 */
+    z-index: 10; /* 使它顯示在頂部 */
+}
+
+/* 當鼠標懸停在產品項目上時顯示 */
+.product_recommend_item:hover .hover-info {
+    display: block;
 }
 
 /* 图片样式 */
@@ -1607,8 +1755,44 @@ nav {
 /* -----------------------------recommoned product css  end ----------------------------------------------- */
 
 /* -----------------------------test quiz css  ----------------------------------------------- */
+#quiz-container {
+    width: 600px; /* 定义宽度 */
+    height: auto; /* 自动高度 */
+    margin: 0 auto; /* 居中 */
+    background-color: #fff; /* 背景颜色 */
+    border: 1px solid #ccc; /* 边框 */
+    border-radius: 8px; /* 圆角 */
+    padding: 20px; /* 内边距 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    flex-direction: column;
+}
 
-.quiz-container.testpage-quiz {
+progress {
+    width: 100%; /* 进度条宽度 */
+    height: 20px; /* 进度条高度 */
+    border-radius: 34px; /* 圆角 */
+    appearance: none; /* 移除默认样式 */
+    margin: 0; /* 去掉边距 */
+    background-color: white !important; /* 未达到的部分设置为白色 */
+}
+
+progress::-webkit-progress-value {
+    background: linear-gradient(to right, #70C174, #5593EF); /* 设置进度条的渐变色 */
+    border-radius: 15px; /* 圆角 */
+}
+
+progress::-moz-progress-bar {
+    background: linear-gradient(to right, #70C174, #5593EF); /* 设置 Firefox 中的进度条渐变色 */
+    border-radius: 15px; /* 圆角 */
+}
+
+#progress-text {
+    text-align: center; /* 进度文本居中 */
+    display: block; /* 块级元素 */
+    margin-top: 5px; /* 上边距 */
+}
+
+.testpage-quiz {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
@@ -1622,11 +1806,14 @@ nav {
 .question {
     background: #fff;
     width: 90%;
-
+    
     max-width: 600px;
-    margin: 100px auto 0;
-    border-radius: 10px;
-    padding: 30px;
+    margin: 10px auto 0;
+    
+    
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .option {
@@ -1637,9 +1824,10 @@ nav {
     border: 1px solid #222;
     padding: 10px;
     margin: 10px 0;
-    text-align: left;
+    text-align: center; /* 居中顯示選項 */
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease; /* 加入過渡效果 */
 
 }
 
@@ -1650,7 +1838,7 @@ nav {
 
 
 #next-option {
-    background: #001e4d;
+    background-color: #1D2130;
     color: #fff;
     font-weight: 500;
     width: 150px;
@@ -1673,18 +1861,167 @@ nav {
 }
 
 /* 正確和錯誤樣式 */
-.testpage-quiz .correct {
-    background-color: green;
+.correct {
+    background-color: green !important;
+    color: #fff;
 }
 
-.testpage-quiz .incorrect {
-    background-color: red;
+.incorrect {
+    background-color: red !important;
+    color: #fff;
 }
 
 /* 禁用按鈕時樣式 */
-.testpage-quiz button:disabled {
+.option.disabled {
+    background-color: gray !important;
     cursor: not-allowed;
     opacity: 0.6;
 }
 
+#quiz-container {
+    width: 100%; /* 宽度100% */
+    max-width: 800px; /* 最大宽度 */
+    margin: 0 auto; /* 自动左右边距居中 */
+    padding: 20px; /* 内边距 */
+    /* background-color: rgb(245, 245, 245) ; */
+    border-radius: 8px; /* 边角圆润 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 380px;
+}
+.start {
+    font-family: 'Roboto';
+    text-align: center; /* 开始按钮居中 */
+}
+.start p{
+    margin-bottom: 18px;
+}
+.question p{
+    margin-bottom: 18px;
+}
+#result {
+    display: none; /* 默认隐藏结果 */
+    text-align: center; /* 内容居中 */
+    margin: 20px auto; /* 上下有间距，左右居中 */
+    width: 80%; /* 可以根据需要设置宽度 */
+    max-width: 600px; /* 限制最大宽度 */
+    padding: 20px; /* 内边距 */
+    background-color: white; /* 背景颜色 */
+    
+    
+    
+    
+}
+
+
+
 /* -----------------------------test quiz css  end ----------------------------------------------- */
+
+
+/*-------title image education page-----*/
+.image-banner-1 {
+    place-items: center;
+    display: grid;
+    height: 600px; /* 设置容器高度为600px */
+    width: 100%; /* 设置容器宽度为100% */
+    overflow: hidden;
+}
+
+.image-banner-1 img {
+    width: 100%; /* 设置图片宽度为100%以填满容器 */
+    height: 100%; /* 设置图片高度为100%以填满容器 */
+    object-fit: cover; /* 保持纵横比，填满整个容器 */
+}
+#option-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+
+
+
+
+.start button {
+    background-color: #1D2130; /* 设置按钮的背景颜色 */
+    color: white; /* 设置按钮的文字颜色，以确保可读性 */
+    border: none; /* 移除按钮的默认边框 */
+    padding: 10px 20px; /* 添加内边距使按钮更美观 */
+    border-radius: 5px; /* 设置圆角 */
+    cursor: pointer; /* 鼠标悬停时显示为可点击 */
+    font-size: 16px; /* 调整字体大小 */
+}
+
+/* 可选：添加悬停效果 */
+.start button:hover {
+    background-color: #7893e9 /* 悬停时稍微变亮的颜色 */
+}
+
+
+#restart-button {
+    background-color: #1D2130; /* 设置按钮的背景颜色 */
+    color: white; /* 设置按钮的文字颜色，以确保可读性 */
+    border: none; /* 移除按钮的默认边框 */
+    padding: 10px 20px; /* 添加内边距使按钮更美观 */
+    border-radius: 5px; /* 设置圆角 */
+    cursor: pointer; /* 鼠标悬停时显示为可点击 */
+    font-size: 16px; /* 调整字体大小 */
+}
+
+/* 可选：添加悬停效果 */
+#restart-button:hover {
+    background-color: #7893e9; /* 悬停时稍微变亮的颜色 */
+}
+
+
+.excellent-work {
+    color: #28a745; /* Green for excellent work */
+    font-weight: bold;
+     /* Light green background */
+    padding: 10px;
+    text-align: left !important;
+    border-radius: 5px;
+    margin-top: 140px;
+}
+
+.great-effort {
+    color: #ffc107; /* Yellow for great effort */
+    font-weight: bold;
+     /* Light yellow background */
+    padding: 10px;
+    text-align: left !important;
+    border-radius: 5px;
+    margin-top: 140px;
+}
+
+.bad-work {
+    color: #dc3545; /* Red for bad work */
+    font-weight: bold;
+     /* Light red background */
+    padding: 10px;
+    text-align: left !important;
+    border-radius: 5px;
+    margin-top: 140px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
