@@ -61,6 +61,12 @@ const questions = [
           console.log(e)
           if (e.target.tagName === "BUTTON"){
           selectAnswer(answer)
+          if(answer.correct){
+            e.target.classList.add('correct')
+          }
+          else{
+            e.target.classList.add('incorrect')
+          }
         }});
         
     });
@@ -96,8 +102,7 @@ const questions = [
   function selectAnswer(answer) {
     if (answer.correct) {
       score++;
-      console.log(button)
-      button.classList.add('correct')
+      
     }
     // 显示下一题按钮
     const questionElement = document.querySelector(`#question-${currentQuestionIndex + 1}`);
