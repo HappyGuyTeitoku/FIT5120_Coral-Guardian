@@ -1,21 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaGuardMap</title>
+{% extends "base_v2.html" %}
 
-    <!-- Load D3.js -->
-    <script src="https://d3js.org/d3.v7.min.js"></script>
+{% block title %}Water Quality Map - AquaGuard{% endblock %}
 
-    <!-- Load Leaflet.js -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+{% block head %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AquaGuardMap</title>
 
-    <!-- Link to external CSS file -->
-    <link rel="stylesheet" href="../static/styles_waterquality.css">
-</head>
-<body>
+<!-- Load D3.js -->
+<script src="https://d3js.org/d3.v7.min.js"></script>
+
+<!-- Load Leaflet.js -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+<!-- Link to external CSS file -->
+<link rel="stylesheet" href="../static/styles_waterquality.css">
+<style>
+    #map {
+        z-index: 99;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="spacer"></div>
+<div id="waterqualitymap-body">
 
     <!-- Shared Navigation Tabs -->
     <div class="tabs">
@@ -94,31 +103,5 @@
     <!-- Link to external JavaScript file -->
     <script src="../static/water_quality.js"></script>
 
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
+{% endblock %}
