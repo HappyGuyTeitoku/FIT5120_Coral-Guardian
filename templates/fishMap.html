@@ -1,24 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fish Map Visualization</title>
+{% extends "base_v2.html" %}
 
-    <!-- Load D3.js -->
-    <script src="https://d3js.org/d3.v7.min.js"></script>
+{% block title %}Fish Map Visualization - AquaGuard{% endblock %}
 
-    <!-- Load Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+{% block head %}
+<!-- Add scripts, css files or other sort of header stuff here -->
+<!-- Load D3.js -->
+<script src="https://d3js.org/d3.v7.min.js"></script>
 
-    <!-- Load Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<!-- Load Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 
-    <!-- Link to external CSS file -->
-    <link rel="stylesheet" href="../static/styles_fishmap.css">
-</head>
-<body>
+<!-- Load Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
+<!-- Link to external CSS file -->
+<link rel="stylesheet" href="../static/styles_fishmap.css">
+
+<style>
+    #map {
+        z-index: 99;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="spacer"></div>
+<div id="fishmap-body">
     <!-- Shared Navigation Tabs -->
     <div class="tabs">
         <a href="{{ url_for('waterqualitymap') }}" class="tab">
@@ -31,10 +38,10 @@
 
     <!-- Left Panel for Nutrient Effect on Fish -->
     <div class="left-panel">
-        <h2 id="riverNameTitle">Please select the river</h2> 
+        <h2 id="riverNameTitle">Please select the river</h2>
         <hr class="divider">
         <h3>Nutrient Pollution on Fish</h3>
-        
+
         <!-- Container for fish cards -->
         <div id="fishCardsContainer"></div>
         <hr class="divider">
@@ -62,9 +69,12 @@
                 </div>
                 <div style="margin-top: 10px; font-size: 0.8em; text-align: center;">
                     <strong>Remark:</strong>
-                    The fish population estimates are adapted from the methodology described by Rea, M., et al. (2021) in the article
-                    "Density and Abundance Estimation of Amazonian River Dolphins: Understanding Population Size Variability" in the Journal of Marine Science and Engineering.
-                    <a href="https://doi.org/10.3390/jmse9111184" target="_blank">https://doi.org/10.3390/jmse9111184</a>
+                    The fish population estimates are adapted from the methodology described by Rea, M., et al. (2021)
+                    in the article
+                    "Density and Abundance Estimation of Amazonian River Dolphins: Understanding Population Size
+                    Variability" in the Journal of Marine Science and Engineering.
+                    <a href="https://doi.org/10.3390/jmse9111184"
+                        target="_blank">https://doi.org/10.3390/jmse9111184</a>
                 </div>
             </div>
         </div>
@@ -78,13 +88,6 @@
     <!-- Load the fishMap.js script -->
     <script src="../static/fishMap.js"></script>
 
-</body>
-</html>
-
-
-
-
-
-
-
-
+</div>
+<div class="spacer-half"></div>
+{% endblock %}
