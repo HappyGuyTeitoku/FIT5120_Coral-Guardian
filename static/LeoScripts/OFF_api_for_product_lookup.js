@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const scanResult = document.getElementById('barcode-result');
     const barcodeStorage = document.getElementById('barcode');
     const resultsDiv = document.getElementById('api-result');
+    const loadingLogo = document.getElementById('loading-logo');
 
     let isScanning = false;
     let mediaStream = null;
@@ -70,6 +71,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log(external_data);  // Logs the full object to the console
 
                 console.log(external_data.message);
+
+                loadingLogo.style.display = "none";
 
                 // Check if the search was successful based on the content or status of the external_data
                 if (external_data.data) {
@@ -175,6 +178,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     + '&search_simple=1&action=process&json=1&countries_tags_en=australia&fields=code%2Cproduct_name%2Cimage_front_url%2Cingredients_text',
                 userAgent: navigator.userAgent
             };
+            loadingLogo.style.display = "block";
             submitFormData(requestData);
         });
     }
@@ -187,6 +191,7 @@ document.addEventListener('DOMContentLoaded', function () {
             keyword_url: 'https://world.openfoodfacts.org/cgi/search.pl?search_terms=' + encodeURIComponent(document.querySelector('input[name="keyword"]').value) + '&search_simple=1&action=process&json=1&countries_tags_en=australia&fields=code%2Cproduct_name%2Cimage_front_url%2Cingredients_text',
             userAgent: navigator.userAgent
         };
+        loadingLogo.style.display = "block";
         submitFormData(requestData);
     }
 
