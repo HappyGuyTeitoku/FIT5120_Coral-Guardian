@@ -3,11 +3,20 @@
 
 {% block title %}What is Nutrient Pollution? - AquaGuard{% endblock %}
 
+{% block head %}
+<!-- Add scripts, css files or other sort of header stuff here -->
+
+<!-- Link to external CSS file -->
+<link rel="stylesheet" href="../static/style_education.css">
+
+</style>
+{% endblock %}
+
 {% block content %}
 <div class="spacer"></div>
 
-<div class="image-banner">
-    <img src="{{ url_for('static', filename='greenshoreline-with-boat.jpg') }}" alt="Your Image">
+<div class="image-banner-1">
+    <img src="{{ url_for('static', filename='title.jpg') }}" alt="Your Image">
 </div>
 
 <div class="specific-container"> <!-- Start of the specific container -->
@@ -56,52 +65,156 @@
                                 Sources: Detergents, fertilizers, eroded soil<br>
                                 Effects: Often the key limiting factor for algal growth in freshwater systems</p>
                         </div>
+
                     </div>
                 </div>
-                
-                <button class="explore-button" onclick="window.location.href='{{ url_for('waterqualitymap') }}'">
-                    Explore Water Quality in Your Area
-                </button>
+                <div class="nutrient-info-1">
+                    <p class="centered-text-1">Why is this important to you?</p>
+                    <p class="centered-text-subdesc">* Impact on Outdoor Activities: Nutrient pollution can trigger
+                        algae blooms, affecting your favorite activities like fishing, boating, and swimming, and may
+                        even lead to closures of water bodies.<br>
+                        * Risk to Family Health: Polluted water sources can affect the quality of drinking water,
+                        increase the cost of domestic water treatment, and pose health risks to your family and
+                        pets.<br>
+                        * Sustainable Lifestyle: By choosing phosphate-free cleaning products and reducing the excessive
+                        use of chemicals, you can help reduce the impact of nutrient pollution and create a healthier
+                        future for your children.</p>
 
-                <!-- Video Section with Thumbnails and Subtitles -->
-                <div class="video-section" style="display: block;">
-                    <div style="display: block;">
 
-                        <!-- Change this display:none of video-containers if you want the thumbnails displayed from the page load -->
-                        <div id="video-container1" style="display: none;">
-                            <div id="player1"></div>
+                    <div class="nutrient-info-1">
+                        <p class="centered-text-1">Main Sources of Nutrient Pollution</p>
+                        <p class="centered-text-subdesc">* Household Cleaners: Phosphorus-containing cleaning products
+                            enter sewers and eventually water bodies, increasing nutrient loads.<br>
+                            * Urban Stormwater Runoff: Rainwater carries pollutants from streets and parks into rivers
+                            and lakes, impacting water quality.<br>
+                            * Home Gardening: Excessive use of fertilizers can enter water bodies through surface
+                            runoff, further exacerbating nutrient pollution.</p>
+
+                        <div class="fkwebsite">
+                            <img src="{{ url_for('static', filename='fkthis.jpg') }}" alt="">
                         </div>
-                        <div id="video-container2" style="display: none;"> 
-                            <div id="player2"></div>
-                        </div>
-                    </div>
-                    <div style="display: block;">
-                        <button class="primary-button" id="playButton1">Play Video 1</button>
 
-                        <button class="primary-button" id="playButton2">Play Video 2</button>
+                        <button class="explore-button"
+                            onclick="window.location.href='{{ url_for('waterqualitymap') }}'">
+                            Explore Water Quality in Your Area
+
+                        </button>
+                        <div class="fkwebsite">
+                            <img src="{{ url_for('static', filename='fkthis.jpg') }}" alt="">
+                        </div>
+
+
+
+                        <div class="video-section" style="display: block;">
+                            <div id="video-container1" style="display: none;">
+                                <div id="player1"></div>
+                            </div>
+                            <img id="video-thumbnail1" src="https://img.youtube.com/vi/vCicSNnKUvM/hqdefault.jpg"
+                                alt="Video Thumbnail" style="cursor: pointer;">
+                        </div>
+
+                        <script src="/static/script.js"></script>
+
+                        <div class="fkwebsite">
+                            <img src="{{ url_for('static', filename='fkthis.jpg') }}" alt="">
+                        </div>
+
+                        <!------------------------------------------------ OVERVIEW quiz ----------------------------------------------------------------------------------------->
+                        <div id="progress-bar">
+                            <progress id="progress" value="0" max="100"></progress>
+
+                        </div>
+
+
+                        <div id="quiz-container" class="testpage-quiz">
+                            <div class="start" style="display: block;">
+                                <p>Put your new knowledge on updates to the test, take our quiz!</p>
+                                <button>Start Quiz</button>
+                            </div>
+                            <!-- 进度条 -->
+
+
+                            <div class="game" style="display: none;">
+
+
+                                <span id="progress-text">Question 1 of 3</span>
+
+
+                                <div class="question" id="question-1" data-correct="2" style="display: none;">
+                                    <p></p>
+
+                                    <div id="option-container">
+
+                                    </div>
+                                    <button id="next-option" style="display: none;">Next</button> <!-- 唯一的按鈕 ID -->
+                                </div>
+
+                                <div class="question" id="question-2" data-correct="0" style="display: none;">
+                                    <p></p>
+                                    <div id="option-container">
+
+                                    </div>
+                                    <button id="next-option" style="display: none;">Next</button>
+                                </div>
+
+                                <div class="question" id="question-3" data-correct="0" style="display: none;">
+                                    <p></p>
+                                    <div id="option-container">
+
+                                    </div>
+                                    <button id="next-option" style="display: none;">Done</button>
+                                </div>
+                            </div>
+                            <script>
+                                const start = document.querySelector('.start')
+                                const game = document.querySelector('.game')
+                                const button = document.querySelector('.start button')
+                                button.addEventListener('click', () => {
+                                    start.style.display = 'none'
+                                    game.style.display = 'block'
+                                })
+                            </script>
+
+
+                            <!-- 按鈕: 下一題 -->
+                            <div id="result"></div>
+
+                        </div>
+
+                        <!-- 結果顯示區域 -->
+
                     </div>
+
+                    <script src="/static/script_quiz.js"></script>
+
+
+
+
+
+
+
                 </div>
             </div>
+
+            <!------------------------------------------------ OVERVIEW quiz  END----------------------------------------------------------------------------------------->
+
+
+            <!--  -----------------------------------------impact------------------------------------- -->
+
+
         </div>
-
-
-
-
-        <!--  -----------------------------------------impact------------------------------------- -->
         <div id="impact" class="tab-content">
             <!-- Impact Content -->
             <div class="impact-section">
                 <!-- Image with Title -->
-                <div class="impact-image">
-                    <img src="{{ url_for('static', filename='dfish.png') }}" alt="Dead Fish"
-                        style="width: 100%; height: auto;">
-                </div>
+
                 <div class="impact-text">
-                    <h2>Protecting Aquatic Ecosystems</h2>
                     <p>
-                        Nutrient pollution leads to eutrophication, causing excessive algae growth that blocks sunlight,
-                        harming aquatic plants.
+                        Nutrient pollution affects not only water quality but also our daily lives and outdoor
+                        activities. Understanding these impacts can help us take more effective measures.
                     </p>
+                    <h2>Impact on Outdoor Activities</h2>
+
                     <p>
                         <strong>Oxygen Depletion:</strong> Decomposing algae consumes oxygen, creating dead zones where
                         fish and other organisms cannot survive.
@@ -110,30 +223,105 @@
                         <strong>Biodiversity Loss:</strong> Continuous pollution reduces species diversity, weakening
                         the ecosystem's stability.
                     </p>
-                   <button class="impact-button" onclick="window.location.href='{{ url_for('fishexplorer') }}'">
-                        Find the number and species of fish in your area
-                    </button>
+
+                    <p>
+                        Nutrient pollution leads to algal blooms, which not only diminish the aesthetic quality of water
+                        bodies but also make them unsuitable for swimming, fishing, and boating. Additionally, algal
+                        blooms may produce toxic substances that can threaten the health of aquatic life and humans
+                        using these water bodies.
+                    </p>
+                    <div class="impact-image">
+                        <img src="{{ url_for('static', filename='dfish.png') }}" alt="Dead Fish"
+                            style="width: 100%; height: auto;">
+                    </div>
+                    <h2>Impact on Fish</h2>
+                    <p>
+
+                        Nutrient pollution promotes excessive algae growth in water bodies, indirectly affecting the
+                        living conditions of fish. Large amounts of algae consume oxygen from the water, creating
+                        low-oxygen environments where fish struggle to survive, leading to a decline in fish
+                        populations. Additionally, some algae can produce toxins that directly poison fish and may even
+                        cause fish deaths
+                    </p>
+
+
                 </div>
+
+
+                <!-- <div class="fkwebsite">
+                <img src="{{ url_for('static', filename='fkthis.jpg') }}" alt="">
             </div>
 
-            <!-- Video Section with Thumbnails and Subtitles -->
-            <div class="video-section" style="display: block;">
-                <div style="display: block;">
-                    <div id="video-container3" style="display: none;">
-                        <div id="player3"></div>
+            
+            <div id="progress-bar-quiz2">
+                <progress id="progress-quiz2" value="0" max="100"></progress>
+            </div>
+            
+            <div id="quiz-container-quiz2" class="testpage-quiz">
+                <div class="start-quiz2" style="display: block;">
+                    <p>Put your new knowledge on updates to the test, take our second quiz!</p>
+                    <button>Start Quiz</button>
+                </div>
+            
+                <div class="game-quiz2" style="display: none;">
+                    <span id="progress-text-quiz2">Question 1 of 4</span>
+            
+                    <div class="question-quiz2" id="question-quiz2-1" data-correct="2" style="display: none;">
+                        <p></p>
+                        <div id="option-container-quiz2"></div>
+                        <button id="next-option-quiz2" style="display: none;">Next</button>
+                    </div>
+            
+                    <div class="question-quiz2" id="question-quiz2-2" data-correct="0" style="display: none;">
+                        <p></p>
+                        <div id="option-container-quiz2"></div>
+                        <button id="next-option-quiz2" style="display: none;">Next</button>
+                    </div>
+            
+                    <div class="question-quiz2" id="question-quiz2-3" data-correct="0" style="display: none;">
+                        <p></p>
+                        <div id="option-container-quiz2"></div>
+                        <button id="next-option-quiz2" style="display: none;">Done</button>
                     </div>
                 </div>
-                <div style="display: block;">
-                    <button class="primary-button" id="playButton3">Play Video 3</button>
-                </div>
+            
+                <script>
+                    const startQuiz2 = document.querySelector('.start-quiz2');
+                    const gameQuiz2 = document.querySelector('.game-quiz2');
+                    const buttonQuiz2 = document.querySelector('.start-quiz2 button');
+                    buttonQuiz2.addEventListener('click', () => {
+                        startQuiz2.style.display = 'none';
+                        gameQuiz2.style.display = 'block';
+                    });
+                </script>
+            
+                <div id="result-quiz2"></div>
+            </div> -->
+
+
+                <!--  -----------------------------------------impact----------end--------------------------- -->
+
+                <!--  -----------------------------------------action------------------------------------- -->
+
+
             </div>
+
+
+
+
+
+
+            <!-- Video Element (initially hidden) -->
+            <div id="video-container" class="video-container" style="display: none;">
+                <video id="video-player" controls width="640">
+                    <source id="video-source" src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <button id="close-video">Close</button>
+            </div>
+
         </div>
-
-        <!--  -----------------------------------------impact----------end--------------------------- -->
-
-        <!--  -----------------------------------------action------------------------------------- -->
-
-        <div id="action" class="tab-content active" style="display: none;">
+        <div id="action" class="tab-content">
             <section class="action-section">
                 <div class="action-item">
                     <div class="action-text">
@@ -141,9 +329,9 @@
                         <p>Did you know your daily cleaning agents might contain harmful phosphates? These chemicals can
                             pollute our water. Choose phosphate-free, biodegradable products to help protect our rivers
                             and lakes. Make the switch today to eco-friendly cleaning and keep your home safe.</p>
-                            <button class="action-button" onclick="window.location.href='{{ url_for('productsearch') }}'">
-                                Explore Eco-Friendly Cleaning Products
-                            </button>
+                        <button class="action-button" onclick="window.location.href='{{ url_for('productsearch') }}'">
+                            Explore Eco-Friendly Cleaning Products
+                        </button>
                     </div>
                     <div class="action-image">
                         <img src="{{ url_for('static', filename='clean.png') }}" />
@@ -173,7 +361,7 @@
                             recycling, and help protect clean water for future generations.</p>
                         <button class="action-button" onclick="window.location.href='{{ url_for('learnmore') }}'">
 
-                        Learn Disposal Methods</button>
+                            Learn Disposal Methods</button>
                     </div>
                     <div class="action-image">
                         <img src="{{ url_for('static', filename='stuff.png') }}" />
@@ -225,7 +413,7 @@
                             currentInfoWindow.close();
                         }
                     });
-    }
+}
 
                     function getAddresses(rawData) {
                         return rawData.map(row => ({
@@ -286,9 +474,9 @@
 
                             const infoWindow = new google.maps.InfoWindow({
                                 content: `<h3>${location}</h3>
-                        <p>Date: ${date}</p>
-                        <p>Time: ${time_begin} - ${time_end}</p>
-                        <p>Location Name: ${location_name}</p>`
+                <p>Date: ${date}</p>
+                <p>Time: ${time_begin} - ${time_end}</p>
+                <p>Location Name: ${location_name}</p>`
                             });
 
                             marker.addListener('click', () => {
@@ -335,38 +523,18 @@
                 </script>
             </section>
         </div>
-        <!--  -----------------------------------------action end ------------------------------------- -->
-    </div>
 
-</div>
+        <script src="/static/script_quiz2.js"></script>
 
-<div id="impact" class="tab-content">
-    <p>Impact content goes here...</p>
-</div>
+        <!-- End of the specific container -->
 
-<div id="action" class="tab-content">
-    <p>Action content goes here...</p>
-</div>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgYZxufphoIQdLoTbmvDRw_NznG6pPjmM" async
+            defer></script>
 
+        <!-- Scripts for youtube video iframes -->
+        <script src="https://www.youtube.com/iframe_api"></script>
+        <script src="{{ url_for('static', filename='youtube_iframe_api_for_education.js') }}"></script>
 
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
 
-<!-- Video Element (initially hidden) -->
-<div id="video-container" class="video-container" style="display: none;">
-    <video id="video-player" controls width="640">
-        <source id="video-source" src="" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <button id="close-video">Close</button>
-</div>
-
-</div> <!-- End of the specific container -->
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgYZxufphoIQdLoTbmvDRw_NznG6pPjmM" async defer></script>
-
-<!-- Scripts for youtube video iframes -->
-<script src="https://www.youtube.com/iframe_api"></script>
-<script src="{{ url_for('static', filename='LeoScripts/youtube_iframe_api_for_education.js') }}"></script>
-
-<script src="{{ url_for('static', filename='script.js') }}"></script>
-
-{% endblock %}
+        {% endblock %}

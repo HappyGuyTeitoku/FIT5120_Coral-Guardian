@@ -1,0 +1,87 @@
+/*-------title image education page-----*/
+.image-banner-1 {
+    place-items: center;
+    display: grid;
+    height: 600px; /* 设置容器高度为600px */
+    width: 100%; /* 设置容器宽度为100% */
+    overflow: hidden;
+}
+
+.image-banner-1 img {
+    width: 100%; /* 设置图片宽度为100%以填满容器 */
+    height: 100%; /* 设置图片高度为100%以填满容器 */
+    object-fit: cover; /* 保持纵横比，填满整个容器 */
+}
+#option-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+
+
+
+
+.start button {
+    background-color: #1D2130; /* 设置按钮的背景颜色 */
+    color: white; /* 设置按钮的文字颜色，以确保可读性 */
+    border: none; /* 移除按钮的默认边框 */
+    padding: 10px 20px; /* 添加内边距使按钮更美观 */
+    border-radius: 5px; /* 设置圆角 */
+    cursor: pointer; /* 鼠标悬停时显示为可点击 */
+    font-size: 16px; /* 调整字体大小 */
+}
+
+/* 可选：添加悬停效果 */
+.start button:hover {
+    background-color: #7893e9 /* 悬停时稍微变亮的颜色 */
+}
+
+
+#restart-button {
+    background-color: #1D2130; /* 设置按钮的背景颜色 */
+    color: white; /* 设置按钮的文字颜色，以确保可读性 */
+    border: none; /* 移除按钮的默认边框 */
+    padding: 10px 20px; /* 添加内边距使按钮更美观 */
+    border-radius: 5px; /* 设置圆角 */
+    cursor: pointer; /* 鼠标悬停时显示为可点击 */
+    font-size: 16px; /* 调整字体大小 */
+}
+
+/* 可选：添加悬停效果 */
+#restart-button:hover {
+    background-color: #7893e9; /* 悬停时稍微变亮的颜色 */
+}
+
+
+.excellent-work {
+    color: #28a745; /* Green for excellent work */
+    font-weight: bold;
+     /* Light green background */
+    padding: 10px;
+    text-align: left !important;
+    border-radius: 5px;
+    margin-top: 140px;
+}
+
+.great-effort {
+    color: #ffc107; /* Yellow for great effort */
+    font-weight: bold;
+     /* Light yellow background */
+    padding: 10px;
+    text-align: left !important;
+    border-radius: 5px;
+    margin-top: 140px;
+}
+
+.bad-work {
+    color: #dc3545; /* Red for bad work */
+    font-weight: bold;
+     /* Light red background */
+    padding: 10px;
+    text-align: left !important;
+    border-radius: 5px;
+    margin-top: 140px;
+}

@@ -74,7 +74,21 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+const productItems = document.querySelectorAll('.product_recommend_item');
 
+productItems.forEach(item => {
+    item.addEventListener('mousemove', (e) => {
+        const hoverInfo = item.querySelector('.hover-info');
+        hoverInfo.style.display = 'block'; // 顯示彈出框
+        hoverInfo.style.left = `${e.pageX + 10}px`; // 將彈出框位置設置為鼠標的右邊
+        hoverInfo.style.top = `${e.pageY + 10}px`;
+    });
+
+    item.addEventListener('mouseleave', () => {
+        const hoverInfo = item.querySelector('.hover-info');
+        hoverInfo.style.display = 'none'; // 當鼠標離開時隱藏彈出框
+    });
+});
 
 
 
@@ -95,87 +109,36 @@ window.addEventListener('scroll', function() {
    // -----------------------------------------------enddemo 
 
 
-   // -----------------------------------------------test quiz js
-   const questions = [
-    {
-      question: "這是什麼動物？",
-      answers: [
-        { text: "狗", correct: true },
-        { text: "貓", correct: false },
-        { text: "老鼠", correct: false },
-      ]
-    },
-    {
-      question: "這是一個什麼水果？",
-      answers: [
-        { text: "蘋果", correct: true },
-        { text: "香蕉", correct: false },
-        { text: "橘子", correct: false },
-      ]
-    }
-  ];
-  
-  let currentQuestionIndex = 0;
-  let score = 0;
-  
-  function startQuiz() {
-    currentQuestionIndex = 0;
-    score = 0;
-    showQuestion();
-  }
-  
-  function showQuestion() {
-    resetState();
-    const questionElement = document.getElementById(`question-${currentQuestionIndex + 1}`); // 使用动态 ID
-    questionElement.style.display = 'block'; // 显示当前问题
-  
-    const questionText = questionElement.querySelector("p");
-    questionText.innerText = questions[currentQuestionIndex].question;
-  
-    const optionContainer = questionElement.querySelector(".option-container"); // 获取选项容器
-    questions[currentQuestionIndex].answers.forEach(answer => {
-      const button = document.createElement("button");
-      button.innerText = answer.text;
-      button.classList.add("btn");
-      button.addEventListener("click", () => selectAnswer(answer));
-      optionContainer.appendChild(button); // 添加选项按钮
+
+
+
+
+function onYouTubeIframeAPIReady() {
+    // Initialize YouTube Player
+    var player1 = new YT.Player('player1', {
+        height: '360',
+        width: '640',
+        videoId: 'vCicSNnKUvM', // YouTube 视频 ID
+        events: {
+            'onReady': onPlayerReady,
+        }
     });
-  
-    const nextButton = questionElement.querySelector("#next-option"); // 获取下一题按钮
-    nextButton.style.display = "none"; // 隐藏下一题按钮
-    nextButton.onclick = () => {
-      currentQuestionIndex++;
-      if (currentQuestionIndex < questions.length) {
-        questionElement.style.display = 'none'; // 隐藏当前问题
-        showQuestion(); // 显示下一题
-      } else {
-        showResult(); // 显示结果
-      }
-    };
-  }
-  
-  function selectAnswer(answer) {
-    if (answer.correct) {
-      score++;
-    }
-    // 显示下一题按钮
-    const questionElement = document.getElementById(`question-${currentQuestionIndex + 1}`);
-    const nextButton = questionElement.querySelector("#next-option");
-    nextButton.style.display = "block"; // 显示下一题按钮
-  }
-  
-  function showResult() {
-    const resultElement = document.getElementById("result");
-    resultElement.innerText = `你得到了 ${score} 分，總共 ${questions.length} 題。`;
-    resultElement.style.display = 'block'; // 显示结果
-  }
-  
-  function resetState() {
-    // 隐藏所有问题
-    const allQuestions = document.querySelectorAll(".question");
-    allQuestions.forEach(q => q.style.display = 'none'); // 隐藏所有问题
-  }
-  
-  // 初始化测验
-  startQuiz();
-   // -----------------------------------------------test quiz js end
+}
+
+function onPlayerReady(event) {
+    const videoContainer1 = document.getElementById('video-container1');
+    const videoThumbnail = document.getElementById('video-thumbnail1');
+
+    // Handle thumbnail click to play video
+    videoThumbnail.addEventListener('click', function () {
+        videoContainer1.style.display = 'block'; // Show the video container
+        event.target.playVideo(); // Play the video
+        videoThumbnail.style.display = 'none'; // Hide the thumbnail
+    });
+}
+
+// Load YouTube iframe API script
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
