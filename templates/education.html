@@ -220,7 +220,7 @@ Nutrient pollution promotes excessive algae growth in water bodies, indirectly a
             </div>
 
 
-            <!-- <div class="fkwebsite">
+            <div class="fkwebsite">
                 <img src="{{ url_for('static', filename='fkthis.jpg') }}" alt="">
             </div>
 
@@ -229,34 +229,35 @@ Nutrient pollution promotes excessive algae growth in water bodies, indirectly a
                 <progress id="progress-quiz2" value="0" max="100"></progress>
             </div>
             
-            <div id="quiz-container-quiz2" class="testpage-quiz">
+            <div id="quiz-container-quiz2" class="testpage-quiz-quiz2">
                 <div class="start-quiz2" style="display: block;">
-                    <p>Put your new knowledge on updates to the test, take our second quiz!</p>
+                    <p>Put your new knowledge on updates to the test, take our quiz!</p>
                     <button>Start Quiz</button>
                 </div>
             
+                <!-- 进度条 -->
                 <div class="game-quiz2" style="display: none;">
-                    <span id="progress-text-quiz2">Question 1 of 4</span>
+                    <span id="progress-text-quiz2">Question 1 of 3</span>
             
-                    <div class="question-quiz2" id="question-quiz2-1" data-correct="2" style="display: none;">
+                    <div class="question-quiz2" id="question2-quiz2-1" data-correct="2" style="display: none;">
                         <p></p>
-                        <div id="option-container-quiz2"></div>
+                        <div id="option-container-quiz2-1"></div>
+                        <button id="next-option-quiz2" style="display: none;">Next</button> <!-- 唯一的按鈕 ID -->
+                    </div>
+            
+                    <div class="question-quiz2" id="question2-quiz2-2" data-correct="0" style="display: none;">
+                        <p></p>
+                        <div id="option-container-quiz2-2"></div>
                         <button id="next-option-quiz2" style="display: none;">Next</button>
                     </div>
             
-                    <div class="question-quiz2" id="question-quiz2-2" data-correct="0" style="display: none;">
+                    <div class="question-quiz2" id="question2-quiz2-3" data-correct="0" style="display: none;">
                         <p></p>
-                        <div id="option-container-quiz2"></div>
-                        <button id="next-option-quiz2" style="display: none;">Next</button>
-                    </div>
-            
-                    <div class="question-quiz2" id="question-quiz2-3" data-correct="0" style="display: none;">
-                        <p></p>
-                        <div id="option-container-quiz2"></div>
+                        <div id="option-container-quiz2-3"></div>
                         <button id="next-option-quiz2" style="display: none;">Done</button>
                     </div>
                 </div>
-            
+
                 <script>
                     const startQuiz2 = document.querySelector('.start-quiz2');
                     const gameQuiz2 = document.querySelector('.game-quiz2');
@@ -266,9 +267,11 @@ Nutrient pollution promotes excessive algae growth in water bodies, indirectly a
                         gameQuiz2.style.display = 'block';
                     });
                 </script>
+                
             
+                <!-- 按鈕: 下一題 -->
                 <div id="result-quiz2"></div>
-            </div> -->
+            </div>
 
 
     <!--  -----------------------------------------impact----------end--------------------------- -->
@@ -494,11 +497,78 @@ Nutrient pollution promotes excessive algae growth in water bodies, indirectly a
             window.onload = initMap;
         </script>
     </section>
+
+
+  <div class="fkwebsite">
+                <img src="{{ url_for('static', filename='fkthis.jpg') }}" alt="">
+            </div>
+
+            <div id="progress-bar">
+                    <progress id="progress" value="0" max="100"></progress>
+                    
+                </div>
+        
+        
+                <div id="quiz-container" class="testpage-quiz">
+            <div class="start" style="display: block;">
+                <p>Put your new knowledge on updates to the test, take our quiz!</p>
+                  <button>Start Quiz</button>
+            </div>
+            <!-- 进度条 -->
+            
+
+             <div class="game" style="display: none;">
+                
+
+                <span id="progress-text">Question 1 of 3</span>
+                
+    
+                <div class="question" id="question-1" data-correct="2" style="display: none;">
+                    <p></p>
+                    
+                    <div id="option-container">
+                        
+                    </div>
+                    <button id="next-option" style="display: none;">Next</button> <!-- 唯一的按鈕 ID -->
+                </div>
+                
+                <div class="question" id="question-2" data-correct="0" style="display: none;">
+                    <p></p>
+                    <div id="option-container">
+                        
+                    </div>
+                    <button id="next-option" style="display: none;">Next</button>
+                </div>
+    
+                <div class="question" id="question-3" data-correct="0" style="display: none;">
+                    <p></p>
+                    <div id="option-container">
+                        
+                    </div>
+                    <button id="next-option" style="display: none;">Done</button>
+                </div>
+             </div>
+            <script>
+                 const start = document.querySelector('.start')
+                 const game = document.querySelector('.game')
+                 const button = document.querySelector('.start button')
+                 button.addEventListener('click', () => {
+                   start.style.display = 'none'
+                   game.style.display = 'block'
+                 })
+            </script>
+
+
+                <!-- 按鈕: 下一題 -->
+                <div id="result"></div>
+                
+        </div>
+
 </div>
 
 <script src="/static/script_quiz2.js"></script>
 
-
+<script src="/static/script_quiz3.js"></script>
 
 
 

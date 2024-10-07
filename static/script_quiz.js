@@ -27,6 +27,7 @@ const questions = [
         { text: "Enhances water clarity", correct: false },
       ]
     }
+    
   ];
   
   let currentQuestionIndex = 0;

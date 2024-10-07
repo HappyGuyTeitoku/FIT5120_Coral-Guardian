@@ -45,6 +45,7 @@ header {
 .nav-links li {
     margin-left: 20px;
     margin-right: 20px;
+    font-weight: bold;
 }
 
 .nav-links a {
@@ -77,7 +78,8 @@ header {
     position: absolute;
     top: 20px;
     right: 0;
-    background-color: #BEF3C0;
+    background-color:#EBF0F9;
+;
     width: 100%;
     
     padding: 15px 30px;
@@ -1827,36 +1829,6 @@ progress::-moz-progress-bar {
 }
 
 
-
-/* -----------------------------test quiz css  end ----------------------------------------------- */
-
-
-/*-------title image education page-----*/
-.image-banner-1 {
-    place-items: center;
-    display: grid;
-    height: 600px; /* 设置容器高度为600px */
-    width: 100%; /* 设置容器宽度为100% */
-    overflow: hidden;
-}
-
-.image-banner-1 img {
-    width: 100%; /* 设置图片宽度为100%以填满容器 */
-    height: 100%; /* 设置图片高度为100%以填满容器 */
-    object-fit: cover; /* 保持纵横比，填满整个容器 */
-}
-#option-container {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    gap: 10px;
-    margin-top: 5px;
-}
-
-
-
-
-
 .start button {
     background-color: #1D2130; /* 设置按钮的背景颜色 */
     color: white; /* 设置按钮的文字颜色，以确保可读性 */
@@ -1918,6 +1890,236 @@ progress::-moz-progress-bar {
     border-radius: 5px;
     margin-top: 140px;
 }
+
+
+/* -----------------------------test quiz css  end ----------------------------------------------- */
+#quiz-container2 {
+    width: 600px;
+    height: auto;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+}
+
+progress2 {
+    width: 100%;
+    height: 20px;
+    border-radius: 34px;
+    appearance: none;
+    margin: 0;
+    background-color: white !important;
+}
+
+progress2::-webkit-progress-value {
+    background: linear-gradient(to right, #70C174, #5593EF);
+    border-radius: 15px;
+}
+
+progress2::-moz-progress-bar {
+    background: linear-gradient(to right, #70C174, #5593EF);
+    border-radius: 15px;
+}
+
+#progress-text2 {
+    text-align: center;
+    display: block;
+    margin-top: 5px;
+}
+
+.testpage-quiz2 {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+.question2 {
+    background: #fff;
+    width: 90%;
+    max-width: 600px;
+    margin: 10px auto 0;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.option2 {
+    background: #fff;
+    color: #222;
+    font-weight: 500;
+    width: 100%;
+    border: 1px solid #222;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.testpage-quiz2 .option2:hover {
+    background-color: #222;
+    color: #fff;
+}
+
+#next-option2 {
+    background-color: #1D2130;
+    color: #fff;
+    font-weight: 500;
+    width: 150px;
+    border: 0;
+    padding: 10px;
+    margin: 20px auto 0;
+    border-radius: 4px;
+    cursor: pointer;
+    display: none;
+}
+
+.testpage-quiz2 button.option2 {
+    margin: 5px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: lightgray;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.correct2 {
+    background-color: green !important;
+    color: #fff;
+}
+
+.incorrect2 {
+    background-color: red !important;
+    color: #fff;
+}
+
+.option2.disabled {
+    background-color: gray !important;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+#quiz-container2 {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 380px;
+}
+
+.start2 {
+    font-family: 'Roboto';
+    text-align: center;
+}
+
+.start2 p {
+    margin-bottom: 18px;
+}
+
+.question2 p {
+    margin-bottom: 18px;
+}
+
+#result2 {
+    display: none;
+    text-align: center;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: white;
+}
+
+.start2 button {
+    background-color: #1D2130;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.start2 button:hover {
+    background-color: #7893e9;
+}
+
+#restart-button2 {
+    background-color: #1D2130;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#restart-button2:hover {
+    background-color: #7893e9;
+}
+
+.excellent-work2 {
+    color: #28a745;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left !important;
+    border-radius: 5px;
+    margin-top: 140px;
+}
+
+.great-effort2 {
+    color: #ffc107;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left !important;
+    border-radius: 5px;
+    margin-top: 140px;
+}
+
+.bad-work2 {
+    color: #dc3545;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left !important;
+    border-radius: 5px;
+    margin-top: 140px;
+}
+
+/*-------title image education page-----*/
+.image-banner-1 {
+    place-items: center;
+    display: grid;
+    height: 600px; /* 设置容器高度为600px */
+    width: 100%; /* 设置容器宽度为100% */
+    overflow: hidden;
+}
+
+.image-banner-1 img {
+    width: 100%; /* 设置图片宽度为100%以填满容器 */
+    height: 100%; /* 设置图片高度为100%以填满容器 */
+    object-fit: cover; /* 保持纵横比，填满整个容器 */
+}
+#option-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+
+
+
 
 
 
