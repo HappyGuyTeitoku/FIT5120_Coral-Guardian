@@ -29,37 +29,39 @@
                     <img src="{{ url_for('static', filename='Melbourne AquaGuard Logo.png') }}" alt="Logo" class="logo">
                 </a>
 
-                <!-- OLD Navbar -->
-                <ul class="nav-links" style="display: none;">
+                <!-- v1 plain Navbar -->
+                <ul class="nav-links" style="display: block;">
                     <li><a href="{{ url_for('index') }}">Home</a></li>
                     <li><a href="{{ url_for('learnmore') }}">Education Hub</a></li>
                     <li><a href="{{ url_for('waterqualitymap') }}">Water Quality</a></li>
-                    <li><a href="{{ url_for('productsearch') }}">Product Search</a></li>
                     <li><a href="{{ url_for('fishexplorer') }}">Fish Explorer</a></li>
+                    <li><a href="{{ url_for('npcalculator') }}">NP Calculator</a></li>
+                    <li><a href="{{ url_for('productsearch') }}">Product Search</a></li>
+
                     <li style="display: none;"><a href="{{ url_for('placeholder') }}">UI Testing Page</a></li>
                 </ul>
 
-                <!-- NEW navbar -->
-                <ul class="nav-links">
+                <!-- v2 dropdown navbar -->
+                <ul class="nav-links" style="display: none;">
                     <li class="navbar-button-v2" style="text-decoration: none;"
                         onclick="window.location.href='{{ url_for('index') }}'">
                         Homepage
                     </li>
                     <li class="nav-links-dropdown-toggle navbar-button-v2">
-                        I want to check...
+                        I want to check
                         <div class="nav-links-dropdown-content">
-                            <a href="{{ url_for('npcalculator') }}">...my im<b>P</b>act</a>
-                            <a href="{{ url_for('productsearch') }}">...if my detergents are P-free</a>
+                            <a href="{{ url_for('npcalculator') }}">my im<b>P</b>act</a>
+                            <a href="{{ url_for('productsearch') }}">if my detergents are P-free</a>
                             <a style="display: none;" href="{{ url_for('p_free_detergent_register') }}">Phosphate Free
                                 Detergent Register</a>
                         </div>
                     </li>
                     <li class="nav-links-dropdown-toggle navbar-button-v2">
-                        I want to Learn...
+                        I want to Learn
                         <div class="nav-links-dropdown-content">
-                            <a href="{{ url_for('learnmore') }}">...the basics about Nutrient Pollution</a>
-                            <a href="{{ url_for('waterqualitymap') }}">...how NP affects Water Quality</a>
-                            <a href="{{ url_for('fishexplorer') }}">...how NP affects aquatic ecosystems</a>
+                            <a href="{{ url_for('learnmore') }}">the basics about Nutrient Pollution</a>
+                            <a href="{{ url_for('waterqualitymap') }}">how NP affects Water Quality</a>
+                            <a href="{{ url_for('fishexplorer') }}">how NP affects aquatic ecosystems</a>
                             <a style="display: none;" href="{{ url_for('takeAQuiz') }}">Take a Quiz</a>
                         </div>
                     </li>
