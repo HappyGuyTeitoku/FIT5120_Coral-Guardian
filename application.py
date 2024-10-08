@@ -135,17 +135,22 @@ def productsearch():
         # Flask make the request to OpenFoodFacts on behalf of client
         if barcode:
             response = requests.get(barcode_url, headers={'User-Agent': userAgent})
-            logging.debug("Barcode Response: %s\nEnd of message", response.json())
+            # logging.debug("Barcode Response: %s\nEnd of message", response.json())
         elif keyword:
             response = requests.get(keyword_url, headers={'User-Agent': userAgent})
-            logging.debug("Wordsearch Response: %s\nEnd of message", response.json())
+            # logging.debug("Wordsearch Response: %s\nEnd of message", response.json())
         else:
             return jsonify({'message': 'No barcode or keyword provided'}), 400
 
         # Get the response data if request was successful
         if response.status_code == 200:
             external_data = response.json()  # Assuming the response is in JSON format
-            return jsonify({'message': 'Search successful', 'data': external_data})
+            if barcode:
+                return jsonify({'message': 'Search successful', 'data': external_data, 'searchtype':'barcode'})
+            elif keyword:
+                return jsonify({'message': 'Search successful', 'data': external_data, 'searchtype':'keyword'})
+            else:
+                return jsonify({'message': 'No barcode or keyword provided'}), 400
         else:
             return jsonify({'message': 'Error fetching data from API', 'status_code': response.status_code}), 500
 

@@ -4,13 +4,18 @@
 // Purpose: 
 //     This script handles sending GET request to Open Food Facts (OFF) APIs,
 //     by sending a POST request to flask and letting flask handle the GET.
+//
+//     .ORG is the PRODUCTION API
+//     .NET is the STAGING API
+//     Staging API lacks a lot of the products, so how are you going to test it?
+//
 //     APIv1 handles keyword searches, APIv2 handles barcode searches.
 //         API v2
-//         https://world.openfoodfacts.net/api/v2/product/{barcode}
+//         https://world.openfoodfacts.org/api/v2/product/{barcode}
 //         (Barcode Search returns all details of the product)
 //             OR
 //         API v1
-//         https://world.openfoodfacts.net/cgi/search.pl?search_terms={keyword}&search_simple=1&action=process&json=1
+//         https://world.openfoodfacts.org/cgi/search.pl?search_terms={keyword}&search_simple=1&action=process&json=1
 //         search?countries_tags_en=australia&fields=code%2Cproduct_name%2Cimage_front_url&sort_by=product_name&page=1&page_size=20
 //         (Search word, can choose fields to return, and can filter before getting results)
 
@@ -68,25 +73,32 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(response => response.json())
             .then(external_data => {
 
-                console.log(external_data);  // Logs the full object to the console
+                // console.log(external_data);  // Logs the full object to the console
 
                 console.log(external_data.message);
+                console.log(external_data.searchtype);
 
                 loadingLogo.style.display = "none";
 
+                // Throw error if user did not enter a keyword or scan a barcode
+                if (external_data.searchtype != "barcode" && external_data.searchtype != "keyword") {
+                    throw new Error("Please check you are searching for English words or have scanned a barcode.");
+                }
+
                 // Check if the search was successful based on the content or status of the external_data
                 if (external_data.data) {
-                    let htmlContent = '';
+                    // There is only a singular product returned from barcode search
+                    if (external_data.searchtype == "barcode") {
+                        console.log(external_data.data.product);
+                        let htmlContent = '';
 
-                    // Loop through each product in the external_data array
-                    external_data.data.products.forEach(product => {
-                        const productName = product.product_name || 'No product name available';
-                        const ingredientsText = product.ingredients_text || 'No ingredients information available';
-                        const imageUrl = product.image_front_url || '';
+                        const productName = external_data.data.product.product_name || '';
+                        const ingredientsText = external_data.data.product.ingredients_text || 'No ingredients information available';
+                        const imageUrl = external_data.data.product.image_front_url || '';
+
                         // Check for nitrate or phosphate in the ingredients text
                         const containsNitrate = /nitrate/i.test(ingredientsText);
                         const containsPhosphate = /phosphate/i.test(ingredientsText);
-
                         let productNitrateOrPhosphate = '';
                         if (containsNitrate && containsPhosphate) {
                             productNitrateOrPhosphate = '<span class="red-circle"></span>Contains both nitrate and phosphate';
@@ -98,18 +110,13 @@ document.addEventListener('DOMContentLoaded', function () {
                             productNitrateOrPhosphate = '<span class="green-circle"></span>Does not contain nitrate or phosphate';
                         }
 
-                        htmlContent += `
+                        if (productName != '' && imageUrl != '') {
+                            htmlContent += `
                             <div class="product">
                                 <div class="product-left">
-                                    ${imageUrl ? `
-                                        <div class="product-image">
-                                            <img src="${imageUrl}" alt="${productName}" />
-                                        </div>
-                                    ` : `
-                                        <div class="product-image">
-                                            <p>No image found</p>
-                                        </div>
-                                    `}
+                                    <div class="product-image">
+                                        <img src="${imageUrl}" alt="${productName}" />
+                                    </div>
                                 </div>
                                 <div class="product-right">
                                     <div class="product-name">
@@ -127,20 +134,79 @@ document.addEventListener('DOMContentLoaded', function () {
                                         </div>
                                     `}
                                 </div>
-                            </div>
-                        `;
-                    });
+                            </div>`;
+                            // Insert the constructed HTML into the resultsDiv
+                            resultsDiv.innerHTML = htmlContent;
+                        } else {
+                            throw new Error('Product information is not complete on https://world.openfoodfacts.org/. <a href="https://world.openfoodfacts.org/">Contribute to the OFF</a>');
+                        }
+                    }
+                    // There are 1-to-many products returned from keyword search
+                    if (external_data.searchtype == "keyword") {
+                        let htmlContent = '';
 
-                    // Insert the constructed HTML into the resultsDiv
-                    resultsDiv.innerHTML = htmlContent;
+                        // Loop through each product in the external_data array
+                        external_data.data.products.forEach(product => {
+                            const productName = product.product_name || '';
+                            const ingredientsText = product.ingredients_text || 'No ingredients information available';
+                            const imageUrl = product.image_front_url || '';
+
+                            // Check for nitrate or phosphate in the ingredients text
+                            const containsNitrate = /nitrate/i.test(ingredientsText);
+                            const containsPhosphate = /phosphate/i.test(ingredientsText);
+
+                            let productNitrateOrPhosphate = '';
+                            if (containsNitrate && containsPhosphate) {
+                                productNitrateOrPhosphate = '<span class="red-circle"></span>Contains both nitrate and phosphate';
+                            } else if (containsNitrate) {
+                                productNitrateOrPhosphate = '<span class="yellow-circle"></span>Contains nitrate';
+                            } else if (containsPhosphate) {
+                                productNitrateOrPhosphate = '<span class="yellow-circle"></span>Contains phosphate';
+                            } else if (ingredientsText != 'No ingredients information available') {
+                                productNitrateOrPhosphate = '<span class="green-circle"></span>Does not contain nitrate or phosphate';
+                            }
+
+                            if (productName != '' && imageUrl != '') {
+                                htmlContent += `
+                                <div class="product">
+                                    <div class="product-left">
+                                        <div class="product-image">
+                                            <img src="${imageUrl}" alt="${productName}" />
+                                        </div>
+                                    </div>
+                                    <div class="product-right">
+                                        <div class="product-name">
+                                            <h2>${productName}</h2>
+                                        </div>
+                                        <div class="product-ingredients">
+                                            <p>${ingredientsText}</p>
+                                        </div>
+                                        ${productNitrateOrPhosphate ? `
+                                            <div class="product-nitrate-or-phosphate">
+                                                <p>${productNitrateOrPhosphate}</p>
+                                            </div>
+                                        ` : `<div class="product-nitrate-or-phosphate">
+                                                <p><span class="grey-circle"></span> Information not found</p>
+                                            </div>
+                                        `}
+                                    </div>
+                                </div>`;
+                            }
+                        })
+
+                        // Insert the constructed HTML into the resultsDiv
+                        resultsDiv.innerHTML = htmlContent;
+                    }
                 } else {
                     // If no data was returned, display an appropriate message
-                    resultsDiv.innerHTML = '<p>No products found or data is missing.</p>';
+                    throw new Error('No products found.');
                 }
             })
             .catch(error => {
-                resultsDiv.innerHTML = '<p>Error: ' + error.message + '<br>Please check you are searching for English words or have scanned a barcode</p>';
+                resultsDiv.innerHTML = '<p>Error: ' + error.message + '</p>';
             });
+
+        barcodeStorage.value = "";
     }
 
     function initQuagga() {
