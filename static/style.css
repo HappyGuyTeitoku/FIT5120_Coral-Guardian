@@ -162,7 +162,7 @@ main {
 }
 
 .container-20 {
-    height: 5vh;
+    height: 20vh;
 }
 
 
@@ -583,6 +583,20 @@ button {
 }
 
 .page-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    text-align: center;
+    font-size: 2.5em; /* Adjust size as needed */
+    position: absolute;
+    left: 50%; /* Move to 50% from left */
+    transform: translate(-50%, -50%); /* Center align */
+    top: 50%; 
+    width: 100%;
+    font-size: 250%;
+    gap: 20px;
+    color: #EBF0F9;
+}
+.page-title1 {
     font-family: 'Roboto', sans-serif;
     font-weight: bolder;
     text-align: center;
