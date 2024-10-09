@@ -38,6 +38,45 @@
 
     <!-- Left Panel (Water Quality) -->
     <div id="waterQualityPanel" class="left-panel">
+        <!-- Add a button here -->
+        <button id="info-button" style="padding: 5px 10px; background-color: #007bff; color: white; cursor: pointer ; float: right;  border-radius: 50%;">
+            ℹ️
+        </button>
+        <!-- Popup overlay (Backdrop) -->
+        <div id="popup-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1000;"></div>
+
+        <!-- Popup box (Dialog) -->
+        <div id="popup-text" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border-radius: 10px; width: 600px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); z-index: 1001;">
+            <p><strong>How to Use</strong></p>
+            <hr>
+            <strong>Interactive Map:</strong><br>
+            Select any point on the map to view detailed water quality data for that location.<br><br>
+            
+            <strong>Nitrogen & Phosphate Levels:</strong><br>
+            After selecting a point, you’ll see the Total Nitrogen and Total Phosphate levels. The range bar visually indicates whether the levels are safe or dangerous.<br><br>
+            
+            <strong>Threshold Guide:</strong><br>
+            <strong>Nitrogen:</strong><br>
+            <span style="color:green;">●</span> &lt; 10,000 µg/L: Safe<br>
+            <span style="color:yellow;">●</span> 10,000 - 15,000 µg/L: Impact on ecosystems<br>
+            <span style="color:red;">●</span> &gt; 15,000 µg/L: Harmful to aquatic life<br><br>
+            
+            <strong>Phosphate:</strong><br>
+            <span style="color:green;">●</span> &lt; 30 µg/L: Safe<br>
+            <span style="color:yellow;">●</span> 30 - 100 µg/L: Eutrophication risk<br>
+            <span style="color:red;">●</span> &gt; 100 µg/L: Severe eutrophication (harmful algal blooms, fish kills)<br><br>
+            
+            <strong>Data Source:</strong> 
+            <a href="https://www.waterquality.gov.au/anz-guidelines/resources/key-concepts/indicators#cultural-and-spiritual-values" target="_blank">
+            Water Quality Guidelines</a><br><br>
+            
+            <strong>Historical Trends:</strong><br>
+            Press toggle button to toggle the trend charts to explore how Nitrogen and Phosphate levels have changed over time.
+            <hr>
+            <br>
+        <!-- Close button inside the popup -->
+            <button id="close-popup" style="padding: 5px 10px; background-color: #dc3545; color: white; cursor: pointer; border: none; border-radius: 5px;">Close</button>
+        </div>
         <div id="observation-name">Click on a point on the map</div>
         <hr>
 

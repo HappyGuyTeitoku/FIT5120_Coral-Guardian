@@ -419,6 +419,26 @@ function formatDate(dateString) {
 }
 
 
+// Information button logic
+document.addEventListener("DOMContentLoaded", function() {
+    // Show popup and overlay on button click
+    document.getElementById("info-button").onclick = function() {
+        document.getElementById("popup-text").style.display = "block";
+        document.getElementById("popup-overlay").style.display = "block";
+    };
+
+    // Hide popup and overlay on close button click
+    document.getElementById("close-popup").onclick = function() {
+        document.getElementById("popup-text").style.display = "none";
+        document.getElementById("popup-overlay").style.display = "none";
+    };
+
+    // Hide popup and overlay when clicking outside the popup
+    document.getElementById("popup-overlay").onclick = function() {
+        document.getElementById("popup-text").style.display = "none";
+        document.getElementById("popup-overlay").style.display = "none";
+    };
+});
 /*
 // Tab switching logic
 document.getElementById("waterQualityTab").addEventListener("click", function() {
