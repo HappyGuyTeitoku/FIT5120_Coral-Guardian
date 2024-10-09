@@ -8,6 +8,7 @@
 
 <div class="image-banner-1">
     <img src="{{ url_for('static', filename='title.jpg') }}" alt="Your Image">
+    <p class="page-title">Nutrient Pollution</p>
 </div>
 
 <div class="specific-container"> <!-- Start of the specific container -->
@@ -17,7 +18,7 @@
             <!-- <div style="text-align: center;">
                     <img src="{{ url_for('static', filename='greenshoreline-with-boat.jpg') }}" alt="Your Image" style="width: 100px; height: auto;">
                 </div> -->
-            <p class="page-title">Nutrient Pollution</p>
+            
 
             <div class="spacer-half"></div>
         </div>
@@ -46,57 +47,42 @@
                     <div class="nutrient-details">
                         <div class="nutrient-item">
                             <p class="nutrient-title">Nitrogen (N)</p>
-                            <p class="nutrient-description">Forms: Mainly exists as nitrates and ammonium salts<br>
-                                Sources: Fertilizers, sewage, atmospheric deposition<br>
-                                Effects: Promotes excessive growth of algae and aquatic plants</p>
+                            <p class="nutrient-description"><strong>Forms:</strong> Mainly exists as nitrates and ammonium salts<br>
+                                <strong>Sources:</strong> Fertilizers, sewage, atmospheric deposition<br>
+                                <strong>Effects:</strong> Promotes excessive growth of algae and aquatic plants</p>
                         </div>
                         <div class="nutrient-item">
                             <p class="nutrient-title">Phosphorus (P)</p>
-                            <p class="nutrient-description">Forms: Mainly exists as phosphates<br>
-                                Sources: Detergents, fertilizers, eroded soil<br>
-                                Effects: Often the key limiting factor for algal growth in freshwater systems</p>
+                            <p class="nutrient-description"><strong>Forms:</strong> Mainly exists as phosphates<br>
+                                <strong>Sources:</strong> Detergents, fertilizers, eroded soil<br>
+                                <strong>Effects:</strong> Often the key limiting factor for algal growth in freshwater systems</p>
                         </div>
                         
                     </div>
                 </div>
                 <div class="nutrient-info-1">
                     <p class="centered-text-1">Why is this important to you?</p>
-                    <p class="centered-text-subdesc">*      Impact on Outdoor Activities: Nutrient pollution can trigger algae blooms, affecting your favorite activities like fishing, boating, and swimming, and may even lead to closures of water bodies.<br>
-                        *       Risk to Family Health: Polluted water sources can affect the quality of drinking water, increase the cost of domestic water treatment, and pose health risks to your family and pets.<br>
-                        *       Sustainable Lifestyle: By choosing phosphate-free cleaning products and reducing the excessive use of chemicals, you can help reduce the impact of nutrient pollution and create a healthier future for your children.</p>
+                    <p class="centered-text-subdesc">*      <strong>Impact on Outdoor Activities</strong>: Nutrient pollution can trigger algae blooms, affecting your favorite activities like fishing, boating, and swimming, and may even lead to closures of water bodies.<br>
+                        *       <strong>Risk to Family Health:</strong> Polluted water sources can affect the quality of drinking water, increase the cost of domestic water treatment, and pose health risks to your family and pets.<br>
+                        *       <strong>Sustainable Lifestyle</strong>: By choosing phosphate-free cleaning products and reducing the excessive use of chemicals, you can help reduce the impact of nutrient pollution and create a healthier future for your children.</p>
 
 
                 <div class="nutrient-info-1">
                     <p class="centered-text-1">Main Sources of Nutrient Pollution</p>
-                    <p class="centered-text-subdesc">*      Household Cleaners: Phosphorus-containing cleaning products enter sewers and eventually water bodies, increasing nutrient loads.<br>
-                        *       Urban Stormwater Runoff: Rainwater carries pollutants from streets and parks into rivers and lakes, impacting water quality.<br>
-                        *   Home Gardening: Excessive use of fertilizers can enter water bodies through surface runoff, further exacerbating nutrient pollution.</p>
+                    <p class="centered-text-subdesc">*      <strong>Household Cleaners:</strong> Phosphorus-containing cleaning products enter sewers and eventually water bodies, increasing nutrient loads.<br>
+                        *       <strong>Urban Stormwater Runoff:</strong> Rainwater carries pollutants from streets and parks into rivers and lakes, impacting water quality.<br>
+                        *   <strong>Home Gardening</strong>: Excessive use of fertilizers can enter water bodies through surface runoff, further exacerbating nutrient pollution.</p>
 
                 <div class="fkwebsite">
                     <img src="{{ url_for('static', filename='fkthis.jpg') }}" alt="">
-                </div>       
+                </div>   
                 
+                
+                <div id="water-quality-section">
                 <button class="explore-button" onclick="window.location.href='{{ url_for('waterqualitymap') }}'">
                     Explore Water Quality in Your Area
                     
                 </button>
-                <div class="fkwebsite">
-                    <img src="{{ url_for('static', filename='fkthis.jpg') }}" alt="">
-                </div>
-                
-
-
-                <div class="video-section" style="display: block;">
-                    <div id="video-container1" style="display: none;">
-                        <div id="player1"></div>
-                    </div>
-                    <img id="video-thumbnail1" src="https://img.youtube.com/vi/vCicSNnKUvM/hqdefault.jpg" alt="Video Thumbnail" style="cursor: pointer;">
-                </div>
-                
-                <script src="/static/script.js"></script>
-
-                <div class="fkwebsite">
-                    <img src="{{ url_for('static', filename='fkthis.jpg') }}" alt="">
                 </div>
                 
                 <!------------------------------------------------ OVERVIEW quiz ----------------------------------------------------------------------------------------->
@@ -161,6 +147,23 @@
                 
         </div>
 
+        <div class="fkwebsite">
+            <img src="{{ url_for('static', filename='fkthis.jpg') }}" alt="">
+        </div>
+        
+
+
+        <div class="video-section" style="display: block;">
+            <div id="video-container1" style="display: none;">
+                <div id="player1"></div>
+            </div>
+            <img id="video-thumbnail1" src="https://img.youtube.com/vi/vCicSNnKUvM/hqdefault.jpg" alt="Video Thumbnail" style="cursor: pointer;">
+        </div>
+        
+        <script src="/static/script.js"></script>
+
+        
+
         <!-- 結果顯示區域 -->
         
         </div>
@@ -213,13 +216,12 @@
                 <h2>Impact on Fish</h2>
                 <p>
 
-Nutrient pollution promotes excessive algae growth in water bodies, indirectly affecting the living conditions of fish. Large amounts of algae consume oxygen from the water, creating low-oxygen environments where fish struggle to survive, leading to a decline in fish populations. Additionally, some algae can produce toxins that directly poison fish and may even cause fish deaths
-                </p>
+Nutrient pollution promotes excessive algae growth in water bodies, indirectly affecting the living conditions of fish. Large amounts of algae consume oxygen from the water, creating low-oxygen environments where fish struggle to survive, leading to a decline in fish populations. Additionally, some algae can produce toxins that directly poison fish and may even cause fish </p>
                
                 
             </div>
 
-
+<!-- 
             <div class="fkwebsite">
                 <img src="{{ url_for('static', filename='fkthis.jpg') }}" alt="">
             </div>
@@ -235,15 +237,15 @@ Nutrient pollution promotes excessive algae growth in water bodies, indirectly a
                     <button>Start Quiz</button>
                 </div>
             
-                <!-- 进度条 -->
+                
                 <div class="game-quiz2" style="display: none;">
                     <span id="progress-text-quiz2">Question 1 of 3</span>
             
                     <div class="question-quiz2" id="question2-quiz2-1" data-correct="2" style="display: none;">
                         <p></p>
                         <div id="option-container-quiz2-1"></div>
-                        <button id="next-option-quiz2" style="display: none;">Next</button> <!-- 唯一的按鈕 ID -->
-                    </div>
+                        <button id="next-option-quiz2" style="display: none;">Next</button>  唯一的按鈕 ID -->
+                    <!-- </div>
             
                     <div class="question-quiz2" id="question2-quiz2-2" data-correct="0" style="display: none;">
                         <p></p>
@@ -266,12 +268,12 @@ Nutrient pollution promotes excessive algae growth in water bodies, indirectly a
                         startQuiz2.style.display = 'none';
                         gameQuiz2.style.display = 'block';
                     });
-                </script>
+                </script> -->
                 
             
                 <!-- 按鈕: 下一題 -->
-                <div id="result-quiz2"></div>
-            </div>
+                <!-- <div id="result-quiz2"></div>
+            </div> --> 
 
 
     <!--  -----------------------------------------impact----------end--------------------------- -->
@@ -354,7 +356,7 @@ Nutrient pollution promotes excessive algae growth in water bodies, indirectly a
             let currentInfoWindow = null;
 
             function initMap() {
-                map = new google.maps.Map(document.getElementById('map'), {
+                map = new google.maps.Map(document.Why is this important to you?ElementById('map'), {
                     zoom: 10,
                     center: { lat: -37.8136, lng: 144.9631 } // Center the map on Melbourne
                 });
