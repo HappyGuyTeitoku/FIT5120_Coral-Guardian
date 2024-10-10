@@ -1057,6 +1057,15 @@ footer {
     
 }
 
+.nutrient-info .centered-text-edu {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    text-align: left;
+    margin: 1px;
+    line-height: 1.7;
+    padding: 10px;
+}
+
 /* 标题文本居中样式 */
 .centered-text-1 {
     font-size: 20px;
@@ -1080,7 +1089,16 @@ footer {
     margin-top: 1px;
     
 }
-
+.centered-text-subdesc-edu {
+    
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.7;
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-top: 1px;
+    
+}
 /* --------------------beijing改變---------------- */
 /* 设置 overview-background 部分的背景色 */
 .overview-background {
