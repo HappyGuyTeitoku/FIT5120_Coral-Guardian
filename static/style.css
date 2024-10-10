@@ -2081,7 +2081,18 @@ progress::-moz-progress-bar {
     margin-top: 140px;
 }
 
-
+/* ====================================button water page go back edu page=================== */
+.secondary-button-edu {
+    font-weight: bold;
+    font-size: normal;
+    padding: 15px 30px 15px 30px;
+    border-radius: 5px;
+    border: 0px;
+    color: white;
+    cursor: pointer;
+    background-color: rgb(196, 255, 169);
+    color: black;
+}
 
 
 
