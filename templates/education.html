@@ -92,6 +92,26 @@
                             * <strong>Home Gardening:</strong> Excessive use of fertilizers can enter water bodies through surface
                             runoff, further exacerbating nutrient pollution.</p>
 
+                            <div class="fkwebsite">
+                                <img src="{{ url_for('static', filename='fkthis.jpg') }}" alt="">
+                            </div>
+        
+                            <div class="video-section" style="display: block;">
+                                <div id="video-container1" style="display: none;">
+                                    <div id="player1"></div>
+                                </div>
+                                
+                                <img id="video-thumbnail1" src="../static/play1.png" alt="Video Thumbnail" style="cursor: pointer;">
+                            </div>
+        
+                            <script src="/static/script.js"></script>
+        
+                            
+        
+        
+                            
+
+                            
                         <div class="fkwebsite">
                             <img src="{{ url_for('static', filename='fkthis.jpg') }}" alt="">
                         </div>
@@ -120,6 +140,7 @@
                         <div id="quiz-container" class="testpage-quiz">
                             <div class="start" style="display: block;">
                                 <p>Put your new knowledge on updates to the test, take our quiz!</p>
+                                <p>You can try as many times until you find the right answer! Good luck!</p>
                                 <button>Start Quiz</button>
                             </div>
                             <!-- 进度条 -->
@@ -166,7 +187,7 @@
                                 })
                             </script>
 
-
+    <script src="/static/script_quiz.js"></script>
                             <!-- 按鈕: 下一題 -->
                             <div id="result"></div>
 
@@ -176,24 +197,7 @@
 
                     </div>
                     
-                    <div class="fkwebsite">
-                        <img src="{{ url_for('static', filename='fkthis.jpg') }}" alt="">
-                    </div>
 
-                    <div class="video-section" style="display: block;">
-                        <div id="video-container1" style="display: none;">
-                            <div id="player1"></div>
-                        </div>
-                        <p>Clikc to play</p>
-                        <img id="video-thumbnail1" src="../static/play1.png" alt="Video Thumbnail" style="cursor: pointer;">
-                    </div>
-
-                    <script src="/static/script.js"></script>
-
-                    
-
-
-                    <script src="/static/script_quiz.js"></script>
 
 
 
