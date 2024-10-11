@@ -309,7 +309,7 @@ button {
     padding: 15px 30px 15px 30px;
     border-radius: 5px;
     border: 0px;
-    color: white;
+    color: black;
     cursor: pointer;
 }
 
@@ -661,15 +661,69 @@ button {
     background-color: #EBF0F9;
 }
 
+.page-title-edu {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    text-align: center;
+    font-size: 2.5em;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 100%;
+    font-size: 250%;
+    gap: 20px;
+    color: #EBF0F9;
+}
+
 .page-title {
     font-family: 'Roboto', sans-serif;
     font-weight: bolder;
     text-align: center;
     width: 100%;
     font-size: 250%;
+    gap: 20px;
+    color: #EBF0F9;
+}
+
+.page-title-mp {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    text-align: center;
+    width: 100%;
+    font-size: 250%;
+}
+.page-title-r {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    text-align: center;
+    width: 100%;
+    font-size: 250%;
+    
+}
+.page-title1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    text-align: center;
+    font-size: 2.5em; /* Adjust size as needed */
+    position: absolute;
+    left: 50%; /* Move to 50% from left */
+    transform: translate(-50%, -50%); /* Center align */
+    top: 50%; 
+    width: 100%;
+    font-size: 250%;
+    gap: 20px;
+    color: #EBF0F9;
 }
 
 .page-title-subtext {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    width: 100%;
+    font-size: 250%;
+}
+
+.page-title-subtext-r {
     font-family: 'Roboto', sans-serif;
     text-align: center;
     width: 100%;
@@ -1003,6 +1057,15 @@ footer {
     
 }
 
+.nutrient-info .centered-text-edu {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    text-align: left;
+    margin: 1px;
+    line-height: 1.7;
+    padding: 10px;
+}
+
 /* 标题文本居中样式 */
 .centered-text-1 {
     font-size: 20px;
@@ -1026,7 +1089,16 @@ footer {
     margin-top: 1px;
     
 }
-
+.centered-text-subdesc-edu {
+    
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.7;
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-top: 1px;
+    
+}
 /* --------------------beijing改變---------------- */
 /* 设置 overview-background 部分的背景色 */
 .overview-background {
@@ -2009,12 +2081,44 @@ progress::-moz-progress-bar {
     margin-top: 140px;
 }
 
+/* ====================================button water page go back edu page=================== */
+.secondary-button-edu {
+    font-weight: bold;
+    font-size: normal;
+    padding: 15px 30px 15px 30px;
+    border-radius: 5px;
+    border: 0px;
+    color: white;
+    cursor: pointer;
+    background-color: rgb(196, 255, 169);
+    color: black;
+}
 
 
 
 
 
 
+
+.hover-info {
+    display: none; /* 默認隱藏 */
+    position: absolute; /* 絕對定位於產品項目內 */
+    top: 0;
+    left: 100%; /* 使其顯示在右邊 */
+    width: 600px;
+    height: 300px;
+    background-color: rgba(0, 0, 0, 0.8); /* 半透明背景 */
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* 陰影效果 */
+    z-index: 10; /* 使它顯示在頂部 */
+}
+
+/* 當鼠標懸停在產品項目上時顯示 */
+.product_recommend_item:hover .hover-info {
+    display: block;
+}
 
 
 

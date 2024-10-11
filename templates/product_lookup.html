@@ -26,9 +26,9 @@
 
 <div class="page-title-container">
     <div class="spacer"></div>
-    <h1 class="page-title">Find Eco-friendly Cleaning Products</h1>
+    <h1 class="page-title-r">Find Eco-friendly Cleaning Products</h1>
     <div class="spacer-quarter"></div>
-    <p class="page-title-subtext">Search by Product name or Scan the Barcode.</p>
+    <p class="page-title-subtext-r">Search by Product name or Scan the Barcode.</p>
     <div class="spacer-half"></div>
 
     <form id="product-search-form">
@@ -66,7 +66,6 @@
     <div id="api-result"></div>
 </div>
 <!-- ===== ===== ===== ===== ===== ===== Product recommedned  ===== ===== ===== ===== ===== ===== -->
-
 <div class="product-recommend">
     <div class="product_recommend_title">
         <h1 class="product_recommend_main-title">Recommended Pollution-Free Products</h1>
@@ -76,30 +75,45 @@
 
     <div class="product_recommend_image-container">
         <div class="product_recommend_image-slider">
-            <div class="product_recommend_item">
-                <img src="{{ url_for('static', filename='rec_1.png') }}" alt="Product 1">
+            <div class="product_recommend_item" >
+                <img src="{{ url_for('static', filename='rec_1.png') }}" title="Use a few sprays—works effectively with less product, reducing water pollution.">
                 <h3 class="product_title">Bathroom</h3>
                 <p class="product_description">Shower Power</p>
+                <div class="hover-info">
+                    <p>Shower Power is an effective bathroom cleaner with minimal environmental impact, suitable for all surfaces.</p>
+                </div>
             </div>
-            <div class="product_recommend_item">
-                <img src="{{ url_for('static', filename='rec_2.png') }}" alt="Product 2">
+            <div class="product_recommend_item" >
+                <img src="{{ url_for('static', filename='rec_2.png') }}" title="Works on tough stains, reducing the need for harsh chemicals.">
                 <h3 class="product_title">General</h3>
                 <p class="product_description">Ajax Spray n' Wipe Multi Purpose</p>
+                <div class="hover-info">
+                    <p>Ajax Spray n' Wipe is a general-purpose cleaner designed to effectively remove grime and reduce pollution.</p>
+                </div>
             </div>
             <div class="product_recommend_item">
-                <img src="{{ url_for('static', filename='rec_3.png') }}" alt="Product 3">
+                <img src="{{ url_for('static', filename='rec_3.png') }}" title="Kills 99% of germs without excessive scrubbing, saving time and water">
                 <h3 class="product_title">Toilet</h3>
                 <p class="product_description">Colorox Toilet cleaner</p>
+                <div class="hover-info">
+                    <p>Ajax Spray n' Wipe is a general-purpose cleaner designed to effectively remove grime and reduce pollution.</p>
+                </div>
             </div>
             <div class="product_recommend_item">
-                <img src="{{ url_for('static', filename='rec_4.png') }}" alt="Product 4">
+                <img src="{{ url_for('static', filename='rec_4.png') }}" title="Eco-friendly formula reduces harmful chemicals in wastewater.">
                 <h3 class="product_title">Laundry</h3>
                 <p class="product_description">Aware Laundry Products</p>
+                <div class="hover-info">
+                    <p>Ajax Spray n' Wipe is a general-purpose cleaner designed to effectively remove grime and reduce pollution.</p>
+                </div>
             </div>
             <div class="product_recommend_item">
-                <img src="{{ url_for('static', filename='rec_5.png') }}" alt="Product 5">
+                <img src="{{ url_for('static', filename='rec_5.png') }}" title="Phosphate-free formula reduces water pollution.">
                 <h3 class="product_title">Dish washer</h3>
                 <p class="product_description">Earth </p>
+                <div class="hover-info">
+                    <p>Ajax Spray n' Wipe is a general-purpose cleaner designed to effectively remove grime and reduce pollution.</p>
+                </div>
             </div>
         </div>
     </div>
