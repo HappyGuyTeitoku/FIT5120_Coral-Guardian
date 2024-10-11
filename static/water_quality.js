@@ -341,10 +341,10 @@ function updatePhosphateIndicator(value) {
 
     let circleColor = "green";
     let description = "Safe to use";
-    if (value < 300) {
+    if (value < 30) {
         document.getElementById("phosphateBar").style.backgroundColor = "green";
         circleColor = "green";
-    } else if (value <= 1000) {
+    } else if (value <= 100) {
         document.getElementById("phosphateBar").style.backgroundColor = "yellow";
         circleColor = "yellow";
         description = "Risk of eutrophication";
