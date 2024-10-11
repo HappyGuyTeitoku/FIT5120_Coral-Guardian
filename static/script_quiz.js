@@ -116,17 +116,20 @@ function selectAnswer(answer) {
 
 function showResult() {
     const resultElement = document.querySelector("#result");
-    if (score === 3) {
-        resultElement.innerHTML = `<table><tr><td><h3>You Scored <p>${score} out of 3</p></h3><br/><img src="../static/quiz1.jpg"></td><td><span class="excellent-work">Excellent work! You’ve mastered the key impacts of nutrient pollution on outdoor activities, fish health, and the ecosystem. You're well-equipped with the knowledge to make informed decisions and help protect our water resources. Keep spreading the word and continue making a positive impact in your community!</span></td></tr></table><br/><button id="restart-button">Restart</button>`;
-    }
 
-    if (score < 3 && score > 0) {
-        resultElement.innerHTML = `<table><tr><td><h3>You Scored <p>${score} out of 3</p></h3><br/><img src="./static/quiz2.jpg"></td><td><span class="great-effort">Great effort! You got some answers right, which shows you're beginning to understand the impact of nutrient pollution. Take some time to review the material and dive deeper into how nutrient pollution affects water activities, fish health, and your environment. With a little more learning, you'll be ready to take meaningful action!</span></td></tr></table><br/><button id="restart-button">Restart</button>`;
-    }
 
-    if (score === 0) {
-        resultElement.innerHTML = `<table><tr><td><h3>You Scored <p>${score} out of 3</p></h3><br/><img src="./static/quiz2.jpg"></td><td><span class="bad-work">Bad work! You’ve mastered the key impacts of nutrient pollution on outdoor activities, fish health, and the ecosystem. You're well-equipped with the knowledge to make informed decisions and help protect our water resources. Keep spreading the word and continue making a positive impact in your community!</span></td></tr></table><br/><button id="restart-button">Restart</button>`;
-    }
+    if(score === 3){
+        resultElement.innerHTML = `<table><tr><td><h3>You Scored <p>${score} out of 3</p></h3><br/><img src="../static/quiz1.jpg"></td><td><span class="excellent-work">Perfect score! Congratulations, you've demonstrated excellent understanding of nutrient pollution. You're well-prepared to take meaningful actions and make a positive impact on our environment. Consider sharing this knowledge and advocating for sustainable practices in your community!</span></td></tr></table><br/><button id="restart-button">Restart</button>`;
+      }
+      
+      if(score < 3 && score > 0){
+        resultElement.innerHTML = `<table><tr><td><h3>You Scored <p>${score} out of 3</p></h3><br/><img src="./static/quiz2.jpg"></td><td><span class="great-effort">Good effort! You've got some answers right, which shows you're on your way to understanding nutrient pollution. Reviewing the information again can help you improve your knowledge and prepare to take more effective actions to reduce pollution. Keep learning and exploring!"</span></td></tr></table><br/><button id="restart-button">Restart</button>`;
+      }
+      
+      if(score === 0){
+        resultElement.innerHTML = `<table><tr><td><h3>You Scored <p>${score} out of 3</p></h3><br/><img src="./static/quiz2.jpg"></td><td><span class="bad-work">It seems like this topic might be new to you, and that's okay! Nutrient pollution is an important issue, and by learning more, you can make a big difference. Take a moment to review the information and try again—every bit of knowledge helps protect our environment!</span></td></tr></table><br/><button id="restart-button">Restart</button>`;
+      }
+  
     const restart = document.querySelector('#restart-button')
     restart.addEventListener('click', () => {
         location.reload()
