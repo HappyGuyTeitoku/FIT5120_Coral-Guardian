@@ -435,6 +435,34 @@ button {
     margin-bottom: 20px;
     text-transform: uppercase;
 }
+.text-section-title-1 {
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    object-position: center;
+    text-align: center; /* 添加这一行以居中文本 */
+    font-size: 18px;
+}
+.text-section-title-2 {
+    
+    margin-bottom: 10px;
+    
+    object-position: center;
+    text-align: center; /* 添加这一行以居中文本 */
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.text-container-home-subtitle {
+    display: flex;               /* Enable flexbox */
+    justify-content: center;     /* Center horizontally */
+    align-items: center;  
+    
+    width: 600px; /* Adjust the width as needed */
+    height: 150px; /* Adjust the height as needed */
+    padding: 10px; /* Add some padding for better spacing */
+    
+}
 
 .text-section-question {
     font-weight: bold;
